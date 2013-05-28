@@ -48,4 +48,27 @@ class TwigFunctions
     {
         return call_user_func_array($class . '::' . $method, $params);
     }
+
+    /**
+     * Добавить CSS
+     */
+    public static function importResource($type, $filename, $alias=false)
+    {
+        switch ($type)
+        {
+            case 'css':
+                if ($alias === false)
+                    $alias = 'application.views.css';
+                $assetsPath = Yii::app()->assetManager->publish(Yii::getPathOfAlias($alias)."/".$filename);
+                Yii::app()->getClientScript()->registerCssFile($assetsPath, '');
+                break;
+
+            case 'js':
+                if ($alias === false)
+                    $alias = 'application.views.js';
+                $assetsPath = Yii::app()->assetManager->publish(Yii::getPathOfAlias($alias)."/".$filename);
+                Yii::app()->getClientScript()->registerScriptFile($assetsPath);
+                break;
+        }
+    }
 }

@@ -64,6 +64,7 @@ return array(
                 ),
                 'const' => 'TwigFunctions::constGet',
                 'static' => 'TwigFunctions::staticCall',
+                'import' => 'TwigFunctions::importResource',
             ),
             'filters' => array(
                 'unset' => 'TwigFunctions::_unset',

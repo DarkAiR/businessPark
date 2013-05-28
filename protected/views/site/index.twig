@@ -1,7 +1,14 @@
 {% extends 'views/layouts/main.twig' %}
 
-{% block content %}
-<h1>Welcome to <i>{{ App.name }}</i></h1>
+{% block css %}
+    {{ parent() }}
+    {{ import('css','site.css') }}
+{% endblock %}
 
-HELLO FROM TWIG
+{% block content %}
+    {{ widget('ext.widgets.MainWorksWidget') }}
+{% endblock %}
+
+{% block content2 %}
+    blablabla
 {% endblock %}
