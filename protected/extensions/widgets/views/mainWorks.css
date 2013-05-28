@@ -1,0 +1,24 @@
+.pager-widget {
+    height: 34px;
+}
+.pager-selector {
+    float: left;
+}
+.pager-selector a {
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+    background: url(../../img/pager/gallery-page-empty.png) left top no-repeat;
+    display: block;
+}
+.pager-selector a:hover {
+    background: url(../../img/pager/gallery-page-over.png) left top no-repeat;
+}
+.pager-selector a .active {
+    background: url(../../img/pager/gallery-page-select.png) left top no-repeat;
+}
+
+.main-works-widget {
+    position: absolute;
+    top: 34px;
+}

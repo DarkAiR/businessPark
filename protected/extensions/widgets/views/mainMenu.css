@@ -1,0 +1,13 @@
+.main-menu-widget {
+    
+}
+.main-menu-widget li {
+    float: left;
+    padding-right: 28px;
+}
+.main-menu-widget li a {
+    color: #565656;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid #565656;
+}

@@ -1,0 +1,41 @@
+#social-block {
+    position: relative;
+}
+.social-buttons-widget {
+    position: absolute;
+    right: 0;
+}
+.vk-icon,
+.fb-icon,
+.tw-icon {
+    float: left;
+    padding-left: 5px;
+}
+.vk-icon a {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url(../../img/socialButtons/vk-icon.png) left top no-repeat;
+}
+.vk-icon a:hover {
+    background: url(../../img/socialButtons/vk-icon-active.png) left top no-repeat;
+}
+.fb-icon a {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url(../../img/socialButtons/fb-icon.png) left top no-repeat;
+}
+.fb-icon a:hover {
+    background: url(../../img/socialButtons/fb-icon-active.png) left top no-repeat;
+}
+.tw-icon a {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: url(../../img/socialButtons/tw-icon.png) left top no-repeat;
+}
+.tw-icon a:hover {
+    background: url(../../img/socialButtons/tw-icon-active.png) left top no-repeat;
+}
+

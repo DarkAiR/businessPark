@@ -1,0 +1,119 @@
+{{ import('css','mainWorks.css','ext.widgets.views') }}
+
+<script type="text/javascript">
+
+pager =
+{
+    workWidth: 272,
+    workHeight: 272,
+    pics: [],
+    pagerCont: false,
+    worksCont: false,
+    pageId: 1,
+
+    borderSize: 50,         // Размер бордюра справа и слева
+
+    init: function()
+    {
+        var self = this;
+        self.pagerCont = $('#js-pager-widget');
+        self.worksCont = $('#js-main-works-widget');
+        {% for work in works %}
+            self.pics.push( {'id':{{work.id}}, 'image':'{{work.image}}'} );
+        {% endfor %}
+        for (var i = 0; i < self.pics.length; i++)
+        {
+            self.pics[i].html = self.createImageHtml( i, self.pics[i] );
+            self.worksCont.append( self.pics[i].html );
+        };
+
+        $(window).on('resize', function() { pager.resize(); });
+    },
+
+    createImageHtml: function( idx, pict )
+    {
+        var self = this;
+        var x = 0;
+        var y = 0;
+        if (idx > 0)
+        {
+            x = self.workWidth * 3 + Math.floor((idx-1)/2) * self.workWidth;
+            if (idx % 2 == 0)
+                y = self.workHeight;
+        }
+        return '<img id="js-work' + idx + '" src="' + pict.image + '" style="-display:none; position:absolute; left:'+x+'px; top:'+y+'px" data_id="' + pict.id + '">';
+    },
+
+    showPage: function( pageId )
+    {
+        var self = this;
+        self.pageId = pageId;
+        pager.indicate( pageId );
+
+        var offs = 3 * self.workWidth * (pageId - 1);
+        self.worksCont.css({'left':'-'+offs+'px'});
+    },
+
+    moveToPage: function( oldPageId, pageId )
+    {
+        if (oldPageId == pageId)
+            return;
+        var self = this;
+        self.pageId = pageId;
+        pager.indicate( pageId );
+        var delta = pageId - oldPageId;
+        if (delta > 0)
+        {
+            // to next
+            delta *= self.workWidth * 3;
+            self.worksCont.animate({left:'-='+delta});
+        }
+        else
+        {
+            // to prev
+            delta *= -self.workWidth * 3;
+            self.worksCont.animate({left:'+='+delta});
+        }
+    },
+
+    indicate: function( pageId )
+    {
+        var self = this;
+        self.pagerCont.find('.pager-selector a.active').removeClass('active');
+        self.pagerCont.find('[data_id='+pageId+']').addClass('active');
+    },
+
+    resize: function()
+    {
+        var actualWidth = $(window).width() - self.borderSize * 2;
+    }
+};
+$(document).ready( function()
+{
+    pager.init();
+
+    var currPage = {{ currPage }};
+    $('#js-pager-widget').find('.pager-selector a').each( function()
+    {
+        $(this).click( function()
+        {
+            var pageId = $(this).attr('data_id');
+            var oldPageId = currPage;
+            currPage = pageId;
+            pager.moveToPage( oldPageId, pageId );
+            return false;
+        });
+    });
+    pager.showPage( currPage );
+});
+</script>
+
+<div id='js-pager-widget' class='pager-widget'>
+    {% for i in 1..pages %}
+        <div class='pager-selector'>
+            <a href='' data_id='{{i}}'></a>
+        </div>
+    {% endfor %}
+</div>
+<div id='js-main-works-widget' class='main-works-widget'>
+</div>
