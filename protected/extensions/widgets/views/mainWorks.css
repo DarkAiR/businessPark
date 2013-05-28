@@ -1,24 +1,18 @@
-.pager-widget {
-    height: 34px;
-}
-.pager-selector {
-    float: left;
-}
-.pager-selector a {
-    width: 15px;
-    height: 15px;
-    margin-right: 4px;
-    background: url(../../img/pager/gallery-page-empty.png) left top no-repeat;
-    display: block;
-}
-.pager-selector a:hover {
-    background: url(../../img/pager/gallery-page-over.png) left top no-repeat;
-}
-.pager-selector a .active {
-    background: url(../../img/pager/gallery-page-select.png) left top no-repeat;
-}
-
 .main-works-widget {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.main-works-cont-pos {
     position: absolute;
-    top: 34px;
+    left: 50%;
+    height: 100%;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+    overflow: hidden;
+}
+.main-works-cont {
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }

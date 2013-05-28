@@ -1,4 +1,5 @@
 #social-block {
+    _background: rgba(255,0,128,0.2);
     position: relative;
 }
 .social-buttons-widget {

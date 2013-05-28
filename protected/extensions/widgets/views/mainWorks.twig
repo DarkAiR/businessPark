@@ -4,20 +4,23 @@
 
 pager =
 {
+    bigWorkWidth: 272 * 3,
     workWidth: 272,
     workHeight: 272,
-    pics: [],
-    pagerCont: false,
-    worksCont: false,
-    pageId: 1,
-
     borderSize: 50,         // Размер бордюра справа и слева
+    animDuration: 500,      // Длительность анимации
+
+    pageId: 1,
+    pics: [],
+    posCont: false,
+    worksCont: false,
 
     init: function()
     {
         var self = this;
-        self.pagerCont = $('#js-pager-widget');
-        self.worksCont = $('#js-main-works-widget');
+        self.posCont = $('#js-main-works-cont-pos');
+        self.worksCont   = $('#js-main-works-cont');
+
         {% for work in works %}
             self.pics.push( {'id':{{work.id}}, 'image':'{{work.image}}'} );
         {% endfor %}
@@ -26,6 +29,11 @@ pager =
             self.pics[i].html = self.createImageHtml( i, self.pics[i] );
             self.worksCont.append( self.pics[i].html );
         };
+
+        self.posCont.css({
+            'width': (self.workWidth*5)+'px',
+            'margin-left': '-'+Math.floor(self.workWidth*5/2)+'px'
+        })
 
         $(window).on('resize', function() { pager.resize(); });
     },
@@ -37,31 +45,29 @@ pager =
         var y = 0;
         if (idx > 0)
         {
-            x = self.workWidth * 3 + Math.floor((idx-1)/2) * self.workWidth;
+            x = self.bigWorkWidth + Math.floor((idx-1)/2) * self.workWidth;
             if (idx % 2 == 0)
                 y = self.workHeight;
         }
-        return '<img id="js-work' + idx + '" src="' + pict.image + '" style="-display:none; position:absolute; left:'+x+'px; top:'+y+'px" data_id="' + pict.id + '">';
+        return '<img id="js-work' + idx + '" src="' + pict.image + '" style="position:absolute; left:'+x+'px; top:'+y+'px" data_id="' + pict.id + '">';
     },
 
     showPage: function( pageId )
     {
         var self = this;
         self.pageId = pageId;
-        pager.indicate( pageId );
 
-        var offs = 3 * self.workWidth * (pageId - 1);
+        var offs = self.bigWorkWidth * (pageId - 1);
         self.worksCont.css({'left':'-'+offs+'px'});
     },
 
-    moveToPage: function( oldPageId, pageId )
+    moveToPage: function( pageId )
     {
-        if (oldPageId == pageId)
-            return;
         var self = this;
+        if (self.pageId == pageId)
+            return;
+        var delta = pageId - self.pageId;
         self.pageId = pageId;
-        pager.indicate( pageId );
-        var delta = pageId - oldPageId;
         if (delta > 0)
         {
             // to next
@@ -76,44 +82,156 @@ pager =
         }
     },
 
-    indicate: function( pageId )
-    {
-        var self = this;
-        self.pagerCont.find('.pager-selector a.active').removeClass('active');
-        self.pagerCont.find('[data_id='+pageId+']').addClass('active');
-    },
-
     resize: function()
     {
-        var actualWidth = $(window).width() - self.borderSize * 2;
+        var self = this;
+        var windowWidth = $(window).width();
+        var actualWidth = windowWidth - self.borderSize * 2;
+        console.log( actualWidth );
+//      if (actualWidth < maxWidth)
+        {
+            var startId = 0;
+            var count = 5;
+            var maxCount = 5;
+            if (self.pageId > 1)
+            {
+                startId = 1 + (self.pageId-2) * 6;
+                count = 10;
+                maxCount = 10;
+            }
+            var contWidth = self.workWidth * 5;
+            if (contWidth > actualWidth)
+            {
+                count -= 2;
+                contWidth -= self.workWidth;
+                if( contWidth > actualWidth)
+                {
+                    count -= 2;
+                    contWidth -= self.workWidth;
+                }
+            }
+            self.rollPics( contWidth );
+            self.showActualPics( startId, count, maxCount );
+        }
+    },
+
+    showActualPics: function( startId, count, maxCount )
+    {
+        var self = this;
+
+        for (var i = startId; i < startId + maxCount; i++)
+        {
+            var el = self.worksCont.find('#js-work'+i);
+            var isHide = el.data('isHide') !== undefined;
+            var isAnim = el.data('isAnim') !== undefined;
+            if (i < startId + count)
+            {
+                if (!isHide && isAnim)
+                {
+                    // Идет анимация затухания
+                    el.stop();
+                    el.data('isHide', true);
+                    el.removeData('isAnim');
+                    isHide = true;
+                    isAnim = false;
+                }
+                if (isHide  &&  !isAnim)
+                {
+                    el.data('isAnim', true);
+                    el.css({'opacity':0});
+                    el.animate( {'opacity':1}, self.animDuration, function(el)
+                    {
+                        $(this).removeData('isHide');
+                        $(this).removeData('isAnim');
+                    });
+                }
+            }
+            if (i >= startId + count)
+            {
+                if (isHide  &&  isAnim)
+                {
+                    // Идет анимация появления
+                    el.stop();
+                    el.removeData('isHide');
+                    el.removeData('isAnim');
+                    isHide = false;
+                    isAnim = false;
+                }
+                if (!isHide  &&  !isAnim)
+                {
+                    el.data('isAnim', true);
+                    el.animate( {'opacity':0}, self.animDuration, function()
+                    {
+                        $(this).data('isHide', true);
+                        $(this).removeData('isAnim');
+                        $(this).css({'opacity':1});
+                    });
+                }
+            }
+        }
+    },
+
+    rollPics: function( contWidth )
+    {
+        var self = this;
+        var isHideAnim = self.posCont.data('isHideAnim') !== undefined;
+        var isShowAnim = self.posCont.data('isShowAnim') !== undefined;
+        if (contWidth < self.posCont.width())
+        {
+            if (isShowAnim)
+            {
+                self.posCont.stop();
+                self.posCont.removeData('isShowAnim');
+                isShowAnim = false;
+                isHideAnim = false;
+            }
+            if (!isHideAnim)
+            {
+                self.posCont.data('isHideAnim', true);
+                self.posCont.animate({
+                    'width': contWidth+'px',
+                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
+                }, self.animDuration, function()
+                {
+                    self.posCont.removeData('isHideAnim');
+                });
+            }
+        }
+        else if (contWidth > self.posCont.width())
+        {
+            if (isHideAnim)
+            {
+                self.posCont.stop();
+                self.posCont.removeData('isHideAnim');
+                isShowAnim = false;
+                isHideAnim = false;
+            }
+            if (!isShowAnim)
+            {
+                self.posCont.data('isShowAnim', true);
+                self.posCont.animate({
+                    'width': contWidth+'px',
+                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
+                }, self.animDuration, function()
+                {
+                    self.posCont.removeData('isShowAnim');
+                });
+            }
+        }
     }
 };
+
+
 $(document).ready( function()
 {
     pager.init();
-
-    var currPage = {{ currPage }};
-    $('#js-pager-widget').find('.pager-selector a').each( function()
-    {
-        $(this).click( function()
-        {
-            var pageId = $(this).attr('data_id');
-            var oldPageId = currPage;
-            currPage = pageId;
-            pager.moveToPage( oldPageId, pageId );
-            return false;
-        });
-    });
-    pager.showPage( currPage );
+    pager.showPage( {{ currPage }} );
 });
 </script>
 
-<div id='js-pager-widget' class='pager-widget'>
-    {% for i in 1..pages %}
-        <div class='pager-selector'>
-            <a href='' data_id='{{i}}'></a>
+<div class='main-works-widget'>
+    <div id='js-main-works-cont-pos' class='main-works-cont-pos'>
+        <div id='js-main-works-cont' class='main-works-cont'>
         </div>
-    {% endfor %}
-</div>
-<div id='js-main-works-widget' class='main-works-widget'>
+    </div>
 </div>

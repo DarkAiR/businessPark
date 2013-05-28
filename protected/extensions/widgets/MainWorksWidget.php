@@ -10,12 +10,12 @@ class MainWorksWidget extends ExtendedWidget
         $works = $this->getWorks();
         $this->render('mainWorks', array(
             'works' => $works,
-            'pages' => $this->getPages( $works ),
             'currPage' => 1,
         ));
     }
 
     /**
+     @deprecated
      Получить список страниц
      */
     private function getPages( $works )
@@ -33,7 +33,7 @@ class MainWorksWidget extends ExtendedWidget
      */
     private function getWorks()
     {
-        return array(
+        $arr = array(
             array( 'id'=>1, 'image'=>'store/projects/project-main.jpg' ),
             array( 'id'=>2, 'image'=>'store/projects/project-4.jpg' ),
             array( 'id'=>3, 'image'=>'store/projects/project-5.jpg' ),
@@ -57,5 +57,6 @@ class MainWorksWidget extends ExtendedWidget
             array( 'id'=>20, 'image'=>'store/projects/project-5.jpg' ),
             array( 'id'=>21, 'image'=>'store/projects/project-7.jpg' ),
         );
+        return array_slice($arr, 0, 1+6+6);
     }
 }

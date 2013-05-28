@@ -1,8 +1,5 @@
 #body-wrap {
-    height: 578px;
-    background-color: #ebe7df;
-    border-top: 1px solid #c2c2c2;
-    border-bottom: 1px solid #c5c2bb;
+    height: 544px;
 }
 #body-wrap2 {
     height: auto;
@@ -10,5 +7,4 @@
 }
 #body {
     height: 100%;
-    overflow: hidden;
 }

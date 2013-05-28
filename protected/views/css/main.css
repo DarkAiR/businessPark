@@ -1,8 +1,11 @@
 #head-wrap,
-#body-wrap,
-#body-wrap2,
 #footer-wrap {
     min-width: 1361px;
+    position: relative;
+}
+#body-wrap,
+#body-wrap2 {
+    min-width: 1000px;
     position: relative;
 }
 #head-wrap {
@@ -15,7 +18,7 @@
     position: static;
 }
 #head {
-    /*background: rgba(255,0,0,0.2);*/
+    background: rgba(255,0,0,0.2);
     height: 100px !important;
     padding-top: 35px;
 }
@@ -40,11 +43,15 @@
     width: 100%;
 }
 #head,
-#body,
-#body2,
 #footer {
     margin: 0 auto;
     max-width: 1361px;  /* 1440px; */
+    position: relative;
+}
+#body,
+#body2 {
+    margin: 0 auto;
+    max-width: 1000px;  /* 1440px; */
     position: relative;
 }
 
@@ -52,21 +59,28 @@
  * Настройки блоков основного шаблона
  */
 #head #menu-block {
-    /*background: rgba(255,255,0,0.2);*/
+    background: rgba(255,255,0,0.2);
     width: 400px;
     height: 100%;
     float: left;
 }
 #head #logo-block {
-    /*background: rgba(255,0,255,0.2);*/
+    background: rgba(255,0,255,0.2);
     width: 220px;
     height: 100%;
     float: left;
     text-align: center;
 }
+#head #city-block {
+    background: rgba(255,0,128,0.2);
+    width: 272px;
+    height: 100%;
+    float: left;
+    text-align: right;
+}
 #head #social-block {
-    /*background: rgba(0,255,255,0.2);*/
-    width: 196px;
+    background: rgba(0,255,255,0.2);
+    width: 272px;
     height: 100%;
     float: left;
     text-align: right;
@@ -76,16 +90,16 @@
  * Контакты
  */
 #head #contacts-block {
-    /*background: rgba(255,128,0,0.2);*/
-    width: 545px;
+    background: rgba(255,128,0,0.2);
+    width: 196px;
     height: 100%;
     float: left;
     text-align: right;
 }
 #head #contacts-block .mail {
-    color: #696969;
+    color: #565656;
     text-decoration: none;
-    border-bottom: 1px solid #696969;
+    border-bottom: 1px solid #808080;
 }
 #head #contacts-block .phone {
     padding-top: 3px;
