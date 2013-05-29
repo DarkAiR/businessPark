@@ -15,20 +15,6 @@ class MainWorksWidget extends ExtendedWidget
     }
 
     /**
-     @deprecated
-     Получить список страниц
-     */
-    private function getPages( $works )
-    {
-        $picsOnFirstPage = 1;
-        $picsOnPage = 6;
-        
-        if (count($works) <= $picsOnFirstPage)
-            return 1;
-        return 1 + ceil((count($works)-$picsOnFirstPage) / $picsOnPage);
-    }
-
-    /**
      Получить список работ
      */
     private function getWorks()
