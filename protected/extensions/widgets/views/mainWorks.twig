@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 
-pager =
+mainWorksWidget =
 {
     pageId: 1,
     pics: [],
@@ -13,7 +13,7 @@ pager =
     {
         var self = this;
         self.posCont = $('#js-main-works-cont-pos');
-        self.worksCont   = $('#js-main-works-cont');
+        self.worksCont = $('#js-main-works-cont');
 
         {% for work in works %}
             self.pics.push( {'id':{{work.id}}, 'image':'{{work.image}}'} );
@@ -29,7 +29,7 @@ pager =
             'margin-left': '-'+Math.floor(app.workWidth*5/2)+'px'
         })
 
-        app.addListener(app.eventReposition, pager.onResize);
+        app.addListener(app.eventReposition, mainWorksWidget.onResize);
     },
 
     createImageHtml: function( idx, pict )
@@ -83,22 +83,22 @@ pager =
         var startId = 0;
         var count = 5;
         var maxCount = 5;
-        if (pager.pageId > 1)
+        if (mainWorksWidget.pageId > 1)
         {
-            startId = 1 + (pager.pageId-2) * 6;
+            startId = 1 + (mainWorksWidget.pageId-2) * 6;
             count = 10;
             maxCount = 10;
         }
         count -= (5-ceils)*2;
-        pager.rollPics( app.workWidth * ceils );
-        pager.showActualPics( startId, count, maxCount );
+        app.resizePage( mainWorksWidget.posCont, app.workWidth * ceils );
+        mainWorksWidget.showActualPics( startId, count, maxCount );
     },
 
     showActualPics: function( startId, count, maxCount )
     {
         for (var i = startId; i < startId + maxCount; i++)
         {
-            var el = pager.worksCont.find('#js-work'+i);
+            var el = mainWorksWidget.worksCont.find('#js-work'+i);
             var isHide = el.data('isHide') !== undefined;
             var isAnim = el.data('isAnim') !== undefined;
             if (i < startId + count)
@@ -146,62 +146,14 @@ pager =
                 }
             }
         }
-    },
-
-    rollPics: function( contWidth )
-    {
-        var isHideAnim = pager.posCont.data('isHideAnim') !== undefined;
-        var isShowAnim = pager.posCont.data('isShowAnim') !== undefined;
-        if (contWidth < pager.posCont.width())
-        {
-            if (isShowAnim)
-            {
-                pager.posCont.stop();
-                pager.posCont.removeData('isShowAnim');
-                isShowAnim = false;
-                isHideAnim = false;
-            }
-            if (!isHideAnim)
-            {
-                pager.posCont.data('isHideAnim', true);
-                pager.posCont.animate({
-                    'width': contWidth+'px',
-                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
-                }, app.animDuration, function()
-                {
-                    pager.posCont.removeData('isHideAnim');
-                });
-            }
-        }
-        else if (contWidth > pager.posCont.width())
-        {
-            if (isHideAnim)
-            {
-                pager.posCont.stop();
-                pager.posCont.removeData('isHideAnim');
-                isShowAnim = false;
-                isHideAnim = false;
-            }
-            if (!isShowAnim)
-            {
-                pager.posCont.data('isShowAnim', true);
-                pager.posCont.animate({
-                    'width': contWidth+'px',
-                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
-                }, app.animDuration, function()
-                {
-                    pager.posCont.removeData('isShowAnim');
-                });
-            }
-        }
     }
 };
 
 
 $(document).ready( function()
 {
-    pager.init();
-    pager.showPage( {{ currPage }} );
+    mainWorksWidget.init();
+    mainWorksWidget.showPage( {{ currPage }} );
 });
 </script>
 

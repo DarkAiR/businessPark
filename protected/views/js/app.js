@@ -61,6 +61,57 @@ app =
                 listeners[i].call(this, event);
         }
     },
+
+    /**
+     Изменить размеры отображаемой части страницы
+     */
+    resizePage: function(el, contWidth)
+    {
+        var isHideAnim = el.data('isHideAnim') !== undefined;
+        var isShowAnim = el.data('isShowAnim') !== undefined;
+        if (contWidth < el.width())
+        {
+            if (isShowAnim)
+            {
+                el.stop();
+                el.removeData('isShowAnim');
+                isShowAnim = false;
+                isHideAnim = false;
+            }
+            if (!isHideAnim)
+            {
+                el.data('isHideAnim', true);
+                el.animate({
+                    'width': contWidth+'px',
+                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
+                }, app.animDuration, function()
+                {
+                    el.removeData('isHideAnim');
+                });
+            }
+        }
+        else if (contWidth > el.width())
+        {
+            if (isHideAnim)
+            {
+                el.stop();
+                el.removeData('isHideAnim');
+                isShowAnim = false;
+                isHideAnim = false;
+            }
+            if (!isShowAnim)
+            {
+                el.data('isShowAnim', true);
+                el.animate({
+                    'width': contWidth+'px',
+                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
+                }, app.animDuration, function()
+                {
+                    el.removeData('isShowAnim');
+                });
+            }
+        }
+    }
 };
 
 $(document).ready( function()
