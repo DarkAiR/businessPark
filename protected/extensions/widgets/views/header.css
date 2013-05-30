@@ -1,0 +1,72 @@
+/*
+ * Настройки блоков основного шаблона
+ */
+#menu-block {
+    _background: rgba(255,255,0,0.2);
+    width: 400px;
+    height: 100%;
+    float: left;
+}
+#logo-block {
+    _background: rgba(255,0,255,0.2);
+    width: 220px;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+#city-block {
+    _background: rgba(255,0,128,0.2);
+    width: 272px;
+    height: 100%;
+    float: left;
+    text-align: right;
+}
+#social-block {
+    _background: rgba(0,255,255,0.2);
+    width: 272px;
+    height: 100%;
+    float: left;
+    text-align: right;
+}
+
+/*
+ * Контакты
+ */
+#contacts-block {
+    _background: rgba(255,128,0,0.2);
+    width: 196px;
+    height: 100%;
+    float: left;
+    text-align: right;
+}
+#contacts-block .mail {
+    color: #565656;
+    text-decoration: none;
+    border-bottom: 1px solid #808080;
+}
+#contacts-block .phone {
+    padding-top: 3px;
+    color: #2a2a2a;
+}
+
+
+.header-widget {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.header-cont-pos {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+    overflow: hidden;
+}
+.header-cont {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 2000px;          /* Ширина заведомо большая чем максимальная ширина страницы */
+}
