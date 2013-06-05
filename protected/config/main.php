@@ -17,7 +17,10 @@ return array(
         'lib.ImageHelper.*',
         'ext.mAdmin.*',
     ),
-    'modules' => array('system'),
+    'modules' => array(
+        'system',
+        'projects',
+    ),
     'components' => array(
         'user' => array(
             // enable cookie-based authentication
