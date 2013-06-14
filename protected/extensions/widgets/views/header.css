@@ -2,28 +2,28 @@
  * Настройки блоков основного шаблона
  */
 #menu-block {
-    _background: rgba(255,255,0,0.2);
-    width: 400px;
+    background: rgba(255,255,0,0.2);
+    width: 432px;
     height: 100%;
     float: left;
 }
 #logo-block {
-    _background: rgba(255,0,255,0.2);
-    width: 220px;
+    background: rgba(255,0,255,0.2);
+    width: 216px;
     height: 100%;
     float: left;
     text-align: center;
 }
 #city-block {
-    _background: rgba(255,0,128,0.2);
-    width: 272px;
+    background: rgba(255,0,128,0.2);
+    width: 288px;
     height: 100%;
     float: left;
     text-align: right;
 }
 #social-block {
-    _background: rgba(0,255,255,0.2);
-    width: 272px;
+    background: rgba(0,255,255,0.2);
+    width: 288px;
     height: 100%;
     float: left;
     text-align: right;
@@ -33,16 +33,16 @@
  * Контакты
  */
 #contacts-block {
-    _background: rgba(255,128,0,0.2);
-    width: 196px;
+    background: rgba(255,128,0,0.2);
+    width: 216px;
     height: 100%;
     float: left;
     text-align: right;
 }
 #contacts-block .mail {
-    color: #565656;
+    color: #376e78;
     text-decoration: none;
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid #689299;
 }
 #contacts-block .phone {
     padding-top: 3px;

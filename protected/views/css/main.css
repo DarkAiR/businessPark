@@ -2,7 +2,7 @@
 #body-wrap,
 #body-wrap2,
 #footer-wrap {
-    min-width: 1000px;
+    min-width: 864px;
     position: relative;
 }
 #head-wrap {
@@ -15,9 +15,9 @@
     position: static;
 }
 #head {
-    _background: rgba(255,0,0,0.2);
-    height: 100px !important;
-    padding-top: 35px;
+    background: rgba(255,0,0,0.2);
+    height: 127px !important;
+    padding-top: 37px;
 }
 /*
  * Чтобы распорка для Оперы и IE8 не мешала внутренним context блокам
@@ -42,13 +42,13 @@
 #head,
 #footer {
     margin: 0 auto;
-    max-width: 1361px;  /* 1440px; */
+    max-width: 1440px;
     position: relative;
 }
 #body,
 #body2 {
     margin: 0 auto;
-    max-width: 1000px;  /* 1440px; */
+    max-width: 1440px;  /* 1440px; */
     position: relative;
 }
 

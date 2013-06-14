@@ -1,5 +1,5 @@
 #body-wrap {
-    height: 544px;
+    height: 343px;
 }
 #body-wrap2 {
     height: auto;
@@ -7,4 +7,17 @@
 }
 #body {
     height: 100%;
+}
+
+.main-works-block {
+    background: rgba(0,255,0,0.2);
+    width: 864px;
+    height: 100%;
+    float: left;
+}
+.our-projects-block {
+    background: rgba(0,128,0,0.2);
+    width: 576px;
+    height: 100%;
+    float: left;
 }

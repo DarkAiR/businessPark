@@ -5,9 +5,8 @@ app =
 
     _listeners: {},          // Слушатели событий
 
-    bigWorkWidth: 272 * 3,
-    workWidth: 272,
-    workHeight: 272,
+    workWidth: 288,
+    workHeight: 288,
     borderSize: 50,         // Размер бордюра справа и слева
     animDuration: 500,      // Длительность анимации
 

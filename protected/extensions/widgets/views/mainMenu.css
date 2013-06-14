@@ -1,5 +1,4 @@
 .main-menu-widget {
-    
 }
 .main-menu-widget li {
     float: left;
@@ -8,9 +7,10 @@
     border-right: 1px solid #b2b2b2;
 }
 .main-menu-widget li a {
-    color: #565656;
+    color: #364a5e;
     text-transform: uppercase;
     text-decoration: none;
+    border-bottom: 1px solid #8d99a4;
 }
 .main-menu-widget li.first {
     padding-left: 0px;

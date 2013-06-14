@@ -4,6 +4,7 @@
 
 mainWorksWidget =
 {
+    workWidth: 792,         // Ширина изображения
     pageId: 1,
     pics: [],
     maxPages: 1,            // Максимальное количество страниц
@@ -29,30 +30,15 @@ mainWorksWidget =
             self.worksCont.append( self.pics[i].html );
         };
 
-        if (self.pics.length == 0)
-            self.maxPages = 0;
-        if (self.pics.length <= 5)
-            self.maxPages = 1;
-        else
-            self.maxPages = 1 + Math.floor((self.pics.length - 5) / 6);
+        self.maxPages = self.pics.length;
 
-        self.posCont.css({
-            'width': (app.workWidth*5)+'px',
-            'margin-left': '-'+Math.floor(app.workWidth*5/2)+'px'
-        })
+        //self.posCont.css({
+        //    'width': (app.workWidth*5)+'px',
+        //    'margin-left': '-'+Math.floor(app.workWidth*5/2)+'px'
+        //})
 
-        app.addListener(app.eventReposition, mainWorksWidget.onResize);
-        app.resize();
-
-        // Позиционируем стрелки
-        //var contCenter = self.posCont.offset().top + self.posCont.height()/2;
-        var contCenter = self.posCont.height()/2;
-        var arrowCenter = contCenter - self.leftArrow.height()/2;
-//        $('body').append(self.leftArrow);
-        self.leftArrow.css('top',arrowCenter+'px');
-        arrowCenter = contCenter - self.rightArrow.height()/2;
-//        $('body').append(self.rightArrow);
-        self.rightArrow.css('top',arrowCenter+'px');
+        //app.addListener(app.eventReposition, mainWorksWidget.onResize);
+        //app.resize();
 
         self.leftArrow
             .click(self.onLeft)
@@ -80,19 +66,9 @@ mainWorksWidget =
     createImageHtml: function( idx, pict )
     {
         var self = this;
-        var x = 0;
-        var y = 0;
-        var layerWidth = app.bigWorkWidth;
-        var layerHeight = app.workHeight * 2;
-        if (idx > 0)
-        {
-            x = app.bigWorkWidth + Math.floor((idx-1)/2) * app.workWidth;
-            if (idx % 2 == 0)
-                y = app.workHeight;
-            layerWidth = app.workWidth;
-            layerHeight = app.workHeight;
-        }
-        var html =  '<div id="js-work'+idx+'" style="position:absolute; left:'+x+'px; top:'+y+'px; width:'+layerWidth+'px; height:'+layerHeight+'px" data_id="'+pict.id+'">' +
+        var x = mainWorksWidget.workWidth * idx;
+        var layerWidth = mainWorksWidget.workWidth;
+        var html =  '<div id="js-work'+idx+'" style="position:absolute; left:'+x+'px; top:0px; width:'+layerWidth+'px; height:100%" data_id="'+pict.id+'">' +
                     '<table id="js-work-opacity-layer" class="main-works-opacity-layer" border=0 cellpadding=0 cellspacing=0><tr><td>' +
                         '<a href="' + pict.link + '">' +
                             '<div id="js-work-title" class="work-title">' + pict.title + '</div>' +
@@ -109,7 +85,7 @@ mainWorksWidget =
         var self = this;
         self.pageId = pageId;
 
-        var offs = app.bigWorkWidth * (pageId - 1);
+        var offs = mainWorksWidget.workWidth * (pageId - 1);
         self.worksCont.css({'left':'-'+offs+'px'});
     },
 
@@ -123,18 +99,18 @@ mainWorksWidget =
         if (delta > 0)
         {
             // to next
-            delta *= app.workWidth * 3;
+            delta *= mainWorksWidget.workWidth;
             self.worksCont.animate({left:'-='+delta});
         }
         else
         {
             // to prev
-            delta *= -app.workWidth * 3;
+            delta *= -mainWorksWidget.workWidth;
             self.worksCont.animate({left:'+='+delta});
         }
     },
 
-    onResize: function( ev )
+    /*onResize: function( ev )
     {
         var ceils = ev.ceils;
 
@@ -150,7 +126,7 @@ mainWorksWidget =
         count -= (5-ceils)*2;
         app.resizePage( mainWorksWidget.posCont, app.workWidth * ceils );
         mainWorksWidget.showActualPics( startId, count, maxCount );
-    },
+    },*/
 
     showActualPics: function( startId, count, maxCount )
     {
@@ -215,7 +191,7 @@ mainWorksWidget =
 
     onRight: function(ev)
     {
-        if (mainWorksWidget.pageId > mainWorksWidget.maxPages)
+        if (mainWorksWidget.pageId >= mainWorksWidget.maxPages)
             return;
         mainWorksWidget.moveToPage( mainWorksWidget.pageId+1 );
     },
@@ -234,15 +210,15 @@ mainWorksWidget =
 
     onLeave: function(ev)
     {
-        var el = $(this);
-        el.stop();
-        el.animate({opacity:'0.1'}, 100);
+        //var el = $(this);
+        //el.stop();
+        //el.animate({opacity:'0.1'}, 100);
     },
 
     arrowEnter: function(el)
     {
-        el.stop();
-        el.animate({opacity:'1'}, 100);
+        //el.stop();
+        //el.animate({opacity:'1'}, 100);
     }
 };
 
@@ -250,14 +226,17 @@ mainWorksWidget =
 $(document).ready( function()
 {
     mainWorksWidget.init();
-    mainWorksWidget.showPage( {{ currPage }} );
+    mainWorksWidget.showPage(2);
+    //mainWorksWidget.showPage( {{ currPage }} );
 });
 </script>
 
 <div class='main-works-widget'>
-    <div id='js-main-works-cont-pos' class='main-works-cont-pos'>
-        <div id='js-main-works-cont' class='main-works-cont'></div>
-        <div id='js-main-works-left-arrow' class="main-works-left-arrow">&lt;</div>
-        <div id='js-main-works-right-arrow' class="main-works-right-arrow">&gt;</div>
+    <div id='js-main-works-widget-pos' class='main-works-widget-pos'>
+        <div id='js-main-works-left-arrow' class="main-works-left-arrow"></div>
+        <div id='js-main-works-cont-pos' class='main-works-cont-pos'>
+            <div id='js-main-works-cont' class='main-works-cont'></div>
+        </div>
+        <div id='js-main-works-right-arrow' class="main-works-right-arrow"></div>
     </div>
 </div>
