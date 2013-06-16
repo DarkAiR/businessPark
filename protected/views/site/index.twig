@@ -2,17 +2,58 @@
 
 {% block css %}
     {{ parent() }}
-    {{ import('css','site.css') }}
+    {{ import('css','mainPage.css') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+    mainPageContent =
+    {
+        posCont: false,
+
+        init: function()
+        {
+            var self = this;
+            self.posCont = $('#js-main-page-content-pos');
+            app.addListener(app.eventReposition, mainPageContent.onResize);
+            app.resize();
+
+        },
+        onResize: function( ev )
+        {
+            var ceils = ev.ceils;
+            app.resizePage( mainPageContent.posCont, ceils * app.gridWidth );
+        },
+    };
+    $(document).ready( function()
+    {
+        mainPageContent.init();
+    });
+    </script>
 {% endblock %}
 
 {% block content %}
-<div class='main-works-block'>
-    {{ widget('ext.widgets.MainWorksWidget') }}
-</div>
-<div class='our-projects-block'>
-    TODO: ext.widgetss.OurProjectsWidget
-</div>
-{% endblock %}
+    <div class='main-page-content'>
+        <div id='js-main-page-content-pos' class='main-page-content-pos'>
 
-{% block content2 %}
+            <div class='main-page-block1'>
+                <div class='main-works-block'>
+                    {{ widget('ext.widgets.MainWorksWidget') }}
+                </div>
+                <div class='our-projects-block'>
+                    {{ widget('ext.widgets.OurProjectsWidget') }}
+                </div>
+            </div>
+
+            <div class='main-page-block2'>
+                {{ widget('ext.widgets.MainWorksLentaWidget') }}
+            </div>
+
+            <div class='main-page-block3'>
+                {{ widget('ext.widgets.NewsLentaWidget') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

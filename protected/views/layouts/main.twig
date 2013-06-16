@@ -36,16 +36,12 @@
         {% block content %}{% endblock %}
     </div>
 </div>
-<div id='body-wrap2'>
-    <div id='body2'>
-        {% block content2 %}{% endblock %}
-    </div>
-</div>
 
 <div id='footer-wrap'>
     <div id='footer'>
-        <div id='copyright' class='semibold'>2013 <span id='copyright-color'>SPHERE</span>ART</div>
+        {{ widget('ext.widgets.FooterWidget') }}
     </div>
 </div>
+
 </body>
 </html>

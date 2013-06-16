@@ -1,0 +1,112 @@
+{{ import('css','footer.css','ext.widgets.views') }}
+
+<script type="text/javascript">
+footerWidget =
+{
+    contPos: false,
+    prevCeils: 5,           // Предыдущее значение отображаемых ячеек
+
+    init: function()
+    {
+        var self = this;
+        self.contPos = $('#js-footer-cont-pos');
+
+        self.contPos.css({
+            'width': (app.gridWidth*5)+'px',
+            'margin-left': '-'+Math.floor(app.gridWidth*5/2)+'px'
+        })
+
+        app.addListener(app.eventReposition, footerWidget.onResize);
+        app.resize();
+    },
+
+    onResize: function( ev )
+    {
+        var ceils = ev.ceils;
+
+        app.resizePage( footerWidget.contPos, app.gridWidth * ceils );
+    }
+};
+$(document).ready( function()
+{
+    footerWidget.init();
+});
+</script>
+
+<div class='footer-widget'>
+    <div id='js-footer-cont-pos' class='footer-cont-pos'>
+
+        <div class='footer-cont'>
+            <div class='grid24 left'>
+                <div class='grid-left grid-right'>
+                    
+                    <div class='grid8 left'>
+                        <div class='gridHeight footer-item-title semibold'>Работаем в хлам!</div>
+                        <div>
+                            С 10 до 19<br/>
+                            сб вс выходной
+                        </div>
+                    </div>
+                    <div class='grid8 left'>
+                        <div class='gridHeight footer-item-title semibold'>Услуги</div>
+                        <div>
+                            <ul>
+                                <li><a href=''>Интернет проекты</a></li>
+                                <li><a href=''>3D моделирование и видео</a></li>
+                                <li><a href=''>Логотипы</a></li>
+                                <li><a href=''>Персонажи</a></li>
+                                <li><a href=''>Иллюстрации</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class='grid6 left'>
+                        <div class='gridHeight footer-item-title semibold'>Стать клиентом</div>
+                        <div>
+                            Перед тем, как на звонить или писать, рекомендуем посмотреть самые распространенные вопросы и ответы на них.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class='grid16 left'>
+                <div class='grid-left'>
+                    <div class='gridHeight footer-item-title semibold'>Распространенные вопросы</div>
+                    <div>
+                        Перед тем, как на звонить или писать, рекомендуем посмотреть самые распространенные вопросы и ответы на них.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class='clear'></div>
+        <div class='footer-cont footer-bottom-cont'>
+
+            <div class='grid24 left'>
+                <div class='grid-left grid-right'>
+                    
+                    <div class='grid16 left'>
+                        <div class='footer-copyright semibold'>2013 <span class='footer-copyright-color'>SPHERE</span>ART</div>
+                    </div>
+                    <div class='grid6 left'>
+                        Пишите: <a class='contact-mail' href=''>info@sphereart.ru</a>
+                        Звоните: <div class='contact-phone semibold'>+7 961 763 07 99</div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class='grid16 left'>
+                <div class='grid-left'>
+                    620078, г. Екатеринбург, <br/>
+                    ул. Папанина 1, 2 этаж. оф. 202
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

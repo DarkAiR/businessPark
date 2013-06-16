@@ -32,14 +32,6 @@ mainWorksWidget =
 
         self.maxPages = self.pics.length;
 
-        //self.posCont.css({
-        //    'width': (app.workWidth*5)+'px',
-        //    'margin-left': '-'+Math.floor(app.workWidth*5/2)+'px'
-        //})
-
-        //app.addListener(app.eventReposition, mainWorksWidget.onResize);
-        //app.resize();
-
         self.leftArrow
             .click(self.onLeft)
             .mouseenter(self.onLeftEnter)
@@ -110,78 +102,6 @@ mainWorksWidget =
         }
     },
 
-    /*onResize: function( ev )
-    {
-        var ceils = ev.ceils;
-
-        var startId = 0;
-        var count = 5;
-        var maxCount = 5;
-        if (mainWorksWidget.pageId > 1)
-        {
-            startId = 1 + (mainWorksWidget.pageId-2) * 6;
-            count = 10;
-            maxCount = 10;
-        }
-        count -= (5-ceils)*2;
-        app.resizePage( mainWorksWidget.posCont, app.workWidth * ceils );
-        mainWorksWidget.showActualPics( startId, count, maxCount );
-    },*/
-
-    showActualPics: function( startId, count, maxCount )
-    {
-        for (var i = startId; i < startId + maxCount; i++)
-        {
-            var el = mainWorksWidget.worksCont.find('#js-work'+i);
-            var isHide = el.data('isHide') !== undefined;
-            var isAnim = el.data('isAnim') !== undefined;
-            if (i < startId + count)
-            {
-                if (!isHide && isAnim)
-                {
-                    // Идет анимация затухания
-                    el.stop();
-                    el.data('isHide', true);
-                    el.removeData('isAnim');
-                    isHide = true;
-                    isAnim = false;
-                }
-                if (isHide  &&  !isAnim)
-                {
-                    el.data('isAnim', true);
-                    el.css({'opacity':0});
-                    el.animate( {'opacity':1}, app.animDuration, function(el)
-                    {
-                        $(this).removeData('isHide');
-                        $(this).removeData('isAnim');
-                    });
-                }
-            }
-            if (i >= startId + count)
-            {
-                if (isHide  &&  isAnim)
-                {
-                    // Идет анимация появления
-                    el.stop();
-                    el.removeData('isHide');
-                    el.removeData('isAnim');
-                    isHide = false;
-                    isAnim = false;
-                }
-                if (!isHide  &&  !isAnim)
-                {
-                    el.data('isAnim', true);
-                    el.animate( {'opacity':0}, app.animDuration, function()
-                    {
-                        $(this).data('isHide', true);
-                        $(this).removeData('isAnim');
-                        $(this).css({'opacity':1});
-                    });
-                }
-            }
-        }
-    },
-
     onLeft: function(ev)
     {
         if (mainWorksWidget.pageId <= 1)
@@ -198,45 +118,37 @@ mainWorksWidget =
 
     onLeftEnter: function(ev)
     {
-        if (mainWorksWidget.pageId > 1)
-            mainWorksWidget.arrowEnter($(this));
     },
 
     onRightEnter: function(ev)
     {
-        if (mainWorksWidget.pageId <= mainWorksWidget.maxPages)
-            mainWorksWidget.arrowEnter($(this));
     },
 
     onLeave: function(ev)
     {
-        //var el = $(this);
-        //el.stop();
-        //el.animate({opacity:'0.1'}, 100);
     },
-
-    arrowEnter: function(el)
-    {
-        //el.stop();
-        //el.animate({opacity:'1'}, 100);
-    }
 };
 
 
 $(document).ready( function()
 {
     mainWorksWidget.init();
-    mainWorksWidget.showPage(2);
-    //mainWorksWidget.showPage( {{ currPage }} );
+    mainWorksWidget.showPage( {{ currPage }} );
 });
 </script>
 
 <div class='main-works-widget'>
-    <div id='js-main-works-widget-pos' class='main-works-widget-pos'>
-        <div id='js-main-works-left-arrow' class="main-works-left-arrow"></div>
-        <div id='js-main-works-cont-pos' class='main-works-cont-pos'>
-            <div id='js-main-works-cont' class='main-works-cont'></div>
-        </div>
-        <div id='js-main-works-right-arrow' class="main-works-right-arrow"></div>
+    <div id='js-main-works-left-arrow' class="main-works-left-arrow border-cont">
+        <div class='border-l' style='background:#d9d9d9;'></div>
+        <div class='border-t' style='background:#d9d9d9;'></div>
+        <div class='border-b' style='background:#d9d9d9;'></div>
+    </div>
+    <div id='js-main-works-cont-pos' class='main-works-cont-pos'>
+        <div id='js-main-works-cont' class='main-works-cont'></div>
+    </div>
+    <div id='js-main-works-right-arrow' class="main-works-right-arrow border-cont">
+        <div class='border-r' style='background:#d9d9d9;'></div>
+        <div class='border-t' style='background:#d9d9d9;'></div>
+        <div class='border-b' style='background:#d9d9d9;'></div>
     </div>
 </div>

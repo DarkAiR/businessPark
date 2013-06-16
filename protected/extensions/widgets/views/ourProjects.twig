@@ -1,0 +1,25 @@
+{{ import('css','ourProjects.css','ext.widgets.views') }}
+
+<div class='our-projects-widget'>
+
+    {% for i in [1,2] %}    
+    <div class='our-projects-cont border-cont grid8 left'>
+
+        <div class='border-r' style='background:rgba(217,217,217,0.5);'></div>
+        <div class='grid-left grid-right border-cont'>
+
+            <div class='border-l' style='background:#d9d9d9;'></div>
+            <div class='border-r' style='background:#d9d9d9;'></div>
+            <div class='border-t' style='background:#d9d9d9;'></div>
+            <div class='border-b' style='background:#d9d9d9;'></div>
+            
+            <div class='our-projects-title'>Собственный проект</div>
+            <div class='our-projects-logo'><img src='/img/ourProjectsWidget/atmosphere-link.png' width='100%' height='115px'></div>
+            <div class='our-projects-desc'>Студия разработки архитектуры, интерьеров и среды</div>
+            <div class='our-projects-link'><a href='http://atmospheres.ru' targe='_blank'>Atmospheres.ru</a></div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>

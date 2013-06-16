@@ -1,3 +1,70 @@
 .semibold {
     font-family: "Segoe UI Semibold", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
 }
+.contact-mail {
+    color: #376e78;
+    text-decoration: none;
+    border-bottom: 1px solid #689299;
+}
+.contact-phone {
+    padding-top: 3px;
+    color: #2a2a2a;
+}
+
+/* Сетка */
+.grid-left {
+    margin-left: 36px;
+}
+.grid-right {
+    margin-right: 36px;
+}
+
+.gridHeight     { height: 36px; }
+.grid           { width: 36px; }
+.grid6          { width: 216px; }
+.grid8          { width: 288px; }
+.grid16         { width: 576px; }
+.grid24         { width: 864px; }
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+
+/** Borders **/
+.border-cont {
+    position: relative;
+}
+.border-l {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1px;
+    height: 100%;
+}
+.border-r {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 1px;
+    height: 100%;
+}
+.border-t {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 1px;
+}
+.border-b {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 1px;
+}

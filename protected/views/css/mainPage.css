@@ -1,0 +1,53 @@
+#body-wrap {
+    height: 868px;      /* 343 + 36 + 343 + 36 + 110*/
+}
+#body {
+    height: 100%;
+}
+
+.main-page-block1 {
+    position: relative;
+    height: 343px;
+}
+.main-page-block2 {
+    _background: rgba(0,0,255,0.2);
+    position: relative;
+    height: 343px;
+    margin-top: 36px;
+}
+.main-page-block3 {
+    _background: rgba(255,0,255,0.2);
+    position: relative;
+    height: 110px;
+    margin-top: 36px;
+}
+.main-works-block {
+    width: 864px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.our-projects-block {
+    width: 576px;
+    height: 100%;
+    position: absolute;
+    left: 864px;
+    top: 0px;
+}
+
+.main-page-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+
+.main-page-content-pos {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+    overflow: hidden;
+}

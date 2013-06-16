@@ -1,6 +1,5 @@
 #head-wrap,
 #body-wrap,
-#body-wrap2,
 #footer-wrap {
     min-width: 864px;
     position: relative;
@@ -15,7 +14,7 @@
     position: static;
 }
 #head {
-    background: rgba(255,0,0,0.2);
+    _background: rgba(255,0,0,0.2);
     height: 127px !important;
     padding-top: 37px;
 }
@@ -23,8 +22,7 @@
  * Чтобы распорка для Оперы и IE8 не мешала внутренним context блокам
  * создадим из обёртки контекст с помощью float: left;
  */
-#body-wrap,
-#body-wrap2 {
+#body-wrap {
     position: relative;
     width: 100%;
 }
@@ -45,19 +43,8 @@
     max-width: 1440px;
     position: relative;
 }
-#body,
-#body2 {
+#body {
     margin: 0 auto;
     max-width: 1440px;  /* 1440px; */
     position: relative;
-}
-
-/*
- * Copyright
- */
-#footer #copyright {
-    font-size: 12px;
-}
-#footer #copyright-color {
-    color: #457092;
 }

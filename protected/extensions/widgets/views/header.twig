@@ -4,52 +4,27 @@
 headerWidget =
 {
     contPos: false,
-    cont: false,
     prevCeils: 5,           // Предыдущее значение отображаемых ячеек
 
     init: function()
     {
         var self = this;
         self.contPos = $('#js-header-cont-pos');
-        self.cont = $('#js-header-cont');
 
         self.contPos.css({
-            'width': (app.workWidth*5)+'px',
-            'margin-left': '-'+Math.floor(app.workWidth*5/2)+'px'
+            'width': (app.gridWidth*5)+'px',
+            'margin-left': '-'+Math.floor(app.gridWidth*5/2)+'px'
         })
 
         app.addListener(app.eventReposition, headerWidget.onResize);
+        app.resize();
     },
 
     onResize: function( ev )
     {
         var ceils = ev.ceils;
 
-        app.resizePage( headerWidget.contPos, app.workWidth * ceils );
-        /*
-        Усечение произойдет автоматически
-        if (ceils < headerWidget.prevCeils)
-        {
-            if (ceils <= 4)
-            {
-                // TODO: hideSocials
-            }
-            if (ceils <= 3)
-            {
-                // TODO: hideCity
-            }
-        }
-        else if (ceils > headerWidget.prevCeils)
-        {
-            if (ceils >= 4)
-            {
-                // TODO: showCity
-            }
-            if (ceils >= 5)
-            {
-                // TODO: showSocials
-            }
-        }*/
+        app.resizePage( headerWidget.contPos, app.gridWidth * ceils );
     }
 };
 $(document).ready( function()
@@ -60,7 +35,7 @@ $(document).ready( function()
 
 <div class='header-widget'>
     <div id='js-header-cont-pos' class='header-cont-pos'>
-        <div id='js-header-cont' class='header-cont'>
+        <div class='header-cont'>
 
             <div id='menu-block'>
                 {{ widget('ext.widgets.MainMenuWidget') }}
@@ -69,8 +44,8 @@ $(document).ready( function()
                 <img src='/img/logo.png' width="185" height="30">
             </div>
             <div id='contacts-block'>
-                <a class='mail' href=''>info@sphereart.ru</a>
-                <div class='phone semibold'>+7 961 763 07 99</div>
+                <a class='contact-mail' href=''>info@sphereart.ru</a>
+                <div class='contact-phone semibold'>+7 961 763 07 99</div>
             </div>
             <div id='city-block'>
                 {{ widget('ext.widgets.CityWidget') }}

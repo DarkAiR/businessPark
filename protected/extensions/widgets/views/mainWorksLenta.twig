@@ -1,0 +1,22 @@
+{{ import('css','mainWorksLenta.css','ext.widgets.views') }}
+
+<div class='main-works-lenta-widget border-cont'>
+    <div class='border-l' style='background:#d9d9d9;'></div>
+    <div class='border-r' style='background:#d9d9d9;'></div>
+    <div class='border-t' style='background:#d9d9d9;'></div>
+    <div class='border-b' style='background:#d9d9d9;'></div>
+    
+    <div class='main-works-lenta-cont'>
+    {% for work in works %}
+        <div class='main-works-lenta-item grid8 left'>
+            <div class='main-works-lenta-item-image'>
+                <img src='{{work.image}}'>
+            </div>
+            <div class='main-works-lenta-item-desc grid-left grid-right'>
+                {{work.desc}}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+</div>

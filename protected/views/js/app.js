@@ -5,8 +5,8 @@ app =
 
     _listeners: {},          // Слушатели событий
 
-    workWidth: 288,
-    workHeight: 288,
+    gridWidth: 288,
+    gridHeight: 288,
     borderSize: 50,         // Размер бордюра справа и слева
     animDuration: 500,      // Длительность анимации
 
@@ -20,16 +20,16 @@ app =
         var self = this;
         var windowWidth = $(window).width();
         var actualWidth = windowWidth - app.borderSize * 2;
-        var contWidth = app.workWidth * 5;
+        var contWidth = app.gridWidth * 5;
 
         var ceils = 5;     // Количество отображаемых ячеек
         if (contWidth > actualWidth)
         {
-            contWidth -= app.workWidth;
+            contWidth -= app.gridWidth;
             ceils--;
             if (contWidth > actualWidth)
             {
-                contWidth -= app.workWidth;
+                contWidth -= app.gridWidth;
                 ceils--;
             }
         }

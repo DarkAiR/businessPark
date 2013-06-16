@@ -1,0 +1,37 @@
+.footer-widget {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 72px;
+}
+.footer-cont-pos {
+    _background: rgba(0,0,255,0.2);
+    position: absolute;
+    left: 50%;
+    height: auto;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+    overflow: hidden;
+}
+.footer-cont {
+    width: 2000px;          /* Заведомо больше максимальной ширины */
+}
+
+.footer-bottom-cont {
+    padding-top: 54px;
+}
+
+.footer-item-title {
+    color: #2a2a2a;
+    text-transform: uppercase;
+}
+
+/*
+ * Copyright
+ */
+.footer-copyright {
+    font-size: 12px;
+}
+.footer-copyright-color {
+    color: #457092;
+}
