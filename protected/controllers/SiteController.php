@@ -11,6 +11,15 @@ class SiteController extends Controller
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
         $this->render('index');
+
+Yii::import('ext.imperavi-redactor-widget.ImperaviRedactorWidget');
+$this->widget('ImperaviRedactorWidget', array(
+    // The textarea selector
+    'selector' => '.redactor',
+    // Some options, see http://imperavi.com/redactor/docs/
+    'options' => array(),
+));
+
     }
 
     /**

@@ -6,6 +6,9 @@
     float: left;
     height: 100%;
 }
+.news-lenta-item-inner {
+    padding-top: 13px;
+}
 .news-lenta-item-section {
     float: left;
 }
