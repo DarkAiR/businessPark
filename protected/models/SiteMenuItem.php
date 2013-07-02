@@ -44,6 +44,16 @@ class SiteMenuItem extends CActiveRecord
         );
     }
 
+    public function scopes()
+    {
+        return array(
+            'onSite' =>
+                array(
+                    'condition' => $this->getTableAlias().'.visible = 1',
+                ),
+        );
+    }
+
     public function search()
     {
         $criteria = new CDbCriteria;
@@ -65,8 +75,9 @@ class SiteMenuItem extends CActiveRecord
 
     public function orderDefault()
     {
+        $alias = $this->getTableAlias();
         $this->getDbCriteria()->mergeWith(array(
-            'order' => 't.parentItemId ASC, t.orderNum ASC',
+            'order' => $alias.'.parentItemId ASC, '.$alias.'.orderNum ASC',
         ));
         return $this;
     }

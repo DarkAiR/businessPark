@@ -7,7 +7,7 @@ class MainMenuWidget extends ExtendedWidget
 
     public function run()
     {
-        $items = SiteMenuItem::model()->byParent(0)->orderDefault()->findAll();
+        $items = SiteMenuItem::model()->onSite()->byParent(0)->orderDefault()->findAll();
         foreach ($items as &$item)
         {
             $item->link = CHtml::normalizeUrl($item->link);

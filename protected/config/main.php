@@ -31,6 +31,7 @@ return array(
         'system2',
         'projects',
         'sitemenu',
+        'mainworks',
     ),
     'components' => array(
         'user' => array(
