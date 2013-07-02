@@ -19,3 +19,6 @@
 [submodule "lib/ImageHelper"]
 	path = lib/ImageHelper
 	url = git://github.com/mediasite/ImageHelper.git
+[submodule "protected/extensions/redactorjs"]
+	path = protected/extensions/redactorjs
+	url = git@github.com:yiiext/imperavi-redactor-widget.git

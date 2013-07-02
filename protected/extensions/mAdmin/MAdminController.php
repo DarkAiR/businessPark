@@ -165,8 +165,11 @@ class MAdminController extends CExtController
 
             // process HAS_ONE or BELONGS_TO relations
             if (isset($_POST[$relationAttributes[1]])) {
-                $modifiedRelations[] = $relationName;
-                $modifiedRelations += $this->setAttributes($model->$relationName);
+                if (!is_array($model->$relationName))
+                {
+                    $modifiedRelations[] = $relationName;
+                    $modifiedRelations += $this->setAttributes($model->$relationName);
+                }
             }
         }
 
