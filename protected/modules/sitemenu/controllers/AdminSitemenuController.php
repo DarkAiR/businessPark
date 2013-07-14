@@ -2,8 +2,11 @@
 
 class AdminSitemenuController extends MAdminController
 {
-    public $modelName = 'SiteMenuItem';
+    public $modelName = 'MenuItem';
     public $modelHumanTitle = array('пункт', 'пункта', 'пунктов');
+
+    protected $templateList = '/../views/list';
+
 
     /**
      * @param User $model
@@ -11,17 +14,29 @@ class AdminSitemenuController extends MAdminController
      */
     public function getEditFormElements($model)
     {
-        $parents = array('0'=>'');
+        $parents = array('0'=>'[корневой элемент]');
         $parentRecords = CActiveRecord::model($this->modelName)->byParent(0)->orderDefault()->findAll();
         foreach ($parentRecords as $record)
         {
-            $parents[$record->id] = $record->label;
+            $parents[$record->id] = $record->name;
             foreach ($record->children as $childRecord)
-                $parents[$childRecord->id] = ' - - '.$childRecord->label;
+                $parents[$childRecord->id] = ' - - '.$childRecord->name;
+        }
+
+        $menu = Menu::model()->findAll();
+        $menus = array();
+        foreach ($menu as $m)
+        {
+            $menus[$m->id] = $m->name;
         }
 
         $res = array(
-            'label' => array(
+            'menuId' => array(
+                'type' => 'dropdownlist',
+                'data' => $menus,
+                'empty' => 'Выбрать'
+            ),
+            'name' => array(
                 'type' => 'textField',
             ),
             'link' => array(
@@ -31,7 +46,7 @@ class AdminSitemenuController extends MAdminController
                 'type' => 'checkBox',
             ),
             'parentItemId'=>array(
-                'type'=>'dropdownlist',
+                'type' => 'dropdownlist',
                 'data' => $parents,
                 'empty' => 'Выбрать',
                 'options' => array($model->id => array('disabled' => 'disabled'))
@@ -44,27 +59,15 @@ class AdminSitemenuController extends MAdminController
     {
         $attributes = array(
             'id',
-            //'orderNum',
-            'label',
-            'link',
             'parentItemId',
+            'orderNum',
+            'menuId',
+            'name',
+            'link',
             'visible',
             $this->getButtonsColumn(),
         );
 
         return $attributes;
-    }
-
-    /**
-     * @param User $model
-     * @param array $attributes
-     */
-    public function beforeSetAttributes($model, &$attributes)
-    {
-        //if (empty($attributes['password'])) {
-         //   unset($attributes['password']);
-        //}
-
-        parent::beforeSetAttributes($model, $attributes);
     }
 }

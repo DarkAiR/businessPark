@@ -31,6 +31,9 @@ class MAdminController extends CExtController
      */
     public $assetsUrl;
 
+    // Шаблоны
+    protected $templateList = 'crud/list';
+
     public function init()
     {
         parent::init();
@@ -200,7 +203,7 @@ class MAdminController extends CExtController
         }
 
         $this->render(
-            'crud/list',
+            $this->templateList,
             array(
                 'model' => $model,
                 'columns' => $this->getTableColumns(),
@@ -304,7 +307,7 @@ class MAdminController extends CExtController
         return array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => $template,
-            'updateButtonUrl' => 'Yii::app()->controller->createUrl("edit",array("id"=>$data->primaryKey))'
+            'updateButtonUrl' => 'Yii::app()->controller->createUrl("edit",array("id"=>( isset($data->primaryKey) ? $data->primaryKey : (is_array($data)&&isset($data["id"])?$data["id"]:"") )))'
         );
     }
 

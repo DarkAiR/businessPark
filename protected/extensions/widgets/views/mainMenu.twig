@@ -4,7 +4,7 @@
     <ul>
         {% for item in items %}
         <li id='item1' class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
-            <a href='{{ item.link }}'>{{ item.label|raw }}</a>
+            <a href='{{ item.link }}'>{{ item.name|raw }}</a>
         </li>
         {% endfor %}
     </ul>
