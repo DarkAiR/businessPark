@@ -33,12 +33,12 @@ class MainWorkItem extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'image' => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
-            '_image' => 'Изображение',
-            'visible' => 'Показывать',
-            'title' => 'Заголовок',
-            'desc' => 'Описание',
-            'orderNum' => 'Порядковый номер'
+            'image'     => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
+            '_image'    => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
+            'visible'   => 'Показывать',
+            'title'     => 'Заголовок',
+            'desc'      => 'Описание',
+            'orderNum'  => 'Порядковый номер'
         );
     }
 
@@ -59,10 +59,9 @@ class MainWorkItem extends CActiveRecord
     public function scopes()
     {
         return array(
-            'onSite' =>
-                array(
-                    'condition' => $this->getTableAlias().'.visible = 1',
-                ),
+            'onSite' => array(
+                'condition' => $this->getTableAlias().'.visible = 1',
+            ),
         );
     }
 
@@ -102,5 +101,19 @@ class MainWorkItem extends CActiveRecord
             unlink( $this->getStorePath().$this->image );
 
         return parent::afterDelete();
+    }
+
+    protected function afterFind()
+    {
+//        $this->desc = htmlspecialchars($this->desc);
+        $this->desc = str_replace("\n", "<br />", str_replace("\r\n","\n",$this->desc));
+        return parent::afterFind();
+    }
+
+    protected function beforeSave()
+    {
+        $this->desc = str_replace(array("<br>","<br/>","<br />"), "\n", $this->desc);
+//        $this->desc = html_entity_decode($this->desc);
+        return parent::beforeSave();
     }
 }
