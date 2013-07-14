@@ -2,8 +2,8 @@
 
 class MainWorkItem extends CActiveRecord
 {
-    const IMAGE_WIDTH = 792;
-    const IMAGE_HEIGHT = 343;
+    const IMAGE_WIDTH = 792;        // (18px*44)
+    const IMAGE_HEIGHT = 324;       // (18px*18)
 
     const STORAGE_PATH = 'projects';
 
@@ -33,7 +33,7 @@ class MainWorkItem extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'image' => 'Изображение',
+            'image' => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
             '_image' => 'Изображение',
             'visible' => 'Показывать',
             'title' => 'Заголовок',
@@ -79,8 +79,9 @@ class MainWorkItem extends CActiveRecord
 
     public function orderDefault()
     {
+        $alias = $this->getTableAlias();
         $this->getDbCriteria()->mergeWith(array(
-            'order' => $this->getTableAlias().'.orderNum ASC',
+            'order' => $alias.'.orderNum ASC',
         ));
         return $this;
     }

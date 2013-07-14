@@ -1,5 +1,5 @@
 #body-wrap {
-    height: 868px;      /* 343 + 36 + 343 + 36 + 110*/
+    height: 846px;      /* 324 + 36 + 342 + 36 + 108*/
 }
 #body {
     height: 100%;
@@ -7,29 +7,29 @@
 
 .main-page-block1 {
     position: relative;
-    height: 343px;
+    height: 324px;      /* 18px * 18 */
 }
 .main-page-block2 {
     _background: rgba(0,0,255,0.2);
     position: relative;
-    height: 343px;
-    margin-top: 36px;
+    height: 342px;      /* 18px * 19 */
+    margin-top: 36px;   /* 18px * 2 */
 }
 .main-page-block3 {
     _background: rgba(255,0,255,0.2);
     position: relative;
-    height: 110px;
-    margin-top: 36px;
+    height: 108px;      /* 18px * 8 */
+    margin-top: 36px;   /* 18px * 2 */
 }
 .main-works-block {
-    width: 864px;
+    width: 864px;       /* 18px * 48 */
     height: 100%;
     position: absolute;
     left: 0px;
     top: 0px;
 }
 .our-projects-block {
-    width: 576px;
+    width: 576px;       /* 18px * 16 * 2 */
     height: 100%;
     position: absolute;
     left: 864px;
