@@ -12,10 +12,9 @@ class AdminMainworksController extends MAdminController
     public function getEditFormElements($model)
     {
         return array(
-            array(
+            '_image' => array(
                 'class' => 'ext.ImageFileRowWidget',
                 'model' => $model,
-                'attribute' => 'image',
             ),
             'title' => array(
                 'type' => 'textField',
@@ -24,7 +23,8 @@ class AdminMainworksController extends MAdminController
                 'type' => 'textField',
             ),*/
             'desc' => array(
-                'class' => 'ext.editMe.widgets.ExtEditMe',
+                //'class' => 'ext.editMe.widgets.ExtEditMe',
+                'class' => 'lib.booster.widgets.TbCKEditor',
                 'model' => $model,
                 'attribute' => 'desc',
                 'width' => 500,
@@ -61,6 +61,11 @@ class AdminMainworksController extends MAdminController
         $model->_image = CUploadedFile::getInstance($model, '_image');
         if ($model->validate() && !empty($model->_image))
         {
+            if ($model->image)
+            {
+                unlink( $model->getStorePath().$model->image );
+                $model->image = null;
+            }
             // saving file from CUploadFile instance $model->_image
             $model->_image->saveAs( $model->getStorePath().$model->_image->name );
             $model->image = $model->_image->name;

@@ -27,7 +27,7 @@ class MainWorksWidget extends ExtendedWidget
                 'id' => $work->id,
                 'image' => $work->getImageUrl(),
                 'title' => $work->title,
-                'desc' => $work->desc,
+                'desc' => $work->descCorrect,
                 'link' => ''
             );
         }

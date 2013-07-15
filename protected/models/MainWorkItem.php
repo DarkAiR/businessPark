@@ -10,7 +10,9 @@ class MainWorkItem extends CActiveRecord
     public $_image; // CUploadedFile[]
     public $_removeImageFlag; // bool
 
-     public static function model($className = __CLASS__)
+    public $descCorrect = '';       // Испрвленный desc для отображения
+
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
@@ -33,8 +35,9 @@ class MainWorkItem extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'image'     => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
+            //'image'     => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
             '_image'    => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
+            '_removeImageFlag' => 'Удалить',
             'visible'   => 'Показывать',
             'title'     => 'Заголовок',
             'desc'      => 'Описание',
@@ -49,10 +52,8 @@ class MainWorkItem extends CActiveRecord
             array('visible', 'boolean'),
             array('orderNum', 'numerical', 'integerOnly'=>true),
             array('title, desc', 'safe'),
-            //array('_image', 'length', 'max' => 255, 'tooLong' => '{attribute} is too long (max {max} chars).', 'on' => 'upload'),
-            //array('_image', 'file', 'types' => 'jpg,jpeg,gif,png', 'maxSize' => 1024 * 1024 * 2, 'tooLarge' => 'Size should be less then 2MB !!!', 'on' => 'upload'),
-            array('_image', 'file', 'types'=>'jpg'),
-            array('_image', 'ext.validators.EImageValidator', 'width'=>self::IMAGE_WIDTH, 'height'=>self::IMAGE_HEIGHT),
+            array('_image', 'file', 'types'=>'jpg', 'allowEmpty'=>true),
+            array('_image', 'ext.validators.EImageValidator', 'width'=>self::IMAGE_WIDTH, 'height'=>self::IMAGE_HEIGHT, 'allowEmpty'=>true),
         );        
     }
 
@@ -92,7 +93,7 @@ class MainWorkItem extends CActiveRecord
 
     public function getImageUrl()
     {
-        return CHtml::normalizeUrl('store/'.self::STORAGE_PATH.'/'.$this->image);
+        return CHtml::normalizeUrl('/store/'.self::STORAGE_PATH.'/'.$this->image);
     }
 
     protected function afterDelete()
@@ -105,15 +106,13 @@ class MainWorkItem extends CActiveRecord
 
     protected function afterFind()
     {
-//        $this->desc = htmlspecialchars($this->desc);
-        $this->desc = str_replace("\n", "<br />", str_replace("\r\n","\n",$this->desc));
+        $this->descCorrect = str_replace(array("\r\n","\n","\r"), "", $this->desc);
+        $this->_image = $this->getImageUrl();
         return parent::afterFind();
     }
 
     protected function beforeSave()
     {
-        $this->desc = str_replace(array("<br>","<br/>","<br />"), "\n", $this->desc);
-//        $this->desc = html_entity_decode($this->desc);
         return parent::beforeSave();
     }
 }

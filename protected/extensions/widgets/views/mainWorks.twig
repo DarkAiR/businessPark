@@ -22,7 +22,7 @@ mainWorksWidget =
         self.rightArrow = $('#js-main-works-right-arrow');
 
         {% for work in works %}
-            self.pics.push( {'id':{{work.id}}, 'image':'{{work.image}}', 'title':'{{work.title}}', 'desc':'{{work.desc}}', 'link':'{{work.link}}'} );
+            self.pics.push( {'id':{{work.id}}, 'image':'{{work.image}}', 'title':'{{work.title}}', 'desc':'{{work.desc|raw}}', 'link':'{{work.link}}'} );
         {% endfor %}
         for (var i = 0; i < self.pics.length; i++)
         {
