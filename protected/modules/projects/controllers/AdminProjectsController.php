@@ -5,59 +5,60 @@ class AdminProjectsController extends MAdminController
     public $modelName = 'Projects';
     public $modelHumanTitle = array('проект', 'проекта', 'проектов');
 
-    /**
-     * @param User $model
-     * @return array
-     */
-    public function getEditFormElements($model)
+    public function behaviors()
     {
         return array(
-/*            'email' => array(
-                'type' => 'textField',
+            'imageBehavior' => array(
+                'class' => 'application.behaviors.ImageControllerBehavior',
+                'imageField' => 'image',
+            )
+        );
+    }
+
+    public function getEditFormElements($model)
+    {
+        $sections = ProjectSections::model()->findAll();
+        $sectArr = array();
+        foreach ($sections as $sect)
+        {
+            $sectArr[$sect->id] = $sect->name;
+        }
+
+        return array(
+            'sectionId' => array(
+                'type' => 'dropdownlist',
+                'data' => $sectArr,
+                'empty' => 'Выбрать'
             ),
-            'authItems' => array(
-                'type' => 'select2',
-                'htmlOptions' => array(
-                    'data' => EHtml::listData(AuthItem::model()),
-                    'multiple' => true,
-                    'class' => 'input-xlarge',
-                ),
+            'desc' => array(
+                'type' => 'ckEditor',
             ),
-            'password' => array(
-                'type' => 'passwordField',
-                'htmlOptions' => array(
-                    'hint' => $model->isNewRecord ? '' : 'Если ничего не вводить, то пароль не будет изменен.',
-                ),
-            ),*/
+            '_image' => array(
+                'class' => 'ext.ImageFileRowWidget',
+                'model' => $model,
+            ),
+            'visible' => array(
+                'type' => 'checkBox',
+            ),
         );
     }
 
     public function getTableColumns()
     {
         $attributes = array(
-            'title',
-            'desc',
-            'text',
-            'link',
-            'image',
-            'bigImage',
+            'id',
             'sectionId',
+            'image',
+            'visible',
             $this->getButtonsColumn(),
         );
 
         return $attributes;
     }
 
-    /**
-     * @param User $model
-     * @param array $attributes
-     */
-    public function beforeSetAttributes($model, &$attributes)
+    public function beforeSave($model)
     {
-        //if (empty($attributes['password'])) {
-         //   unset($attributes['password']);
-        //}
-
-        parent::beforeSetAttributes($model, $attributes);
+        $this->imageBeforeSave($model);
+        parent::beforeSave($model);
     }
 }

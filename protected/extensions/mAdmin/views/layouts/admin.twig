@@ -42,14 +42,14 @@
 	{
 		'class' : 'bootstrap.widgets.TbMenu',
 		'items' : [
-			{'label':'Проекты', 'active' : false, 'items': [
-				{'label':'Проекты', 'url':['/projects/adminProjects'], 'active' : this.uniqueId == 'projects/adminProjects'},
-				{'label':'Разделы', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'}
-			]},
 			{'label':'Меню', 'active':false, 'items': [
 				{'label':'Главное меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
 			]},
-			{'label':'Большие работы', 'url':['/mainworks/adminMainworks'], 'active' : this.uniqueId == 'mainworks/adminMainworks'},
+			{'label':'Проекты', 'active' : false, 'items': [
+				{'label':'Большие работы', 'url':['/mainworks/adminMainworks'], 'active' : this.uniqueId == 'mainworks/adminMainworks'},
+				{'label':'Разделы проектов', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'},
+				{'label':'Проекты', 'url':['/projects/adminProjects'], 'active' : this.uniqueId == 'projects/adminProjects'}
+			]},
 			{'label':'Пользователи', 'url':['/system2/adminUsers'], 'active' : this.uniqueId == 'system/adminUsers'},
 		]
 	},{

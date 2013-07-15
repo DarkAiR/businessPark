@@ -15,3 +15,11 @@
 .main-works-lenta-item-desc {
     margin-top: 16px;
 }
+.main-works-lenta-new-angle {
+	background: url(../../img/new-angle.png) left top no-repeat;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 37px;
+	height: 37px;
+}

@@ -46,10 +46,11 @@ class MenuItem extends CActiveRecord
 
     public function scopes()
     {
+        $alias = $this->getTableAlias();
         return array(
             'onSite' =>
                 array(
-                    'condition' => $this->getTableAlias().'.visible = 1',
+                    'condition' => $alias.'.visible = 1',
                 ),
         );
     }

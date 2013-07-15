@@ -5,12 +5,7 @@ class MainWorkItem extends CActiveRecord
     const IMAGE_WIDTH = 792;        // (18px*44)
     const IMAGE_HEIGHT = 324;       // (18px*18)
 
-    const STORAGE_PATH = 'projects';
-
-    public $_image; // CUploadedFile[]
-    public $_removeImageFlag; // bool
-
-    public $descCorrect = '';       // Испрвленный desc для отображения
+    public $descCorrect = '';       // Исправленный desc для отображения
 
     public static function model($className = __CLASS__)
     {
@@ -23,6 +18,13 @@ class MainWorkItem extends CActiveRecord
             'manyToMany' => array(
                 'class' => 'lib.ar-relation-behavior.EActiveRecordRelationBehavior',
             ),
+            'imageBehavior' => array(
+                'class' => 'application.behaviors.ImageBehavior',
+                'storagePath' => 'mainworks',
+                'imageWidth' => self::IMAGE_WIDTH,
+                'imageHeight' => self::IMAGE_HEIGHT,
+                'imageField' => 'image',
+            )
         );
     }
 
@@ -34,27 +36,28 @@ class MainWorkItem extends CActiveRecord
 
     public function attributeLabels()
     {
-        return array(
-            //'image'     => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
-            '_image'    => 'Изображение '.self::IMAGE_WIDTH.'x'.self::IMAGE_HEIGHT,
-            '_removeImageFlag' => 'Удалить',
-            'visible'   => 'Показывать',
-            'title'     => 'Заголовок',
-            'desc'      => 'Описание',
-            'orderNum'  => 'Порядковый номер'
+        return array_merge(
+            $this->imageLabels(),
+            array(
+                'visible'   => 'Показывать',
+                'title'     => 'Заголовок',
+                'desc'      => 'Описание',
+                'orderNum'  => 'Порядковый номер'
+            )
         );
     }
 
     public function rules()
     {
-        return array(
-            array('visible', 'required'),
-            array('visible', 'boolean'),
-            array('orderNum', 'numerical', 'integerOnly'=>true),
-            array('title, desc', 'safe'),
-            array('_image', 'file', 'types'=>'jpg', 'allowEmpty'=>true),
-            array('_image', 'ext.validators.EImageValidator', 'width'=>self::IMAGE_WIDTH, 'height'=>self::IMAGE_HEIGHT, 'allowEmpty'=>true),
-        );        
+        return array_merge(
+            $this->imageRules(),
+            array(
+                array('visible', 'required'),
+                array('visible', 'boolean'),
+                array('orderNum', 'numerical', 'integerOnly'=>true),
+                array('title, desc', 'safe'),
+            )
+        );
     }
 
     public function scopes()
@@ -86,33 +89,16 @@ class MainWorkItem extends CActiveRecord
         return $this;
     }
 
-    public function getStorePath()
-    {
-        return Yii::getPathOfAlias('webroot.store.'.self::STORAGE_PATH).'/';
-    }
-
-    public function getImageUrl()
-    {
-        return CHtml::normalizeUrl('/store/'.self::STORAGE_PATH.'/'.$this->image);
-    }
-
     protected function afterDelete()
     {
-        if ($this->image)
-            unlink( $this->getStorePath().$this->image );
-
+        $this->imageAfterDelete();
         return parent::afterDelete();
     }
 
     protected function afterFind()
     {
         $this->descCorrect = str_replace(array("\r\n","\n","\r"), "", $this->desc);
-        $this->_image = $this->getImageUrl();
+        $this->imageAfterFind();
         return parent::afterFind();
-    }
-
-    protected function beforeSave()
-    {
-        return parent::beforeSave();
     }
 }
