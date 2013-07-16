@@ -25,8 +25,12 @@ class ImageControllerBehavior extends CBehavior
             // saving file from CUploadFile instance $model->_image
             if (!is_dir($storagePath))
                 mkdir($storagePath, 755);
-            $model->_image->saveAs( $storagePath.$model->_image->name );
-            $model->{$this->imageField} = $model->_image->name;
+
+            $ext = strrchr($model->_image->name, '.');
+            $imageName = md5(time().$model->_image->name).($ext?$ext:'');
+
+            $model->_image->saveAs( $storagePath.$imageName );
+            $model->{$this->imageField} = $imageName;
         }
     }
 }
