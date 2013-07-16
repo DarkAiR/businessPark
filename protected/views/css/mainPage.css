@@ -26,8 +26,7 @@
     left: 0px;
     top: 0px;
 }
-.our-projects-block {
-    width: 576px;       /* 18px * 16 * 2 */
+.projects-own-block {
     height: 100%;
     position: absolute;
     left: 864px;

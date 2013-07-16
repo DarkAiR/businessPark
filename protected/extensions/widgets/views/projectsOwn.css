@@ -1,0 +1,37 @@
+.projects-own-widget {
+    height: 100%;
+}
+.projects-own-cont {
+    height: 100%;
+    text-align: center;
+}
+.projects-own-cont>div {
+    height: 100%;
+}
+
+.projects-own-table {
+    width:100%;
+}
+.projects-own-title {
+    text-align: center;
+    vertical-align: middle;
+    color: #809aa2;
+    font-size: 11px;
+    text-transform: lowercase;
+}
+
+.projects-own-logo {
+    text-align: center;
+    vertical-align: middle;
+}
+.projects-own-desc {
+    height: 130px;
+    color: #525252;
+    margin: 0px 20px 0px 20px;
+}
+.projects-own-link {
+
+}
+.projects-own-link a {
+    color: #35688d;
+}

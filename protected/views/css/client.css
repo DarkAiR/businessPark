@@ -24,8 +24,12 @@
 .grid-bottom1   { margin-bottom: 18px; }
 .grid-bottom2   { margin-bottom: 36px; }
 
-.gridHeight     { height: 18px; }
+.gridHeight1    { height: 18px; }
 .gridHeight2    { height: 36px; }
+.gridHeight3    { height: 54px; }
+.gridHeight5    { height: 90px; }
+.gridHeight7    { height: 126px; }
+.gridHeight8    { height: 144px; }
 .grid1          { width: 18px; }
 .grid2          { width: 36px; }
 .grid12         { width: 216px; }

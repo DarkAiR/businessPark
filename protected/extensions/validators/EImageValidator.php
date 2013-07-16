@@ -42,11 +42,13 @@ class EImageValidator extends CFileValidator {
      * @var int width of the image
      */
     public $width;
+    public $maxWidth;
 
     /**
      * @var int height of the image
      */
     public $height;
+    public $maxHeight;
 
     /**
      * @var string image dimension error message
@@ -93,9 +95,16 @@ class EImageValidator extends CFileValidator {
         $data = file_exists($file->tempName) ? getimagesize($file->tempName) : false;
 
         if (isset($this->width, $this->height) && $data !== false) {
-            if ($data[0] != $this->width && $data[1] != $this->height) {
+            if ($data[0] != $this->width || $data[1] != $this->height) {
                 $message = $this->dimensionError ? $this->dimensionError : Yii::t('yii', 'Image dimension should be {width}x{height}');
                 $this->addError($object, $attribute, $message, array('{width}' => $this->width, '{height}' => $this->height));
+                return;
+            }
+        }
+        if (isset($this->maxWidth, $this->maxHeight) && $data !== false) {
+            if ($data[0] > $this->maxWidth || $data[1] > $this->maxHeight) {
+                $message = $this->dimensionError ? $this->dimensionError : Yii::t('yii', 'Image dimension should be less or equal {width}x{height}');
+                $this->addError($object, $attribute, $message, array('{width}' => $this->maxWidth, '{height}' => $this->maxHeight));
                 return;
             }
         }
