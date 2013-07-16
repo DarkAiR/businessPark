@@ -13,13 +13,11 @@
     _background: rgba(0,0,255,0.2);
     position: relative;
     height: 342px;      /* 18px * 19 */
-    margin-top: 36px;   /* 18px * 2 */
 }
 .main-page-block3 {
     _background: rgba(255,0,255,0.2);
     position: relative;
     height: 108px;      /* 18px * 8 */
-    margin-top: 36px;   /* 18px * 2 */
 }
 .main-works-block {
     width: 864px;       /* 18px * 48 */

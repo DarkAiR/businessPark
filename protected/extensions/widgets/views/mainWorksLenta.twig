@@ -9,12 +9,12 @@
     <div class='main-works-lenta-new-angle'></div>
     <div class='main-works-lenta-cont'>
     {% for work in works %}
-        <div class='main-works-lenta-item grid8 left'>
-            <div class='main-works-lenta-item-image'>
+        <div class='main-works-lenta-item grid16 left'>
+            <div class='main-works-lenta-item-image grid-left2 grid-right2 grid-top2'>
                 <img src='{{work.image}}'>
             </div>
-            <div class='main-works-lenta-item-desc grid-left grid-right'>
-                {{work.desc}}
+            <div class='main-works-lenta-item-desc grid-left2 grid-right2 grid-top1'>
+                {{ work.desc|raw }}
             </div>
         </div>
     {% endfor %}

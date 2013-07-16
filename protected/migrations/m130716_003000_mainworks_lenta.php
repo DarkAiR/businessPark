@@ -43,6 +43,10 @@ class m130716_003000_mainworks_lenta extends CDbMigration
                 CONSTRAINT `fk_sectionId` FOREIGN KEY (`sectionId`) REFERENCES projectSections(`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         ");
+
+        $this->execute("
+            ALTER TABLE `projects` ADD COLUMN `createTime` int(11) NOT NULL COMMENT 'Время создания' AFTER `id`;
+        ");
     }
 
     public function safeDown()

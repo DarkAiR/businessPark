@@ -12,19 +12,26 @@
 }
 
 /* Сетка */
-.grid-left {
-    margin-left: 36px;
-}
-.grid-right {
-    margin-right: 36px;
-}
+.grid-left1     { margin-left: 18px; }
+.grid-left2     { margin-left: 36px; }
 
-.gridHeight     { height: 36px; }
-.grid           { width: 36px; }
-.grid6          { width: 216px; }
-.grid8          { width: 288px; }
-.grid16         { width: 576px; }
-.grid24         { width: 864px; }
+.grid-right1    { margin-right: 18px; }
+.grid-right2    { margin-right: 36px; }
+
+.grid-top1      { margin-top: 18px; }
+.grid-top2      { margin-top: 36px; }
+
+.grid-bottom1   { margin-bottom: 18px; }
+.grid-bottom2   { margin-bottom: 36px; }
+
+.gridHeight     { height: 18px; }
+.gridHeight2    { height: 36px; }
+.grid1          { width: 18px; }
+.grid2          { width: 36px; }
+.grid12         { width: 216px; }
+.grid16         { width: 288px; }
+.grid32         { width: 576px; }
+.grid48         { width: 864px; }
 
 .left {
     float: left;

@@ -47,6 +47,7 @@ class AdminProjectsController extends MAdminController
     {
         $attributes = array(
             'id',
+            '_createTime',
             'sectionId',
             'image',
             'visible',
