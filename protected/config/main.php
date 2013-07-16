@@ -4,14 +4,6 @@ Yii::setPathOfAlias('lib', realpath(__DIR__ . '/../../lib'));
 
 $params = require('params.php');
 return array(
-/*    'controllerMap' => array(
-        'gallery'=>array(
-            'class'=>'ext.galleryManager.GalleryController',
-            'pageTitle'=>'Gallery administration',
-        ),
-    ),*/
-
-
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => $params['appName'],
     'language' => 'ru',
@@ -24,14 +16,13 @@ return array(
         'lib.CurlHelper.*',
         'lib.ImageHelper.*',
         'ext.mAdmin.*',
-//        'ext.galleryManager.*',
-//        'ext.galleryManager.models.*',
     ),
     'modules' => array(
         'system2',
         'projects',
         'sitemenu',
         'mainworks',
+        'news',
     ),
     'components' => array(
         'user' => array(
@@ -49,7 +40,6 @@ return array(
                 'admin/<module:\w+>/' => '<module>',
                 'admin/<module:\w+>/<controller:\w+>/' => '<module>/admin<controller>',
                 'admin/<module:\w+>/<controller:\w+>/<action:\w+>/' => '<module>/admin<controller>/<action>',
-                'admin/gallery/' => ''
             ),
         ),
         'db' => array(

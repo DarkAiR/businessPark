@@ -8,8 +8,6 @@ class Projects extends CActiveRecord
     const IMAGE_WIDTH = 216;        // (18px*12)
     const IMAGE_HEIGHT = 216;       // (18px*12)
 
-    public $_createTime = 0;        // Время в человекочитаемом виде
-
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -27,6 +25,10 @@ class Projects extends CActiveRecord
                 'imageWidth' => self::IMAGE_WIDTH,
                 'imageHeight' => self::IMAGE_HEIGHT,
                 'imageField' => 'image',
+            ),
+            'timeBehavior' => array(
+                'class' => 'application.behaviors.TimeBehavior',
+                'createTimeField' => 'createTime',
             )
         );
     }
@@ -42,8 +44,8 @@ class Projects extends CActiveRecord
     {
         return array_merge(
             $this->imageLabels(),
+            $this->timeLabels(),
             array(
-                '_createTime' => 'Время создания',
                 'desc' => 'Краткое описание',
                 'sectionId' => 'Раздел',
                 'visible' => 'Показывать',
@@ -56,6 +58,7 @@ class Projects extends CActiveRecord
     {
         return array_merge(
             $this->imageRules(),
+            $this->timeLabels(),
             array(
                 array('sectionId, visible', 'required'),
                 array('desc', 'safe'),
@@ -102,14 +105,13 @@ class Projects extends CActiveRecord
     protected function afterFind()
     {
         $this->imageAfterFind();
-        $this->_createTime = date('d-m-Y H:i', $this->createTime);
+        $this->timeAfterFind();
         return parent::afterFind();
     }
 
     protected function beforeSave()
     {
-        if (!$this->createTime)
-            $this->createTime = time();
+        $this->timeCreate();
         return parent::beforeSave();
     }
 }
