@@ -40,6 +40,10 @@ return array(
                 // News
                 'news/<id:\d+>/' => 'news/news/index',
 
+                // Projects
+                'works/<sectionId:\d+>/' => 'projects/projects/index',
+                'works/' => 'projects/projects/index',
+
                 // Admin
                 'admin/' => 'system2',
                 'admin/<module:\w+>/' => '<module>',

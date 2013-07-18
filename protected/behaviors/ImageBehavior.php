@@ -20,7 +20,7 @@ class ImageBehavior extends CActiveRecordBehavior
             '_removeImageFlag' => 'Удалить'
         );
 
-        if (!empty($this->imageWidth) && !empty($imageHeight))
+        if (!empty($this->imageWidth) && !empty($this->imageHeight))
             $arr['_image'] = 'Изображение '.$this->imageWidth.'x'.$this->imageHeight;
         elseif (!empty($this->imageMaxWidth) && !empty($this->imageMaxHeight))
             $arr['_image'] = 'Изображение не больше '.$this->imageMaxWidth.'x'.$this->imageMaxHeight;

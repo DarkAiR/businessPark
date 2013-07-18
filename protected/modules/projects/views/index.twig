@@ -1,0 +1,19 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+	{% for project in projects %}
+		{{ project.createTime|date('H-i d-m-Y') }}
+		<br/>
+		<img src='{{ project.getImageUrl() }}'>
+		<br/>
+		{{ project.desc|raw }}
+	{% endfor %}
+{% endblock %}

@@ -58,7 +58,7 @@ class Projects extends CActiveRecord
     {
         return array_merge(
             $this->imageRules(),
-            $this->timeLabels(),
+            $this->timeRules(),
             array(
                 array('sectionId, visible', 'required'),
                 array('desc', 'safe'),
@@ -83,6 +83,14 @@ class Projects extends CActiveRecord
     {
         $this->getDbCriteria()->mergeWith(array(
             'limit' => $limit,
+        ));
+        return $this;
+    }
+
+    public function bySection($sectionId)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'sectionId' => $sectionId,
         ));
         return $this;
     }
