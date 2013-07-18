@@ -1,0 +1,17 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+	{{ news.createTime|date('Y-m-d') }}
+	<br/>
+	{{ news.title|raw }}
+	<br/>
+	{{ news.desc|raw }}
+{% endblock %}
