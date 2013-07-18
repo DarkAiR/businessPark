@@ -30,6 +30,10 @@ class m130716_101347_news_lenta extends CDbMigration
                 KEY `orderNum` (`orderNum`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         ");
+
+        $this->execute("
+            ALTER TABLE `news` ADD COLUMN `shortDesc` text NOT NULL COMMENT 'Короткое описание' AFTER `title`;
+        ");
     }
 
     public function safeDown()

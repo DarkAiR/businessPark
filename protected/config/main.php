@@ -38,11 +38,13 @@ return array(
                 '/' => 'site/index',
 
                 // News
-                'news/<id:\d+>/' => 'news/news/index',
+                'news/show/<id:\d+>/'       => 'news/news/show',
+                'news/<sectionId:\d+>/'     => 'news/news/index',
+                'news/'                     => 'news/news/index',
 
                 // Projects
-                'works/<sectionId:\d+>/' => 'projects/projects/index',
-                'works/' => 'projects/projects/index',
+                'works/<sectionId:\d+>/'    => 'projects/projects/index',
+                'works/'                    => 'projects/projects/index',
 
                 // Admin
                 'admin/' => 'system2',

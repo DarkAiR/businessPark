@@ -17,6 +17,9 @@ class AdminNewsController extends MAdminController
         	'title' => array(
         		'type' => 'textField',
         	),
+            'shortDesc' => array(
+                'type' => 'ckEditor',
+            ),
             'desc' => array(
                 'type' => 'ckEditor',
             ),
@@ -32,6 +35,7 @@ class AdminNewsController extends MAdminController
             'id',
             '_createTime',
             'title',
+            'shortDesc',
             'visible',
             $this->getButtonsColumn(),
         );

@@ -9,11 +9,9 @@
 {% endblock %}
 
 {% block content %}
-	{% for item in news %}
-		{{ item.createTime|date('Y-m-d') }}
-		<br/>
-		{{ item.title|raw }}
-		<br/>
-		{{ item.desc|raw }}
-	{% endfor %}
+	{{ news.createTime|date('Y-m-d') }}
+	<br/>
+	{{ news.title|raw }}
+	<br/>
+	{{ news.desc|raw }}
 {% endblock %}

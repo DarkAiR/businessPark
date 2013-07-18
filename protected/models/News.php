@@ -35,6 +35,7 @@ class News extends CActiveRecord
             $this->timeLabels(),
             array(
                 'title' => 'Заголовок',
+                'shortDesc' => 'Короткое описание',
                 'desc' => 'Текст',
                 'sectionId' => 'Раздел',
                 'visible' => 'Показывать',
@@ -49,7 +50,7 @@ class News extends CActiveRecord
             $this->timeRules(),
             array(
                 array('sectionId, visible', 'required'),
-                array('title, desc', 'safe'),
+                array('title, desc, shortDesc', 'safe'),
                 array('visible', 'boolean'),
                 array('orderNum, sectionId', 'numerical', 'integerOnly'=>true),
             )
