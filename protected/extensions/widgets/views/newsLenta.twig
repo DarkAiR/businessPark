@@ -1,9 +1,19 @@
 {{ import('css','newsLenta.css','ext.widgets.views') }}
 
+<script type="text/javascript">
+    $(document).ready( function()
+    {
+        $('.news-lenta-item').click( function()
+        {
+            window.location.href = $(this).attr('href');
+        });
+    });
+</script>
+
 <div class='news-lenta-widget'>
     {% for item in news %}
 
-        <div class='news-lenta-item grid16'>
+        <div class='news-lenta-item  grid16 {% if item|length > 0 %}cursor-link{% endif %}' href='{{ item.link }}'>
             <div class='border-cont' style='height:100%'>
                 <div class='border-l' style='background:#d9d9d9; border-style:dotted !important;'></div>
                 <div class='border-t' style='background:#d9d9d9; border-style:dotted !important;'></div>
@@ -14,8 +24,8 @@
 
 
                 <div class='grid-left2 grid-right2'>
-                    <div class='news-lenta-small-angle'></div>
                     {% if item|length > 0 %}
+                        <div class='news-lenta-small-angle'></div>
                         <div class='news-lenta-item-date  gridHeight2'>{{ item.date }}</div>
                         <div class='news-lenta-item-text'>{{ item.text|raw }}</div>
                     {% endif %}

@@ -29,6 +29,7 @@ class NewsLentaWidget extends ExtendedWidget
                 'date' => date('j M', $work->createTime),
                 'title' => $work->title,
                 'text' => $work->desc,
+                'link' => CHtml::normalizeUrl(array('/news/news/index', 'id'=>$work->id))
             );
         }
         if (count($arr) < self::LIMIT)

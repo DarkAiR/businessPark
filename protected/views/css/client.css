@@ -2,10 +2,14 @@
     font-family: "Segoe UI Semibold";
     src: url(/fonts/Segoe%20UI%20Semibold.ttf) format("truetype");
 }
-
 .semibold {
     font-family: "Segoe UI Semibold", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";*/
 }
+
+.cursor-link {
+    cursor: pointer;
+}
+
 .contact-mail {
     color: #376e78;
     text-decoration: none;

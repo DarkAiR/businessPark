@@ -31,13 +31,6 @@ class TwigFunctions
         return $c->getConstant($property);
     }
 
-    public static function _unset($array, $elementName)
-    {
-        unset($array[$elementName]);
-
-        return $array;
-    }
-
     /**
      * @param string $class
      * @param string $method
@@ -70,5 +63,20 @@ class TwigFunctions
                 Yii::app()->getClientScript()->registerScriptFile($assetsPath);
                 break;
         }
+    }
+
+    public static function filterUnset($array, $elementName)
+    {
+        unset($array[$elementName]);
+
+        return $array;
+    }
+
+    public static function filterDate($ts, $format)
+    {
+        if (!is_string($format) || !is_int($ts))
+            return '';
+
+        return date($format, $ts);
     }
 }

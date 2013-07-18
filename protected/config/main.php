@@ -36,6 +36,11 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '/' => 'site/index',
+
+                // News
+                'news/<id:\d+>/' => 'news/news/index',
+
+                // Admin
                 'admin/' => 'system2',
                 'admin/<module:\w+>/' => '<module>',
                 'admin/<module:\w+>/<controller:\w+>/' => '<module>/admin<controller>',
@@ -73,7 +78,8 @@ return array(
                 'import' => 'TwigFunctions::importResource',
             ),
             'filters' => array(
-                'unset' => 'TwigFunctions::_unset',
+                'unset' => 'TwigFunctions::filterUnset',
+                'date' => 'TwigFunctions::filterDate',
             ),
         ),
         'bootstrap' => array(
