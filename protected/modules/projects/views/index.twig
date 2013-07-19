@@ -2,18 +2,59 @@
 
 {% block css %}
     {{ parent() }}
+    {{ import('css','index.css', 'application.modules.projects.views') }}
 {% endblock %}
 
 {% block js %}
     {{ parent() }}
+
+    <script type="text/javascript">
+    projectsListPageContent =
+    {
+        posCont: false,
+
+        init: function()
+        {
+            var self = this;
+            self.posCont = $('#js-projects-list-page-content-pos');
+            app.addListener(app.eventReposition, projectsListPageContent.onResize);
+            app.resize();
+
+        },
+        onResize: function( ev )
+        {
+            var ceils = ev.ceils;
+
+            // Костыль, чтобы принудительно проставить высоту блока
+            var cont = $('#js-projects-list-page-content');
+            var projectItemHeight = $('#js-projects-list-block .project-item').height();
+            var projectsCount = {{ projects|length }};
+            cont.height( Math.ceil(projectsCount/ceils) * projectItemHeight );
+
+            app.resizePage( projectsListPageContent.posCont, ceils * app.gridWidth );
+        },
+    };
+    $(document).ready( function()
+    {
+        projectsListPageContent.init();
+    });
+    </script>
 {% endblock %}
 
 {% block content %}
-	{% for project in projects %}
-		{{ project.createTime|date('H-i d-m-Y') }}
-		<br/>
-		<img src='{{ project.getImageUrl() }}'>
-		<br/>
-		{{ project.desc|raw }}
-	{% endfor %}
+    <div id='js-projects-list-page-content' class='projects-list-page-content'>
+        <div id='js-projects-list-page-content-pos' class='projects-list-page-content-pos'>
+
+            <div class='projects-menu-block'>
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget') }}
+            </div>
+
+            <div id='js-projects-list-block' class='projects-list-block'>
+                {% for project in projects %}
+                    {{ widget('ext.widgets.projects.ProjectItemWidget', {'project':project} ) }}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
 {% endblock %}

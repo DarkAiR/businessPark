@@ -1,0 +1,23 @@
+.projects-list-page-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.projects-list-page-content-pos {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+}
+
+.projects-menu-block {
+    width: 100%;
+}
+.projects-list-block {
+    width: 100%;
+}
+.project-list-item {
+    height:100%;
+}

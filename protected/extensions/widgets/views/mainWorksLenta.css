@@ -6,14 +6,6 @@
     width: 2000px;      /* Больше максимальной ширины */
 }
 
-.main-works-lenta-item {
-    height:100%;
-}
-.main-works-lenta-item-image {
-
-}
-.main-works-lenta-item-desc {
-}
 .main-works-lenta-new-angle {
 	background: url(../../img/new-angle.png) left top no-repeat;
 	position: absolute;

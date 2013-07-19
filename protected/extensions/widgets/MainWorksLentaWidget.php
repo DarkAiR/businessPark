@@ -20,14 +20,6 @@ class MainWorksLentaWidget extends ExtendedWidget
     {
         $arr = array();
         $works = Projects::model()->onSite()->byLimit(5)->findAll();
-        foreach ($works as &$work)
-        {
-            $arr[] = array(
-                'id' => $work->id,
-                'image' => $work->getImageUrl(),
-                'desc' => $work->desc,
-            );
-        }
-        return $arr;
+        return $works;
     }
 }

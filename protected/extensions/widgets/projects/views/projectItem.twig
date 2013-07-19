@@ -1,0 +1,15 @@
+{{ import('css','projectItem.css','ext.widgets.projects.views') }}
+
+<div class='project-item  gridHeight20 grid16 left'>
+    <div class='project-item-date-cont  gridHeight1 grid-left2 grid-right2 grid-top1'>
+        <div class='project-item-date  font-light'>
+            {% if showDate %}{{ project.createTime|date('d.m.Y') }}{% endif %}
+        </div>
+    </div>
+    <div class='project-item-image  grid-left2 grid-right2'>
+        <img src='{{ project.getImageUrl() }}'>
+    </div>
+    <div class='project-item-desc  grid-left2 grid-right2 grid-top1'>
+        {{ project.desc|raw }}
+    </div>
+</div>

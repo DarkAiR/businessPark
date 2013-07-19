@@ -2,8 +2,15 @@
     font-family: "Segoe UI Semibold";
     src: url(/fonts/Segoe%20UI%20Semibold.ttf) format("truetype");
 }
+@font-face {
+    font-family: "Segoe UI Light";
+    src: url(/fonts/Segoe%20UI%20Light.ttf) format("truetype");
+}
 .semibold {
-    font-family: "Segoe UI Semibold", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";*/
+    font-family: "Segoe UI Semibold", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
+}
+.font-light {
+    font-family: "Segoe UI Light", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
 }
 
 .cursor-link {
@@ -39,6 +46,7 @@
 .gridHeight5    { height: 90px; }
 .gridHeight7    { height: 126px; }
 .gridHeight8    { height: 144px; }
+.gridHeight20   { height: 360px; }
 .grid1          { width: 18px; }
 .grid2          { width: 36px; }
 .grid12         { width: 216px; }
