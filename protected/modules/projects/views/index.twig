@@ -31,7 +31,7 @@
             var projectsCount = {{ projects|length }};
             cont.height( Math.ceil(projectsCount/ceils) * projectItemHeight );
 
-            app.resizePage( projectsListPageContent.posCont, ceils * app.gridWidth );
+            app.resizeElement( projectsListPageContent.posCont, ceils * app.gridWidth );
         },
     };
     $(document).ready( function()

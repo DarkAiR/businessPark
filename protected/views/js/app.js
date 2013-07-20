@@ -62,10 +62,11 @@ app =
     },
 
     /**
-     Изменить размеры отображаемой части страницы
+     Плавно изменить размеры элемента
      */
-    resizePage: function(el, contWidth)
+    resizeElement: function(el, contWidth, onlyWidth)
     {
+        onlyWidth = onlyWidth || false;
         var isHideAnim = el.data('isHideAnim') !== undefined;
         var isShowAnim = el.data('isShowAnim') !== undefined;
         if (contWidth < el.width())
@@ -80,10 +81,12 @@ app =
             if (!isHideAnim)
             {
                 el.data('isHideAnim', true);
-                el.animate({
-                    'width': contWidth+'px',
-                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
-                }, app.animDuration, function()
+                
+                var params = { 'width': contWidth+'px' };
+                if (!onlyWidth)
+                    params['margin-left'] = '-'+Math.floor(contWidth/2)+'px';
+
+                el.animate(params, app.animDuration, function()
                 {
                     el.removeData('isHideAnim');
                 });
@@ -101,10 +104,12 @@ app =
             if (!isShowAnim)
             {
                 el.data('isShowAnim', true);
-                el.animate({
-                    'width': contWidth+'px',
-                    'margin-left': '-'+Math.floor(contWidth/2)+'px'
-                }, app.animDuration, function()
+
+                var params = { 'width': contWidth+'px' };
+                if (!onlyWidth)
+                    params['margin-left'] = '-'+Math.floor(contWidth/2)+'px';
+
+                el.animate(params, app.animDuration, function()
                 {
                     el.removeData('isShowAnim');
                 });

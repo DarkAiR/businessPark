@@ -5,11 +5,15 @@ headerWidget =
 {
     contPos: false,
     prevCeils: 5,           // Предыдущее значение отображаемых ячеек
+    cityBlockWidth: 0,
+    socialBlockWidth: 0,
 
     init: function()
     {
         var self = this;
         self.contPos = $('#js-header-cont-pos');
+        self.cityBlockWidth = $('#city-block').width();
+        self.socialBlockWidth = $('#social-block').width();
 
         self.contPos.css({
             'width': (app.gridWidth*5)+'px',
@@ -24,7 +28,17 @@ headerWidget =
     {
         var ceils = ev.ceils;
 
-        app.resizePage( headerWidget.contPos, app.gridWidth * ceils );
+        if (ceils == 4)
+        {
+            app.resizeElement( $('#city-block'), headerWidget.cityBlockWidth/2, true );
+            app.resizeElement( $('#social-block'), headerWidget.socialBlockWidth/2, true );
+        }
+        else if (ceils == 5)
+        {
+            app.resizeElement( $('#city-block'), headerWidget.cityBlockWidth, true );
+            app.resizeElement( $('#social-block'), headerWidget.socialBlockWidth, true );
+        }
+        app.resizeElement( headerWidget.contPos, app.gridWidth * ceils );
     }
 };
 $(document).ready( function()
