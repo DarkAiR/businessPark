@@ -43,6 +43,7 @@ return array(
                 'news/'                     => 'news/news/index',
 
                 // Projects
+                'works/show/<id:\d+>/'      => 'projects/projects/show',
                 'works/<sectionId:\d+>/'    => 'projects/projects/index',
                 'works/'                    => 'projects/projects/index',
 

@@ -1,0 +1,55 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css','show.css', 'application.modules.projects.views') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+    projectPageContent =
+    {
+        posCont: false,
+
+        init: function()
+        {
+            var self = this;
+            self.posCont = $('#js-project-page-content-pos');
+            app.addListener(app.eventReposition, projectPageContent.onResize);
+            app.resize();
+
+        },
+        onResize: function( ev )
+        {
+            var ceils = ev.ceils;
+
+            // Принудительно выставляем высоту блока
+            $('#js-project-page-content').height( $('#js-project-block').height() );
+
+            app.resizePage( projectPageContent.posCont, ceils * app.gridWidth );
+        },
+    };
+    $(document).ready( function()
+    {
+        projectPageContent.init();
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id='js-project-page-content' class='project-page-content'>
+        <div id='js-project-page-content-pos' class='project-page-content-pos'>
+
+            <div class='projects-menu-block'>
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget') }}
+            </div>
+
+            <div id='js-project-block' class='project-block'>
+                {{ project.desc|raw }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

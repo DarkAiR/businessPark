@@ -15,4 +15,20 @@ class ProjectsController extends Controller
             'projects' => $projects,
         ));
     }
+
+
+    public function actionShow()
+    {
+        $id = Yii::app()->request->getQuery('id', false);
+        if ($id === false)
+            throw new CHttpException(400, Yii::t('yii','Your request is invalid.'));
+
+        $project = Projects::model()->onSite()->findByPk($id);
+        if (!$project)
+            throw new CHttpException(404);
+
+        $this->render('/show', array(
+            'project' => $project,
+        ));        
+    }
 }

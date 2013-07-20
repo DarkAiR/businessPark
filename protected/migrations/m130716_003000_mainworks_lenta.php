@@ -32,6 +32,7 @@ class m130716_003000_mainworks_lenta extends CDbMigration
         $this->execute("
             CREATE TABLE IF NOT EXISTS `projects` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
+                `createTime` int(11) NOT NULL COMMENT 'Время создания',
                 `desc` varchar(255) NOT NULL COMMENT 'Краткое описание',
                 `image` varchar(100) NOT NULL COMMENT 'Картинка',
                 `sectionId` int(11) NOT NULL DEFAULT '0' COMMENT 'Раздел',
@@ -42,10 +43,6 @@ class m130716_003000_mainworks_lenta extends CDbMigration
                 KEY `orderNum` (`orderNum`),
                 CONSTRAINT `fk_sectionId` FOREIGN KEY (`sectionId`) REFERENCES projectSections(`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-        ");
-
-        $this->execute("
-            ALTER TABLE `projects` ADD COLUMN `createTime` int(11) NOT NULL COMMENT 'Время создания' AFTER `id`;
         ");
     }
 
