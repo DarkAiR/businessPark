@@ -46,7 +46,7 @@
         <div id='js-projects-list-page-content-pos' class='projects-list-page-content-pos'>
 
             <div class='projects-menu-block'>
-                {{ widget('ext.widgets.projects.ProjectsMenuWidget') }}
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':project.sectionId}) }}
             </div>
 
             <div id='js-projects-list-block' class='projects-list-block'>

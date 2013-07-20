@@ -62,12 +62,17 @@ class MainWorkItem extends CActiveRecord
 
     public function scopes()
     {
+        $alias = $this->getTableAlias();
         return array(
             'onSite' => array(
-                'condition' => $this->getTableAlias().'.visible = 1',
+                'condition' => $alias.'.visible = 1',
+            ),
+            'orderDefault' => array(
+                'order' => $alias.'.orderNum ASC',
             ),
         );
     }
+
 
     public function search()
     {
@@ -78,15 +83,6 @@ class MainWorkItem extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
-    }
-
-    public function orderDefault()
-    {
-        $alias = $this->getTableAlias();
-        $this->getDbCriteria()->mergeWith(array(
-            'order' => $alias.'.orderNum ASC',
-        ));
-        return $this;
     }
 
     protected function afterDelete()

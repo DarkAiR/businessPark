@@ -43,7 +43,7 @@
         <div id='js-project-page-content-pos' class='project-page-content-pos'>
 
             <div class='projects-menu-block'>
-                {{ widget('ext.widgets.projects.ProjectsMenuWidget') }}
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':project.sectionId}) }}
             </div>
 
             <div id='js-project-block' class='project-block'>

@@ -61,12 +61,15 @@ class News extends CActiveRecord
     {
         $alias = $this->getTableAlias();
         return array(
-            'onSite' =>
-                array(
-                    'condition' => $alias.'.visible = 1',
-                ),
+            'onSite' => array(
+                'condition' => $alias.'.visible = 1',
+            ),
+            'orderDefault' => array(
+                'order' => $alias.'.orderNum ASC',
+            ),
         );
     }
+
 
     public function byLimit($limit)
     {

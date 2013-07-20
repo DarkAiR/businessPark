@@ -72,10 +72,12 @@ class Projects extends CActiveRecord
     {
         $alias = $this->getTableAlias();
         return array(
-            'onSite' =>
-                array(
-                    'condition' => $alias.'.visible = 1',
-                ),
+            'onSite' => array(
+                'condition' => $alias.'.visible = 1',
+            ),
+            'orderDefault' => array(
+                'order' => $alias.'.orderNum ASC',
+            ),
         );
     }
 
@@ -89,9 +91,7 @@ class Projects extends CActiveRecord
 
     public function bySection($sectionId)
     {
-        $this->getDbCriteria()->mergeWith(array(
-            'sectionId' => $sectionId,
-        ));
+        $this->getDbCriteria()->addInCondition('sectionId', array($sectionId));
         return $this;
     }
 

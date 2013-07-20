@@ -43,10 +43,9 @@ class Menu extends CActiveRecord
     {
         $alias = $this->getTableAlias();
         return array(
-            'onSite' =>
-                array(
-                    'condition' => $alias.'.visible = 1',
-                ),
+            'onSite' => array(
+                'condition' => $alias.'.visible = 1',
+            ),
         );
     }
 

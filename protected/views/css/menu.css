@@ -1,0 +1,19 @@
+.hmenu li {
+    float: left;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-right: 1px solid #b2b2b2;
+}
+.hmenu li a {
+    color: #3a6b96;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid #8d99a4;
+}
+.hmenu li.first {
+    padding-left: 0px;
+}
+.hmenu li.last {
+    padding-right: 0px;
+    border-right: 0px none;
+}

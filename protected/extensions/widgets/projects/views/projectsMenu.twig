@@ -1,3 +1,13 @@
 {{ import('css','projectsMenu.css','ext.widgets.projects.views') }}
+{{ import('css','menu.css') }}
 
-projectsMenu.twig
+<div class='projects-menu-widget  hmenu'>
+    <ul>
+        {% for item in items %}
+            {% set link = static('CHtml', 'normalizeUrl', [{0:'/projects/projects/index', 'sectionId':item.sectionId}]) %}
+            <li class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
+                <a href='{{ link }}'>{{ item.name|raw }}</a><span class='projects-menu-item-count'>{{ item.amount }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

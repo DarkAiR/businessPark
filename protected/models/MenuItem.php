@@ -48,10 +48,12 @@ class MenuItem extends CActiveRecord
     {
         $alias = $this->getTableAlias();
         return array(
-            'onSite' =>
-                array(
-                    'condition' => $alias.'.visible = 1',
-                ),
+            'onSite' => array(
+                'condition' => $alias.'.visible = 1',
+            ),
+            'orderDefault' => array(
+                'order' => $alias.'.parentItemId ASC, '.$alias.'.orderNum ASC',
+            ),
         );
     }
 
@@ -86,15 +88,6 @@ class MenuItem extends CActiveRecord
         $alias = $this->getTableAlias();
         $this->getDbCriteria()->mergeWith(array(
             'condition' => $alias.'.parentItemId = '.$parent,
-        ));
-        return $this;
-    }
-
-    public function orderDefault()
-    {
-        $alias = $this->getTableAlias();
-        $this->getDbCriteria()->mergeWith(array(
-            'order' => $alias.'.parentItemId ASC, '.$alias.'.orderNum ASC',
         ));
         return $this;
     }

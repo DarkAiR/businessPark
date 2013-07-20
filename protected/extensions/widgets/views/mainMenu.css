@@ -1,21 +1,2 @@
 .main-menu-widget {
 }
-.main-menu-widget li {
-    float: left;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-right: 1px solid #b2b2b2;
-}
-.main-menu-widget li a {
-    color: #364a5e;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-bottom: 1px solid #8d99a4;
-}
-.main-menu-widget li.first {
-    padding-left: 0px;
-}
-.main-menu-widget li.last {
-    padding-right: 0px;
-    border-right: 0px none;
-}

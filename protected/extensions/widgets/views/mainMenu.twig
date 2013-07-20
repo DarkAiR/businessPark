@@ -1,11 +1,14 @@
 {{ import('css','mainMenu.css','ext.widgets.views') }}
+{{ import('css','menu.css') }}
 
-<div class='main-menu-widget'>
+
+<div class='main-menu-widget  hmenu'>
     <ul>
         {% for item in items %}
-        <li id='item1' class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
-            <a href='{{ item.link }}'>{{ item.name|raw }}</a>
-        </li>
+            {% set link = static('CHtml', 'normalizeUrl', ['/'~item.link]) %}
+            <li class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
+                <a href='{{ link }}'>{{ item.name|raw }}</a>
+            </li>
         {% endfor %}
     </ul>
 </div>
