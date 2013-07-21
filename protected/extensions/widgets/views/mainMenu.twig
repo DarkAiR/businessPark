@@ -1,13 +1,31 @@
 {{ import('css','mainMenu.css','ext.widgets.views') }}
 {{ import('css','menu.css') }}
 
-
 <div class='main-menu-widget  hmenu'>
     <ul>
         {% for item in items %}
             {% set link = static('CHtml', 'normalizeUrl', ['/'~item.link]) %}
-            <li class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
-                <a href='{{ link }}'>{{ item.name|raw }}</a>
+            {% set select = item.select or hasSelect %}
+            {% set active = item.select %}
+            {% set first = loop.first %}
+            {% set last = loop.last %}
+            <li class='semibold border-cont {% if first %}first{% endif %} {% if last %}last{% endif %}'>
+                {% if not last %}
+                    <div class='border-r' style='background:#b2b2b2; height:10px; margin-top:4px'></div>
+                {% endif %}
+                {% if select %}
+                    <div class='border-b' style='background:#d9d9d9; height:2px;'></div>
+                    <a class='gridHeight2 select {% if active %}border-cont{% endif %}' href='{{ link }}'>
+                        {% if active %}
+                            <div class='border-b' style='background:#0f0f0f; height:2px; text-align:center;'>
+                                <img width=10 height=10 src='http://sphereart.ru/store/projects/55abfadc599c569457258092af5afb8b.jpg'>
+                            </div>
+                        {% endif %}
+                        {{ item.name|raw }}
+                    </a>
+                {% else %}
+                    <a class='unselect' href='{{ link }}'>{{ item.name|raw }}</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

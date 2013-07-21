@@ -5,7 +5,8 @@
     <ul>
         {% for item in items %}
             {% set link = static('CHtml', 'normalizeUrl', [{0:'/projects/projects/index', 'sectionId':item.sectionId}]) %}
-            <li class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
+            <li class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% else %}border-cont{% endif %}'>
+                <div class='border-r' style='background:#b2b2b2; height:10px; margin-top:4px'></div>
                 <a href='{{ link }}'>{{ item.name|raw }}</a><span class='projects-menu-item-count'>{{ item.amount }}</span>
             </li>
         {% endfor %}
