@@ -13,6 +13,7 @@ class ProjectsController extends Controller
 
         $this->render('/index', array(
             'projects' => $projects,
+            'sectionId' => $sectionId,
         ));
     }
 
@@ -29,6 +30,7 @@ class ProjectsController extends Controller
 
         $this->render('/show', array(
             'project' => $project,
+            'sectionId' => $sectionId,
         ));        
     }
 }

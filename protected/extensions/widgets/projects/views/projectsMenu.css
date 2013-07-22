@@ -1,5 +1,6 @@
 .projects-menu-widget {
     display: inline-block;
+    width: 100%;
 }
 .projects-menu-item-count {
     font-size: 10px;

@@ -1,13 +1,32 @@
 {{ import('css','projectsMenu.css','ext.widgets.projects.views') }}
 {{ import('css','menu.css') }}
 
-<div class='projects-menu-widget  hmenu'>
+<div class='projects-menu-widget  hmenu border-cont'>
+    <div class='border-b' style='background:#d9d9d9; height:2px;'></div>
     <ul>
         {% for item in items %}
             {% set link = static('CHtml', 'normalizeUrl', [{0:'/projects/projects/index', 'sectionId':item.sectionId}]) %}
-            <li class='semibold {% if loop.first %}first{% endif %} {% if loop.last %}last{% else %}border-cont{% endif %}'>
-                <div class='border-r' style='background:#b2b2b2; height:10px; margin-top:4px'></div>
-                <a href='{{ link }}'>{{ item.name|raw }}</a><span class='projects-menu-item-count'>{{ item.amount }}</span>
+            {% set select = item.select or hasSelect %}
+            {% set active = item.select %}
+            {% set first = loop.first %}
+            {% set last = loop.last %}
+            <li class='semibold border-cont {% if first %}first{% endif %} {% if last %}last{% endif %}'>
+                {% if not last %}
+                    <div class='border-r' style='background:#b2b2b2; height:10px; margin-top:4px'></div>
+                {% endif %}
+                {% if select %}
+                    <a class='gridHeight2 select {% if active %}border-cont{% endif %}' href='{{ link }}'>
+                        {% if active %}
+                            <div class='border-b' style='background:#0f0f0f; height:2px; text-align:center;'>
+                                <img width=9 height=7 src='../../img/menu-arrow.jpg'>
+                            </div>
+                        {% endif %}
+                        {{ item.name|raw }}
+                    </a>
+                {% else %}
+                    <a class='gridHeight2 select' href='{{ link }}'>{{ item.name|raw }}</a>
+                {% endif %}
+                <span class='projects-menu-item-count'>{{ item.amount }}</span>
             </li>
         {% endfor %}
     </ul>

@@ -42,14 +42,14 @@
 {% endblock %}
 
 {% block content %}
-    <div id='js-projects-list-page-content' class='projects-list-page-content'>
+    <div id='js-projects-list-page-content' class='projects-list-page-content  grid-top-1'>
         <div id='js-projects-list-page-content-pos' class='projects-list-page-content-pos'>
 
             <div class='projects-menu-block'>
-                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':project.sectionId}) }}
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':sectionId}) }}
             </div>
 
-            <div id='js-projects-list-block' class='projects-list-block'>
+            <div id='js-projects-list-block' class='projects-list-block  grid-top3'>
                 {% for project in projects %}
                     {{ widget('ext.widgets.projects.ProjectItemWidget', {'project':project} ) }}
                 {% endfor %}

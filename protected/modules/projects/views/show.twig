@@ -39,11 +39,11 @@
 {% endblock %}
 
 {% block content %}
-    <div id='js-project-page-content' class='project-page-content'>
+    <div id='js-project-page-content' class='project-page-content  grid-top-1'>
         <div id='js-project-page-content-pos' class='project-page-content-pos'>
 
             <div class='projects-menu-block'>
-                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':project.sectionId}) }}
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':sectionId}) }}
             </div>
 
             <div id='js-project-block' class='project-block'>

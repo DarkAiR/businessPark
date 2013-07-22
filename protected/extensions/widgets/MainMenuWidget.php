@@ -14,7 +14,7 @@ class MainMenuWidget extends ExtendedWidget
         foreach ($items as $item)
         {
             $select = false;
-            if (strpos($url, $item->link) === 0)
+            if (strpos($url, trim($item->link, '/')) === 0)
             {
                 $select = true;
                 $hasSelect = true;
