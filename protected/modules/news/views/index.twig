@@ -2,6 +2,7 @@
 
 {% block css %}
     {{ parent() }}
+    {{ import('css','index.css', 'application.modules.news.views') }}
 {% endblock %}
 
 {% block js %}
@@ -9,11 +10,23 @@
 {% endblock %}
 
 {% block content %}
-	{% for item in news %}
-		{{ item.createTime|date('Y-m-d') }}
-		<br/>
-		{{ item.title|raw }}
-		<br/>
-		{{ item.desc|raw }}
-	{% endfor %}
+    <div id='js-news-list-page-content' class='news-list-page-content'>
+        <div id='js-news-list-page-content-pos' class='news-list-page-content-pos'>
+
+            <div id='js-news-list-block' class='news-list-block grid24'>
+                {% for item in news %}
+                    {{ item.createTime|date('Y-m-d') }}
+                    <br/>
+                    {{ item.title|raw }}
+                {% endfor %}
+            </div>
+
+            <div class='news-block grid32'>
+                <h1>Заголовок</h1>
+                <div class='news-block-desc'>Описание</div>
+            </div>
+
+        </div>
+    </div>
+    <div class='clear'></div>
 {% endblock %}

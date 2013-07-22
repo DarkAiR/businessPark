@@ -18,7 +18,7 @@
                     <a class='gridHeight2 select {% if active %}border-cont{% endif %}' href='{{ link }}'>
                         {% if active %}
                             <div class='border-b' style='background:#0f0f0f; height:2px; text-align:center;'>
-                                <img width=9 height=7 src='../../img/menu-arrow.jpg'>
+                                <img width=9 height=7 src='{{ absLink('/img/menu-arrow.jpg') }}'>
                             </div>
                         {% endif %}
                         {{ item.name|raw }}

@@ -83,6 +83,7 @@ return array(
                 'const' => 'TwigFunctions::constGet',
                 'static' => 'TwigFunctions::staticCall',
                 'import' => 'TwigFunctions::importResource',
+                'absLink' => 'TwigFunctions::absLink',
             ),
             'filters' => array(
                 'unset' => 'TwigFunctions::filterUnset',

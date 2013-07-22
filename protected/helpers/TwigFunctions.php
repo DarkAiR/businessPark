@@ -65,6 +65,14 @@ class TwigFunctions
         }
     }
 
+    /**
+     * Создать абсолютую ссылку
+     */
+    public static function absLink($link)
+    {
+        return Yii::app()->request->hostInfo.'/'.ltrim($link,'/');
+    }
+
     public static function filterUnset($array, $elementName)
     {
         unset($array[$elementName]);

@@ -1,0 +1,26 @@
+.news-list-page-content {
+    _position: relative;
+    _height: 100%;
+    _width: 100%;
+}
+
+.news-list-page-content-pos {
+    _position: absolute;
+    _left: 50%;
+    _height: 100%;
+    _width: 100%;            /* Рассчитываемое значение */
+    _margin-left: -50%;      /* Рассчитываемое значение */
+}
+
+.news-list-block {
+    background: rgba(255,0,0,0.5);
+    float: left;
+}
+
+.news-block {
+    background: rgba(0,0,255,0.5);
+    float: left;
+}
+.news-block-desc {
+    _background: rgba(0,255,0,0.5);
+}
