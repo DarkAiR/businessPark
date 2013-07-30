@@ -27,9 +27,11 @@
 
             // Костыль, чтобы принудительно проставить высоту блока
             var cont = $('#js-projects-list-page-content');
+            var menu = $('#js-projects-menu-block');
+            var list = $('#js-projects-list-block');
             var projectItemHeight = $('#js-projects-list-block .project-item').height();
             var projectsCount = {{ projects|length }};
-            cont.height( Math.ceil(projectsCount/ceils) * projectItemHeight );
+            cont.height( Math.ceil(projectsCount/ceils) * projectItemHeight + menu.height() + parseInt(list.css('margin-top')) );
 
             app.resizeElement( projectsListPageContent.posCont, ceils * app.gridWidth );
         },
@@ -45,7 +47,7 @@
     <div id='js-projects-list-page-content' class='projects-list-page-content  grid-top-1'>
         <div id='js-projects-list-page-content-pos' class='projects-list-page-content-pos'>
 
-            <div class='projects-menu-block'>
+            <div id='js-projects-menu-block' class='projects-menu-block'>
                 {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':sectionId}) }}
             </div>
 

@@ -50,6 +50,14 @@ class Projects extends CActiveRecord
                 'sectionId' => 'Раздел',
                 'visible' => 'Показывать',
                 'orderNum' => 'Порядок сортировки',
+
+                'title' => 'Заголовок',
+                'goal' => 'Задача',
+                'publishTime' => 'Дата выпуска',
+                'link' => 'Ссылка',
+                '_linkIcon' => 'Иконка ссылки',
+                'resultText' => 'Текст результата',
+                'processText' => 'Текст процесса',
             )
         );
     }

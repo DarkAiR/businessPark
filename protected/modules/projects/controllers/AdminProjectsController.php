@@ -35,10 +35,37 @@ class AdminProjectsController extends MAdminController
             ),
             '_image' => array(
                 'class' => 'ext.ImageFileRowWidget',
-                'model' => $model,
+                'uploadedFileFieldName' => '_image',
+                'removeImageFieldName' => '_removeImageFlag',
             ),
             'visible' => array(
                 'type' => 'checkBox',
+            ),
+
+            '<hr/>',
+
+            'title' => array(
+                'type' => 'textArea',
+            ),
+            'goal' => array(
+                'type' => 'textArea',
+            ),
+            'publishTime' => array(
+                'type' => 'datepicker',
+            ),
+            'link' => array(
+                'type' => 'textField',
+            ),
+            '_linkIcon' => array(
+                'class' => 'ext.ImageFileRowWidget',
+                'uploadedFileFieldName' => '_linkIcon',
+                'removeImageFieldName' => '_removeLinkIconFlag',
+            ),
+            'resultText' => array(
+                'type' => 'ckEditor',
+            ),
+            'processText' => array(
+                'type' => 'ckEditor',
             ),
         );
     }

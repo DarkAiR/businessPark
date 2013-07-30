@@ -2,6 +2,7 @@
     position: relative;
     height: 100%;
     width: 100%;
+    border-bottom: 1px solid #cccccc;
 }
 
 .projects-list-page-content-pos {

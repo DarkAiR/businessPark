@@ -36,6 +36,15 @@ class m130716_003000_mainworks_lenta extends CDbMigration
                 `desc` varchar(255) NOT NULL COMMENT 'Краткое описание',
                 `image` varchar(100) NOT NULL COMMENT 'Картинка',
                 `sectionId` int(11) NOT NULL DEFAULT '0' COMMENT 'Раздел',
+
+                `title` varchar(255) NOT NULL COMMENT 'Заголовок',
+                `goal` varchar(255) NOT NULL COMMENT 'Задача',
+                `publishTime` int(11) NOT NULL COMMENT 'Время выпуска',
+                `link` varchar(100) NOT NULL COMMENT 'Ссылка',
+                `linkIcon` varchar(100) NOT NULL COMMENT 'Иконка ссылки',
+                `resultText` text NOT NULL COMMENT 'Текст результата',
+                `processText` text NOT NULL COMMENT 'Текст процесса',
+
                 `visible` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Видимость',
                 `orderNum` int(10) NOT NULL DEFAULT '0' COMMENT 'Порядок сортировки',
                 PRIMARY KEY (`id`),
