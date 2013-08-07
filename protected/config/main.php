@@ -36,6 +36,7 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '/' => 'site/index',
+                'uploadImage' => 'site/upload',
 
                 // News
                 'news/show/<id:\d+>/'       => 'news/news/show',

@@ -15,7 +15,8 @@
             {% if element['type'] == 'ckEditor' %}
                {% set options = options|merge({
                     'options': {
-                        'filebrowserImageUploadUrl': '/filemanager/index.php'
+                        'filebrowserUploadUrl' : '/uploadImage/',
+                        'filebrowserImageUploadUrl': '/uploadImage/'
                     }
                 }) %}
             {% endif %}

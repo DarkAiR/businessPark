@@ -60,4 +60,59 @@ class SiteController extends Controller
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }
+
+    /**
+     * Upload image
+     */
+    public function actionUpload()
+    {
+        $isOk = isset($_FILES['upload']) && $_FILES['upload']['error']==0 && $_FILES['upload']['size']>0;
+        if (!$isOk)
+            throw new CHttpException(404, 'Page not found');
+
+        // Check tmp image
+        $result = getimagesize($_FILES['upload']['tmp_name']);
+        $isOk = false;
+        if ($result !== false)
+        {
+            // width & height
+            if ($result[0] != 0  &&  $result[1] != 0)
+            {
+                switch ($result['mime'])
+                {
+                    case 'image/jpeg':
+                    case 'image/jpg':
+                    case 'image/png':
+                        $isOk = true;
+                        break;
+                }
+            }
+        }
+        if (!$isOk)
+            throw new CHttpException(404, 'Image incorrect');
+
+        // Upload file
+        $path = Yii::getPathOfAlias('webroot.store.upload').'/';
+
+        $imageName = basename($_FILES['upload']['name']);
+        $ext = strrchr($imageName, '.');
+        $imageName = md5(time().$imageName).($ext?$ext:'');
+
+        // Create folder if not exists
+        if (!is_dir($path))
+            mkdir($path, 755);
+
+        $res = move_uploaded_file($_FILES['upload']['tmp_name'], $path.$imageName);
+        if ($res === false)
+            $msg = 'Image not loaded';
+        else
+            $msg = 'Image is loaded';
+
+        $funcNum = $_GET['CKEditorFuncNum'] ;
+        $url = CHtml::normalizeUrl('/store/upload/'.$imageName);
+
+        $output = '<html><body><script type="text/javascript">window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'","'.$msg.'");</script></body></html>';
+        echo $output;
+        Yii::app()->end();
+    }
 }

@@ -28,8 +28,9 @@ class ImageControllerBehavior extends CBehavior
             if (!is_dir($storagePath))
                 mkdir($storagePath, 755);
 
-            $ext = strrchr($model->{$this->innerImageField}->name, '.');
-            $imageName = md5(time().$model->{$this->innerImageField}->name).($ext?$ext:'');
+            $imageName = basename($model->{$this->innerImageField}->name);
+            $ext = strrchr($imageName, '.');
+            $imageName = md5(time().$imageName).($ext?$ext:'');
 
             $model->{$this->innerImageField}->saveAs( $storagePath.$imageName );
             $model->{$this->imageField} = $imageName;
