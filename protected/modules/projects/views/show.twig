@@ -24,8 +24,8 @@
             self.posCont = $('#js-project-page-content-pos');
             self.leftColumn = $('#js-left-column');
             self.rightColumn = $('#js-right-column');
-            self.leftColumnWidth = self.leftColumn.width();
-            self.rightColumnWidth = self.rightColumn.width();
+            self.leftColumnWidth = '288';       /* 18px * 16 */
+            self.rightColumnWidth = '288';      /* 18px * 16 */
             app.addListener(app.eventReposition, projectPageContent.onResize);
             app.resize();
 
@@ -70,7 +70,7 @@
         <div id='js-project-page-content-pos' class='project-page-content-pos'>
 
             <div id='js-projects-menu-block' class='projects-menu-block'>
-                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':sectionId}) }}
+                {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':project.sectionId}) }}
             </div>
 
             <div id='js-project-block' class='project-block  grid-top3'>
@@ -111,7 +111,7 @@
 
                 <table>
                     <tr>
-                        <td id='js-left-column' class='project-block-left-column  grid16 gridHeight1'></td>
+                        <td id='js-left-column' class='project-block-left-column  grid16'></td>
                         <td class='project-block-content  grid48'>
                             <table class='project-block-goal  gridHeight2 grid-bottom2 grid-top1'>
                                 <tr>
@@ -127,7 +127,7 @@
                                 {{ project.processText|raw }}
                             </div>
                         </td>
-                        <td id='js-right-column' class='project-block-right-column  grid16 gridHeight1'></td>
+                        <td id='js-right-column' class='project-block-right-column  grid16'></td>
                     </tr>
                 </table>
 

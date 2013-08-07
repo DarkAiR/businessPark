@@ -51,7 +51,7 @@
     margin-left: -6px;          /* обратный left-отступ из li */
 }
 .project-block-menu li {
-    padding: 1px 5px 1px 6px;   /* левый отступ компенсируется в ul */
+    padding: 2px 5px 3px 6px;   /* левый отступ компенсируется в ul */
     line-height: 15px;
     float: left;
 }
