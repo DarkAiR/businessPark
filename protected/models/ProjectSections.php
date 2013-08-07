@@ -8,6 +8,9 @@ class ProjectSections extends CActiveRecord
     const IMAGE_WIDTH = 324;        // (18px*18)
     const IMAGE_HEIGHT = 306;       // (18px*17)
 
+    public $_image = null; //UploadedFile[]
+    public $_removeImageFlag = false; // bool
+    
     public static function model($className = __CLASS__)
     {
         return parent::model($className);

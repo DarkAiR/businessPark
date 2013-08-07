@@ -2,17 +2,34 @@
     {% import 'crud/form.twig' as formHelper %}
     {% for attributeName, element in editFormElements %}
         {% if element['class'] %}
+
             {% set className = element['class'] %}
             {% set element = element|unset('class') %}
             {{ widget(className, element|default({})|merge({'model':model, 'attribute':attributeName, 'form':form}) ) }}
+
         {% elseif element['type'] %}
-            {% if element['data'] is defined %}
-                {{ attribute(form, element['type']~'Row', [ model, attributeName, element['data'], element['htmlOptions'] ? element['htmlOptions'] : [] ])|raw }}
-            {% else %}
-                {{ attribute(form, element['type']~'Row', [ model, attributeName, element['htmlOptions'] ? element['htmlOptions'] : [] ])|raw }}
+
+            {% set options = element['htmlOptions'] ? element['htmlOptions'] : [] %}
+
+            {# default options #}
+            {% if element['type'] == 'ckEditor' %}
+               {% set options = options|merge({
+                    'options': {
+                        'filebrowserImageUploadUrl': '/filemanager/index.php'
+                    }
+                }) %}
             {% endif %}
+
+            {% if element['data'] is defined %}
+                {{ attribute(form, element['type']~'Row', [ model, attributeName, element['data'], options ])|raw }}
+            {% else %}
+                {{ attribute(form, element['type']~'Row', [ model, attributeName, options ])|raw }}
+            {% endif %}
+
         {% elseif element['rows'] %}
+
             {{ formHelper.editForm(attribute(model, attributeName), form, element['rows']) }}
+
         {% else %}
             {{ element|raw }}
         {% endif %}

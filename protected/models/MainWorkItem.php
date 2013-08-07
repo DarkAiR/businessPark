@@ -5,6 +5,9 @@ class MainWorkItem extends CActiveRecord
     const IMAGE_WIDTH = 792;        // (18px*44)
     const IMAGE_HEIGHT = 324;       // (18px*18)
 
+    public $_image = null; //UploadedFile[]
+    public $_removeImageFlag = false; // bool
+
     public $descCorrect = '';       // Исправленный desc для отображения
 
     public static function model($className = __CLASS__)

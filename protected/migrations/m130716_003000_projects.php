@@ -1,6 +1,6 @@
 <?php
 
-class m130716_003000_mainworks_lenta extends CDbMigration
+class m130716_003000_projects extends CDbMigration
 {
     /*public function up()
     {

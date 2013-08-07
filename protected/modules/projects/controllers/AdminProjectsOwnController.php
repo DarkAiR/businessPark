@@ -26,7 +26,6 @@ class AdminProjectsOwnController extends MAdminController
             ),
             '_image' => array(
                 'class' => 'ext.ImageFileRowWidget',
-                'model' => $model,
             ),
             'type' => array(
                 'type' => 'dropdownlist',

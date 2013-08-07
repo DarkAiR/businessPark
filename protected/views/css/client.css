@@ -30,9 +30,11 @@
 /* Сетка */
 .grid-left1     { margin-left: 18px; }
 .grid-left2     { margin-left: 36px; }
+.grid-left16    { margin-left: 288px; }
 
 .grid-right1    { margin-right: 18px; }
 .grid-right2    { margin-right: 36px; }
+.grid-right16   { margin-right: 288px; }
 
 .grid-top-1     { margin-top: -18px; }
 .grid-top1      { margin-top: 18px; }

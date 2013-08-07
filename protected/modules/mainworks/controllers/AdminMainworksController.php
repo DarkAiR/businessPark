@@ -24,7 +24,6 @@ class AdminMainworksController extends MAdminController
         return array(
             '_image' => array(
                 'class' => 'ext.ImageFileRowWidget',
-                'model' => $model,
             ),
             'title' => array(
                 'type' => 'textField',

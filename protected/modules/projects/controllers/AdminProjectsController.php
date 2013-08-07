@@ -11,7 +11,12 @@ class AdminProjectsController extends MAdminController
             'imageBehavior' => array(
                 'class' => 'application.behaviors.ImageControllerBehavior',
                 'imageField' => 'image',
-            )
+            ),
+            'linkIconBehavior' => array(
+                'class' => 'application.behaviors.ImageControllerBehavior',
+                'imageField' => 'linkIcon',
+                'innerImageField' => '_linkIcon',
+                'innerRemoveBtnField' => '_removeLinkIconFlag',            )
         );
     }
 
@@ -52,6 +57,11 @@ class AdminProjectsController extends MAdminController
             ),
             'publishTime' => array(
                 'type' => 'datepicker',
+                'htmlOptions' => array(
+                    'options' => array(
+                        'format' => 'dd.mm.yyyy'
+                    ),
+                ),
             ),
             'link' => array(
                 'type' => 'textField',
@@ -86,7 +96,8 @@ class AdminProjectsController extends MAdminController
 
     public function beforeSave($model)
     {
-        $this->imageBeforeSave($model);
+        $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
+        $this->linkIconBehavior->imageBeforeSave($model, $model->linkIconBehavior->getStorePath());
         parent::beforeSave($model);
     }
 }

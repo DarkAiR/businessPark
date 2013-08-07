@@ -18,3 +18,83 @@
 .project-block {
     width: 100%;
 }
+
+.project-block-title {
+    color: #e6e6e6;
+    font-size: 24px;
+    vertical-align: top;
+    line-height: 1em;
+}
+
+.project-block-link {
+    width: 100%;
+}
+.project-block-link-icon {
+    text-align: center;
+    vertical-align: middle;
+}
+.project-block-link-url {
+    vertical-align: middle;
+}
+
+.project-block-nav {
+    background: rgba(255,0,0,0.2);
+    width:100%;
+}
+.project-block-menu {
+    background: rgba(255,0,0,0.2);
+    width: 50%;
+    text-align: left;
+    vertical-align: middle;
+}
+.project-block-menu ul {
+    margin-left: -6px;          /* обратный left-отступ из li */
+}
+.project-block-menu li {
+    padding: 1px 5px 1px 6px;   /* левый отступ компенсируется в ul */
+    line-height: 15px;
+    float: left;
+}
+.project-block-menu li a {
+    font-size: 12px;
+}
+.project-block-menu li.active {
+    background: #e5e5e5;
+}
+.project-block-menu li.active a {
+    color: #272727;
+    text-decoration: none;
+}
+
+.project-block-publish-time {
+    background: rgba(255,0,255,0.2);
+    width: 50%;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.project-block-left-column {
+    background: rgba(0,0,255,0.2);
+}
+.project-block-right-column {
+    background: rgba(0,0,255,0.2);
+}
+.project-block-content {
+    background: rgba(0,255,0,0.2);
+}
+.project-block-goal {
+    background: #f1f1f1;
+    width: 100%;
+}
+.project-block-goal td {
+    vertical-align: middle;
+}
+.project-block-goal-title {
+    color: #35688d;
+}
+.project-block-result {
+
+}
+.project-block-process {
+
+}

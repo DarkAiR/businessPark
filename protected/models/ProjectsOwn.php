@@ -12,6 +12,9 @@ class ProjectsOwn extends CActiveRecord
     const IMAGE_WIDTH = 216;        // (18px*12)
     const IMAGE_HEIGHT = 90;        // (18px*5)
 
+    public $_image = null; //UploadedFile[]
+    public $_removeImageFlag = false; // bool
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);

@@ -8,6 +8,15 @@ class Projects extends CActiveRecord
     const IMAGE_WIDTH = 216;        // (18px*12)
     const IMAGE_HEIGHT = 216;       // (18px*12)
 
+    const LINK_ICON_WIDTH = 18;     // (18px*1)
+    const LINK_ICON_HEIGHT = 18;    // (18px*1)
+
+    public $_image = null; //UploadedFile[]
+    public $_removeImageFlag = false; // bool
+
+    public $_linkIcon = null; //UploadedFile[]
+    public $_removeLinkIconFlag = false; // bool
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -26,6 +35,16 @@ class Projects extends CActiveRecord
                 'imageHeight' => self::IMAGE_HEIGHT,
                 'imageField' => 'image',
             ),
+            'linkIconBehavior' => array(
+                'class' => 'application.behaviors.ImageBehavior',
+                'storagePath' => 'projects/icons',
+                'imageWidth' => self::LINK_ICON_WIDTH,
+                'imageHeight' => self::LINK_ICON_HEIGHT,
+                'imageField' => 'linkIcon',
+                'imageLabel' => 'Иконка ссылки',
+                'innerImageField' => '_linkIcon',
+                'innerRemoveBtnField' => '_removeLinkIconFlag',
+            ),
             'timeBehavior' => array(
                 'class' => 'application.behaviors.TimeBehavior',
                 'createTimeField' => 'createTime',
@@ -43,7 +62,8 @@ class Projects extends CActiveRecord
     public function attributeLabels()
     {
         return array_merge(
-            $this->imageLabels(),
+            $this->imageBehavior->imageLabels(),
+            $this->linkIconBehavior->imageLabels(),
             $this->timeLabels(),
             array(
                 'desc' => 'Краткое описание',
@@ -55,7 +75,6 @@ class Projects extends CActiveRecord
                 'goal' => 'Задача',
                 'publishTime' => 'Дата выпуска',
                 'link' => 'Ссылка',
-                '_linkIcon' => 'Иконка ссылки',
                 'resultText' => 'Текст результата',
                 'processText' => 'Текст процесса',
             )
@@ -65,13 +84,16 @@ class Projects extends CActiveRecord
     public function rules()
     {
         return array_merge(
-            $this->imageRules(),
+            $this->imageBehavior->imageRules(),
+            $this->linkIconBehavior->imageRules(),
             $this->timeRules(),
             array(
-                array('sectionId, visible', 'required'),
-                array('desc', 'safe'),
+                array('sectionId', 'required'),
+                array('title, goal, desc, resultText, processText', 'safe'),
                 array('visible', 'boolean'),
                 array('orderNum, sectionId', 'numerical', 'integerOnly'=>true),
+                array('publishTime', 'CDateValidator', 'format'=>'dd.MM.yyyy'),
+                array('link', 'CUrlValidator'),
             )
         );
     }
@@ -114,20 +136,26 @@ class Projects extends CActiveRecord
 
     protected function afterDelete()
     {
-        $this->imageAfterDelete();
+        $this->imageBehavior->imageAfterDelete();
+        $this->linkIconBehavior->imageAfterDelete();
         return parent::afterDelete();
     }
 
     protected function afterFind()
     {
-        $this->imageAfterFind();
+        $this->imageBehavior->imageAfterFind();
+        $this->linkIconBehavior->imageAfterFind();
         $this->timeAfterFind();
+
+        $this->publishTime = date('d.m.Y', $this->publishTime);
+
         return parent::afterFind();
     }
 
     protected function beforeSave()
     {
         $this->timeCreate();
+        $this->publishTime = strtotime($this->publishTime);
         return parent::beforeSave();
     }
 }

@@ -12,11 +12,19 @@
     projectPageContent =
     {
         posCont: false,
+        leftColumn: false,
+        rightColumn: false,
+        leftColumnWidth: 0,
+        rightColumnWidth: 0,
 
         init: function()
         {
             var self = this;
             self.posCont = $('#js-project-page-content-pos');
+            self.leftColumn = $('#js-left-column');
+            self.rightColumn = $('#js-right-column');
+            self.leftColumnWidth = self.leftColumn.width();
+            self.rightColumnWidth = self.rightColumn.width();
             app.addListener(app.eventReposition, projectPageContent.onResize);
             app.resize();
 
@@ -26,8 +34,26 @@
             var ceils = ev.ceils;
 
             // Принудительно выставляем высоту блока
-            $('#js-project-page-content').height( $('#js-project-block').height() );
-
+            var cont = $('#js-project-page-content');
+            var menu = $('#js-projects-menu-block');
+            var list = $('#js-project-block');
+            cont.height( menu.height() + list.height() + parseInt(list.css('margin-top')) );
+            
+            if (ceils == 3)
+            {
+                app.resizeElement( projectPageContent.leftColumn,  0, true );
+                app.resizeElement( projectPageContent.rightColumn, 0, true );
+            }
+            else if (ceils == 4)
+            {
+                app.resizeElement( projectPageContent.leftColumn,  projectPageContent.leftColumnWidth/2,  true );
+                app.resizeElement( projectPageContent.rightColumn, projectPageContent.rightColumnWidth/2, true );
+            }
+            else if (ceils == 5)
+            {
+                app.resizeElement( projectPageContent.leftColumn,  projectPageContent.leftColumnWidth,  true );
+                app.resizeElement( projectPageContent.rightColumn, projectPageContent.rightColumnWidth, true );
+            }
             app.resizeElement( projectPageContent.posCont, ceils * app.gridWidth );
         },
     };
@@ -42,12 +68,68 @@
     <div id='js-project-page-content' class='project-page-content  grid-top-1'>
         <div id='js-project-page-content-pos' class='project-page-content-pos'>
 
-            <div class='projects-menu-block'>
+            <div id='js-projects-menu-block' class='projects-menu-block'>
                 {{ widget('ext.widgets.projects.ProjectsMenuWidget', {'sectionId':sectionId}) }}
             </div>
 
-            <div id='js-project-block' class='project-block'>
-                {{ project.desc|raw }}
+            <div id='js-project-block' class='project-block  grid-top3'>
+
+                <div class='project-block-title  gridHeight2'>
+                    {{ project.title|raw }}
+                </div>
+
+                <table class='project-block-link  gridHeight2'>
+                    <tr>
+                        <td class='project-block-link-icon  grid2 gridHeight'>
+                            {% set imageUrl = project.linkIconBehavior.getImageUrl() %}
+                            {% if imageUrl %}
+                                <img src='{{ absLink(project.linkIconBehavior.getImageUrl()) }}' width="16" height="16">
+                            {% endif %}
+                        </td>
+                        <td class='project-block-link-url  gridHeight2'>
+                            <a href='{{ project.link }}' target='_blank'><span class='semibold'>{{ project.link }}</span></a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class='project-block-nav  gridHeight2'>
+                    <tr>
+                        <td class='project-block-menu'>
+                            <div class='grid-left2'>
+                                <ul>
+                                    <li class='active'><a href='#' id='item1'>Результат</a></li>
+                                    <li ><a href='#' id='item2'>Процесс</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td class='project-block-publish-time'>
+                            Дата выпуска: {{ project.publishTime }}
+                        </td>
+                    </tr>
+                </table>
+
+                <table style='background: rgba(255,0,255,0.5);'>
+                    <tr>
+                        <td id='js-left-column' class='project-block-left-column  grid16 gridHeight1'></td>
+                        <td class='project-block-content  grid48 grid-top1'>
+                            <table class='project-block-goal  gridHeight2 grid-bottom2'>
+                                <tr>
+                                    <td class='grid2'></td>
+                                    <td><span class='project-block-goal-title  semibold'>Задача:</span> {{ project.goal|raw }}</td>
+                                    <td class='grid2'></td>
+                                </tr>
+                            </table>
+                            <div class='project-block-result'>
+                                {{ project.resultText|raw }}
+                            </div>
+                            <div class='project-block-process'>
+                                {{ project.processText|raw }}
+                            </div>
+                        </td>
+                        <td id='js-right-column' class='project-block-right-column  grid16 gridHeight1'></td>
+                    </tr>
+                </table>
+
             </div>
 
         </div>

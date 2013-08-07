@@ -3,33 +3,35 @@
 class ImageControllerBehavior extends CBehavior
 {
     public $imageField = '';
+    public $innerImageField = '_image';
+    public $innerRemoveBtnField = '_removeImageFlag';
 
-    public function imageBeforeSave($model)
+    public function imageBeforeSave($model, $storagePath)
     {
-        $storagePath = $model->getStorePath();
-        if ($model->_removeImageFlag)
+        if ($model->{$this->innerRemoveBtnField})
         {
             // removing file
             // set attribute to null
             unlink( $storagePath.$model->{$this->imageField} );
             $model->{$this->imageField} = null;
         }
-        $model->_image = CUploadedFile::getInstance($model, '_image');
-        if ($model->validate() && !empty($model->_image))
+
+        $model->{$this->innerImageField} = CUploadedFile::getInstance($model, $this->innerImageField);
+        if ($model->validate() && !empty($model->{$this->innerImageField}))
         {
             if ($model->{$this->imageField})
             {
                 unlink( $storagePath.$model->{$this->imageField} );
                 $model->{$this->imageField} = null;
             }
-            // saving file from CUploadFile instance $model->_image
+            // saving file from CUploadFile instance $model->{$this->innerImageField}
             if (!is_dir($storagePath))
                 mkdir($storagePath, 755);
 
-            $ext = strrchr($model->_image->name, '.');
-            $imageName = md5(time().$model->_image->name).($ext?$ext:'');
+            $ext = strrchr($model->{$this->innerImageField}->name, '.');
+            $imageName = md5(time().$model->{$this->innerImageField}->name).($ext?$ext:'');
 
-            $model->_image->saveAs( $storagePath.$imageName );
+            $model->{$this->innerImageField}->saveAs( $storagePath.$imageName );
             $model->{$this->imageField} = $imageName;
         }
     }

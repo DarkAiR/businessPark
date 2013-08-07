@@ -30,7 +30,6 @@ class AdminProjectSectionsController extends MAdminController
             ),
             '_image' => array(
                 'class' => 'ext.ImageFileRowWidget',
-                'model' => $model,
             ),
             'visible' => array(
                 'type' => 'checkBox',
