@@ -7,6 +7,7 @@
 
 {% block js %}
     {{ parent() }}
+    {{ import('js','tabmenu.js') }}
 
     <script type="text/javascript">
     projectPageContent =
@@ -97,8 +98,8 @@
                         <td class='project-block-menu'>
                             <div class='grid-left2'>
                                 <ul>
-                                    <li class='active'><a href='#' id='item1'>Результат</a></li>
-                                    <li ><a href='#' id='item2'>Процесс</a></li>
+                                    <li><a href='#' tab_menu_item='1'>Результат</a></li>
+                                    <li><a href='#' tab_menu_item='2'>Процесс</a></li>
                                 </ul>
                             </div>
                         </td>
@@ -108,21 +109,21 @@
                     </tr>
                 </table>
 
-                <table style='background: rgba(255,0,255,0.5);'>
+                <table>
                     <tr>
                         <td id='js-left-column' class='project-block-left-column  grid16 gridHeight1'></td>
-                        <td class='project-block-content  grid48 grid-top1'>
-                            <table class='project-block-goal  gridHeight2 grid-bottom2'>
+                        <td class='project-block-content  grid48'>
+                            <table class='project-block-goal  gridHeight2 grid-bottom2 grid-top1'>
                                 <tr>
                                     <td class='grid2'></td>
                                     <td><span class='project-block-goal-title  semibold'>Задача:</span> {{ project.goal|raw }}</td>
                                     <td class='grid2'></td>
                                 </tr>
                             </table>
-                            <div class='project-block-result'>
+                            <div tab_menu_page='1' class='project-block-result'>
                                 {{ project.resultText|raw }}
                             </div>
-                            <div class='project-block-process'>
+                            <div tab_menu_page='2' class='project-block-process'>
                                 {{ project.processText|raw }}
                             </div>
                         </td>
