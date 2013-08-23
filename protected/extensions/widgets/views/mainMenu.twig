@@ -5,7 +5,6 @@
     <ul>
         {% for item in items %}
             {% set link = static('CHtml', 'normalizeUrl', ['/'~item.link]) %}
-            {% set select = item.select or hasSelect %}
             {% set active = item.select %}
             {% set first = loop.first %}
             {% set last = loop.last %}
@@ -13,19 +12,15 @@
                 {% if not last %}
                     <div class='border-r' style='background:#b2b2b2; height:10px; margin-top:4px'></div>
                 {% endif %}
-                {% if select %}
-                    <div class='border-b' style='background:#d9d9d9; height:2px;'></div>
-                    <a class='gridHeight2 select {% if active %}border-cont{% endif %}' href='{{ link }}'>
-                        {% if active %}
-                            <div class='border-b' style='background:#0f0f0f; height:2px; text-align:center;'>
-                                <img width=9 height=7 src='{{ absLink('/img/menu-arrow.jpg') }}'>
-                            </div>
-                        {% endif %}
-                        {{ item.name|raw }}
-                    </a>
-                {% else %}
-                    <a class='unselect' href='{{ link }}'>{{ item.name|raw }}</a>
-                {% endif %}
+                <div class='border-b' style='background:#d9d9d9; height:2px;'></div>
+                <a class='gridHeight2 select {% if active %}border-cont{% endif %}' href='{{ link }}'>
+                    {% if active %}
+                        <div class='border-b' style='background:#0f0f0f; height:2px; text-align:center;'>
+                            <img width=9 height=7 src='{{ absLink('/img/menu-arrow.jpg') }}'>
+                        </div>
+                    {% endif %}
+                    {{ item.name|raw }}
+                </a>
             </li>
         {% endfor %}
     </ul>

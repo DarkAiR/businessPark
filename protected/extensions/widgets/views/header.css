@@ -1,29 +1,25 @@
 /*
  * Настройки блоков основного шаблона
  */
-#menu-block {
+.header-cont #menu-block {
     _background: rgba(255,255,0,0.2);
-    width: 450px;   /* 18px * 25 */
     height: 100%;
     float: left;
 }
-#logo-block {
+.header-cont #logo-block {
     _background: rgba(255,0,255,0.2);
-    width: 216px;   /* 18px * 12 */
     height: 100%;
     float: left;
     text-align: left;
 }
-#city-block {
+.header-cont #city-block {
     _background: rgba(255,0,128,0.2);
-    width: 288px;   /* 18px * 16 */
     height: 100%;
     float: left;
     text-align: right;
 }
-#social-block {
+.header-cont #social-block {
     _background: rgba(0,255,255,0.2);
-    width: 288px;   /* 18px * 16 */
     height: 100%;
     float: left;
     text-align: right;
@@ -32,12 +28,16 @@
 /*
  * Контакты
  */
-#contacts-block {
+.header-cont #contacts-block {
     _background: rgba(255,128,0,0.2);
-    width: 198px;   /* 18px * 11 */
     height: 100%;
     float: left;
     text-align: right;
+}
+.header-cont #contacts-block .contact-mail {
+}
+.header-cont #contacts-block .contact-phone {
+    padding-top: 3px;
 }
 
 

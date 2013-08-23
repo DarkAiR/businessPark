@@ -2,7 +2,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    margin-top: 72px;
+    margin-top: 72px;   /* 18px * 4 */
 }
 .footer-cont-pos {
     _background: rgba(0,0,255,0.2);
@@ -17,22 +17,23 @@
     width: 2000px;          /* Заведомо больше максимальной ширины */
 }
 
-.footer-bottom-cont {
-    padding-top: 54px;
-    padding-bottom: 108px;
+.footer-cont #copyright-block {
+    float: left;
 }
-
-.footer-item-title {
-    color: #2a2a2a;
-    text-transform: uppercase;
-}
-
-/*
- * Copyright
- */
-.footer-copyright {
+.footer-cont #copyright-block .footer-copyright,
+.footer-cont #copyright-block .footer-copyright * {
     font-size: 12px;
 }
-.footer-copyright-color {
-    color: #457092;
+.footer-cont #info-block {
+    float: left;
+}
+.footer-cont #contacts-block {
+    float: left;
+}
+.footer-cont #contacts-block .contact-mail {
+}
+.footer-cont #contacts-block .contact-phone {
+}
+.footer-cont #bottom-menu-block {
+    float :left;
 }

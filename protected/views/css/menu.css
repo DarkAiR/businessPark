@@ -4,12 +4,7 @@
     padding-right: 16px;
 }
 .hmenu li a {
-    color: #3a6b96;
     text-transform: uppercase;
-    text-decoration: none;
-}
-.hmenu li a.unselect {
-    border-bottom: 1px solid #689299;
 }
 .hmenu li a.select {
     display: inline-block;

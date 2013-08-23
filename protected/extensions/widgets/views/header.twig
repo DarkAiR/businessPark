@@ -51,20 +51,22 @@ $(document).ready( function()
     <div id='js-header-cont-pos' class='header-cont-pos'>
         <div class='header-cont'>
 
-            <div id='menu-block'>
-                {{ widget('ext.widgets.MainMenuWidget') }}
+            <div id='menu-block' class='grid24'>
+                {{ widget('ext.widgets.MainMenuWidget', {'hasSelect':true}) }}
             </div>
-            <div id='logo-block'>
-                <a href='/'><img src='/img/logo.png' width="185" height="30"></a>
+            <div id='logo-block' class='grid12'>
+                <div class='grid-left1'>
+                    <a href='/'><img src='/img/logo.png' width="185" height="30"></a>
+                </div>
             </div>
-            <div id='contacts-block'>
+            <div id='contacts-block' class='grid12'>
                 <a class='contact-mail' href=''>info@sphereart.ru</a>
                 <div class='contact-phone semibold'>+7 961 763 07 99</div>
             </div>
-            <div id='city-block'>
+            <div id='city-block' class='grid16'>
                 {{ widget('ext.widgets.CityWidget') }}
             </div>
-            <div id='social-block'>
+            <div id='social-block' class='grid16'>
                 {{ widget('ext.widgets.SocialButtonsWidget') }}
             </div>
 

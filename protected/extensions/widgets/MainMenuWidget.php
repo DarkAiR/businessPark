@@ -10,15 +10,11 @@ class MainMenuWidget extends ExtendedWidget
         $url = trim( Yii::app()->request->url, '/' );
         $items = MenuItem::model()->onSite()->byParent(0)->orderDefault()->findAll();
         $itemsArr = array();
-        $hasSelect = false;
         foreach ($items as $item)
         {
             $select = false;
             if (strpos($url, trim($item->link, '/')) === 0)
-            {
                 $select = true;
-                $hasSelect = true;
-            }
             $itemsArr[] = array(
                 'name' => $item->name,
                 'link' => $item->link,
@@ -26,6 +22,6 @@ class MainMenuWidget extends ExtendedWidget
             );
         }
 
-        $this->render('mainMenu', array('items'=>$itemsArr, 'hasSelect'=>$hasSelect));
+        $this->render('mainMenu', array('items'=>$itemsArr));
     }
 }
