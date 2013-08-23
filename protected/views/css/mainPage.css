@@ -19,13 +19,13 @@
     position: relative;
     height: 108px;      /* 18px * 8 */
 }
-.main-works-block {
+/*.main-works-block {
     width: 864px;       /* 18px * 48 */
-    height: 100%;
+/*    height: 100%;
     position: absolute;
     left: 0px;
     top: 0px;
-}
+}*/
 .projects-own-block {
     height: 100%;
     position: absolute;

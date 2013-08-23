@@ -21,7 +21,6 @@ return array(
         'system2',
         'projects',
         'sitemenu',
-        'mainworks',
         'news',
     ),
     'components' => array(

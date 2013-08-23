@@ -24,7 +24,7 @@
 .footer-cont #copyright-block .footer-copyright * {
     font-size: 12px;
 }
-.footer-cont #info-block {
+.footer-cont #address-block {
     float: left;
 }
 .footer-cont #contacts-block {
@@ -33,6 +33,7 @@
 .footer-cont #contacts-block .contact-mail {
 }
 .footer-cont #contacts-block .contact-phone {
+    font-size: 12px;
 }
 .footer-cont #bottom-menu-block {
     float :left;

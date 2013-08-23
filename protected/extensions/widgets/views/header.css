@@ -37,6 +37,7 @@
 .header-cont #contacts-block .contact-mail {
 }
 .header-cont #contacts-block .contact-phone {
+    font-size: 12px;
     padding-top: 3px;
 }
 
