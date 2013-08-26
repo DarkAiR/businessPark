@@ -14,10 +14,10 @@
     {% endif %}
 
     {{ widget('bootstrap.widgets.TbGridView', {
-    'type' : 'condensed striped',
-    'dataProvider' : model.search(),
-    'filter' : model,
-    'columns' : columns,
+        'type' : 'condensed striped',
+        'dataProvider' : model.search(),
+        'filter' : model,
+        'columns' : columns,
     }) }}
 
 {% endblock %}

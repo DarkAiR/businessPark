@@ -35,6 +35,8 @@ class m130716_003000_projects extends CDbMigration
                 `createTime` int(11) NOT NULL COMMENT 'Время создания',
                 `desc` varchar(255) NOT NULL COMMENT 'Краткое описание',
                 `image` varchar(100) NOT NULL COMMENT 'Картинка',
+                `imageBig` VARCHAR(100) NOT NULL COMMENT 'Большая картинка',
+                `showImageBig` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'Показывать большую картинку',
                 `sectionId` int(11) NOT NULL DEFAULT '0' COMMENT 'Раздел',
 
                 `title` varchar(255) NOT NULL COMMENT 'Заголовок',

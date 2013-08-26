@@ -1,0 +1,26 @@
+.works-on-main-widget {
+    _background: rgba(255,0,0,0.2);
+    display: table;
+}
+
+
+.works-on-main-big {
+    _background: rgba(255,0,0,0.2);
+}
+.works-on-main-big-title {
+    color: #282828;
+    font-size: 28px;
+    line-height: 21px;
+}
+.works-on-main-big-desc {
+
+}
+.works-on-main-big-more {
+
+}
+.works-on-main-big-image {
+
+}
+.works-on-main-cont {
+
+}

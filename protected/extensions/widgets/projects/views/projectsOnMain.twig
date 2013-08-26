@@ -1,0 +1,25 @@
+{{ import('css','projectsOnMain.css','ext.widgets.projects.views') }}
+
+<div class='works-on-main-widget'>
+
+    <div class='works-on-main-big  grid32 gridHeight36 left'>
+        {% if bigWork %}
+            {% set link = static('CHtml', 'normalizeUrl', [{'0':'/projects/projects/show','id':bigWork.id}]) %}
+            <div class='grid-left2'>
+                <div class='gridHeight2'><div class='works-on-main-big-title  semibold'>{{ bigWork.title }}</div></div>
+                <div class='works-on-main-big-desc  gridHeight1'>{{ bigWork.desc|raw }}</div>
+                <div class='works-on-main-big-more  gridHeight1 grid-bottom1'><a href='{{link}}' class='semibold'>Подробнее &gt;</a></div>
+                <div class='works-on-main-big-image'><a href='{{link}}'><img src='{{ bigWork.getImageBigUrl() }}'></a></div>
+            </div>
+        {% endif %}
+    </div>
+    <div class='works-on-main-cont  grid48 gridHeight36 left'>
+    {% for work in works %}
+        {{ widget('ext.widgets.projects.ProjectItemWidget', {'project':work, showDate:false} ) }}
+        {% if loop.index == 3 %}
+            <div class='clear'></div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+</div>

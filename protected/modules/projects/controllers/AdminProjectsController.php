@@ -3,7 +3,7 @@
 class AdminProjectsController extends MAdminController
 {
     public $modelName = 'Projects';
-    public $modelHumanTitle = array('проект', 'проекта', 'проектов');
+    public $modelHumanTitle = array('работу', 'работы', 'работ');
 
     public function behaviors()
     {
@@ -12,11 +12,18 @@ class AdminProjectsController extends MAdminController
                 'class' => 'application.behaviors.ImageControllerBehavior',
                 'imageField' => 'image',
             ),
+            'imageBigBehavior' => array(
+                'class' => 'application.behaviors.ImageControllerBehavior',
+                'imageField' => 'imageBig',
+                'innerImageField' => '_imageBig',
+                'innerRemoveBtnField' => '_removeImageBigFlag',
+            ),
             'linkIconBehavior' => array(
                 'class' => 'application.behaviors.ImageControllerBehavior',
                 'imageField' => 'linkIcon',
                 'innerImageField' => '_linkIcon',
-                'innerRemoveBtnField' => '_removeLinkIconFlag',            )
+                'innerRemoveBtnField' => '_removeLinkIconFlag',
+            )
         );
     }
 
@@ -30,10 +37,17 @@ class AdminProjectsController extends MAdminController
         }
 
         return array(
+            '<h1>Описание работы для списка</h1>',
+            'visible' => array(
+                'type' => 'checkBox',
+            ),
             'sectionId' => array(
                 'type' => 'dropdownlist',
                 'data' => $sectArr,
                 'empty' => 'Выбрать'
+            ),
+            'title' => array(
+                'type' => 'textField',
             ),
             'desc' => array(
                 'type' => 'ckEditor',
@@ -43,15 +57,18 @@ class AdminProjectsController extends MAdminController
                 'uploadedFileFieldName' => '_image',
                 'removeImageFieldName' => '_removeImageFlag',
             ),
-            'visible' => array(
+            '_imageBig' => array(
+                'class' => 'ext.ImageFileRowWidget',
+                'uploadedFileFieldName' => '_imageBig',
+                'removeImageFieldName' => '_removeImageBigFlag',
+            ),
+            'showImageBig' => array(
                 'type' => 'checkBox',
             ),
 
             '<hr/>',
+            '<h1>Описание работы внутренней страницы</h1>',
 
-            'title' => array(
-                'type' => 'textArea',
-            ),
             'goal' => array(
                 'type' => 'textArea',
             ),
@@ -87,6 +104,8 @@ class AdminProjectsController extends MAdminController
             '_createTime',
             'sectionId',
             'image',
+            'imageBig',
+            'showImageBig',
             'visible',
             $this->getButtonsColumn(),
         );
@@ -97,6 +116,7 @@ class AdminProjectsController extends MAdminController
     public function beforeSave($model)
     {
         $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
+        $this->imageBigBehavior->imageBeforeSave($model, $model->imageBigBehavior->getStorePath());
         $this->linkIconBehavior->imageBeforeSave($model, $model->linkIconBehavior->getStorePath());
         parent::beforeSave($model);
     }

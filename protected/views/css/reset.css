@@ -41,7 +41,7 @@ caption, tbody, tfoot, thead, tr, th, td {
  * @see portal.frameIe
  */
 input, textarea, button, select {
-	font: normal normal 13px;
+	font: normal 13px;
 	font-family: "Segoe UI", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
 	margin: 0;
 	outline: 0;

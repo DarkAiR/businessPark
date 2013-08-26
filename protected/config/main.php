@@ -22,6 +22,7 @@ return array(
         'projects',
         'sitemenu',
         'news',
+        'contentBlocks'
     ),
     'components' => array(
         'user' => array(

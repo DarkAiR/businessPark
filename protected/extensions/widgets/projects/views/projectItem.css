@@ -11,5 +11,9 @@
 .project-item-image {
 
 }
+.project-item-title {
+    text-transform: uppercase;
+    color: #000000;
+}
 .project-item-desc {
 }

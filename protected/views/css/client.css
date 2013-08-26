@@ -38,16 +38,24 @@
 .gridHeight2    { height: 36px; }
 .gridHeight3    { height: 54px; }
 .gridHeight5    { height: 90px; }
+.gridHeight6    { height: 108px; }
 .gridHeight7    { height: 126px; }
 .gridHeight8    { height: 144px; }
+.gridHeight11   { height: 198px; }
+.gridHeight18   { height: 324px; }
+.gridHeight19   { height: 342px; }
 .gridHeight20   { height: 360px; }
+.gridHeight32   { height: 576px; }
+.gridHeight36   { height: 648px; }
 .grid1          { width: 18px; }
 .grid2          { width: 36px; }
+.grid11         { width: 198px; }
 .grid12         { width: 216px; }
 .grid16         { width: 288px; }
 .grid24         { width: 432px; }
 .grid32         { width: 576px; }
 .grid48         { width: 864px; }
+.grid80         { width: 1440px; }
 
 .left {
     float: left;

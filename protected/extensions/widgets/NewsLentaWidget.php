@@ -26,7 +26,7 @@ class NewsLentaWidget extends ExtendedWidget
         {
             $arr[] = array(
                 'id' => $work->id,
-                'date' => date('j M', $work->createTime),
+                'date' => date('j', $work->createTime).' '.DateHelper::getMonthNameByTimestamp($work->createTime),
                 'title' => $work->title,
                 'text' => $work->shortDesc,
                 'link' => CHtml::normalizeUrl(array('/news/news/show', 'id'=>$work->id))

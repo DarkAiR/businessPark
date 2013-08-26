@@ -38,18 +38,30 @@
     <div class='main-page-content'>
         <div id='js-main-page-content-pos' class='main-page-content-pos'>
 
-            <div class='main-page-block1'>
-                <div class='projects-own-block  grid32'>
-                    {{ widget('ext.widgets.ProjectsOwnWidget') }}
-                </div>
+            <div class='main-page-block1  grid80'>
+                {{ widget('ext.widgets.projects.ProjectsOnMainWidget') }}
             </div>
 
-            <div class='main-page-block2  grid-top2'>
-                {{ widget('ext.widgets.MainWorksLentaWidget') }}
-            </div>
-
-            <div class='main-page-block3  grid-top2'>
+            <div class='main-page-block2  grid80 grid-top1'>
                 {{ widget('ext.widgets.NewsLentaWidget') }}
+            </div>
+
+            <div class='main-page-block3  grid80 gridHeight11 grid-top1'>
+                <div class='main-page-faq-widget  grid16 left'>
+                    <div class='gridHeight7 grid-left2 grid-top2 grid-right2'>
+                        {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_LEFT')}) }}
+                    </div>
+                </div>
+                <div class='main-page-info-widget  grid32 left'>
+                    <div class='gridHeight7 grid-left2 grid-top2 grid-right2'>
+                        {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_CENTER')}) }}
+                    </div>
+                </div>
+                <div class='main-page-own-projects-widget  grid32 left'>
+                    <div class='gridHeight7 grid-left2 grid-top2 grid-right2'>
+                        {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_RIGHT')}) }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

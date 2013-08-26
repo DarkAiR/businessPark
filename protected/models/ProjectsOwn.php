@@ -28,7 +28,7 @@ class ProjectsOwn extends CActiveRecord
             // ),
             'imageBehavior' => array(
                 'class' => 'application.behaviors.ImageBehavior',
-                'storagePath' => 'projects',
+                'storagePath' => 'projects/own',
                 'imageMaxWidth' => self::IMAGE_WIDTH,
                 'imageMaxHeight' => self::IMAGE_HEIGHT,
                 'imageExt' => 'jpg, png',
