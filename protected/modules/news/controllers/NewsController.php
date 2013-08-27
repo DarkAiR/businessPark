@@ -4,9 +4,28 @@ class NewsController extends Controller
 {
     public function actionIndex()
     {
-        $news = News::model()->onSite()->findAll();
-        
+        $year = Yii::app()->request->getQuery('year');
+
+        // Получаем распределение по годам
+        $sql = "SELECT DATE_FORMAT(FROM_UNIXTIME(createTime),'%Y') as year, count(*) as cnt
+                FROM sphereart.news
+                WHERE visible=1
+                GROUP BY year
+                ORDER BY year DESC;";
+        $years = Yii::app()->db->commandBuilder->createSqlCommand($sql)->queryAll();
+        if (empty($years))
+            Yii::app()->end();
+
+        // Берем последний год
+        $lastYear = $years[0]['year'];
+        if ($year === null)
+            $year = $lastYear;
+
+        $news = News::model()->onSite()->byYear($year)->findAll();
         $this->render('/index', array(
+            'year' => $year,
+            'lastYear' => $lastYear,
+            'years' => $years,
             'news' => $news,
         ));
     }

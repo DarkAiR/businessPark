@@ -2,7 +2,15 @@
 
 class DateHelper
 {
-    public static function getMonthNameByTimestamp($ts, $index=1)
+    // Дата для новостей
+    public static function formatNewsDate($time)
+    {
+        return date('j', $time).' '.self::getMonthNameByTimestamp($time, 1);
+    }
+
+
+    // Получить русское имя месяца в нужном падеже
+    public static function getMonthNameByTimestamp($ts, $index)
     {
         static $monthNames = array(
             1 => array('январь', 'января'),

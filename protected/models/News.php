@@ -79,6 +79,19 @@ class News extends CActiveRecord
         return $this;
     }
 
+
+    public function byYear($year)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => "DATE_FORMAT(FROM_UNIXTIME(createTime),'%Y') = :year",
+            'params' => array(
+                'year' => $year,
+            ),
+        ));
+        return $this;
+    }
+
+
     public function search()
     {
         $criteria = new CDbCriteria;

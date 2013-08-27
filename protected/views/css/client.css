@@ -20,6 +20,7 @@
 /* Сетка */
 .grid-left1     { margin-left: 18px; }
 .grid-left2     { margin-left: 36px; }
+.grid-left8     { margin-left: 144px; }
 .grid-left16    { margin-left: 288px; }
 
 .grid-right1    { margin-right: 18px; }
@@ -33,6 +34,7 @@
 
 .grid-bottom1   { margin-bottom: 18px; }
 .grid-bottom2   { margin-bottom: 36px; }
+.grid-bottom3   { margin-bottom: 54px; }
 
 .gridHeight1    { height: 18px; }
 .gridHeight2    { height: 36px; }
@@ -49,6 +51,7 @@
 .gridHeight36   { height: 648px; }
 .grid1          { width: 18px; }
 .grid2          { width: 36px; }
+.grid8          { width: 144px; }
 .grid11         { width: 198px; }
 .grid12         { width: 216px; }
 .grid16         { width: 288px; }

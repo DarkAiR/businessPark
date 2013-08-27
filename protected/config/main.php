@@ -40,7 +40,7 @@ return array(
 
                 // News
                 'news/show/<id:\d+>/'       => 'news/news/show',
-                'news/<sectionId:\d+>/'     => 'news/news/index',
+                'news/<year:\d+>/'          => 'news/news/index',
                 'news/'                     => 'news/news/index',
 
                 // Projects
