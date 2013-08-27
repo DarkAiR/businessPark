@@ -1,132 +1,15 @@
-{% extends 'views/layouts/main.twig' %}
+{% extends 'modules/news/views/base.twig' %}
 
 {% block css %}
     {{ parent() }}
     {{ import('css','index.css', 'application.modules.news.views') }}
 {% endblock %}
 
-{% block js %}
-    {{ parent() }}
-
-    <script type="text/javascript">
-    newsListPageContent =
-    {
-        posCont: false,
-        centerBlockWidth: 0,
-        rightBlock1Width: 0,
-        rightBlock2Width: 0,
-
-        init: function()
-        {
-            var self = this;
-            self.posCont = $('#js-news-list-page-content-pos');
-            self.centerBlockWidth = $('#js-news-block').width();
-            self.rightBlock1Width = $('#js-news-right-block1').width();
-            self.rightBlock2Width = $('#js-news-right-block2').width();
-
-            app.addListener(app.eventReposition, newsListPageContent.onResize);
-            app.resize();
-
-        },
-        onResize: function( ev )
-        {
-            var ceils = ev.ceils;
-
-            var cont = $('#js-news-list-page-content');
-            var leftBlock = $('#js-news-list-block');
-            var centerBlock = $('#js-news-block');
-            var rightBlock1 = $('#js-news-right-block1');
-            var rightBlock2 = $('#js-news-right-block2');
-
-            // Принудительно выставляем высоту блока
-            var h = (leftBlock.height() > centerBlock.height())
-                ? leftBlock.height()
-                : centerBlock.height();
-            h = Math.ceil(h);
-            cont.height(h);
-            rightBlock2.height(h);
-
-            cbWidth = newsListPageContent.centerBlockWidth;
-            rb1Width = newsListPageContent.rightBlock1Width;
-            rb2Width = newsListPageContent.rightBlock2Width;
-
-            if (ceils == 3)
-            {
-                app.resizeElement( centerBlock, cbWidth - 2*rb2Width, true );
-                app.resizeElement( rightBlock1, 0, true );
-                app.resizeElement( rightBlock2, 0, true );
-            }
-            else if (ceils == 4)
-            {
-                app.resizeElement( centerBlock, cbWidth - rb2Width, true );
-                app.resizeElement( rightBlock1, 0, true );
-                app.resizeElement( rightBlock2, rb2Width, true );
-            }
-            else if (ceils == 5)
-            {
-                app.resizeElement( centerBlock, cbWidth, true );
-                app.resizeElement( rightBlock1, rb1Width, true );
-                app.resizeElement( rightBlock2, rb2Width, true );
-            }
-
-            app.resizeElement( newsListPageContent.posCont, ceils * app.gridWidth );
-        },
-    };
-    $(document).ready( function()
-    {
-        newsListPageContent.init();
-    });
-    </script>
-{% endblock %}
-
-
-{% block content %}
-<div id='js-news-list-page-content' class='news-list-page-content  grid-bottom3'>
-    <div id='js-news-list-page-content-pos' class='news-list-page-content-pos'>
-        <div style='width:2000px'>
-
-        <div id='js-news-list-block' class='news-list-block  grid16 left'>
-            <div class='grid-left2'>
-                {% for y in years %}
-                    <div class='news-list-item  gridHeight1 grid-top1 semibold'>
-
-                            {% if y['year'] == year %}
-                                {{y['year']}}
-                            {% else %}
-                                {% if y['year'] == lastYear %}
-                                    {% set link = static('CHtml', 'normalizeUrl', [{'0':'/news/news/index'}]) %}
-                                {% else %}
-                                    {% set link = static('CHtml', 'normalizeUrl', [{'0':'/news/news/index','year':y['year']}]) %}
-                                {% endif %}
-                                <a href='{{link}}'>{{y['year']}}</a>
-                            {% endif %}
-
-                    </div>
-                {% endfor %}
-            </div>
+{% block newsContent %}
+    {% for item in news %}
+        <div class='news-item'>
+            <div class='news-item-date  gridHeight1'>{{ static('DateHelper', 'formatNewsDate', [item.createTime]) }}</div>
+            <div class='news-item-text grid-bottom1'>{{ item.shortDesc|raw }}</div>
         </div>
-
-        <div id='js-news-block' class='news-block  grid48 left'>
-            <div class='grid-left2 grid-right2'>
-
-                {% for item in news %}
-                    <div class='news-item'>
-                        <div class='news-item-date  gridHeight1'>{{ static('DateHelper', 'formatNewsDate', [item.createTime]) }}</div>
-                        <div class='news-item-text grid-bottom1'>{{ item.shortDesc|raw }}</div>
-                    </div>
-                {% endfor %}
-
-            </div>
-        </div>
-
-        <div id='js-news-right-block1' class='news-right-block1  grid8 left'>
-        </div>
-
-        <div id='js-news-right-block2' class='news-right-block2  grid8 left'>
-        </div>
-
-        </div>
-    </div>
-</div>
-<div class='clear'></div>
+    {% endfor %}
 {% endblock %}

@@ -40,6 +40,7 @@ class News extends CActiveRecord
                 'sectionId' => 'Раздел',
                 'visible' => 'Показывать',
                 'orderNum' => 'Порядок сортировки',
+                'newsLink' => 'Ссылка на новость'
             )
         );
     }
@@ -99,6 +100,11 @@ class News extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
+    }
+
+    public function getNewsLink()
+    {
+        return CHtml::normalizeUrl( array(0=>'/news/news/show', 'id'=>$this->id) );
     }
 
     protected function afterFind()
