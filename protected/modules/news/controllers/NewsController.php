@@ -58,7 +58,7 @@ class NewsController extends Controller
     private function getNewsYears()
     {
         $sql = "SELECT DATE_FORMAT(FROM_UNIXTIME(createTime),'%Y') as year, count(*) as cnt
-                FROM sphereart.news
+                FROM News
                 WHERE visible=1
                 GROUP BY year
                 ORDER BY year DESC;";
