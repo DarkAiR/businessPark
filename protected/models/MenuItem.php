@@ -71,7 +71,7 @@ class MenuItem extends CActiveRecord
 
     private function getRowData($parentId)
     {
-        $data = Yii::app()->db->createCommand('SELECT * from `menuitem` WHERE parentItemId='.$parentId.' ORDER BY orderNum ASC')->queryAll();
+        $data = Yii::app()->db->createCommand('SELECT * from `MenuItem` WHERE parentItemId='.$parentId.' ORDER BY orderNum ASC')->queryAll();
         $rowData = array();
         foreach ($data as $row)
         {
