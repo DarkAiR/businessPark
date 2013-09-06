@@ -16,7 +16,7 @@ class m130716_113820_own_projects extends CDbMigration
     public function safeUp()
     {
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `projectsOwn` (
+            CREATE TABLE IF NOT EXISTS `ProjectsOwn` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `desc` varchar(255) NOT NULL COMMENT 'Краткое описание',
                 `link` varchar(100) NOT NULL COMMENT 'Ссылка',
@@ -32,6 +32,6 @@ class m130716_113820_own_projects extends CDbMigration
 
     public function safeDown()
     {
-        $this->dropTable('projectsOwn');
+        $this->dropTable('ProjectsOwn');
     }
 }

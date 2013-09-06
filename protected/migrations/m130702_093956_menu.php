@@ -5,7 +5,7 @@ class m130702_093956_menu extends CDbMigration
     public function up()
     {
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `menu` (
+            CREATE TABLE IF NOT EXISTS `Menu` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `name` varchar(255) NOT NULL,
                 `visible` tinyint(1) NOT NULL DEFAULT '1',
@@ -13,7 +13,7 @@ class m130702_093956_menu extends CDbMigration
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         ");
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `menuitem` (
+            CREATE TABLE IF NOT EXISTS `MenuItem` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `menuId` int(11) NOT NULL DEFAULT '0',
                 `parentItemId` int(11) NOT NULL DEFAULT '0',
@@ -29,14 +29,14 @@ class m130702_093956_menu extends CDbMigration
         ");
 
         $this->execute("
-            INSERT INTO `menu` (`name`,`visible`) VALUES ('Главное меню',1);
+            INSERT INTO `Menu` (`name`,`visible`) VALUES ('Главное меню',1);
         ");
     }
 
     public function down()
     {
-        $this->dropTable('menuitem');
-        $this->dropTable("menu");
+        $this->dropTable('MenuItem');
+        $this->dropTable("Menu");
         return true;
     }
 }

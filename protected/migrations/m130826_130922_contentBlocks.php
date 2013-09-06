@@ -16,7 +16,7 @@ class m130826_130922_contentBlocks extends CDbMigration
     public function safeUp()
     {
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `contentBlocks` (
+            CREATE TABLE IF NOT EXISTS `ContentBlocks` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `title` text NOT NULL COMMENT 'Заголовок',
                 `text` text NOT NULL COMMENT 'Текст',
@@ -30,6 +30,6 @@ class m130826_130922_contentBlocks extends CDbMigration
 
     public function safeDown()
     {
-        $this->dropTable('contentBlocks');
+        $this->dropTable('ContentBlocks');
     }
 }
