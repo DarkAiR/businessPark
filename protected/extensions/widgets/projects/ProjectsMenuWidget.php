@@ -18,7 +18,7 @@ class ProjectsMenuWidget extends ExtendedWidget
             ->from('Projects')
             ->leftJoin('ProjectSections ps', 'ps.id = sectionId AND ps.visible=1')
             ->group('sectionId')
-            ->where('projects.visible=1')
+            ->where('Projects.visible=1')
             ->queryAll();
 
         foreach ($items as &$item)
