@@ -1,4 +1,8 @@
 @font-face {
+    font-family: "Segoe UI";
+    src: url(/fonts/segoeui.ttf) format("truetype");
+}
+@font-face {
     font-family: "Segoe UI Semibold";
     src: url(/fonts/Segoe%20UI%20Semibold.ttf) format("truetype");
 }

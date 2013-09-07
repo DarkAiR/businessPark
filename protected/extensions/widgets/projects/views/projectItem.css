@@ -13,8 +13,11 @@
 }
 .project-item-title {
     text-transform: uppercase;
-    color: #000000;
+    color: #101010;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .project-item-desc {
     line-height: 18px;
+    margin-top: 3px;
 }

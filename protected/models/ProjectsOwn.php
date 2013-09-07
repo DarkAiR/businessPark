@@ -62,7 +62,7 @@ class ProjectsOwn extends CActiveRecord
         return array_merge(
             $this->imageRules(),
             array(
-                array('type, visible', 'required'),
+                array('type', 'required'),
                 array('desc, link', 'safe'),
                 array('link', 'CUrlValidator'),
                 array('visible', 'boolean'),

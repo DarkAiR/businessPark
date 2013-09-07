@@ -58,7 +58,7 @@ class ProjectSections extends CActiveRecord
         return array_merge(
             $this->imageRules(),
             array(
-                array('name, title, visible', 'required'),
+                array('name, title', 'required'),
                 array('name, title, desc', 'safe'),
                 array('visible', 'boolean'),
                 array('orderNum', 'numerical', 'integerOnly'=>true),

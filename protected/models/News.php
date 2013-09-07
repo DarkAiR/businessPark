@@ -50,7 +50,7 @@ class News extends CActiveRecord
         return array_merge(
             $this->timeRules(),
             array(
-                array('sectionId, visible', 'required'),
+                array('sectionId', 'required'),
                 array('title, desc, shortDesc', 'safe'),
                 array('visible', 'boolean'),
                 array('orderNum, sectionId', 'numerical', 'integerOnly'=>true),

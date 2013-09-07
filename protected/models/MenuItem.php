@@ -38,7 +38,7 @@ class MenuItem extends CActiveRecord
     public function rules()
     {
         return array(
-            array('menuId, name, link, visible', 'required'),
+            array('menuId, name, link', 'required'),
             array('visible', 'boolean'),
             array('orderNum, parentItemId', 'numerical', 'integerOnly'=>true),
         );

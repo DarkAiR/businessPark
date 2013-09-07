@@ -34,7 +34,7 @@ class Menu extends CActiveRecord
     public function rules()
     {
         return array(
-            array('name, visible', 'required'),
+            array('name', 'required'),
             array('visible', 'boolean'),
         );
     }

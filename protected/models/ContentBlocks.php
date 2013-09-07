@@ -6,9 +6,10 @@
 class ContentBlocks extends CActiveRecord
 {
     const POS_NONE = 0;
-    const POS_MAIN_LEFT = 1;
-    const POS_MAIN_CENTER = 2;
-    const POS_MAIN_RIGHT = 3;
+    const POS_MAIN_LEFT = 1;        // На главной слева
+    const POS_MAIN_CENTER = 2;      // На главной в центре
+    const POS_MAIN_RIGHT = 3;       // На главной справа
+
 
     private static $posNames = array(
         self::POS_MAIN_LEFT => 'На главной слева',
