@@ -15,6 +15,7 @@
 }
 .news-lenta-item-text {
     overflow: hidden;
+    margin-top: -5px;
 }
 /*.news-lenta-small-angle {
     background: url(../../img/small-angle.png) left top no-repeat;
