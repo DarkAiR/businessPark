@@ -25,10 +25,20 @@
 
 .project-sections-item-left {
     _background: rgba(0,255,0,0.3);
+    vertical-align: top;
 }
 .project-sections-item-left-works {
-
+    _background: rgba(0,255,0,0.5);
+    position: relative;
 }
+.project-sections-item-left-works-inner {
+    position: absolute;
+    bottom: 0px;
+}
+.project-sections-item-left-works-inner a {
+    font-size: 15px;
+}
+
 .project-sections-item-left-image {
 
 }
@@ -36,10 +46,23 @@
     _background: rgba(0,0,255,0.3);
 }
 .project-sections-item-right-title {
-
+    _background: rgba(0,255,0,0.5);
+    position: relative;
 }
-.project-sections-item-right-text {
-
+.project-sections-item-right-title-inner {
+    position: absolute;
+    bottom: 2px;
+    font-size: 28px;
+    color: #353535;
+}
+.project-sections-item-right-text * {
+    font-size: 15px;
+}
+.project-sections-item-right-text p {
+    padding-bottom: 27px;
+}
+.project-sections-item-right-text p a[href$='.doc'] {
+    font-family: "Segoe UI Semibold", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
 }
 
 .project-sections-right-block1,

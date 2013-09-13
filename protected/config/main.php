@@ -89,6 +89,7 @@ return array(
                 'static' => 'TwigFunctions::staticCall',
                 'import' => 'TwigFunctions::importResource',
                 'absLink' => 'TwigFunctions::absLink',
+                'plural' => 'TwigFunctions::plural',
             ),
             'filters' => array(
                 'unset' => 'TwigFunctions::filterUnset',
