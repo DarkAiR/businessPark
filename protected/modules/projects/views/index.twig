@@ -44,7 +44,7 @@
 {% endblock %}
 
 {% block content %}
-    <div id='js-projects-list-page-content' class='projects-list-page-content  grid-top-1'>
+    <div id='js-projects-list-page-content' class='projects-list-page-content  grid-top-1 grid-bottom3'>
         <div id='js-projects-list-page-content-pos' class='projects-list-page-content-pos'>
 
             <div id='js-projects-menu-block' class='projects-menu-block'>
@@ -53,7 +53,7 @@
 
             <div id='js-projects-list-block' class='projects-list-block  grid-top3'>
                 {% for project in projects %}
-                    {{ widget('ext.widgets.projects.ProjectItemWidget', {'project':project} ) }}
+                    {{ widget('ext.widgets.projects.ProjectItemWidget', {'project':project, showDate:false} ) }}
                 {% endfor %}
             </div>
 

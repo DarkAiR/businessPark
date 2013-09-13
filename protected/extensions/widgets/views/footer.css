@@ -2,7 +2,6 @@
     position: relative;
     height: 100%;
     width: 100%;
-    margin-top: 72px;   /* 18px * 4 */
 }
 .footer-cont-pos {
     _background: rgba(0,0,255,0.2);

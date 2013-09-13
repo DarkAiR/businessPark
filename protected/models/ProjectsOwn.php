@@ -28,7 +28,7 @@ class ProjectsOwn extends CActiveRecord
             // ),
             'imageBehavior' => array(
                 'class' => 'application.behaviors.ImageBehavior',
-                'storagePath' => 'projects',
+                'storagePath' => 'projects/own',
                 'imageMaxWidth' => self::IMAGE_WIDTH,
                 'imageMaxHeight' => self::IMAGE_HEIGHT,
                 'imageExt' => 'jpg, png',
@@ -62,7 +62,7 @@ class ProjectsOwn extends CActiveRecord
         return array_merge(
             $this->imageRules(),
             array(
-                array('type, visible', 'required'),
+                array('type', 'required'),
                 array('desc, link', 'safe'),
                 array('link', 'CUrlValidator'),
                 array('visible', 'boolean'),

@@ -41,7 +41,7 @@ caption, tbody, tfoot, thead, tr, th, td {
  * @see portal.frameIe
  */
 input, textarea, button, select {
-	font: normal normal 13px;
+	font: normal 13px;
 	font-family: "Segoe UI", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
 	margin: 0;
 	outline: 0;
@@ -70,15 +70,16 @@ html {
  */
 body {
     background: #FFFFFF;
-	color: #4d4d4d;
+	color: #707070;
 	font: normal normal 13px;
 	font-family: "Segoe UI", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";
+	line-height: 18px;
 	height: 100%;
 }
 
 a {
 	text-decoration: none;
-	color: #327acd;
+	color: #2e8fd3;
 }
 
 ol, ul {

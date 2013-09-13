@@ -16,7 +16,7 @@ class m130716_101347_news_lenta extends CDbMigration
     public function safeUp()
     {
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `news` (
+            CREATE TABLE IF NOT EXISTS `News` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `createTime` int(11) NOT NULL COMMENT 'Время создания',
                 `title` varchar(100) NOT NULL COMMENT 'Заголовок',
@@ -32,12 +32,12 @@ class m130716_101347_news_lenta extends CDbMigration
         ");
 
         $this->execute("
-            ALTER TABLE `news` ADD COLUMN `shortDesc` text NOT NULL COMMENT 'Короткое описание' AFTER `title`;
+            ALTER TABLE `News` ADD COLUMN `shortDesc` text NOT NULL COMMENT 'Короткое описание' AFTER `title`;
         ");
     }
 
     public function safeDown()
     {
-        $this->dropTable('news');
+        $this->dropTable('News');
     }
 }

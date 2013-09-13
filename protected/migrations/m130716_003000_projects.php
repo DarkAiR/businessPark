@@ -16,7 +16,7 @@ class m130716_003000_projects extends CDbMigration
     public function safeUp()
     {
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `projectSections` (
+            CREATE TABLE IF NOT EXISTS `ProjectSections` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `name` varchar(100) NOT NULL COMMENT 'Заголовок для отображения в меню',
                 `title` varchar(100) NOT NULL COMMENT 'Заголовок',
@@ -30,11 +30,13 @@ class m130716_003000_projects extends CDbMigration
         ");
 
         $this->execute("
-            CREATE TABLE IF NOT EXISTS `projects` (
+            CREATE TABLE IF NOT EXISTS `Projects` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `createTime` int(11) NOT NULL COMMENT 'Время создания',
                 `desc` varchar(255) NOT NULL COMMENT 'Краткое описание',
                 `image` varchar(100) NOT NULL COMMENT 'Картинка',
+                `imageBig` VARCHAR(100) NOT NULL COMMENT 'Большая картинка',
+                `showImageBig` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'Показывать большую картинку',
                 `sectionId` int(11) NOT NULL DEFAULT '0' COMMENT 'Раздел',
 
                 `title` varchar(255) NOT NULL COMMENT 'Заголовок',
@@ -57,7 +59,7 @@ class m130716_003000_projects extends CDbMigration
 
     public function safeDown()
     {
-        $this->dropTable('projects');
-        $this->dropTable('projectSections');
+        $this->dropTable('Projects');
+        $this->dropTable('ProjectSections');
     }
 }

@@ -38,7 +38,7 @@ class MenuItem extends CActiveRecord
     public function rules()
     {
         return array(
-            array('menuId, name, link, visible', 'required'),
+            array('menuId, name, link', 'required'),
             array('visible', 'boolean'),
             array('orderNum, parentItemId', 'numerical', 'integerOnly'=>true),
         );
@@ -71,7 +71,7 @@ class MenuItem extends CActiveRecord
 
     private function getRowData($parentId)
     {
-        $data = Yii::app()->db->createCommand('SELECT * from `menuitem` WHERE parentItemId='.$parentId.' ORDER BY orderNum ASC')->queryAll();
+        $data = Yii::app()->db->createCommand('SELECT * from `MenuItem` WHERE parentItemId='.$parentId.' ORDER BY orderNum ASC')->queryAll();
         $rowData = array();
         foreach ($data as $row)
         {
@@ -88,6 +88,15 @@ class MenuItem extends CActiveRecord
         $alias = $this->getTableAlias();
         $this->getDbCriteria()->mergeWith(array(
             'condition' => $alias.'.parentItemId = '.$parent,
+        ));
+        return $this;
+    }
+
+    public function byMenuId($menuId)
+    {
+        $alias = $this->getTableAlias();
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => $alias.'.menuId = '.$menuId,
         ));
         return $this;
     }

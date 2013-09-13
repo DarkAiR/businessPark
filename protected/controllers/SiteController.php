@@ -64,7 +64,7 @@ class SiteController extends Controller
     /**
      * Upload image
      */
-    public function actionUpload()
+    public function actionUploadImage()
     {
         $isOk = isset($_FILES['upload']) && $_FILES['upload']['error']==0 && $_FILES['upload']['size']>0;
         if (!$isOk)
@@ -110,6 +110,43 @@ class SiteController extends Controller
 
         $funcNum = $_GET['CKEditorFuncNum'] ;
         $url = CHtml::normalizeUrl('/store/upload/'.$imageName);
+
+        $output = '<html><body><script type="text/javascript">window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'","'.$msg.'");</script></body></html>';
+        echo $output;
+        Yii::app()->end();
+    }
+
+
+    /**
+     * Upload image
+     */
+    public function actionUploadFile()
+    {
+        $isOk = isset($_FILES['upload']) && $_FILES['upload']['error']==0 && $_FILES['upload']['size']>0;
+        if (!$isOk)
+            throw new CHttpException(404, 'Page not found');
+
+        // TODO: check MIME-type
+
+        // Upload file
+        $path = Yii::getPathOfAlias('webroot.store.uploadFiles').'/';
+
+        $fileName = basename($_FILES['upload']['name']);
+        $ext = strrchr($fileName, '.');
+        $fileName = md5(time().$fileName).($ext?$ext:'');
+
+        // Create folder if not exists
+        if (!is_dir($path))
+            mkdir($path, 755);
+
+        $res = move_uploaded_file($_FILES['upload']['tmp_name'], $path.$fileName);
+        if ($res === false)
+            $msg = 'File not loaded';
+        else
+            $msg = 'File is loaded';
+
+        $funcNum = $_GET['CKEditorFuncNum'] ;
+        $url = CHtml::normalizeUrl('/store/uploadFiles/'.$fileName);
 
         $output = '<html><body><script type="text/javascript">window.parent.CKEDITOR.tools.callFunction('.$funcNum.', "'.$url.'","'.$msg.'");</script></body></html>';
         echo $output;

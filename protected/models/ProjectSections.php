@@ -5,8 +5,8 @@
  */
 class ProjectSections extends CActiveRecord
 {
-    const IMAGE_WIDTH = 324;        // (18px*18)
-    const IMAGE_HEIGHT = 306;       // (18px*17)
+    const IMAGE_WIDTH = 252;        // (18px*14)
+    const IMAGE_HEIGHT = 234;       // (18px*13)
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
@@ -28,6 +28,7 @@ class ProjectSections extends CActiveRecord
                 'imageWidth' => self::IMAGE_WIDTH,
                 'imageHeight' => self::IMAGE_HEIGHT,
                 'imageField' => 'image',
+                'imageExt' => 'jpg, png',
             )
         );
     }
@@ -35,7 +36,8 @@ class ProjectSections extends CActiveRecord
     public function relations()
     {
         return array(
-            'projects' => array(self::HAS_MANY, 'Projects', 'sectionId', 'order'=>'items.orderNum ASC'),
+            'projects' => array(self::HAS_MANY, 'Projects', 'sectionId', 'order'=>'projects.orderNum ASC'),
+            'projectsOnSite' => array(self::HAS_MANY, 'Projects', 'sectionId', 'scopes'=>array('onSite'), 'order'=>'projectsOnSite.orderNum ASC'),
         );
     }
 
@@ -58,7 +60,7 @@ class ProjectSections extends CActiveRecord
         return array_merge(
             $this->imageRules(),
             array(
-                array('name, title, visible', 'required'),
+                array('name, title', 'required'),
                 array('name, title, desc', 'safe'),
                 array('visible', 'boolean'),
                 array('orderNum', 'numerical', 'integerOnly'=>true),

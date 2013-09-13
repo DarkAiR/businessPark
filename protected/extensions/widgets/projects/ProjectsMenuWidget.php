@@ -15,9 +15,10 @@ class ProjectsMenuWidget extends ExtendedWidget
 
         $items = Yii::app()->db->createCommand()
             ->select('count(*) as amount, sectionId, ps.name as name')
-            ->from('projects')
-            ->leftJoin('projectsections ps', 'ps.id = sectionId')
+            ->from('Projects')
+            ->leftJoin('ProjectSections ps', 'ps.id = sectionId AND ps.visible=1')
             ->group('sectionId')
+            ->where('Projects.visible=1')
             ->queryAll();
 
         foreach ($items as &$item)

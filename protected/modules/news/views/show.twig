@@ -1,17 +1,18 @@
-{% extends 'views/layouts/main.twig' %}
+{% extends 'modules/news/views/base.twig' %}
 
 {% block css %}
     {{ parent() }}
+    {{ import('css','show.css', 'application.modules.news.views') }}
 {% endblock %}
 
-{% block js %}
-    {{ parent() }}
+{% block newsContent %}
+    <div class='news-item'>
+        <div class='news-item-date  gridHeight1'>{{ static('DateHelper', 'formatNewsDate', [news.createTime]) }}</div>
+        <div class='news-item-title grid-bottom1 semibold'>{{ news.title|raw }}</div>
+        <div class='news-item-text'>{{ news.desc|raw }}</div>
+    </div>
 {% endblock %}
 
-{% block content %}
-	{{ news.createTime|date('Y-m-d') }}
-	<br/>
-	{{ news.title|raw }}
-	<br/>
-	{{ news.desc|raw }}
+{% block newsBottomBlock %}
+    <div class='gridHeight6'></div>
 {% endblock %}

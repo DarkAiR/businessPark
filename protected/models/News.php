@@ -40,6 +40,7 @@ class News extends CActiveRecord
                 'sectionId' => 'Раздел',
                 'visible' => 'Показывать',
                 'orderNum' => 'Порядок сортировки',
+                'newsLink' => 'Ссылка на новость'
             )
         );
     }
@@ -49,7 +50,7 @@ class News extends CActiveRecord
         return array_merge(
             $this->timeRules(),
             array(
-                array('sectionId, visible', 'required'),
+                array('sectionId', 'required'),
                 array('title, desc, shortDesc', 'safe'),
                 array('visible', 'boolean'),
                 array('orderNum, sectionId', 'numerical', 'integerOnly'=>true),
@@ -79,6 +80,19 @@ class News extends CActiveRecord
         return $this;
     }
 
+
+    public function byYear($year)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => "DATE_FORMAT(FROM_UNIXTIME(createTime),'%Y') = :year",
+            'params' => array(
+                'year' => $year,
+            ),
+        ));
+        return $this;
+    }
+
+
     public function search()
     {
         $criteria = new CDbCriteria;
@@ -86,6 +100,11 @@ class News extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
+    }
+
+    public function getNewsLink()
+    {
+        return CHtml::normalizeUrl( array(0=>'/news/news/show', 'id'=>$this->id) );
     }
 
     protected function afterFind()

@@ -22,6 +22,7 @@ return array(
         'projects',
         'sitemenu',
         'news',
+        'contentBlocks'
     ),
     'components' => array(
         'user' => array(
@@ -35,17 +36,21 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '/' => 'site/index',
-                'uploadImage' => 'site/upload',
+                'uploadImage' => 'site/uploadImage',
+                'uploadFile' => 'site/uploadFile',
 
                 // News
                 'news/show/<id:\d+>/'       => 'news/news/show',
-                'news/<sectionId:\d+>/'     => 'news/news/index',
+                'news/<year:\d+>/'          => 'news/news/index',
                 'news/'                     => 'news/news/index',
 
                 // Projects
                 'works/show/<id:\d+>/'      => 'projects/projects/show',
                 'works/<sectionId:\d+>/'    => 'projects/projects/index',
                 'works/'                    => 'projects/projects/index',
+
+                // Service
+                'service/'                  => 'projects/projectSections/index',
 
                 // Admin
                 'admin/' => 'system2',

@@ -2,6 +2,11 @@
 
 class Menu extends CActiveRecord
 {
+    const NONE = 0;
+    const MAIN_MENU = 1;
+    const FOOTER_MENU = 2;
+
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -34,7 +39,7 @@ class Menu extends CActiveRecord
     public function rules()
     {
         return array(
-            array('name, visible', 'required'),
+            array('name', 'required'),
             array('visible', 'boolean'),
         );
     }

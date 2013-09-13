@@ -1,4 +1,8 @@
 @font-face {
+    font-family: "Segoe UI";
+    src: url(/fonts/segoeui.ttf) format("truetype");
+}
+@font-face {
     font-family: "Segoe UI Semibold";
     src: url(/fonts/Segoe%20UI%20Semibold.ttf) format("truetype");
 }
@@ -20,6 +24,7 @@
 /* Сетка */
 .grid-left1     { margin-left: 18px; }
 .grid-left2     { margin-left: 36px; }
+.grid-left8     { margin-left: 144px; }
 .grid-left16    { margin-left: 288px; }
 
 .grid-right1    { margin-right: 18px; }
@@ -33,21 +38,34 @@
 
 .grid-bottom1   { margin-bottom: 18px; }
 .grid-bottom2   { margin-bottom: 36px; }
+.grid-bottom3   { margin-bottom: 54px; }
+.grid-bottom4   { margin-bottom: 72px; }
 
 .gridHeight1    { height: 18px; }
 .gridHeight2    { height: 36px; }
 .gridHeight3    { height: 54px; }
 .gridHeight5    { height: 90px; }
+.gridHeight6    { height: 108px; }
 .gridHeight7    { height: 126px; }
 .gridHeight8    { height: 144px; }
+.gridHeight11   { height: 198px; }
+.gridHeight13   { height: 234px; }
+.gridHeight18   { height: 324px; }
+.gridHeight19   { height: 342px; }
 .gridHeight20   { height: 360px; }
+.gridHeight32   { height: 576px; }
+.gridHeight36   { height: 648px; }
 .grid1          { width: 18px; }
 .grid2          { width: 36px; }
+.grid8          { width: 144px; }
+.grid11         { width: 198px; }
 .grid12         { width: 216px; }
 .grid16         { width: 288px; }
 .grid24         { width: 432px; }
 .grid32         { width: 576px; }
 .grid48         { width: 864px; }
+.grid64         { width: 1152px; }
+.grid80         { width: 1440px; }
 
 .left {
     float: left;

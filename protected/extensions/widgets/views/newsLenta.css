@@ -1,27 +1,27 @@
 .news-lenta-widget {
-    height: 100%;
 }
 
 .news-lenta-item {
     float: left;
     height: 100%;
-    background: #fbfaf7;
+    background: #f6f5ef;
 }
 .news-lenta-item-date {
-    color: #8c492b;
+    color: #707070;
     font-size: 10px;
     display: table-cell;
     vertical-align: middle;
+    opacity: 0.7;
 }
 .news-lenta-item-text {
-    height: 3.5em;
     overflow: hidden;
+    margin-top: -5px;
 }
-.news-lenta-small-angle {
+/*.news-lenta-small-angle {
     background: url(../../img/small-angle.png) left top no-repeat;
     position: absolute;
     right: 1px;
     bottom: 2px;
     width: 5px;
     height: 5px;
-}
+}*/

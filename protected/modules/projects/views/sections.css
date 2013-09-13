@@ -1,0 +1,53 @@
+.project-sections-page-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.project-sections-page-content-pos {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+    overflow: hidden;
+}
+
+.project-sections-block {
+    _background: rgba(255,0,0,0.5);
+}
+
+.project-sections-item {
+    _background: rgba(0,255,0,0.5);
+    overflow: hidden;
+    width: 100%;
+}
+
+.project-sections-item-left {
+    _background: rgba(0,255,0,0.3);
+}
+.project-sections-item-left-works {
+
+}
+.project-sections-item-left-image {
+
+}
+.project-sections-item-right {
+    _background: rgba(0,0,255,0.3);
+}
+.project-sections-item-right-title {
+
+}
+.project-sections-item-right-text {
+
+}
+
+.project-sections-right-block1,
+.project-sections-right-block2 {
+    _background: rgba(0,0,255,0.3);
+    min-height: 1px;
+}
+.project-sections-right-block2 {
+    background: url(../../img/bg-pattern.png) left top repeat-y;
+    opacity: 0.4;
+}

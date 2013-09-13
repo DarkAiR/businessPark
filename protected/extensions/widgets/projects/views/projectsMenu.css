@@ -5,6 +5,8 @@
 .projects-menu-item-count {
     font-size: 10px;
     color: #b7b7b7;
-    margin-top: -1.2em;
     display: inline-table;
+    margin-top: -1.5em;
+    margin-left: -4px;
+    margin-right: -2em;
 }
