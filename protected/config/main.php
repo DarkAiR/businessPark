@@ -36,7 +36,8 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '/' => 'site/index',
-                'uploadImage' => 'site/upload',
+                'uploadImage' => 'site/uploadImage',
+                'uploadFile' => 'site/uploadFile',
 
                 // News
                 'news/show/<id:\d+>/'       => 'news/news/show',
@@ -47,6 +48,9 @@ return array(
                 'works/show/<id:\d+>/'      => 'projects/projects/show',
                 'works/<sectionId:\d+>/'    => 'projects/projects/index',
                 'works/'                    => 'projects/projects/index',
+
+                // Service
+                'service/'                  => 'projects/projectSections/index',
 
                 // Admin
                 'admin/' => 'system2',

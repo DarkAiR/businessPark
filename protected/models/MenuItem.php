@@ -91,4 +91,13 @@ class MenuItem extends CActiveRecord
         ));
         return $this;
     }
+
+    public function byMenuId($menuId)
+    {
+        $alias = $this->getTableAlias();
+        $this->getDbCriteria()->mergeWith(array(
+            'condition' => $alias.'.menuId = '.$menuId,
+        ));
+        return $this;
+    }
 }

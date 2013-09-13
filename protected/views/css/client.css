@@ -49,6 +49,7 @@
 .gridHeight7    { height: 126px; }
 .gridHeight8    { height: 144px; }
 .gridHeight11   { height: 198px; }
+.gridHeight13   { height: 234px; }
 .gridHeight18   { height: 324px; }
 .gridHeight19   { height: 342px; }
 .gridHeight20   { height: 360px; }
@@ -63,6 +64,7 @@
 .grid24         { width: 432px; }
 .grid32         { width: 576px; }
 .grid48         { width: 864px; }
+.grid64         { width: 1152px; }
 .grid80         { width: 1440px; }
 
 .left {

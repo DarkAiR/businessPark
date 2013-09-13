@@ -5,9 +5,10 @@
 }
 .hmenu li a {
     text-transform: uppercase;
+    display: inline-block;
 }
 .hmenu li a.select {
-    display: inline-block;
+    color: #101010;
 }
 .hmenu li.first {
     padding-left: 0px;

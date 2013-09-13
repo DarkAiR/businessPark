@@ -53,7 +53,7 @@ class AdminProjectSectionsController extends MAdminController
 
     public function beforeSave($model)
     {
-        $this->imageBeforeSave($model);
+        $this->imageBeforeSave($model, $model->imageBehavior->getStorePath());
         parent::beforeSave($model);
     }
 }
