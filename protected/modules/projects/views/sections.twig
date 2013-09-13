@@ -88,14 +88,20 @@
             <div id='js-project-sections-block' class='project-sections-block  grid64 left'>
 
                 {% for projectSect in projectSections %}
-                    <div id='js-project-sections-item' class='project-sections-item'>
+                    <div id='js-project-sections-item' class='project-sections-item  {% if not loop.last %}grid-bottom3{% endif %}'>
                         <table border=0 cellpadding=0 cellspacing=0>
                         <tr>
                             <td class='project-sections-item-left  grid16'>
-                                <div class='grid-left2'>
-                                    <div class='project-sections-item-left-works'>
-                                        {{ projectSect.projectsOnSite|length }}
+                                <div class='project-sections-item-left-works  gridHeight2'>
+                                    <div class='project-sections-item-left-works-inner arrow-read-next  semibold'>
+                                        {% set numProjects = projectSect.projectsOnSite|length %}
+                                        {% set link = static('CHtml', 'normalizeUrl', [{0:'/projects/projects/index', 'sectionId':projectSect.id}]) %}
+                                        <a href='{{link}}'>
+                                            {{ numProjects }} {{ plural( numProjects|length, ['работа', 'работы', 'работ'] ) }}
+                                        </a>
                                     </div>
+                                </div>
+                                <div class='grid-left2'>
                                     <div class='project-sections-item-left-image  gridHeight13'>
                                         <img src='{{ projectSect.getImageUrl() }}'>
                                     </div>
@@ -104,10 +110,12 @@
 
                             <td class='project-sections-item-right'>
                                 <div class='grid-left2'>
-                                    <div class='project-sections-item-right-title'>
-                                        {{ projectSect.title|raw }}
+                                    <div class='project-sections-item-right-title  gridHeight2'>
+                                        <div class='project-sections-item-right-title-inner  semibold'>
+                                            {{ projectSect.title|raw }}
+                                        </div>
                                     </div>
-                                    <div class='project-sections-item-right-text'>
+                                    <div class='project-sections-item-right-text  grid-top2'>
                                         {{ projectSect.desc|raw }}
                                     </div>
                                 </div>

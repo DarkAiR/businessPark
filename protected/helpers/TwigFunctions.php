@@ -72,6 +72,20 @@ class TwigFunctions
     {
         return Yii::app()->request->hostInfo.'/'.ltrim($link,'/');
     }
+    /**
+     * Множественная форма
+     * @param  integer $num  Число для сравнения
+     * @param  array $vars Варианты
+     * @return string       результат
+     */
+    public static function plural($num, $vars)
+    {
+        return $num % 10 == 1 && $num % 100 != 11
+            ? $vars[0]
+            : $num % 10 >= 2 && $num % 10 <= 4 && ($num % 100 < 10 || $num % 100 >= 20)
+                ? $vars[1]
+                : $vars[2];
+    }
 
     public static function filterUnset($array, $elementName)
     {

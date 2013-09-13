@@ -4,7 +4,7 @@
     padding-right: 16px;
 }
 .hmenu li a {
-    text-transform: uppercase;
+    __text-transform: uppercase;
     display: inline-block;
 }
 .hmenu li a.select {
