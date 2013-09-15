@@ -30,14 +30,22 @@
                 var answ = linkElem.closest('.faq-item-question').siblings('.faq-item-answer');
                 if (answ)
                 {
-                    answ.toggle(0, function()
-                    {
-                        if ($(this).is(':visible'))
-                            linkElem.css({'color':'#101010'});
-                        else
-                            linkElem.css({'color':''});
+                    if (answ.is(':visible'))
+                        linkElem.css({'color':''});
+                    else
+                        linkElem.css({'color':'#101010'});
+
+                    answ.toggle( {
+                        'duration':200,
+                        'progress':function(anim, progress, remainingMs)
+                        {
+                            app.resize();
+                        },
+                        'always':function(anim, jumpedToEnd)
+                        {
+                            app.resize();
+                        }
                     });
-                    app.resize();
                 }
             });
             app.addListener(app.eventReposition, faqListContent.onResize);
