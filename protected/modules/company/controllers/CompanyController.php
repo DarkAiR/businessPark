@@ -2,6 +2,11 @@
 
 class CompanyController extends Controller
 {
+    public function actionIndex()
+    {
+        $this->redirect('about');
+    }
+
     public function actionAbout()
     {
         $this->render('/about', array(

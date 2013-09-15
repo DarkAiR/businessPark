@@ -54,7 +54,7 @@ return array(
                 'service/'                  => 'projects/projectSections/index',
 
                 // Company
-                'company/'                  => 'company/company/about',
+                'company/'                  => 'company/company/index',
                 'company/<action:\w+>/'     => 'company/company/<action>',
                 
                 // Admin
