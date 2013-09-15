@@ -17,3 +17,9 @@
     padding-right: 0px;
     border-right: 0px none;
 }
+
+
+
+.vmenu li a.select {
+    color: #101010;
+}

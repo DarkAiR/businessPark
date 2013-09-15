@@ -35,9 +35,6 @@
     position: absolute;
     bottom: 0px;
 }
-.project-sections-item-left-works-inner a {
-    font-size: 15px;
-}
 
 .project-sections-item-left-image {
 
@@ -52,14 +49,16 @@
 .project-sections-item-right-title-inner {
     position: absolute;
     bottom: 2px;
-    font-size: 28px;
+    font-size: 30px;
     color: #353535;
 }
+.project-sections-item-right-text-outer {
+    margin-top:-6px;
+}
 .project-sections-item-right-text * {
-    font-size: 15px;
 }
 .project-sections-item-right-text p {
-    padding-bottom: 27px;
+    padding-bottom: 22px;
 }
 .project-sections-item-right-text p a[href$='.doc'] {
     font-family: "Segoe UI Semibold", "wf_SegoeUI","wf_SegoeUILight","Tahoma","Verdana","Arial","sans-serif";

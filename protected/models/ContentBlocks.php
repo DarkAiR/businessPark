@@ -9,12 +9,14 @@ class ContentBlocks extends CActiveRecord
     const POS_MAIN_LEFT = 1;        // На главной слева
     const POS_MAIN_CENTER = 2;      // На главной в центре
     const POS_MAIN_RIGHT = 3;       // На главной справа
+    const POS_FOOTER_WORKTIME = 4;  // В подвале время работы
 
 
     private static $posNames = array(
         self::POS_MAIN_LEFT => 'На главной слева',
         self::POS_MAIN_CENTER => 'На главной в центре',
         self::POS_MAIN_RIGHT => 'На главной справа',
+        self::POS_FOOTER_WORKTIME => 'Время работы в подвале',
     );
 
     public static function model($className = __CLASS__)

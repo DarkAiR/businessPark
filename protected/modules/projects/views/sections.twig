@@ -93,7 +93,7 @@
                         <tr>
                             <td class='project-sections-item-left  grid16'>
                                 <div class='project-sections-item-left-works  gridHeight2'>
-                                    <div class='project-sections-item-left-works-inner arrow-read-next  semibold'>
+                                    <div class='project-sections-item-left-works-inner arrow-read-next'>
                                         {% set numProjects = projectSect.projectsOnSite|length %}
                                         {% set link = static('CHtml', 'normalizeUrl', [{0:'/projects/projects/index', 'sectionId':projectSect.id}]) %}
                                         <a href='{{link}}'>
@@ -111,12 +111,14 @@
                             <td class='project-sections-item-right'>
                                 <div class='grid-left2'>
                                     <div class='project-sections-item-right-title  gridHeight2'>
-                                        <div class='project-sections-item-right-title-inner  semibold'>
+                                        <div class='project-sections-item-right-title-inner'>
                                             {{ projectSect.title|raw }}
                                         </div>
                                     </div>
-                                    <div class='project-sections-item-right-text  grid-top2'>
-                                        {{ projectSect.desc|raw }}
+                                    <div class='project-sections-item-right-text-outer'>
+                                        <div class='project-sections-item-right-text  text15 grid-top2'>
+                                            {{ projectSect.desc|raw }}
+                                        </div>
                                     </div>
                                 </div>
                             </td>

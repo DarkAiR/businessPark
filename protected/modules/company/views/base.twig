@@ -1,0 +1,32 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css','base.css', 'application.modules.company.views') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block content %}
+<div id='js-company-page-content' class='company-page-content  grid-bottom3'>
+    <div id='js-company-page-content-pos' class='company-page-content-pos'>
+        <div class='grid80'>
+
+            <div id='js-company-page-menu' class='company-page-menu  grid16 left'>
+                <div class='grid-left2'>
+                    {{ widget('ext.widgets.company.CompanyMenuWidget' ) }}
+                </div>
+            </div>
+
+            <div class='company-page-inner'>
+                {% block innerContent %}
+                {% endblock %}            
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

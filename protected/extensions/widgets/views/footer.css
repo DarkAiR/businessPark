@@ -17,23 +17,26 @@
 }
 
 .footer-cont #copyright-block {
-    float: left;
+    min-height: 1px;
 }
 .footer-cont #copyright-block .footer-copyright,
 .footer-cont #copyright-block .footer-copyright * {
     font-size: 12px;
 }
 .footer-cont #address-block {
-    float: left;
+    min-height: 1px;
 }
 .footer-cont #contacts-block {
-    float: left;
+    min-height: 1px;
 }
 .footer-cont #contacts-block .contact-mail {
 }
 .footer-cont #contacts-block .contact-phone {
     font-size: 12px;
 }
+.footer-cont #bottom-worktime-block {
+    min-height: 1px;
+}
 .footer-cont #bottom-menu-block {
-    float :left;
+    min-height: 1px;
 }

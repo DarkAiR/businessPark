@@ -1,0 +1,19 @@
+.company-page-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.company-page-content-pos {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 100%;            /* Рассчитываемое значение */
+    margin-left: -50%;      /* Рассчитываемое значение */
+    overflow: hidden;
+}
+
+.company-page-menu {
+    _background: rgba(255,0,0,0.5);
+    min-height: 1px;
+}
