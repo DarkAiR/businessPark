@@ -1,0 +1,20 @@
+.company-menu-widget {
+    display: inline-block;
+    width: 100%;
+}
+.company-menu-item-widget {
+    position: relative;
+    _background: rgba(255,255,0,0.5);
+}
+.company-menu-item-inner-widget {
+    position: absolute;
+    bottom: 0px;
+}
+.company-menu-item-arrow {
+    position: absolute;
+    bottom: 0px;
+    right: 100%;
+    margin-bottom: 4px;
+    background: url(../../img/vmenu-arrow.png) no-repeat left bottom;
+    _background-color: rgba(200,0,0,0.5);
+}

@@ -59,14 +59,15 @@ class MenuItem extends CActiveRecord
 
     public function search()
     {
-/*        $criteria = new CDbCriteria;
-        $criteria->compare('name', $this->name, true);
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-        ));
-*/
         $rowData = $this->getRowData(0);
-        return new CArrayDataProvider( $rowData );
+        return new CArrayDataProvider(
+            $rowData,
+            array(
+                'pagination'=>array(
+                    'pageSize'=>20,
+                ),
+            )
+        );
     }
 
     private function getRowData($parentId)

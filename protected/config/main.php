@@ -19,6 +19,7 @@ return array(
     ),
     'modules' => array(
         'system2',
+        'company',
         'projects',
         'sitemenu',
         'news',
@@ -52,6 +53,10 @@ return array(
                 // Service
                 'service/'                  => 'projects/projectSections/index',
 
+                // Company
+                'company/'                  => 'company/company/about',
+                'company/<action:\w+>/'     => 'company/company/<action>',
+                
                 // Admin
                 'admin/' => 'system2',
                 'admin/<module:\w+>/' => '<module>',

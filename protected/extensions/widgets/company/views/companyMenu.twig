@@ -1,0 +1,22 @@
+{{ import('css','companyMenu.css','ext.widgets.company.views') }}
+{{ import('css','menu.css') }}
+
+<div class='company-menu-widget  vmenu'>
+    <ul>
+        {% for item in items %}
+            {% set select = item.select %}
+            {% set first = loop.first %}
+            {% set last = loop.last %}
+            <li class='semibold gridHeight2 company-menu-item-widget {% if first %}first{% endif %} {% if last %}last{% endif %}'>
+                <div class='company-menu-item-inner-widget'>
+                    {% if select %}
+                        <div class='company-menu-item-arrow  grid2 gridHeight2'></div>
+                        <a class='select' href='{{ item.link }}'>{{ item.name|raw }}</a>
+                    {% else %}
+                        <a class='' href='{{ item.link }}'>{{ item.name|raw }}</a>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

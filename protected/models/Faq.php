@@ -1,47 +1,32 @@
 <?php
 
-class Menu extends CActiveRecord
+/**
+ * Рубрики
+ */
+class Faq extends CActiveRecord
 {
-    const NONE = 0;
-    const MAIN_MENU = 1;
-    const FOOTER_MENU = 2;
-    const COMPANY_MENU = 3;
-
-
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
-    public function behaviors()
-    {
-        return array(
-            'manyToMany' => array(
-                'class' => 'lib.ar-relation-behavior.EActiveRecordRelationBehavior',
-            ),
-        );
-    }
-
-    public function relations()
-    {
-        return array(
-            'items' => array(self::HAS_MANY, 'MenuItem', 'menuId', 'order'=>'items.orderNum ASC'),
-        );
-    }
-
     public function attributeLabels()
     {
         return array(
-            'name' => 'Название',
+            'question' => 'Вопрос',
+            'answer' => 'Ответ',
             'visible' => 'Показывать',
+            'orderNum' => 'Порядок сортировки',
         );
     }
 
     public function rules()
     {
         return array(
-            array('name', 'required'),
+            array('question', 'required'),
+            array('question, answer', 'safe'),
             array('visible', 'boolean'),
+            array('orderNum', 'numerical', 'integerOnly'=>true),
         );
     }
 
@@ -52,15 +37,16 @@ class Menu extends CActiveRecord
             'onSite' => array(
                 'condition' => $alias.'.visible = 1',
             ),
+            'orderDefault' => array(
+                'order' => $alias.'.orderNum ASC',
+            ),
         );
     }
 
     public function search()
     {
         $criteria = new CDbCriteria;
-
-        $criteria->compare('name', $this->name, true);
-
+        $criteria->compare('question', $this->question, true);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));

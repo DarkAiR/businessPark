@@ -14,9 +14,9 @@
     {% endif %}
 
     {{ widget('bootstrap.widgets.TbGridView', {
-    'type' : 'condensed striped',
-    'dataProvider' : model.search(),
-    'columns' : columns
+        'type' : 'condensed striped',
+        'dataProvider' : model.search(),
+        'columns' : columns
     }) }}
 
 {% endblock %}

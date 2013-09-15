@@ -1,0 +1,22 @@
+.faq-block {
+    background: rgba(0,0,255,0.5);
+    min-height: 1px;
+}
+.faq-item {
+
+}
+.faq-item-question {
+
+}
+.faq-item-answer {
+
+}
+
+.faq-right-block1,
+.faq-right-block2 {
+    min-height: 1px;
+}
+.faq-right-block2 {
+    background: url(../../img/bg-pattern.png) left top repeat-y;
+    opacity: 0.4;
+}
