@@ -5,6 +5,7 @@
     _background: rgba(255,0,0,0.2);
     color: #101010;
     overflow: hidden;
+    font-size: 15px;
 }
 .content-block-text {
     _background: rgba(255,255,0,0.2);
