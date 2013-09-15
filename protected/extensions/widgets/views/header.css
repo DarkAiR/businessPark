@@ -41,6 +41,10 @@
 .header-cont #contacts-block .contact-phone {
     font-size: 12px;
 }
+.header-contact-block-inner {
+    margin-top: -1px;
+    padding-bottom: 1px;
+}
 
 
 

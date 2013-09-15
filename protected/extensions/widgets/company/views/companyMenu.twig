@@ -7,10 +7,13 @@
             {% set select = item.select %}
             {% set first = loop.first %}
             {% set last = loop.last %}
-            <li class='semibold gridHeight2 company-menu-item-widget {% if first %}first{% endif %} {% if last %}last{% endif %}'>
+            <li class='company-menu-item-widget  semibold gridHeight2 {% if first %}first{% endif %} {% if last %}last{% endif %}'>
                 <div class='company-menu-item-inner-widget'>
+                    <div class='company-menu-item-arrow  border-cont grid2 gridHeight2'>
+                        {% if select %}<div class='select'></div>{% endif %}
+                        <div class='{% if first %}border-l-first{% else %}border-l{% endif %}' style='background:#d3d3d3; width:2px;'></div>
+                    </div>
                     {% if select %}
-                        <div class='company-menu-item-arrow  grid2 gridHeight2'></div>
                         <a class='select' href='{{ item.link }}'>{{ item.name|raw }}</a>
                     {% else %}
                         <a class='' href='{{ item.link }}'>{{ item.name|raw }}</a>

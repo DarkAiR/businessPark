@@ -1,2 +1,7 @@
-.main-menu-widget {
+.footer-menu-widget {
+}
+
+.footer-menu-widget .hmenu li {
+    padding-left: 0px;
+    padding-right: 0px;
 }

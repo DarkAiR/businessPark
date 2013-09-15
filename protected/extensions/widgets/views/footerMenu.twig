@@ -1,15 +1,15 @@
 {{ import('css','footerMenu.css','ext.widgets.views') }}
 {{ import('css','menu.css') }}
 
-<div class='footer-menu-widget  hmenu'>
-    <ul>
+<div class='footer-menu-widget'>
+    <ul class='hmenu'>
         {% for item in items %}
             {% set link = static('CHtml', 'normalizeUrl', ['/'~item.link]) %}
             {% set active = item.select %}
             {% set first = loop.first %}
             {% set last = loop.last %}
-            <li class='semibold border-cont {% if first %}first{% endif %} {% if last %}last{% endif %}'>
-                <a class='gridHeight2  {% if active %}select{% endif %}' href='{{ link }}'>
+            <li class='{% if first %}first{% endif %} {% if last %}last{% endif %}'>
+                <a class='gridHeight2 grid-right1 {% if active %}select{% endif %}' href='{{ link }}'>
                     {{ item.name|raw }}
                 </a>
             </li>
