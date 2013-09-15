@@ -4,7 +4,7 @@ class CompanyController extends Controller
 {
     public function actionIndex()
     {
-        $this->redirect('about');
+        $this->redirect('/company/about');
     }
 
     public function actionAbout()
