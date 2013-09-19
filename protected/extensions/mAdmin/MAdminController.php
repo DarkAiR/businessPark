@@ -305,7 +305,7 @@ class MAdminController extends CExtController
         }
 
         return array(
-            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'class' => 'ext.mAdmin.widgets.ExtTbButtonColumn',
             'template' => $template,
             'updateButtonUrl' => 'Yii::app()->controller->createUrl("edit",array("id"=>( isset($data->primaryKey) ? $data->primaryKey : (is_array($data)&&isset($data["id"])?$data["id"]:"") )))',
             'deleteButtonUrl' => 'Yii::app()->controller->createUrl("delete",array("id"=>( isset($data->primaryKey) ? $data->primaryKey : (is_array($data)&&isset($data["id"])?$data["id"]:"") )))'

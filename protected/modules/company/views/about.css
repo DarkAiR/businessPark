@@ -1,22 +1,22 @@
-.faq-block {
-    background: rgba(0,0,255,0.5);
+.about-block {
+    _background: rgba(0,0,255,0.5);
     min-height: 1px;
 }
-.faq-item {
+.about-item {
 
 }
-.faq-item-question {
+.about-item-question {
 
 }
-.faq-item-answer {
+.about-item-answer {
 
 }
 
-.faq-right-block1,
-.faq-right-block2 {
+.about-right-block1,
+.about-right-block2 {
     min-height: 1px;
 }
-.faq-right-block2 {
+.about-right-block2 {
     background: url(../../img/bg-pattern.png) left top repeat-y;
     opacity: 0.4;
 }
