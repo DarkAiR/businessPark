@@ -1,0 +1,14 @@
+.article-widget {
+    _background: rgba(0,255,0,0.5);
+}
+.article-title {
+    _background: rgba(255,0,0,0.2);
+    color: #101010;
+    overflow: hidden;
+}
+.article-title * {
+    font-size: 15px;
+}
+.article-text {
+    _background: rgba(255,255,0,0.2);
+}
