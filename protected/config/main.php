@@ -24,7 +24,9 @@ return array(
         'sitemenu',
         'news',
         'contentBlocks',
-        'articles'
+        'articles',
+        'persons',
+        'vacancy'
     ),
     'components' => array(
         'user' => array(
@@ -37,30 +39,35 @@ return array(
             'urlSuffix' => '/',
             'showScriptName' => false,
             'rules' => array(
-                '/' => 'site/index',
-                'uploadImage' => 'site/uploadImage',
-                'uploadFile' => 'site/uploadFile',
+                '/'                                 => 'site/index',
+                'uploadImage'                       => 'site/uploadImage',
+                'uploadFile'                        => 'site/uploadFile',
 
                 // News
-                'news/show/<id:\d+>/'       => 'news/news/show',
-                'news/<year:\d+>/'          => 'news/news/index',
-                'news/'                     => 'news/news/index',
+                'news/show/<id:\d+>/'               => 'news/news/show',
+                'news/<year:\d+>/'                  => 'news/news/index',
+                'news/'                             => 'news/news/index',
 
                 // Projects
-                'works/show/<id:\d+>/'      => 'projects/projects/show',
-                'works/<sectionId:\d+>/'    => 'projects/projects/index',
-                'works/'                    => 'projects/projects/index',
+                'works/show/<id:\d+>/'              => 'projects/projects/show',
+                'works/<sectionId:\d+>/'            => 'projects/projects/index',
+                'works/'                            => 'projects/projects/index',
 
                 // Service
-                'service/'                  => 'projects/projectSections/index',
+                'service/'                          => 'projects/projectSections/index',
+
+                // Vacancy
+                'company/vacancy/<id:\d+>/'         => 'vacancy/vacancy/show',
+                'company/vacancy/<action:\w+>/'     => 'vacancy/vacancy/<action>',
+                'company/vacancy/'                  => 'vacancy/vacancy/index',
 
                 // Company
-                'company/'                  => 'company/company/index',
-                'company/<action:\w+>/'     => 'company/company/<action>',
+                'company/'                          => 'company/company/index',
+                'company/<action:\w+>/'             => 'company/company/<action>',
                 
                 // Admin
-                'admin/' => 'system2',
-                'admin/<module:\w+>/' => '<module>',
+                'admin/'                            => 'system2',
+                'admin/<module:\w+>/'               => '<module>',
                 'admin/<module:\w+>/<controller:\w+>/' => '<module>/admin<controller>',
                 'admin/<module:\w+>/<controller:\w+>/<action:\w+>/' => '<module>/admin<controller>/<action>',
             ),

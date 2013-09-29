@@ -15,22 +15,17 @@ class CompanyController extends Controller
 
     public function actionCommand()
     {
+        $persons = Persons::model()->onSite()->orderDefault()->findAll();
         $this->render('/command', array(
+            'persons' => $persons,
         ));
     }
 
     public function actionFaq()
     {
         $faq = Faq::model()->onSite()->orderDefault()->findAll();
-
         $this->render('/faq', array(
             'items' => $faq,
-        ));
-    }
-
-    public function actionVacancy()
-    {
-        $this->render('/vacancy', array(
         ));
     }
 }

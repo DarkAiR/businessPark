@@ -17,7 +17,7 @@ footerWidget =
         })
 
         app.addListener(app.eventReposition, footerWidget.onResize);
-        app.resize();
+        app.resize(true);
     },
 
     onResize: function( ev )

@@ -25,7 +25,7 @@
             self.rightBlock2Width = $('#js-about-right-block2').width();
 
             app.addListener(app.eventReposition, aboutListContent.onResize);
-            app.resize();
+            app.resize(true);
 
         },
         onResize: function( ev )

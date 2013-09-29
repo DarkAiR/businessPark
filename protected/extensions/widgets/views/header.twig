@@ -20,7 +20,7 @@ headerWidget =
         })
 
         app.addListener(app.eventReposition, headerWidget.onResize);
-        app.resize();
+        app.resize(true);
     },
 
     onResize: function( ev )

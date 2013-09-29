@@ -17,7 +17,9 @@
 
             <div id='js-company-page-menu' class='company-page-menu  grid16 left'>
                 <div class='grid-left2'>
-                    {{ widget('ext.widgets.company.CompanyMenuWidget' ) }}
+                    {% block innerLeft %}
+                        {{ widget('ext.widgets.company.CompanyMenuWidget' ) }}
+                    {% endblock %}
                 </div>
             </div>
 

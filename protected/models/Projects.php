@@ -72,6 +72,7 @@ class Projects extends CActiveRecord
     {
         return array(
             'section' => array(self::BELONGS_TO, 'ProjectSections', 'sectionId', 'order'=>'items.orderNum ASC'),
+            'persons' => array(self::MANY_MANY, 'Persons', 'Person2Project(projectId, personId)'),
         );
     }
 
@@ -191,7 +192,9 @@ class Projects extends CActiveRecord
         $this->linkIconBehavior->imageAfterFind();
         $this->timeAfterFind();
 
-        $this->publishTime = date('d.m.Y', $this->publishTime);
+        $this->publishTime = empty($this->publishTime)
+            ? ''
+            : date('d.m.Y', $this->publishTime);
 
         return parent::afterFind();
     }
@@ -199,7 +202,9 @@ class Projects extends CActiveRecord
     protected function beforeSave()
     {
         $this->timeCreate();
-        $this->publishTime = strtotime($this->publishTime);
+        $this->publishTime = empty($this->publishTime)
+            ? 0
+            : strtotime($this->publishTime);
         return parent::beforeSave();
     }
 }

@@ -98,3 +98,20 @@
 .project-block-process {
 
 }
+
+.project-block-persons {
+    _background: rgba(0,255,255,0.2);
+    display: table;
+}
+.project-block-person-item {
+
+}
+.project-block-person-image {
+
+}
+.project-block-person-name {
+    padding-bottom: 4px;
+}
+.project-block-person-position {
+
+}

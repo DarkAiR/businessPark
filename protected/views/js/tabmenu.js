@@ -1,5 +1,7 @@
 tabmenu =
 {
+    eventTabSelect: "eventTabSelect",
+
     _items: {},
     _active: false,
 
@@ -61,11 +63,8 @@ tabmenu =
         tabmenu._items[itemId]['item'].parent().addClass('active');
         tabmenu._items[itemId]['page'].show();
 
+        app.fire({type:tabmenu.eventTabSelect, elem:tabmenu._items[itemId]['page']});
+
         tabmenu._active = itemId;
     }
 };
-
-$(document).ready( function()
-{
-    tabmenu.init();
-});

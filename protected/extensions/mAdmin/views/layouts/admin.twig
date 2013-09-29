@@ -42,18 +42,20 @@
     {
         'class' : 'bootstrap.widgets.TbMenu',
         'items' : [
-            {'label':'Меню', 'active':false, 'items': [
-                {'label':'Главное меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
-            ]},
+            {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
             {'label':'Проекты', 'active' : false, 'items': [
-                {'label':'Разделы', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'},
+                {'label':'Категории', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'},
                 {'label':'Работы', 'url':['/projects/adminProjects'], 'active' : this.uniqueId == 'projects/adminProjects'},
                 {'label':'Собственные проекты', 'url':['/projects/adminProjectsOwn'], 'active' : this.uniqueId == 'projects/adminProjectsOwn'}
             ]},
-            {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == 'news/adminNews'},
-            {'label':'Вопросы-ответы', 'url':['/company/adminFaq'], 'active' : this.uniqueId == '/company/adminFaq'},
-            {'label':'Разделы сайта', 'url':['/articles/adminArticles'], 'active' : this.uniqueId == '/articles/adminArticles'},
-            {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
+            {'label':'Разделы сайта', 'action' : false, 'items': [
+                {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == 'news/adminNews'},
+                {'label':'Вопросы-ответы', 'url':['/company/adminFaq'], 'active' : this.uniqueId == '/company/adminFaq'},
+                {'label':'Команда', 'url':['/persons/adminPersons'], 'active' : this.uniqueId == '/persons/adminPersons'},
+                {'label':'Вакансии', 'url':['/vacancy/adminVacancy'], 'active' : this.uniqueId == '/vacancy/adminVacancy'},
+                {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
+                {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active' : this.uniqueId == '/articles/adminArticles'},
+            ]},
             {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active' : this.uniqueId == 'system/adminUsers'},
         ]
     },{

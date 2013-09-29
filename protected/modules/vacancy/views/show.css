@@ -1,0 +1,21 @@
+.vacancy-block {
+    _background: rgba(0,0,255,0.5);
+    min-height: 1px;
+    display: inline-block;
+}
+.vacancy-block-title,
+.vacancy-block-title * {
+    font-size: 23px;
+    color: #000000;
+}
+.vacancy-block-text {
+
+}
+.vacancy-block-text img {
+    width: 100%;
+    height: 100%;
+}
+.vacancy-right-block {
+    _background: rgba(255,0,0,0.2);
+    min-height: 1px;
+}

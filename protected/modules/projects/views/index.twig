@@ -18,8 +18,7 @@
             var self = this;
             self.posCont = $('#js-projects-list-page-content-pos');
             app.addListener(app.eventReposition, projectsListPageContent.onResize);
-            app.resize();
-
+            app.resize(true);
         },
         onResize: function( ev )
         {

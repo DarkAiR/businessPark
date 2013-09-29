@@ -18,8 +18,7 @@
             var self = this;
             self.posCont = $('#js-main-page-content-pos');
             app.addListener(app.eventReposition, mainPageContent.onResize);
-            app.resize();
-
+            app.resize(true);
         },
         onResize: function( ev )
         {

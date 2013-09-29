@@ -27,8 +27,14 @@
             self.leftColumnWidth = '288';       /* 18px * 16 */
             self.rightColumnWidth = '288';      /* 18px * 16 */
             app.addListener(app.eventReposition, projectPageContent.onResize);
-            app.resize();
+            app.addListener(tabmenu.eventTabSelect, projectPageContent.onTabSelect);
+            app.resize(true);
 
+            tabmenu.init();
+        },
+        onTabSelect: function( ev )
+        {
+            app.resize();
         },
         onResize: function( ev )
         {
@@ -38,7 +44,12 @@
             var cont = $('#js-project-page-content');
             var menu = $('#js-projects-menu-block');
             var content = $('#js-project-block');
-            cont.height( menu.height() + content.height() + parseInt(content.css('margin-top')) );
+            var persons = $('#js-project-block-persons');
+            cont.height(
+                menu.height()
+                + content.height() + parseInt(content.css('margin-top'))
+                + persons.height() + parseInt(persons.css('margin-top')) + parseInt(persons.css('margin-bottom'))
+            );
             
             if (ceils == 3)
             {
@@ -104,7 +115,9 @@
                             </div>
                         </td>
                         <td class='project-block-publish-time'>
-                            Дата выпуска: {{ project.publishTime }}
+                            {% if project.publishTime %}
+                                Дата выпуска: {{ project.publishTime }}
+                            {% endif %}
                         </td>
                     </tr>
                 </table>
@@ -120,17 +133,41 @@
                                     <td class='grid2'></td>
                                 </tr>
                             </table>
-                            <div tab_menu_page='1' class='project-block-result'>
+                            <div tab_menu_page='1' class='project-block-result' style='display:none'>
                                 {{ project.resultText|raw }}
                             </div>
-                            <div tab_menu_page='2' class='project-block-process'>
+                            <div tab_menu_page='2' class='project-block-process' style='display:none'>
                                 {{ project.processText|raw }}
                             </div>
                         </td>
                         <td id='js-right-column' class='project-block-right-column  grid16'></td>
                     </tr>
                 </table>
+            </div>
 
+            <div id='js-project-block-persons' class='project-block-persons  grid-top3 grid-bottom1'>
+                {% if project.persons and project.persons|length > 0 %}
+                    <div class='gridHeight1 grid-left2 grid-right2 grid-bottom2'>
+                        Над проектом работали:
+                    </div> 
+                    {% for person in project.persons %}
+                        <div class='project-block-person-item  grid16 grid-bottom3 left'>
+                            <div class='grid-left2'>
+                                <div class='project-block-person-image  grid-right1 left'>
+                                    <img src='{{ person.getPhotoUrl() }}' width='{{const("Persons","IMAGE_WIDTH")}}' height='{{const("Persons","IMAGE_HEIGHT")}}'>
+                                </div>
+                                <div class='grid-right1'>
+                                    <div class='project-block-person-name  semibold gridHeight1'>
+                                        {{ person.name|raw }}
+                                    </div>
+                                    <div class='project-block-person-position'>
+                                        {{ person.position|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
 
         </div>

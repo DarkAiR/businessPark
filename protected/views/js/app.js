@@ -10,13 +10,19 @@ app =
     borderSize: 50,         // Размер бордюра справа и слева
     animDuration: 500,      // Длительность анимации
 
+    isInit: false,
+
     init: function()
     {
         $(window).on('resize', function() { app.resize(); });
     },
 
-    resize: function()
+    resize: function( isInit )
     {
+        app.isInit = isInit || false;
+//        if (isInit)
+//            return;
+
         var self = this;
         var windowWidth = $(window).width();
         var actualWidth = windowWidth - app.borderSize * 2;
@@ -64,11 +70,14 @@ app =
     /**
      Плавно изменить размеры элемента
      */
-    resizeElement: function(el, contWidth, onlyWidth)
+    resizeElement: function(el, contWidth, onlyWidth, options)
     {
         onlyWidth = onlyWidth || false;
         var isHideAnim = el.data('isHideAnim') !== undefined;
         var isShowAnim = el.data('isShowAnim') !== undefined;
+        var onComplete = (options && options['complete']) || function(){};
+        var onProgress = (options && options['progress']) || function(){};
+
         if (contWidth < el.width())
         {
             if (isShowAnim)
@@ -86,9 +95,14 @@ app =
                 if (!onlyWidth)
                     params['margin-left'] = '-'+Math.floor(contWidth/2)+'px';
 
-                el.animate(params, app.animDuration, function()
-                {
-                    el.removeData('isHideAnim');
+                el.animate(params, {
+                    'duration': (app.isInit)? 0 : app.animDuration,
+                    'progress': onProgress,
+                    'complete': function()
+                    {
+                        el.removeData('isHideAnim');
+                        onComplete.call();
+                    }
                 });
             }
         }
@@ -109,9 +123,14 @@ app =
                 if (!onlyWidth)
                     params['margin-left'] = '-'+Math.floor(contWidth/2)+'px';
 
-                el.animate(params, app.animDuration, function()
-                {
-                    el.removeData('isShowAnim');
+                el.animate(params, {
+                    'duration': (app.isInit)? 0 : app.animDuration,
+                    'progress': onProgress,
+                    'complete': function()
+                    {
+                        el.removeData('isShowAnim');
+                        onComplete.call();
+                    }
                 });
             }
         }
