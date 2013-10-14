@@ -80,7 +80,7 @@
 
 {% block innerContent %}
     <div id='js-vacancy-block' class='vacancy-block  grid64'>
-        <div class='vacancy-block-title  semibold grid-bottom2 grid-left2 grid-right2'>МЫ ИЩЕМ ЛУЧШИХ</div>
+        <div class='vacancy-block-title  grid-bottom2 grid-left2 grid-right2'>Мы ищем лучших</div>
         <div class='vacancy-block-list  clear'>
             {% for vacancy in vacancies %}
                 {% set link = static('CHtml', 'normalizeUrl', [{'0':'/vacancy/vacancy/show','id':vacancy.id}]) %}
@@ -90,8 +90,8 @@
                         <div class='vacancy-item-image  grid-right1 grid-bottom1'>
                             <img src='{{ vacancy.getImageUrl() }}' width='{{const("Vacancy","IMAGE_WIDTH")}}' height='{{const("Vacancy","IMAGE_HEIGHT")}}'>
                         </div>
-                        <div class='vacancy-item-title  semibold gridHeight1'>
-                            <a href='{{ link }}' class='arrow-read-next'>{{ vacancy.title|raw }}</a>
+                        <div class='vacancy-item-title  text15 gridHeight1'>
+                            <a href='{{ link }}'>{{ vacancy.title|raw }}</a>
                         </div>
 
                     </div>
@@ -99,7 +99,7 @@
             {% endfor %}
         </div>
         <div>
-            <div id='js-vacancy-block-text' class='vacancy-block-text  grid48 grid-bottom2 left'>
+            <div id='js-vacancy-block-text' class='vacancy-block-text  text15 grid48 grid-bottom2 left'>
                 <div class='grid-left2 grid-right2'>
                     {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_VACANCY_MAIN_TEXT')}) }}
                 </div>

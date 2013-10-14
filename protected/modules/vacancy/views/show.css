@@ -5,7 +5,7 @@
 }
 .vacancy-block-title,
 .vacancy-block-title * {
-    font-size: 23px;
+    font-size: 25px;
     color: #000000;
 }
 .vacancy-block-text {
@@ -15,7 +15,11 @@
     width: 100%;
     height: 100%;
 }
-.vacancy-right-block {
-    _background: rgba(255,0,0,0.2);
+.vacancy-right-block1,
+.vacancy-right-block2 {
     min-height: 1px;
+}
+.vacancy-right-block2 {
+    background: url(../../img/bg-pattern.png) left top repeat-y;
+    opacity: 0.4;
 }

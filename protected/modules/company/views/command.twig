@@ -70,13 +70,13 @@
 {% block innerContent %}
     <div id='js-command-block' class='command-block  grid64'>
         {% for person in persons %}
-            <div class='command-item  gridHeight16 grid-bottom2 left'>
+            <div class='command-item  gridHeight16 grid-bottom1 left'>
                 <div class='grid-left2 grid-right2'>
 
-                    <div class='command-item-image  grid-right1 grid-bottom1'>
+                    <div class='command-item-image  gridHeight11 grid-right1'>
                         <img src='{{ person.getPhotoBigUrl() }}' width='{{const("Persons","IMAGE_BIG_WIDTH")}}' height='{{const("Persons","IMAGE_BIG_HEIGHT")}}'>
                     </div>
-                    <div class='command-item-name  semibold gridHeight1'>
+                    <div class='command-item-name  text15'>
                         {{ person.name|raw }}
                     </div>
                     <div class='command-item-position'>

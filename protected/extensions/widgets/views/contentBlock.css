@@ -3,7 +3,6 @@
 }
 .content-block-title {
     _background: rgba(255,0,0,0.2);
-    color: #101010;
     overflow: hidden;
 }
 .content-block-title * {

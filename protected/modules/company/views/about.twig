@@ -60,8 +60,8 @@
             else if (ceils == 4)
             {
                 app.resizeElement( centerBlock, cbWidth - rb2Width, true );
-                app.resizeElement( rightBlock1, 0, true );
-                app.resizeElement( rightBlock2, rb2Width, true );
+                app.resizeElement( rightBlock1, rb1Width, true );
+                app.resizeElement( rightBlock2, 0, true );
             }
             else if (ceils == 5)
             {
@@ -83,7 +83,7 @@
 
 {% block innerContent %}
     <div id='js-about-block' class='about-block  grid48 left'>
-        <div class='grid-left2 grid-right2'>
+        <div class='grid-left2'>
             {{ widget('ext.widgets.ArticleWidget', {'type':const('Articles', 'TYPE_ABOUT')}) }}
         </div>
     </div>

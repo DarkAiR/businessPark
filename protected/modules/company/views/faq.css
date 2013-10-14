@@ -4,9 +4,8 @@
 }
 .faq-title-inner {
     position: absolute;
-    bottom: 0px;
-    font-size: 30px;
-    color: #101010;
+    _bottom: 0px;
+    font-size: 25px;
     _background: rgba(255,0,0,0.5);
 }
 .faq-block {

@@ -33,7 +33,7 @@
                     if (answ.is(':visible'))
                         linkElem.css({'color':''});
                     else
-                        linkElem.css({'color':'#101010'});
+                        linkElem.css({'color':'#202020'});
 
                     answ.toggle( {
                         'duration':200,
@@ -83,8 +83,8 @@
             else if (ceils == 4)
             {
                 app.resizeElement( centerBlock, cbWidth - rb2Width, true );
-                app.resizeElement( rightBlock1, 0, true );
-                app.resizeElement( rightBlock2, rb2Width, true );
+                app.resizeElement( rightBlock1, rb1Width, true );
+                app.resizeElement( rightBlock2, 0, true );
             }
             else if (ceils == 5)
             {
@@ -108,8 +108,8 @@
     <div id='js-faq-block' class='faq-block  grid48 left'>
         <div class='grid-left2 grid-right2'>
 
-            <div class='faq-title gridHeight2 grid-bottom2'>
-                <div class='faq-title-inner'>Нас часто спрашивают</div>
+            <div class='faq-title gridHeight2 grid-bottom1'>
+                <div class='faq-title-inner  title'>Нас часто спрашивают</div>
             </div>
 
             {% for item in items %}

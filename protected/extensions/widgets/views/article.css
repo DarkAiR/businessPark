@@ -3,12 +3,12 @@
 }
 .article-title {
     _background: rgba(255,0,0,0.2);
-    color: #101010;
     overflow: hidden;
 }
 .article-title * {
-    font-size: 15px;
+    font-size: 25px;
 }
 .article-text {
     _background: rgba(255,255,0,0.2);
+    margin-top: -16px;
 }

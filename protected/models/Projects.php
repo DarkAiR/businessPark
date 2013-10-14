@@ -9,7 +9,7 @@ class Projects extends CActiveRecord
     const IMAGE_HEIGHT = 198;       // 18px * 11
 
     const IMAGE_BIG_WIDTH = 486;    // 18px * 27
-    const IMAGE_BIG_HEIGHT = 396;   // 18px * 22
+    const IMAGE_BIG_HEIGHT = 432;   // 18px * 24
 
     const LINK_ICON_WIDTH = 18;     // 18px * 1
     const LINK_ICON_HEIGHT = 18;    // 18px * 1

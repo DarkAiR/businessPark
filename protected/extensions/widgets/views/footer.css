@@ -12,7 +12,12 @@
     margin-left: -50%;      /* Рассчитываемое значение */
     overflow: hidden;
 }
+.footer-social-buttons {
+    border-top: 1px solid #dcdcdc;
+    padding-top: 6px;
+}
 .footer-cont {
+    border-top: 1px solid #dcdcdc;
     width: 2000px;          /* Заведомо больше максимальной ширины */
 }
 

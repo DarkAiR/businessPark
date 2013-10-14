@@ -1,5 +1,5 @@
 .project-item {
-
+	margin-bottom: 8px;
 }
 .project-item-date-cont {
 
@@ -12,10 +12,9 @@
 
 }
 .project-item-title {
-    font-size: 16px;
-    color: #101010;
     white-space: nowrap;
     overflow: hidden;
+    margin-top: 7px;
 }
 .project-item-desc {
     line-height: 18px;

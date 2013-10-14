@@ -17,7 +17,8 @@
     {
         posCont: false,
         centerBlockWidth: 0,
-        rightColumnWidth: 0,
+        rightBlock1Width: 0,
+        rightBlock2Width: 0,
         textBlockWidth: 0,
 
         init: function()
@@ -25,7 +26,8 @@
             var self = this;
             self.posCont = $('#js-company-page-content-pos');
             self.centerBlockWidth = $('#js-vacancy-block').width();
-            self.rightColumnWidth = $('#js-vacancy-right-block').width();
+            self.rightBlock1Width = $('#js-vacancy-right-block1').width();
+            self.rightBlock2Width = $('#js-vacancy-right-block2').width();
             self.textBlockWidth = $('#js-vacancy-block-text').width();
 
             app.addListener(app.eventReposition, vacancyListContent.onResize);
@@ -39,7 +41,8 @@
             var cont = $('#js-company-page-content');
             var leftBlock = $('#js-company-page-menu');
             var centerBlock = $('#js-vacancy-block');
-            var rightBlock = $('#js-vacancy-right-block');
+            var rightBlock1 = $('#js-vacancy-right-block1');
+            var rightBlock2 = $('#js-vacancy-right-block2');
             var textBlock = $('#js-vacancy-block-text');
 
             // Принудительно выставляем высоту блока
@@ -48,9 +51,11 @@
                 : centerBlock.height();
             h = Math.ceil(h);
             cont.height(h);
+            rightBlock2.height(h);
 
             cbWidth = vacancyListContent.centerBlockWidth;
-            rbWidth = vacancyListContent.rightColumnWidth;
+            rb1Width = vacancyListContent.rightBlock1Width;
+            rb2Width = vacancyListContent.rightBlock2Width;
             tbWidth = vacancyListContent.textBlockWidth;
 
             var params = {
@@ -60,20 +65,23 @@
 
             if (ceils == 3)
             {
-                centerBlock.width(cbWidth - 2 * vacancyListContent.rightColumnWidth);
-                app.resizeElement( rightBlock, 0, true, params );
-                app.resizeElement( textBlock, tbWidth - vacancyListContent.rightColumnWidth, true, params );
+                centerBlock.width(cbWidth - 2 * rb2Width, true);
+                app.resizeElement( rightBlock1, 0, true, params );
+                app.resizeElement( rightBlock2, 0, true, params );
+                app.resizeElement( textBlock, tbWidth - rb2Width, true, params );
             }
             else if (ceils == 4)
             {
-                centerBlock.width(cbWidth - vacancyListContent.rightColumnWidth);
-                app.resizeElement( rightBlock, 0, true, params );
+                centerBlock.width(cbWidth - rb2Width);
+                app.resizeElement( rightBlock1, rb1Width, true, params );
+                app.resizeElement( rightBlock2, 0, true, params );
                 app.resizeElement( textBlock, tbWidth, true, params );
             }
             else if (ceils == 5)
             {
                 centerBlock.width(cbWidth);
-                app.resizeElement( rightBlock, rbWidth, true, params );
+                app.resizeElement( rightBlock1, rb1Width, true, params );
+                app.resizeElement( rightBlock2, rb2Width, true, params );
                 app.resizeElement( textBlock, tbWidth, true, params );
             }
 
@@ -108,13 +116,17 @@
 
 {% block innerContent %}
     <div id='js-vacancy-block' class='vacancy-block  grid64'>
-        <div class='vacancy-block-title  semibold grid-bottom2 grid-left2 grid-right2'>{{vacancy.title|raw}}</div>
-        <div id='js-vacancy-block-text' class='vacancy-block-text  grid48 grid-bottom2 left'>
-            <div class='grid-left2 grid-right2'>
+        <div class='vacancy-block-title  grid-bottom2 grid-left2 grid-right2'>{{vacancy.title|raw}}</div>
+        <div id='js-vacancy-block-text' class='vacancy-block-text  text15 grid48 grid-bottom2 left'>
+            <div class='grid-left2'>
                 {{vacancy.text|raw}}
             </div>
         </div>
-        <div id='js-vacancy-right-block' class='vacancy-right-block  grid16 left'>
+
+        <div id='js-vacancy-right-block1' class='vacancy-right-block1  grid8 left'>
+        </div>
+
+        <div id='js-vacancy-right-block2' class='vacancy-right-block2  grid8 left'>
         </div>
     </div>
 {% endblock %}
