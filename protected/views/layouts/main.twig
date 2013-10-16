@@ -16,42 +16,24 @@
     {% endblock %}
 </head>
 <body>
-{# { widget('zii.widgets.CMenu', {
-    'items':[
-        {'label':'Главная', 'url':['/site/index']},
-        {'label':'Войти', 'url':['/site/login'], 'visible':App.user.isGuest},
-        {'label':'Админ', 'url':['/admin/admin/index'], 'visible':App.user.checkAccess('adminActions')},
-        {'label':'Выйти ('~App.user.name~')', 'url':['/site/logout'], 'visible':not App.user.isGuest}
-    ],
-}) } #}
 
-{# { widget('ext.redactorjs.ImperaviRedactorWidget', {
-    'name' : 'some name',
-    'value' : 'some value',
-    'options' : {
-        'lang' : 'ru',
-        'toolbar' : 'full',
-        'imageUpload' : '/image_upload.php'
-    }
-} ) } #}
-
-<div id='head-wrap'>
-    <div id='head'>
-        {{ widget('ext.widgets.HeaderWidget') }}
+    <div id='head-wrap'>
+        <div id='head'>
+            {{ widget('ext.widgets.HeaderWidget') }}
+        </div>
     </div>
-</div>
 
-<div id='body-wrap'>
-    <div id='body'>
-        {% block content %}{% endblock %}
+    <div id='body-wrap'>
+        <div id='body'>
+            {% block content %}{% endblock %}
+        </div>
     </div>
-</div>
 
-<div id='footer-wrap'>
-    <div id='footer'>
-        {{ widget('ext.widgets.FooterWidget') }}
+    <div id='footer-wrap'>
+        <div id='footer'>
+            {{ widget('ext.widgets.FooterWidget') }}
+        </div>
     </div>
-</div>
 
 </body>
 </html>

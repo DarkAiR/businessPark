@@ -45,22 +45,40 @@
                 {{ widget('ext.widgets.NewsLentaWidget') }}
             </div>
 
-            <div class='main-page-block3  grid80 gridHeight11 grid-top1'>
-                <div class='main-page-faq-widget  grid16 left'>
-                    <div class='gridHeight7 grid-left2 grid-top2 grid-right2'>
-                        {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_LEFT')}) }}
+            <div class='main-page-block3  grid80 gridHeight16 grid-top1_5 grid-bottom1'>
+
+                <div class='main-page-block3_1  grid16 gridHeight16 left'>
+                    <div class='main-page-faq-widget  grid16 gridHeight6'>
+                        <div class='grid-left2 grid-right2'>
+                            {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_LEFT')}) }}
+                        </div>
+                    </div>
+                    <div class='main-page-we-did-widget  grid16 gridHeight8 grid-top1 grid-bottom1'>
+                        <div class='grid-left2 grid-right2'>
+                            {{ widget('ext.widgets.WeDidItWidget') }}
+                        </div>
                     </div>
                 </div>
-                <div class='main-page-info-widget  grid32 left'>
-                    <div class='gridHeight7 grid-left2 grid-top2 grid-right2'>
-                        {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_CENTER')}) }}
+
+                <div class='main-page-block3_2  grid32 gridHeight16 left'>
+                    <div class='main-page-info-widget  grid32 gridHeight6'>
+                        <div class='grid-left2 grid-right2'>
+                            {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_CENTER')}) }}
+                        </div>
+                    </div>
+                    <div class='main-page-own-projects-widget  grid32 gridHeight8 grid-top1 grid-bottom1'>
+                        <div class='grid-left2 grid-right2'>
+                            {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_CENTER_BOTTOM')}) }}
+                        </div>
                     </div>
                 </div>
-                <div class='main-page-own-projects-widget  grid32 left'>
-                    <div class='gridHeight7 grid-left2 grid-top2 grid-right2'>
-                        {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_RIGHT')}) }}
+
+                <div class='main-page-block3_3  grid32 left'>
+                    <div class='main-page-promo-widget  grid32 gridHeight16'>
+                        {{ widget('ext.widgets.PromoWidget') }}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

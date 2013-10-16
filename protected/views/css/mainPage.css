@@ -1,5 +1,5 @@
 #body-wrap {
-    height: 990px;      /* 18px * 55*/
+    height: 1062px;      /* 18px * 55*/
 }
 
 .main-page-block1 {
@@ -13,6 +13,16 @@
     _background: rgba(255,0,255,0.2);
     position: relative;
 }
+.main-page-block3_1 {
+    _background: rgba(255,0,255,0.2);
+}
+.main-page-block3_2 {
+    _background: rgba(255,255,0,0.2);
+}
+.main-page-block3_3 {
+    _background: rgba(0,0,255,0.2);
+}
+
 /*.main-works-block {
     width: 864px;       /* 18px * 48 */
 /*    height: 100%;
@@ -28,17 +38,29 @@
 }*/
 .main-page-faq-widget {
     _background: rgba(0,255,0,0.2);
-    height:100%;
+    overflow: hidden;
+    display: inline-block;
+}
+.main-page-we-did-widget {
+    _background: rgba(128,255,0,0.2);
+    overflow: hidden;
+    display: inline-block;
 }
 .main-page-info-widget {
     _background: rgba(255,0,0,0.2);
-    height:100%;
+    overflow: hidden;
+    display: inline-block;
 }
 .main-page-own-projects-widget {
     _background: rgba(0,0,255,0.2);
-    height:100%;
+    overflow: hidden;
+    display: inline-block;
 }
-
+.main-page-promo-widget {
+    _background-color: rgba(255,0,255,0.2);
+    overflow: hidden;
+    display: inline-block;
+}
 .main-page-content {
     position: relative;
     height: 100%;

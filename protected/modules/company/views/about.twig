@@ -26,7 +26,6 @@
 
             app.addListener(app.eventReposition, aboutListContent.onResize);
             app.resize(true);
-
         },
         onResize: function( ev )
         {
@@ -38,14 +37,17 @@
             var rightBlock1 = $('#js-about-right-block1');
             var rightBlock2 = $('#js-about-right-block2');
 
-            // Принудительно выставляем высоту блока
-            var h = (leftBlock.height() > centerBlock.height())
-                ? leftBlock.height()
-                : centerBlock.height();
-            h = Math.ceil(h);
-            rightBlock2.height(h);
+            var innerHeight = $('#js-company-page-inner').height();
 
+            // Принудительно выставляем высоту блока
+            var h = (leftBlock.height() > innerHeight)
+                ? leftBlock.height()
+                : innerHeight;
+            h = Math.ceil(h);
             cont.height(h);
+
+            h = centerBlock.height();
+            rightBlock2.height(h);
 
             cbWidth = aboutListContent.centerBlockWidth;
             rb1Width = aboutListContent.rightBlock1Width;
@@ -71,7 +73,7 @@
             }
 
             app.resizeElement( aboutListContent.posCont, ceils * app.gridWidth );
-        },
+        }
     };
     $(document).ready( function()
     {

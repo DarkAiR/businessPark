@@ -5,6 +5,9 @@
     float: left;
     height: 100%;
     background: #f5f1e5;
+}
+.news-lenta-widget,
+.news-lenta-item {
     padding-bottom: 9px;
 }
 .news-lenta-item.first {

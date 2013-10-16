@@ -24,7 +24,6 @@
 
             app.addListener(app.eventReposition, commandListContent.onResize);
             app.resize(true);
-
         },
         onResize: function( ev )
         {
@@ -34,10 +33,12 @@
             var leftBlock = $('#js-company-page-menu');
             var centerBlock = $('#js-command-block');
 
+            var innerHeight = $('#js-company-page-inner').height();
+
             // Принудительно выставляем высоту блока
-            var h = (leftBlock.height() > centerBlock.height())
+            var h = (leftBlock.height() > innerHeight)
                 ? leftBlock.height()
-                : centerBlock.height();
+                : innerHeight;
             h = Math.ceil(h);
             cont.height(h);
 
@@ -57,7 +58,7 @@
             }
 
             app.resizeElement( commandListContent.posCont, ceils * app.gridWidth );
-        },
+        }
     };
     $(document).ready( function()
     {

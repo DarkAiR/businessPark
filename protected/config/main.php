@@ -26,7 +26,8 @@ return array(
         'contentBlocks',
         'articles',
         'persons',
-        'vacancy'
+        'vacancy',
+        'promo'
     ),
     'components' => array(
         'user' => array(
@@ -64,7 +65,7 @@ return array(
                 // Company
                 'company/'                          => 'company/company/index',
                 'company/<action:\w+>/'             => 'company/company/<action>',
-                
+
                 // Admin
                 'admin/'                            => 'system2',
                 'admin/<module:\w+>/'               => '<module>',

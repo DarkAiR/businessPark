@@ -1,0 +1,23 @@
+.promo-widget {
+	_background: rgba(255,0,0,0.3);
+	position: relative;
+}
+.promo-right {
+	height: 100%;
+	position: relative;
+}
+.promo-title {
+
+}
+.promo-motto {
+	
+}
+.promo-image {
+	position: absolute;
+	bottom: 0;
+}
+.promo-text {
+	_position: absolute;
+	_left: 18px;
+	_width: 100%;
+}

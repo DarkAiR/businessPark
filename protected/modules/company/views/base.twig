@@ -10,6 +10,7 @@
 {% endblock %}
 
 
+
 {% block content %}
 <div id='js-company-page-content' class='company-page-content  grid-bottom5'>
     <div id='js-company-page-content-pos' class='company-page-content-pos'>
@@ -23,9 +24,10 @@
                 </div>
             </div>
 
-            <div class='company-page-inner'>
+            <div id='js-company-page-inner' class='company-page-inner  left'>
+                <div style='height:14px; width:100%'></div>
                 {% block innerContent %}
-                {% endblock %}            
+                {% endblock %}
             </div>
 
         </div>
