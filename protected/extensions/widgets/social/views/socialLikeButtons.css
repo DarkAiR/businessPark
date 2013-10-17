@@ -1,0 +1,11 @@
+.social-like-buttons-widget {
+    margin-top: 3px;
+}
+.social-like-buttons-widget ul {
+    _background: rgba(255,0,0,0.2);
+    display: inline-block;
+}
+.social-like-buttons-widget ul li {
+    _background: rgba(0,0,255,0.2);
+    float: left;
+}

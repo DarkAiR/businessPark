@@ -1,0 +1,15 @@
+{{ import('css','socialLikeButtons.css','ext.widgets.social.views') }}
+
+<div class='social-like-buttons-widget'>
+    <ul>
+        <li class='grid-left2'>
+            {{ widget('ext.widgets.social.FbWidget', {'body':true}) }}
+        </li>
+        <li class='grid-left2'>
+            {{ widget('ext.widgets.social.VkWidget', {'body':true}) }}
+        </li>
+        <li class='grid-left2'>
+            {{ widget('ext.widgets.social.TwitterWidget', {'body':true}) }}
+        </li>
+    </ul>
+</div>

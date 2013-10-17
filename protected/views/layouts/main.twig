@@ -14,8 +14,10 @@
         {{ import('js','jquery-2.0.0.js') }}
         {{ import('js','app.js') }}
     {% endblock %}
+    {{ widget('ext.widgets.social.VkWidget') }}
 </head>
 <body>
+    {{ widget('ext.widgets.social.FbWidget') }}
 
     <div id='head-wrap'>
         <div id='head'>
