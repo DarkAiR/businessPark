@@ -95,6 +95,8 @@
         {
             var cont = $('#js-company-page-content');
             var leftBlock = $('#js-company-page-menu');
+            var rightBlock2 = $('#js-vacancy-right-block2');
+            var textBlock = $('#js-vacancy-block-text');
             var innerHeight = $('#js-company-page-inner').height();
 
             // Принудительно выставляем высоту блока
@@ -103,6 +105,9 @@
                 : innerHeight;
             h = Math.ceil(h);
             cont.height(h);
+
+            h = textBlock.height();
+            rightBlock2.height(h);
         }
     };
     $(document).ready( function()
