@@ -54,7 +54,7 @@
             h = Math.ceil(h);
             cont.height(h);
 
-            h = centerBlock.height();
+            h = textBlock.height();
             rightBlock2.height(h);
 
             cbWidth = vacancyListContent.centerBlockWidth;
@@ -63,8 +63,8 @@
             tbWidth = vacancyListContent.textBlockWidth;
 
             var params = {
-                //'progress': vacancyListContent.onProgress,
-                //'complete': vacancyListContent.onProgress
+                'progress': vacancyListContent.onProgress,
+                'complete': vacancyListContent.onProgress
             };
 
             if (ceils == 3)
@@ -93,7 +93,7 @@
         },
         onProgress: function()
         {
-/*            var cont = $('#js-company-page-content');
+            var cont = $('#js-company-page-content');
             var leftBlock = $('#js-company-page-menu');
             var innerHeight = $('#js-company-page-inner').height();
 
@@ -102,7 +102,7 @@
                 ? leftBlock.height()
                 : innerHeight;
             h = Math.ceil(h);
-            cont.height(h);*/
+            cont.height(h);
         }
     };
     $(document).ready( function()
