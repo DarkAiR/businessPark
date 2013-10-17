@@ -37,10 +37,12 @@
             var rightBlock = $('#js-vacancy-right-block');
             var textBlock = $('#js-vacancy-block-text');
 
+            var innerHeight = $('#js-company-page-inner').height();
+
             // Принудительно выставляем высоту блока
-            var h = (leftBlock.height() > centerBlock.height())
+            var h = (leftBlock.height() > innerHeight)
                 ? leftBlock.height()
-                : centerBlock.height();
+                : innerHeight;
             h = Math.ceil(h);
             cont.height(h);
 
