@@ -17,6 +17,9 @@
     _background: rgba(255,0,0,0.5);
     min-height: 1px;
 }
+.news-list-block a {
+    background: none;
+}
 .news-list-item {
     color: #222222;
 }

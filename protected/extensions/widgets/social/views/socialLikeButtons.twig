@@ -2,14 +2,20 @@
 
 <div class='social-like-buttons-widget'>
     <ul>
-        <li class='grid-left2'>
+        <li class='social-like-buttons-twitter  grid-left2'>
+            {{ widget('ext.widgets.social.TwitterWidget', {'body':true}) }}
+        </li>
+        <li class='social-like-buttons-fb'>
             {{ widget('ext.widgets.social.FbWidget', {'body':true}) }}
         </li>
-        <li class='grid-left2'>
+        <li class='social-like-buttons-google-plus  grid-left1'>
+            {{ widget('ext.widgets.social.GooglePlusWidget', {'body':true}) }}
+        </li>
+        <li class='social-like-buttons-vk'>
             {{ widget('ext.widgets.social.VkWidget', {'body':true}) }}
         </li>
-        <li class='grid-left2'>
-            {{ widget('ext.widgets.social.TwitterWidget', {'body':true}) }}
+        <li class='social-like-buttons-add-this'>
+            {{ widget('ext.widgets.social.AddThisWidget', {'body':true}) }}
         </li>
     </ul>
 </div>

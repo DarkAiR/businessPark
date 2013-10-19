@@ -2,6 +2,9 @@
     display: inline-block;
     width: 100%;
 }
+.projects-menu-widget a {
+    background: none;
+}
 .projects-menu-item-count {
     font-size: 10px;
     color: #b7b7b7;

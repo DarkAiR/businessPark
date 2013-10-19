@@ -8,8 +8,11 @@
             {% set active = item.select %}
             {% set first = loop.first %}
             {% set last = loop.last %}
-            <li class='{% if first %}first{% endif %} {% if last %}last{% endif %}'>
-                <a class='gridHeight2 grid-right1 {% if active %}select{% endif %}' href='{{ link }}'>
+            <li class='border-cont {% if first %}first{% endif %} {% if last %}last{% endif %}'>
+                {% if not last %}
+                    <div class='border-r' style='background:#b2b2b2; height:10px; margin-top:4px'></div>
+                {% endif %}
+                <a class='{% if active %}select{% endif %}' href='{{ link }}'>
                     {{ item.name|raw }}
                 </a>
             </li>

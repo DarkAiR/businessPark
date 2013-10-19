@@ -11,22 +11,27 @@
 </script>
 
 <div class='news-lenta-widget  gridHeight5'>
-    {% for item in news %}
 
-        <div class='news-lenta-item  grid16 {% if loop.index == 1 %}first{% endif %} {% if item|length > 0 %}cursor-link{% endif %}' href='{{ item.link }}'>
-            <div class='border-cont' style='height:100%'>
-                {% if not loop.first %}
-                    <div class='border-l' style='background:#fff; height:99px;'></div>
-                {% endif %}
+    <div class='news-lenta-inner  gridHeight5'>
+        {% for item in news %}
 
-
-                <div class='grid-left2 grid-right2'>
-                    {% if item|length > 0 %}
-                        <div class='news-lenta-item-date  gridHeight1'>{{ item.date }}</div>
-                        <div class='news-lenta-item-text  gridHeight3'>{{ item.text|raw }}</div>
+            <div class='news-lenta-item  grid16 {% if loop.index == 1 %}first{% endif %} {% if item|length > 0 %}cursor-link{% endif %}' href='{{ item.link }}'>
+                <div class='border-cont' style='height:100%'>
+                    {% if not loop.first %}
+                        <div class='border-l' style='background:#fff; height:99px;'></div>
                     {% endif %}
+
+
+                    <div class='grid-left2 grid-right2'>
+                        {% if item|length > 0 %}
+                            <div class='news-lenta-item-date  gridHeight1'>{{ item.date }}</div>
+                            <div class='news-lenta-item-text  gridHeight3'>{{ item.text|raw }}</div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+
+        {% endfor %}
+    </div>
+
 </div>

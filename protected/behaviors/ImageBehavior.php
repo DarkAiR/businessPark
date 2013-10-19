@@ -7,7 +7,7 @@ class ImageBehavior extends CActiveRecordBehavior
     public $imageHeight = 0;
     public $imageMaxWidth = 0;
     public $imageMaxHeight = 0;
-    public $imageExt = 'jpg';
+    public $imageExt = 'jpg; png';
     public $imageField = '';
 
     public $imageLabel = 'Изображение';

@@ -28,6 +28,9 @@
 .footer-cont #copyright-block .footer-copyright * {
     font-size: 12px;
 }
+.footer-cont #copyright-block .footer-copyright a {
+    background: none;
+}
 .footer-cont #address-block {
     min-height: 1px;
 }

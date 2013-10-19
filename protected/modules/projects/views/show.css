@@ -46,6 +46,9 @@
     text-align: left;
     vertical-align: middle;
 }
+.project-block-menu a {
+    background: none;
+}
 .project-block-menu ul {
     margin-left: -6px;          /* обратный left-отступ из li */
 }

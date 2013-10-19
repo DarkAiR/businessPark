@@ -1,4 +1,8 @@
 .news-lenta-widget {
+    padding-top: 3px;
+    padding-bottom: 12px;       /* 3px + 9px (news-lenta-inner) */
+    border-top: 1px solid #f5f1e5;
+    border-bottom: 1px solid #f5f1e5;
 }
 
 .news-lenta-item {
@@ -6,14 +10,11 @@
     height: 100%;
     background: #f5f1e5;
 }
-.news-lenta-widget,
+.news-lenta-inner,
 .news-lenta-item {
     padding-bottom: 9px;
 }
 .news-lenta-item.first {
-    -webkit-border-bottom-left-radius: 12px;
-    -moz-border-radius-bottomleft: 12px;
-    border-bottom-left-radius: 12px;
 }
 .news-lenta-item-date {
     font-size: 10px;

@@ -13,6 +13,7 @@
 	position:relative;
 	overflow: hidden;
 	margin-right: 5px;
+	padding-bottom: 3px;
 }
 .we-did-it-item-cont-inner {
 	width:2000px;

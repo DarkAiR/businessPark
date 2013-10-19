@@ -2,7 +2,7 @@
 
 {% set link = static('CHtml', 'normalizeUrl', [{'0':'/projects/projects/show','id':project.id}]) %}
 
-<div class='project-item  gridHeight17 grid16 left'>
+<div class='project-item  gridHeight16 grid16 left'>
     <div class='grid-left2'>
         {% if showDate %}
         <div class='project-item-date-cont  gridHeight1 grid-top1'>
@@ -15,6 +15,6 @@
             <a href='{{ link }}'><img src='{{ project.getImageUrl() }}'></a>
         </div>
         <div class='project-item-title  grid12 titleNormal'>{{ project.title }}</div>
-        <div class='project-item-desc  grid12'>{{ project.desc|raw }}</div>
+        <!--div class='project-item-desc  grid12'>{{ project.desc|raw }}</div-->
     </div>
 </div>

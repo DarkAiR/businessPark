@@ -148,7 +148,11 @@
             <div id='js-project-block-persons' class='project-block-persons  grid-top3 grid-bottom1'>
                 {% if project.persons and project.persons|length > 0 %}
                     <div class='gridHeight1 grid-left2 grid-right2 grid-bottom2'>
-                        Над проектом работали:
+                        {% if project.persons|length > 1 %}
+                            Над проектом работали:
+                        {% else %}
+                            Над проектом работал:
+                        {% endif %}
                     </div> 
                     {% for person in project.persons %}
                         <div class='project-block-person-item  grid16 grid-bottom3 left'>

@@ -10,18 +10,16 @@
 .works-on-main-big-title {
     color: #282828;
     font-size: 28px;
-    line-height: 21px;
-    letter-spacing: 1px;
-
+    padding-top: 9px;
 }
 .works-on-main-big-desc {
     margin-top: 2px;
 }
-.works-on-main-big-more {
-
-}
 .works-on-main-big-image {
 
+}
+.works-on-main-big-image a {
+    background: none;
 }
 .works-on-main-cont {
 

@@ -78,8 +78,12 @@ body {
 }
 
 a {
-	text-decoration: none;
+	_text-decoration: underline;
 	color: #0080c9;
+	/*border-bottom: 1px solid #95989c;*/
+	background: url(../../img/link-underline.png) bottom repeat-x; 
+}
+a:hover {
 }
 
 ol, ul {

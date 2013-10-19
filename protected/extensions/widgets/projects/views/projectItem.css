@@ -11,10 +11,12 @@
 .project-item-image {
 
 }
+.project-item-image a {
+    background: none;
+}
 .project-item-title {
-    white-space: nowrap;
-    overflow: hidden;
-    margin-top: 7px;
+    margin-top: 12px;
+    line-height: 19px;
 }
 .project-item-desc {
     line-height: 18px;

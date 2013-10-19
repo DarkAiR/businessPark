@@ -2,19 +2,18 @@
 
 <div class='works-on-main-widget'>
 
-    <div class='works-on-main-big  grid32 gridHeight35 left'>
+    <div class='works-on-main-big  grid32 gridHeight33 left'>
         {% if bigWork %}
             {% set link = static('CHtml', 'normalizeUrl', [{'0':'/projects/projects/show','id':bigWork.id}]) %}
             <div class='grid-left2'>
                 <div class='text15 gridHeight2'>Новые работы</div>
                 <div class='works-on-main-big-image'><a href='{{link}}'><img src='{{ bigWork.getImageBigUrl() }}'></a></div>
-                <div class='gridHeight3'><div class='works-on-main-big-title'>{{ bigWork.title }}</div></div>
+                <div class='gridHeight2'><div class='works-on-main-big-title'>{{ bigWork.title }}</div></div>
                 <div class='works-on-main-big-desc  text15 gridHeight1 grid-bottom1'>{{ bigWork.desc|raw }}</div>
-                <div class='works-on-main-big-more  gridHeight1 grid-bottom1'><a href='{{link}}'>Посмотреть работу</a></div>
             </div>
         {% endif %}
     </div>
-    <div class='works-on-main-cont  grid48 gridHeight35 left'>
+    <div class='works-on-main-cont  grid48 gridHeight33 left'>
     {% for work in works %}
         {{ widget('ext.widgets.projects.ProjectItemWidget', {'project':work, showDate:false} ) }}
         {% if loop.index == 3 %}
