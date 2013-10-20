@@ -6,7 +6,7 @@
 class ProjectsOwn extends CActiveRecord
 {
     const IMAGE_WIDTH = 144;        // (18px*8)
-    const IMAGE_HEIGHT = 72;        // (18px*4)
+    const IMAGE_HEIGHT = 78;        // (18px*4 + 6)
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
