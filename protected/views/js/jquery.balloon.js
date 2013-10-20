@@ -178,7 +178,9 @@
                 $balloon.mouseleave(function(e) {
                     if(t == e.relatedTarget || $.contains(t, e.relatedTarget)) return;
                     $target.hideBalloon();
-                }).mouseenter(function(e) { $target.showBalloon(); });
+                })
+                //.mouseenter(function(e) { $target.showBalloon(); })
+                ;
             }
         }).mouseleave(function(e) {
             var $target = $(this);
