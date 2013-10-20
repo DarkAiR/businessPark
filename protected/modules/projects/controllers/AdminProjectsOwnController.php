@@ -34,7 +34,7 @@ class AdminProjectsOwnController extends MAdminController
     {
         $attributes = array(
             'id',
-            'image',
+            $this->getImageColumn('image', 'getImageUrl()'),
             'visible',
             $this->getButtonsColumn(),
         );

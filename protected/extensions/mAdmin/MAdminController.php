@@ -316,6 +316,19 @@ class MAdminController extends CExtController
         );
     }
 
+    public function getImageColumn($name, $pathExprMethod)
+    {
+        return array(
+            'class' => 'bootstrap.widgets.TbImageColumn',
+            'header' => CActiveRecord::model($this->modelName)->getAttributeLabel($name),
+            'imagePathExpression' => '$data->'.$pathExprMethod,
+            'usePlaceKitten' => false,
+            'imageOptions' => array(
+                'style' => 'height:36px !important;'
+            )
+        );
+    }
+
     /**
      * Example:
      * <code>

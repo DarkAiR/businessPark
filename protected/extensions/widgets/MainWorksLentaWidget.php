@@ -19,7 +19,7 @@ class MainWorksLentaWidget extends ExtendedWidget
     private function getWorks()
     {
         $arr = array();
-        $works = Projects::model()->onSite()->byLimit(5)->findAll();
+        $works = Projects::model()->onSite()->orderDefault()->byLimit(5)->findAll();
         return $works;
     }
 }

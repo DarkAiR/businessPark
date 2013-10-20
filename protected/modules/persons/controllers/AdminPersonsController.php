@@ -58,7 +58,7 @@ class AdminPersonsController extends MAdminController
             'projects' => array(
                 'type' => 'select2',
                 'htmlOptions' => array(
-                    'data' => CHtml::listData(Projects::model()->findAll(), 'id', 'title'),
+                    'data' => CHtml::listData(Projects::model()->orderDefault()->findAll(), 'id', 'title'),
                     'multiple' => true,
                     'class' => 'input-xlarge',
                 ),
@@ -70,6 +70,7 @@ class AdminPersonsController extends MAdminController
     {
         $attributes = array(
             'id',
+            $this->getImageColumn('photoBig', 'getPhotoBigUrl()'),
             'name',
             'position',
             'visible',

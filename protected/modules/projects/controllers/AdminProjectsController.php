@@ -37,7 +37,7 @@ class AdminProjectsController extends MAdminController
         }
 
         return array(
-            '<h1>Описание работы для списка</h1>',
+            '<h1>Маленькая работа</h1>',
             'visible' => array(
                 'type' => 'checkBox',
             ),
@@ -45,9 +45,6 @@ class AdminProjectsController extends MAdminController
                 'type' => 'dropdownlist',
                 'data' => $sectArr,
                 'empty' => 'Выбрать'
-            ),
-            'title' => array(
-                'type' => 'textField',
             ),
             'desc' => array(
                 'type' => 'ckEditor',
@@ -57,17 +54,27 @@ class AdminProjectsController extends MAdminController
                 'uploadedFileFieldName' => '_image',
                 'removeImageFieldName' => '_removeImageFlag',
             ),
+
+            '<hr/>',
+            '<h1>Большая работа</h1>',
+
+            'showImageBig' => array(
+                'type' => 'checkBox',
+            ),
             '_imageBig' => array(
                 'class' => 'ext.ImageFileRowWidget',
                 'uploadedFileFieldName' => '_imageBig',
                 'removeImageFieldName' => '_removeImageBigFlag',
             ),
-            'showImageBig' => array(
-                'type' => 'checkBox',
+            'titleBig' => array(
+                'type' => 'textField',
+            ),
+            'descBig' => array(
+                'type' => 'ckEditor',
             ),
 
             '<hr/>',
-            '<h1>Описание работы внутренней страницы</h1>',
+            '<h1>Внутри работы</h1>',
 
             'publishTime' => array(
                 'type' => 'datepicker',
@@ -76,6 +83,9 @@ class AdminProjectsController extends MAdminController
                         'format' => 'dd.mm.yyyy'
                     ),
                 ),
+            ),
+            'title' => array(
+                'type' => 'textField',
             ),
             'goal' => array(
                 'type' => 'textArea',
@@ -100,11 +110,19 @@ class AdminProjectsController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            'id',
+            array(
+                'class' => 'bootstrap.widgets.TbEditableColumn',
+                'name' => 'orderNum',
+                'editable' => array(
+                    'url' => $this->createUrl('update'),
+                )
+            ),
             'publishTime',
             'sectionId',
+            $this->getImageColumn('image', 'getImageUrl()'),
             'title',
             'showImageBig',
+            'projectLink',
             'visible',
             $this->getButtonsColumn(),
         );

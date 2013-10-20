@@ -37,6 +37,11 @@
 .footer-cont #contacts-block {
     min-height: 1px;
 }
+.footer-cont #contacts-block .contact-mail-block-info,
+.footer-cont #contacts-block .contact-phone-block-info {
+    text-align: right;
+    padding-left: 9px;
+}
 .footer-cont #contacts-block .contact-mail {
 }
 .footer-cont #contacts-block .contact-phone {

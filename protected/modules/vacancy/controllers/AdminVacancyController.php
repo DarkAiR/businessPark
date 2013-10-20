@@ -39,8 +39,8 @@ class AdminVacancyController extends MAdminController
     {
         $attributes = array(
             'id',
+            $this->getImageColumn('image', 'getImageUrl()'),
             'title',
-            'image',
             'visible',
             $this->getButtonsColumn(),
         );

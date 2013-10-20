@@ -47,9 +47,9 @@ class AdminProjectSectionsController extends MAdminController
                     'url' => $this->createUrl('update'),
                 )
             ),
+            $this->getImageColumn('image', 'getImageUrl()'),
             'name',
             'title',
-            'image',
             'visible',
             $this->getButtonsColumn(),
         );

@@ -9,7 +9,7 @@ class ProjectsController extends Controller
         $model = Projects::model()->onSite();
         if ($sectionId !== false)
             $model = $model->bySection($sectionId);
-        $projects = $model->findAll();
+        $projects = $model->orderDefault()->findAll();
 
         $this->render('/index', array(
             'projects' => $projects,
@@ -24,7 +24,7 @@ class ProjectsController extends Controller
         if ($id === false)
             throw new CHttpException(400, Yii::t('yii','Your request is invalid.'));
 
-        $project = Projects::model()->onSite()->findByPk($id);
+        $project = Projects::model()->onSite()->orderDefault()->findByPk($id);
         if (!$project)
             throw new CHttpException(404);
 

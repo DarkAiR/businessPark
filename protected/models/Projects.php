@@ -88,14 +88,18 @@ class Projects extends CActiveRecord
                 'sectionId' => 'Раздел',
                 'showImageBig' => 'Показывать большую картинку',
                 'visible' => 'Показывать',
-                'orderNum' => 'Порядок сортировки',
+                'orderNum' => 'Порядок',
 
                 'title' => 'Заголовок',
+                'titleBig' => 'Заголовок большой работы',
+                'descBig' => 'Описание большой работы',
                 'goal' => 'Задача',
                 'publishTime' => 'Дата выпуска',
                 'link' => 'Ссылка',
                 'resultText' => 'Текст результата',
                 'processText' => 'Текст процесса',
+
+                'projectLink' => 'Ссылка на работу'
             )
         );
     }
@@ -109,7 +113,7 @@ class Projects extends CActiveRecord
             $this->timeRules(),
             array(
                 array('sectionId', 'required'),
-                array('title, goal, desc, resultText, processText', 'safe'),
+                array('title, titleBig, desc, descBig, goal, resultText, processText', 'safe'),
                 array('visible, showImageBig', 'boolean'),
                 array('orderNum, sectionId', 'numerical', 'integerOnly'=>true),
                 array('publishTime', 'CDateValidator', 'format'=>'dd.MM.yyyy'),
@@ -164,7 +168,15 @@ class Projects extends CActiveRecord
         //$criteria->compare('name', $this->name, true);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort'=>array(
+                'defaultOrder' => 'orderNum ASC',
+            )
         ));
+    }
+
+    public function getProjectLink()
+    {
+        return CHtml::normalizeUrl( array(0=>'/projects/projects/show', 'id'=>$this->id) );
     }
 
     public function getImageUrl()

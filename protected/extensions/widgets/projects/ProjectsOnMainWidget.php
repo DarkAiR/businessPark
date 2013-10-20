@@ -7,9 +7,10 @@ class ProjectsOnMainWidget extends ExtendedWidget
 
     public function run()
     {
-        $works = $this->getWorks();
+        $bigWork = $this->getBigWork();
+        $works = $this->getWorks($bigWork);
         $this->render('projectsOnMain', array(
-            'bigWork' => $this->getBigWork(),
+            'bigWork' => $bigWork,
             'works' => $works,
         ));
     }
@@ -17,10 +18,22 @@ class ProjectsOnMainWidget extends ExtendedWidget
     /**
      Получить список работ
      */
-    private function getWorks()
+    private function getWorks($bigWork)
     {
         $arr = array();
-        $works = Projects::model()->onSite()->byLimit(6)->findAll();
+        $works = Projects::model()->onSite()->orderDefault()->byLimit(7)->findAll();
+        if ($bigWork)
+        {
+            foreach ($works as $k=>$v)
+            {
+                if ($v->id == $bigWork->id)
+                {
+                    unset($works[$k]);
+                    break;
+                }
+            }
+        }
+        $works = array_slice($works, 0, 6);
         return $works;
     }
 
@@ -29,7 +42,7 @@ class ProjectsOnMainWidget extends ExtendedWidget
      */
     private function getBigWork()
     {
-        $work = Projects::model()->onSite()->withBigImage()->byLimit(1)->findAll();
+        $work = Projects::model()->onSite()->orderDefault()->withBigImage()->byLimit(1)->findAll();
         if (count($work) > 0)
             return reset($work);
         return false;
