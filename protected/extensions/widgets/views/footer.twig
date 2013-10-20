@@ -1,4 +1,5 @@
 {{ import('css','footer.css','ext.widgets.views') }}
+{{ import('js','jquery.balloon.js') }}
 
 <script type="text/javascript">
 footerWidget =
@@ -29,10 +30,25 @@ footerWidget =
 };
 $(document).ready( function()
 {
+    $(function() {
+        var content = '<scr'+'ipt type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=rVy95O-FO9cLef5HKBQ2LTvM7Yoqwv8Q&width=600&height=450"></scr'+'ipt>';
+        $('#js-address-block-map')
+            .balloon({
+                position: 'top',
+                contents: content,
+            })
+            .click( function() {
+                return false;
+            });
+    });
+
+
     footerWidget.init();
 });
 </script>
 
+
+<a id='aaasss' href='#'>map</a>
 
 <div class='footer-widget'>
     <div id='js-footer-cont-pos' class='footer-cont-pos'>
@@ -59,7 +75,7 @@ $(document).ready( function()
                 <div id='address-block' class='grid16 left'>
                     <div class='grid-left2'>
                         620078, Россия г. Екатеринбург, <br/>
-                        <a href='/'>ул. Папанина 1</a>, 2 этаж. оф. 202
+                        <a href='#' id='js-address-block-map'>ул. Папанина 1</a>, 2 этаж. оф. 202
                     </div>
                 </div>
                 <div id='bottom-worktime-block' class='grid16 left'>
@@ -77,5 +93,3 @@ $(document).ready( function()
         </div>
     </div>
 </div>
-
-<!-- script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=rVy95O-FO9cLef5HKBQ2LTvM7Yoqwv8Q&width=600&height=450"></script-->
