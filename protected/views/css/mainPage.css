@@ -1,5 +1,5 @@
 #body-wrap {
-    height: 1043px;      /* 18px * 54 - 1 */
+    height: 1039px;      /* 18px * 54 - 1 */
 }
 
 .main-page-block1 {
@@ -12,6 +12,7 @@
 .main-page-block3 {
     _background: rgba(255,0,255,0.2);
     position: relative;
+    padding-top: 5px;
 }
 .main-page-block3_1 {
     _background: rgba(255,0,255,0.2);
