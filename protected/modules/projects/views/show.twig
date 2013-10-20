@@ -90,19 +90,19 @@
                     {{ project.title|raw }}
                 </div>
 
-                <table class='project-block-link  gridHeight2'>
-                    <tr>
-                        <td class='project-block-link-icon  grid2 gridHeight'>
-                            {% set imageUrl = project.linkIconBehavior.getImageUrl() %}
-                            {% if imageUrl %}
+                {% set imageUrl = project.linkIconBehavior.getImageUrl() %}
+                {% if imageUrl %}
+                    <table class='project-block-link  gridHeight2'>
+                        <tr>
+                            <td class='project-block-link-icon  grid2 gridHeight'>
                                 <img src='{{ absLink(project.linkIconBehavior.getImageUrl()) }}' width="16" height="16">
-                            {% endif %}
-                        </td>
-                        <td class='project-block-link-url  gridHeight2'>
-                            <a href='{{ project.link }}' target='_blank'><span class='semibold'>{{ project.link }}</span></a>
-                        </td>
-                    </tr>
-                </table>
+                            </td>
+                            <td class='project-block-link-url  gridHeight2'>
+                                <a href='{{ project.link }}' target='_blank'><span class='semibold'>{{ project.link }}</span></a>
+                            </td>
+                        </tr>
+                    </table>
+                {% endif %}
 
                 <table class='project-block-nav  gridHeight2'>
                     <tr>

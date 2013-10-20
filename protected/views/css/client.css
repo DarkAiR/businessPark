@@ -37,6 +37,8 @@
 .grid-top2      { margin-top: 36px; }
 .grid-top3      { margin-top: 54px; }
 
+.grid-bottom-2  { margin-bottom: -36px; }
+.grid-bottom-1  { margin-bottom: -18px; }
 .grid-bottom1   { margin-bottom: 18px; }
 .grid-bottom1_5 { margin-bottom: 27px; }
 .grid-bottom2   { margin-bottom: 36px; }

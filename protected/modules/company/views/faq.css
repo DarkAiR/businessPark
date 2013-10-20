@@ -20,7 +20,7 @@
 }
 .faq-item-question a {
     border-bottom: 1px dashed #327acd;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
     background: none;
 }
 .faq-item-question-num {

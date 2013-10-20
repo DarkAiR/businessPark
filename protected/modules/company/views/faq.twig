@@ -15,6 +15,9 @@
         centerBlockWidth: 0,
         rightBlock1Width: 0,
         rightBlock2Width: 0,
+        openQuestionId: false,
+        openQuestion: false,
+        openAnswer: false,
 
         init: function()
         {
@@ -30,6 +33,26 @@
                 var answ = linkElem.closest('.faq-item-question').siblings('.faq-item-answer');
                 if (answ)
                 {
+                    var currQuestionId = linkElem.closest('.faq-item-question').attr('id');
+                    var prevQuestionId = faqListContent.openQuestionId;
+                    var prevQuestion = faqListContent.openQuestion;
+                    var prevAnswer = faqListContent.openAnswer;
+
+                    if (prevQuestionId !== false  &&  prevQuestionId !== currQuestionId)
+                    {
+                        console.log(prevQuestion);
+                        if (prevAnswer.is(':visible'))
+                        {
+                            prevQuestion.css({'color':''});
+                            prevAnswer.toggle( {
+                                'duration':200
+                            });
+                        }
+                    }
+                    faqListContent.openQuestionId = currQuestionId;
+                    faqListContent.openQuestion = linkElem;
+                    faqListContent.openAnswer = answ;
+
                     if (answ.is(':visible'))
                         linkElem.css({'color':''});
                     else
@@ -114,7 +137,7 @@
 
             {% for item in items %}
                 <div class='faq-item'>
-                    <div class='faq-item-question  text15'>
+                    <div class='faq-item-question  text15' id='faq-item-question-{{loop.index}}'>
                         <div class='faq-item-question-num  grid1 left'>{{loop.index}}</div><a href='javascript:void(0)'>{{ item.question|raw }}</a>
                     </div>
                     <div class='faq-item-answer' style='display:none'>

@@ -1,7 +1,7 @@
 {{ import('css','weDidIt.css','ext.widgets.views') }}
 
 <div class='we-did-it-widget  gridHeight8'>
-    <div class='we-did-it-title  gridHeight1 titleNormal titleIndent'>Мы сделали</div>
+    <div class='we-did-it-title  gridHeight1 titleNormal titleIndent'>Работы</div>
     <div class='we-did-it-list'>
         {% for item in items %}
             {% set link = static('CHtml', 'normalizeUrl', [{0:'/projects/projects/index', 'sectionId':item.sectionId}]) %}

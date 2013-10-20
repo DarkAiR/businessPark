@@ -69,9 +69,6 @@ class AdminProjectsController extends MAdminController
             '<hr/>',
             '<h1>Описание работы внутренней страницы</h1>',
 
-            'goal' => array(
-                'type' => 'textArea',
-            ),
             'publishTime' => array(
                 'type' => 'datepicker',
                 'htmlOptions' => array(
@@ -79,6 +76,9 @@ class AdminProjectsController extends MAdminController
                         'format' => 'dd.mm.yyyy'
                     ),
                 ),
+            ),
+            'goal' => array(
+                'type' => 'textArea',
             ),
             'link' => array(
                 'type' => 'textField',
@@ -101,7 +101,7 @@ class AdminProjectsController extends MAdminController
     {
         $attributes = array(
             'id',
-            '_createTime',
+            'publishTime',
             'sectionId',
             'title',
             'showImageBig',
