@@ -31,11 +31,10 @@ footerWidget =
 $(document).ready( function()
 {
     $(function() {
-        var content = '<scr'+'ipt type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=rVy95O-FO9cLef5HKBQ2LTvM7Yoqwv8Q&width=600&height=450"></scr'+'ipt>';
         $('#js-address-block-map')
             .balloon({
                 position: 'top',
-                contents: content,
+                contents: $('#yandex-map').clone(),
             })
             .click( function() {
                 return false;
@@ -92,4 +91,10 @@ $(document).ready( function()
             </div>
         </div>
     </div>
+</div>
+
+<div style='display:none'>
+<div id='yandex-map'>
+    <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=rVy95O-FO9cLef5HKBQ2LTvM7Yoqwv8Q&width=600&height=450"></script>
+</div>
 </div>
