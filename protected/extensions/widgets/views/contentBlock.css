@@ -5,6 +5,7 @@
     _background: rgba(255,0,0,0.2);
     overflow: hidden;
     padding-bottom: 1px;        /* Чтобы влезло подчеркивание */
+    margin-bottom: 7px;
 }
 .content-block-title * {
     font-size: 15px;

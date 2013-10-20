@@ -2,7 +2,7 @@
 
 }
 .projects-own-widget-title {
-
+    margin-bottom: 12px;
 }
 .projects-own-item {
 
@@ -10,6 +10,7 @@
 .projects-own-image {
     text-align: center;
     vertical-align: middle;
+    padding-bottom: 4px;
 }
 .projects-own-desc {
 
