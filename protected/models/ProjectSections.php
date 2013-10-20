@@ -50,7 +50,7 @@ class ProjectSections extends CActiveRecord
                 'title' => 'Заголовок',
                 'desc' => 'Основной текст',
                 'visible' => 'Показывать',
-                'orderNum' => 'Порядок сортировки',
+                'orderNum' => 'Порядок',
             )
         );
     }
@@ -87,6 +87,9 @@ class ProjectSections extends CActiveRecord
         //$criteria->compare('name', $this->name, true);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort'=>array(
+                'defaultOrder' => 'orderNum ASC',
+            )
         ));
     }
 

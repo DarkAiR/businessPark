@@ -24,9 +24,14 @@ class AdminFaqController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            'id',
+            array(
+                'class' => 'bootstrap.widgets.TbEditableColumn',
+                'name' => 'orderNum',
+                'editable' => array(
+                    'url' => $this->createUrl('update'),
+                )
+            ),
             'question',
-            'orderNum',
             'visible',
             $this->getButtonsColumn(),
         );

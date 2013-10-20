@@ -19,7 +19,7 @@ class MAdminController extends CExtController
     /**
      * @var string|string[] Allowed actions. Array or comma separated string. Possible values: add,view,edit,delete
      */
-    public $allowedActions = 'add,edit,delete';
+    public $allowedActions = 'add,edit,delete,update';
 
     /**
      * @var string One of AdminController->allowedActions
@@ -227,6 +227,13 @@ class MAdminController extends CExtController
         }
     }
 
+    public function actionUpdate()
+    {
+        Yii::import('bootstrap.widgets.TbEditableSaver');
+        $es = new TbEditableSaver($this->modelName);
+        $es->update();
+    }
+
     /**
      * internal
      * @return CActiveRecord
@@ -234,15 +241,12 @@ class MAdminController extends CExtController
      */
     public function loadModel()
     {
-        $model = null;
-        if (isset($_GET['id'])) {
-            $model = CActiveRecord::model($this->modelName)->findbyPk($_GET['id']);
-        }
-        if ($model === null) {
+        $model = (isset($_GET['id']))
+            ? CActiveRecord::model($this->modelName)->findbyPk($_GET['id'])
+            : null;
+        if ($model === null)
             throw new CHttpException(404);
-        } else {
-            return $model;
-        }
+        return $model;
     }
 
     /**

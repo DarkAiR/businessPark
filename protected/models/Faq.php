@@ -16,7 +16,7 @@ class Faq extends CActiveRecord
             'question' => 'Вопрос',
             'answer' => 'Ответ',
             'visible' => 'Показывать',
-            'orderNum' => 'Порядок сортировки',
+            'orderNum' => 'Порядок',
         );
     }
 
@@ -49,6 +49,9 @@ class Faq extends CActiveRecord
         $criteria->compare('question', $this->question, true);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort'=>array(
+                'defaultOrder' => 'orderNum ASC',
+            )
         ));
     }
 }
