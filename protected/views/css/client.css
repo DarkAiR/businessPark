@@ -173,11 +173,10 @@
     line-height: 21px;
 }
 
-.titleColor, .titleColor *,
-.titleNormal, .titleNormal * {
+.titleColor, .titleColor p,
+.titleNormal, .titleNormal p {
     color: #202020;
 }
-
 .titleIndent {
     margin-bottom: 7px;
 }
