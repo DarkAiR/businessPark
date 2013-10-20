@@ -19,18 +19,10 @@ class AdminProjectsOwnController extends MAdminController
     {
         return array(
             'desc' => array(
-                'type' => 'textArea',
-            ),
-            'link' => array(
-            	'type' => 'textField',
+                'type' => 'ckEditor',
             ),
             '_image' => array(
                 'class' => 'ext.ImageFileRowWidget',
-            ),
-            'type' => array(
-                'type' => 'dropdownlist',
-                'data' => ProjectsOwn::getTypes(),
-                'empty' => 'Выбрать'
             ),
             'visible' => array(
                 'type' => 'checkBox',
@@ -42,9 +34,7 @@ class AdminProjectsOwnController extends MAdminController
     {
         $attributes = array(
             'id',
-            'link',
             'image',
-            'type',
             'visible',
             $this->getButtonsColumn(),
         );
@@ -54,7 +44,7 @@ class AdminProjectsOwnController extends MAdminController
 
     public function beforeSave($model)
     {
-        $this->imageBeforeSave($model);
+        $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
         parent::beforeSave($model);
     }
 }

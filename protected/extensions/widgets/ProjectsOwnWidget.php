@@ -2,7 +2,7 @@
 
 class ProjectsOwnWidget extends ExtendedWidget
 {
-    const LIMIT = 2;
+    const LIMIT = 3;
 
     public $model;
     public $attribute;
@@ -26,20 +26,9 @@ class ProjectsOwnWidget extends ExtendedWidget
         {
             $arr2 = array(
                 'id' => $work->id,
-                'title' => '',
                 'desc' => $work->desc,
                 'image' => $work->getImageUrl(),
-                'link' => $work->link
             );
-            switch ($work->type)
-            {
-            	case ProjectsOwn::TYPE_IN_PROGRESS:
-            		$arr2['title'] = 'В разработке';
-            		break;
-            	case ProjectsOwn::TYPE_OWN_PROJECT:
-            		$arr2['title'] = 'Собственный проект';
-            		break;
-            }
             $arr[] = $arr2;
         }
         if (count($arr) < self::LIMIT)

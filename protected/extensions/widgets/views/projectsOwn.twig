@@ -1,33 +1,14 @@
 {{ import('css','projectsOwn.css','ext.widgets.views') }}
 
 <div class='projects-own-widget'>
+    <div class='projects-own-widget-title  gridHeight1 titleNormal titleIndent'>Собственные проекты</div>
 
-    {% for item in works if loop.index < 3 %}    
-    <div class='projects-own-cont border-cont grid16 left'>
+    {% for item in works %}
+    <div class='projects-own-item grid8 {% if loop.index0 > 0 %}grid-left2{% endif %} left'>
 
-        <div class='border-r' style='background:rgba(217,217,217,0.5);'></div>
-        <div class='border-cont  grid-left2 grid-right2'>
+        <div class='projects-own-image'><img src='{{ item.image }}'></div>
+        <div class='projects-own-desc'>{{ item.desc|raw }}</div>
 
-            <div class='border-l' style='background:#d9d9d9;'></div>
-            <div class='border-r' style='background:#d9d9d9;'></div>
-            <div class='border-t' style='background:#d9d9d9;'></div>
-            <div class='border-b' style='background:#d9d9d9;'></div>
-            
-            {% if item|length > 0 %}
-                <table class='projects-own-table  gridHeight8' cellpadding="0" cellspacing="0" border="0">
-                <tr><td class='projects-own-title  gridHeight1'>
-                </td></tr>
-                <tr><td class='projects-own-title  gridHeight2'>
-                    {{ item.title }}
-                </td></tr>
-                <tr><td class='projects-own-logo  gridHeight5'>
-                    <img src='{{ item.image }}'>
-                </td></tr>
-                </table>
-                <div class='projects-own-desc'>{{ item.desc|raw }}</div>
-                <div class='projects-own-link'><a href='{{ item.link }}' targe='_blank'>{{ item.link }}</a></div>
-            {% endif %}
-        </div>
     </div>
     {% endfor %}
 

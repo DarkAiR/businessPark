@@ -5,12 +5,8 @@
  */
 class ProjectsOwn extends CActiveRecord
 {
-    // Типы проекта
-    const TYPE_IN_PROGRESS = 0;
-    const TYPE_OWN_PROJECT = 1;
-
-    const IMAGE_WIDTH = 216;        // (18px*12)
-    const IMAGE_HEIGHT = 90;        // (18px*5)
+    const IMAGE_WIDTH = 144;        // (18px*8)
+    const IMAGE_HEIGHT = 72;        // (18px*4)
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
@@ -46,11 +42,9 @@ class ProjectsOwn extends CActiveRecord
     public function attributeLabels()
     {
         return array_merge(
-            $this->imageLabels(),
+            $this->imageBehavior->imageLabels(),
             array(
-                'desc' => 'Краткое описание',
-                'link' => 'Ссылка на сайт',
-                'type' => 'Статус',
+                'desc' => 'Описание',
                 'visible' => 'Показывать',
                 'orderNum' => 'Порядок сортировки',
             )
@@ -60,13 +54,11 @@ class ProjectsOwn extends CActiveRecord
     public function rules()
     {
         return array_merge(
-            $this->imageRules(),
+            $this->imageBehavior->imageRules(),
             array(
-                array('type', 'required'),
-                array('desc, link', 'safe'),
-                array('link', 'CUrlValidator'),
+                array('desc', 'safe'),
                 array('visible', 'boolean'),
-                array('orderNum, type', 'numerical', 'integerOnly'=>true),
+                array('orderNum', 'numerical', 'integerOnly'=>true),
             )
         );
     }
@@ -101,26 +93,20 @@ class ProjectsOwn extends CActiveRecord
         ));
     }
 
-    /**
-     * Получить типы проекты
-     */
-    public static function getTypes()
+    public function getImageUrl()
     {
-        return array(
-            self::TYPE_IN_PROGRESS => 'В процессе разработки',
-            self::TYPE_OWN_PROJECT => 'Собственный проект',
-        );
+        return $this->imageBehavior->getImageUrl();
     }
 
     protected function afterDelete()
     {
-        $this->imageAfterDelete();
+        $this->imageBehavior->imageAfterDelete();
         return parent::afterDelete();
     }
 
     protected function afterFind()
     {
-        $this->imageAfterFind();
+        $this->imageBehavior->imageAfterFind();
         return parent::afterFind();
     }
 }

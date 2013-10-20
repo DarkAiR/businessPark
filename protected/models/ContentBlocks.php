@@ -10,14 +10,12 @@ class ContentBlocks extends CActiveRecord
     const POS_MAIN_CENTER           = 2;    // На главной в центре
     const POS_MAIN_RIGHT            = 3;    // На главной справа
     const POS_FOOTER_WORKTIME       = 4;    // В подвале время работы
-    const POS_MAIN_CENTER_BOTTOM    = 5;    // На главной в центре снизу
     const POS_VACANCY_MAIN_TEXT     = 101;  // Главный текст на странице вакансий
 
 
     private static $posNames = array(
         self::POS_MAIN_LEFT => 'На главной слева',
         self::POS_MAIN_CENTER => 'На главной в центре',
-        self::POS_MAIN_CENTER_BOTTOM => 'На главной в центре снизу',
         self::POS_MAIN_RIGHT => 'На главной справа',
         self::POS_FOOTER_WORKTIME => 'Время работы в подвале',
         self::POS_VACANCY_MAIN_TEXT => 'Текст на странице вакансий',
