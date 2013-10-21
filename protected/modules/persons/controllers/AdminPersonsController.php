@@ -71,9 +71,10 @@ class AdminPersonsController extends MAdminController
         $attributes = array(
             'id',
             $this->getImageColumn('photoBig', 'getPhotoBigUrl()'),
+            $this->getImageColumn('photo', 'getPhotoUrl()'),
             'name',
             'position',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

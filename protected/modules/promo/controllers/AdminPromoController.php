@@ -48,7 +48,7 @@ class AdminPromoController extends MAdminController
             'title',
             'motto',
             'image',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

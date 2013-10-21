@@ -33,9 +33,9 @@ class AdminProjectsOwnController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            'id',
+            $this->getOrderColumn(),
             $this->getImageColumn('image', 'getImageUrl()'),
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

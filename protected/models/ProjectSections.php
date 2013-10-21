@@ -93,6 +93,15 @@ class ProjectSections extends CActiveRecord
         ));
     }
 
+    public static function getSections()
+    {
+        $sections = ProjectSections::model()->findAll();
+        $sectArr = array();
+        foreach ($sections as $sect)
+            $sectArr[$sect->id] = $sect->name;
+        return $sectArr;
+    }
+
     protected function afterDelete()
     {
         $this->imageAfterDelete();

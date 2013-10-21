@@ -13,7 +13,7 @@ class AdminArticlesController extends MAdminController
             ),
             'type' => array(
                 'type' => 'dropdownlist',
-                'data' => $model->getTypeNames(),
+                'data' => Articles::getTypeNames(),
                 'empty' => Articles::TYPE_CUSTOM,
             ),
             'title' => array(
@@ -31,11 +31,15 @@ class AdminArticlesController extends MAdminController
         $buttons['deleteButtonOptions'] = array(
             'visible' => '!$data->visible;'
         );
+//echo '<pre>';
+//var_dump( ContentBlocks::getPosNames() );
+//var_dump( Articles::getTypeNames() );
+//die;
         $attributes = array(
             'id',
             'title',
             'type',
-            'visible',
+            $this->getVisibleColumn(),
             $buttons
         );
 

@@ -73,7 +73,7 @@ class ContentBlocks extends CActiveRecord
         ));
     }
 
-    public function getPosNames()
+    public static function getPosNames()
     {
         return self::$posNames;
     }

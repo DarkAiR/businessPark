@@ -19,7 +19,7 @@ class AdminContentBlocksController extends MAdminController
             ),
             'position' => array(
                 'type' => 'dropdownlist',
-                'data' => $model->getPosNames(),
+                'data' => ContentBlocks::getPosNames(),
                 'empty' => 'Выбрать'
             ),
         );
@@ -30,8 +30,8 @@ class AdminContentBlocksController extends MAdminController
         $attributes = array(
             'id',
             'title',
-            'position',
-            'visible',
+            $this->getSelectColumn('position', ContentBlocks::getPosNames()),
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

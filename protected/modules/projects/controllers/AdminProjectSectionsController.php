@@ -40,17 +40,11 @@ class AdminProjectSectionsController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            array(
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'name' => 'orderNum',
-                'editable' => array(
-                    'url' => $this->createUrl('update'),
-                )
-            ),
+            $this->getOrderColumn(),
             $this->getImageColumn('image', 'getImageUrl()'),
             'name',
             'title',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

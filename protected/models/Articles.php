@@ -62,7 +62,7 @@ class Articles extends CActiveRecord
         ));
     }
 
-    public function getTypeNames()
+    public static function getTypeNames()
     {
         return array(
             self::TYPE_CUSTOM => 'Произвольная',

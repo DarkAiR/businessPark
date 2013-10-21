@@ -320,11 +320,65 @@ class MAdminController extends CExtController
     {
         return array(
             'class' => 'bootstrap.widgets.TbImageColumn',
-            'header' => CActiveRecord::model($this->modelName)->getAttributeLabel($name),
+            'header' => '<div style="width:100%; text-align:center"><i class="icon-picture"></i></div>',
             'imagePathExpression' => '$data->'.$pathExprMethod,
             'usePlaceKitten' => false,
             'imageOptions' => array(
                 'style' => 'height:36px !important;'
+            )
+        );
+    }
+
+    public function getVisibleColumn()
+    {
+        return $this->getBooleanColumn('visible', '<div style="width:100%; text-align:center"><i class="icon-eye-open"></i></div>');
+    }
+
+    public function getBooleanColumn($name, $header=null)
+    {
+        if ($header === null)
+            $header = CActiveRecord::model($this->modelName)->getAttributeLabel($name);
+
+        return array(
+            'class' => 'bootstrap.widgets.TbEditableColumn',
+            'name' => $name,
+            'header' => $header,
+            'htmlOptions' => array(
+                'width' => '32',
+            ),
+            'editable' => array(
+                'type' => 'select',
+                'source' => array(0, 1),
+                'url' => $this->createUrl('update'),
+            )
+        );
+    }
+
+    public function getSelectColumn($name, $data)
+    {
+        return array(
+            'class' => 'bootstrap.widgets.TbEditableColumn',
+            'name' => $name,
+            'header' => $header = CActiveRecord::model($this->modelName)->getAttributeLabel($name),
+            'editable' => array(
+                'type' => 'select',
+                'source' => $data,
+                'url' => $this->createUrl('update'),
+            )
+        );
+    }
+
+    public function getOrderColumn($name = 'orderNum')
+    {
+        return array(
+            'class' => 'bootstrap.widgets.TbEditableColumn',
+            'name' => $name,
+            'header' => '<div style="width:100%; text-align:center"><i class="icon-arrow-up"></i><i class="icon-arrow-down" style="margin-left:-4px"></i></div>',
+            'htmlOptions' => array(
+                'width' => '32',
+            ),
+            'editable' => array(
+                'url' => $this->createUrl('update'),
             )
         );
     }

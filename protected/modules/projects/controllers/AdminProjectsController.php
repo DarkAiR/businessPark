@@ -29,13 +29,6 @@ class AdminProjectsController extends MAdminController
 
     public function getEditFormElements($model)
     {
-        $sections = ProjectSections::model()->findAll();
-        $sectArr = array();
-        foreach ($sections as $sect)
-        {
-            $sectArr[$sect->id] = $sect->name;
-        }
-
         return array(
             '<h1>Маленькая работа</h1>',
             'visible' => array(
@@ -43,7 +36,7 @@ class AdminProjectsController extends MAdminController
             ),
             'sectionId' => array(
                 'type' => 'dropdownlist',
-                'data' => $sectArr,
+                'data' => ProjectSections::getSections(),
                 'empty' => 'Выбрать'
             ),
             'desc' => array(
@@ -110,20 +103,14 @@ class AdminProjectsController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            array(
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'name' => 'orderNum',
-                'editable' => array(
-                    'url' => $this->createUrl('update'),
-                )
-            ),
+            $this->getOrderColumn(),
             'publishTime',
-            'sectionId',
+            $this->getSelectColumn('sectionId', ProjectSections::getSections()),
             $this->getImageColumn('image', 'getImageUrl()'),
             'title',
-            'showImageBig',
+            $this->getBooleanColumn('showImageBig'),
             'projectLink',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

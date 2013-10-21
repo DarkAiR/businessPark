@@ -36,7 +36,7 @@ class AdminNewsController extends MAdminController
             '_createTime',
             'title',
             'newsLink',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 

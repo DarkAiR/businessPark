@@ -38,10 +38,10 @@ class AdminVacancyController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            'id',
+            $this->getOrderColumn(),
             $this->getImageColumn('image', 'getImageUrl()'),
             'title',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 
