@@ -68,6 +68,7 @@ class Persons extends CActiveRecord
                 'name' => 'Имя',
                 'position' => 'Должность',
                 'projects' => 'Проекты',
+                'showInCommand' => 'Отображать в команде',
                 'visible' => 'Показывать',
                 'orderNum' => 'Порядок сортировки',
             )
@@ -82,7 +83,7 @@ class Persons extends CActiveRecord
             array(
                 array('name, position, projects', 'safe'),
                 array('name', 'required'),
-                array('visible', 'boolean'),
+                array('visible, showInCommand', 'boolean'),
                 array('orderNum', 'numerical', 'integerOnly'=>true),
             )
         );
@@ -104,6 +105,9 @@ class Persons extends CActiveRecord
         return array(
             'onSite' => array(
                 'condition' => $alias.'.visible = 1',
+            ),
+            'inCommand' => array(
+                'condition' => $alias.'.showInCommand = 1',
             ),
             'orderDefault' => array(
                 'order' => $alias.'.orderNum ASC',

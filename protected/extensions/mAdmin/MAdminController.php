@@ -331,13 +331,15 @@ class MAdminController extends CExtController
 
     public function getVisibleColumn()
     {
-        return $this->getBooleanColumn('visible', '<div style="width:100%; text-align:center"><i class="icon-eye-open"></i></div>');
+        return $this->getBooleanColumn('visible', 'icon-eye-open');
     }
 
-    public function getBooleanColumn($name, $header=null)
+    public function getBooleanColumn($name, $icon=null)
     {
-        if ($header === null)
-            $header = CActiveRecord::model($this->modelName)->getAttributeLabel($name);
+        $label = CActiveRecord::model($this->modelName)->getAttributeLabel($name);
+        $header = ($icon === null)
+            ? $label
+            : '<a href="javascript:void(0)" title="'.$label.'"><div style="width:100%; text-align:center"><i class="'.$icon.'"></i></div></a>';
 
         return array(
             'class' => 'bootstrap.widgets.TbEditableColumn',

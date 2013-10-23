@@ -15,7 +15,7 @@ class CompanyController extends Controller
 
     public function actionCommand()
     {
-        $persons = Persons::model()->onSite()->orderDefault()->findAll();
+        $persons = Persons::model()->onSite()->inCommand()->orderDefault()->findAll();
         $this->render('/command', array(
             'persons' => $persons,
         ));

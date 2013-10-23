@@ -5,16 +5,7 @@ class AdminPersonsController extends MAdminController
     public $modelName = 'Persons';
     public $modelHumanTitle = array('сотрудника', 'сотрудника', 'сотрудников');
 
-    public $allowedActions = 'add,edit,delete,test';
-    public function actionTest()
-    {
-        $sql = Yii::app()->db->commandBuilder;
 
-        $sqlStr = 'INSERT INTO sphereart.`Person2Project` (`personId`, `projectId`) VALUES (99,100);';
-        $res = $sql->createSqlCommand($sqlStr);
-        $res->execute();
-        Yii::app()->end();
-    }
     public function behaviors()
     {
         return array(
@@ -37,6 +28,9 @@ class AdminPersonsController extends MAdminController
     {
         return array(
             'visible' => array(
+                'type' => 'checkBox',
+            ),
+            'showInCommand' => array(
                 'type' => 'checkBox',
             ),
             'name' => array(
@@ -74,6 +68,7 @@ class AdminPersonsController extends MAdminController
             $this->getImageColumn('photo', 'getPhotoUrl()'),
             'name',
             'position',
+            $this->getBooleanColumn('showInCommand', 'icon-user'),
             $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
