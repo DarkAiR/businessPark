@@ -8,6 +8,6 @@ class AddThisWidget extends ExtendedWidget
 
     public function run()
     {
-        //$this->render('addThisBody');
+        $this->render('addThisBody');
     }
 }
