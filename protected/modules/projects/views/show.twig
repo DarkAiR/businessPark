@@ -77,6 +77,9 @@
 {% endblock %}
 
 {% block content %}
+
+    {% set haveProcess = project.processText %}
+
     <div id='js-project-page-content' class='project-page-content  grid-top-1'>
         <div id='js-project-page-content-pos' class='project-page-content-pos'>
 
@@ -91,22 +94,25 @@
                 </div>
 
                 {% set imageUrl = project.linkIconBehavior.getImageUrl() %}
-                {% if imageUrl %}
+                {% if imageUrl or project.link %}
                     <table class='project-block-link  gridHeight2'>
                         <tr>
+                            {% if imageUrl %}
                             <td class='project-block-link-icon  grid2 gridHeight'>
                                 <img src='{{ absLink(project.linkIconBehavior.getImageUrl()) }}' width="16" height="16">
                             </td>
-                            <td class='project-block-link-url  gridHeight2'>
+                            {% endif %}
+                            <td class='project-block-link-url  gridHeight2 text15'>
                                 <a href='{{ project.link }}' target='_blank'><span class='semibold'>{{ project.link }}</span></a>
                             </td>
                         </tr>
                     </table>
                 {% endif %}
 
+                {% if haveProcess %}
                 <table class='project-block-nav  gridHeight2'>
                     <tr>
-                        <td class='project-block-menu'>
+                        <td class='project-block-menu  text14'>
                             <div class='grid-left2'>
                                 <ul>
                                     <li><a href='#' tab_menu_item='1'>Результат</a></li>
@@ -121,24 +127,41 @@
                         </td>
                     </tr>
                 </table>
+                {% endif %}
 
                 <table>
                     <tr>
                         <td id='js-left-column' class='project-block-left-column  grid16'></td>
                         <td class='project-block-content  grid48'>
-                            <table class='project-block-goal  gridHeight2 grid-bottom2 grid-top1'>
+
+                            {% if not haveProcess %}
+                            <div class='project-block-publish-time-over-goal'>
+                                {% if project.publishTime %}
+                                    Дата выпуска: {{ project.publishTime }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            <table class='project-block-goal  gridHeight2 grid-bottom1_5 grid-top1'>
                                 <tr>
                                     <td class='grid2'></td>
-                                    <td><span class='project-block-goal-title  semibold'>Задача:</span> {{ project.goal|raw }}</td>
+                                    <td class='text14'><div class='grid-top0_5 grid-bottom0_5'><span class='project-block-goal-title  semibold'>Задача:</span> {{ project.goal|raw }}</div></td>
                                     <td class='grid2'></td>
                                 </tr>
                             </table>
-                            <div tab_menu_page='1' class='project-block-result' style='display:none'>
-                                {{ project.resultText|raw }}
-                            </div>
-                            <div tab_menu_page='2' class='project-block-process' style='display:none'>
-                                {{ project.processText|raw }}
-                            </div>
+
+                            {% if haveProcess %}
+                                <div tab_menu_page='1' class='project-block-result  text15' style='display:none'>
+                                    {{ project.resultText|raw }}
+                                </div>
+                                <div tab_menu_page='2' class='project-block-process  text15' style='display:none'>
+                                    {{ project.processText|raw }}
+                                </div>
+                            {% else %}
+                                <div class='project-block-result  text15'>
+                                    {{ project.resultText|raw }}
+                                </div>
+                            {% endif %}
                         </td>
                         <td id='js-right-column' class='project-block-right-column  grid16'></td>
                     </tr>
@@ -147,7 +170,7 @@
 
             <div id='js-project-block-persons' class='project-block-persons  grid-top3 grid-bottom1'>
                 {% if project.persons and project.persons|length > 0 %}
-                    <div class='gridHeight1 grid-left2 grid-right2 grid-bottom2'>
+                    <div class='gridHeight1 grid-left2 grid-right2 grid-bottom2 text14'>
                         {% if project.persons|length > 1 %}
                             Над проектом работали:
                         {% else %}
@@ -161,7 +184,7 @@
                                     <img src='{{ person.getPhotoUrl() }}' width='{{const("Persons","IMAGE_WIDTH")}}' height='{{const("Persons","IMAGE_HEIGHT")}}'>
                                 </div>
                                 <div class='grid-right1'>
-                                    <div class='project-block-person-name  text15'>
+                                    <div class='project-block-person-name  text15 titleColor'>
                                         {{ person.name|raw }}
                                     </div>
                                     <div class='project-block-person-position'>

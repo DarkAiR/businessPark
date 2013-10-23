@@ -13,6 +13,7 @@ class WeDidItWidget extends ExtendedWidget
             ->leftJoin('ProjectSections ps', 'ps.id = sectionId AND ps.visible=1')
             ->group('sectionId')
             ->where('Projects.visible=1')
+            ->order('ps.orderNum ASC')
             ->queryAll();
 
         $this->render('weDidIt', array(

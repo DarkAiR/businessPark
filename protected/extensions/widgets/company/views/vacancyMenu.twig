@@ -10,7 +10,7 @@
             {% set link = static('CHtml', 'normalizeUrl', [{'0':'/vacancy/vacancy/show','id':vacancy.id}]) %}
             <li class='vacancy-menu-item-widget  gridHeight1 grid-bottom1 {% if first %}first{% endif %} {% if last %}last{% endif %}'>
                 <div class='vacancy-menu-item-inner-widget'>
-                    <div class='vacancy-menu-item-arrow  grid2 gridHeight1'>
+                    <div class='vacancy-menu-item-arrow  grid2 gridHeight1'  {% if not select %}style='opacity:0.32'{% endif %}>
                         <div class='select'></div>
                     </div>
                     {% if select %}

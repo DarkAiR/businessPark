@@ -86,10 +86,10 @@
         <div class='vacancy-block-list  clear'>
             {% for vacancy in vacancies %}
                 {% set link = static('CHtml', 'normalizeUrl', [{'0':'/vacancy/vacancy/show','id':vacancy.id}]) %}
-                <div class='vacancy-item  gridHeight16 left'>
+                <div class='vacancy-item  gridHeight15 left'>
                     <div class='grid-left2 grid-right2'>
 
-                        <div class='vacancy-item-image  grid-right1 grid-bottom1'>
+                        <div class='vacancy-item-image  grid-right1 grid-bottom0_5'>
                             <img src='{{ vacancy.getImageUrl() }}' width='{{const("Vacancy","IMAGE_WIDTH")}}' height='{{const("Vacancy","IMAGE_HEIGHT")}}'>
                         </div>
                         <div class='vacancy-item-title  text15 gridHeight1'>

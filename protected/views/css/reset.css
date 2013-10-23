@@ -84,6 +84,7 @@ a {
 	background: url(../../img/link-underline.png) bottom repeat-x; 
 }
 a:hover {
+	color: #a0a0a0 !important;
 }
 
 ol, ul {

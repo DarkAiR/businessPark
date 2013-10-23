@@ -3,11 +3,14 @@
 }
 .news-item-date {
     font-size: 10px;
-    display: table-cell;
+    _display: table-cell;
     vertical-align: middle;
+    opacity: 0.7;
+    margin-top: -4px;
+    padding-bottom: 4px;
 }
 .news-item-title,
 .news-item-title * {
-    font-size: 23px;
+    font-size: 25px;
     color: #000000;
 }

@@ -19,6 +19,7 @@ class ProjectsMenuWidget extends ExtendedWidget
             ->leftJoin('ProjectSections ps', 'ps.id = sectionId AND ps.visible=1')
             ->group('sectionId')
             ->where('Projects.visible=1')
+            ->order('ps.orderNum ASC')
             ->queryAll();
 
         foreach ($items as &$item)

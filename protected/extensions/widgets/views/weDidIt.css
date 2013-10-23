@@ -3,6 +3,7 @@
 }
 .we-did-it-title {
 	margin-bottom: 7px;
+    padding-bottom: 1px;        /* Чтобы влезло подчеркивание */
 }
 .we-did-it-list {
 

@@ -3,6 +3,7 @@
 }
 .projects-own-widget-title {
     margin-bottom: 12px;
+    padding-bottom: 1px;        /* Чтобы влезло подчеркивание */
 }
 .projects-own-item {
 

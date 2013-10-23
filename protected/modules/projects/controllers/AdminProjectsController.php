@@ -59,9 +59,9 @@ class AdminProjectsController extends MAdminController
                 'uploadedFileFieldName' => '_imageBig',
                 'removeImageFieldName' => '_removeImageBigFlag',
             ),
-            'titleBig' => array(
+            /*'titleBig' => array(
                 'type' => 'textField',
-            ),
+            ),*/
             'descBig' => array(
                 'type' => 'ckEditor',
             ),

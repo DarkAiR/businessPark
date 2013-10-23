@@ -12,9 +12,8 @@
 .command-item-name {
     white-space: nowrap;
     overflow: hidden;
-    margin-top: 7px;
 }
 .command-item-position {
     line-height: 18px;
-    margin-top: 3px;
+    margin-top: 2px;
 }

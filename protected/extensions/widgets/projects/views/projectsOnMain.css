@@ -2,7 +2,10 @@
     _background: rgba(255,0,0,0.2);
     display: table;
 }
-
+.works-on-main-title {
+    font-size: 25px;
+    color: #000000;
+}
 
 .works-on-main-big {
     _background: rgba(255,0,0,0.2);

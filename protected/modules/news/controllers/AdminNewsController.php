@@ -17,6 +17,14 @@ class AdminNewsController extends MAdminController
         	'title' => array(
         		'type' => 'textField',
         	),
+            '_createTime' => array(
+                'type' => 'datepicker',
+                'htmlOptions' => array(
+                    'options' => array(
+                        'format' => 'd-m-Y H:i'
+                    ),
+                ),
+            ),
             'shortDesc' => array(
                 'type' => 'ckEditor',
             ),
