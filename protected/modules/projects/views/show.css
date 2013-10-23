@@ -84,6 +84,10 @@
 .project-block-content {
     _background: rgba(0,255,0,0.2);
 }
+.project-block-content img {
+    width: 100% !important;
+    height: 100% !important;
+}
 .project-block-goal {
     background: #f1f1f1;
     width: 100%;
