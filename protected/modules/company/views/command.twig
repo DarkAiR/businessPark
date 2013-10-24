@@ -74,8 +74,8 @@
             <div class='command-item  grid16 gridHeight16 grid-bottom1 left'>
                 <div class='grid-left2 grid-right2'>
 
-                    <div class='command-item-image  gridHeight11 grid-right1' style='width:198px; height:198px; background:grey;'>
-                        {# <img src='{{ person.getPhotoBigUrl() }}' width='{{const("Persons","IMAGE_BIG_WIDTH")}}' height='{{const("Persons","IMAGE_BIG_HEIGHT")}}'> #}
+                    <div class='command-item-image  gridHeight11 grid-right1'>
+                        <img src='{{ person.getPhotoBigUrl() }}' width='{{const("Persons","IMAGE_BIG_WIDTH")}}' height='{{const("Persons","IMAGE_BIG_HEIGHT")}}'>
                     </div>
                     <div class='command-item-name  text15 grid-top0_5 titleColor'>
                         {{ person.name|raw }}
