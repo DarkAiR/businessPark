@@ -5,6 +5,10 @@
  */
 class News extends CActiveRecord
 {
+    public $createTimeDate = '';
+    public $createTimeTime = '';
+
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -40,7 +44,9 @@ class News extends CActiveRecord
                 'sectionId' => 'Раздел',
                 'visible' => 'Показывать',
                 'orderNum' => 'Порядок сортировки',
-                'newsLink' => 'Ссылка на новость'
+                'newsLink' => 'Ссылка на новость',
+                'createTimeTime' => 'Время создания',
+                'createTimeDate' => 'Дата создания'
             )
         );
     }
@@ -110,11 +116,21 @@ class News extends CActiveRecord
     protected function afterFind()
     {
         $this->timeAfterFind();
+
+        $this->createTimeDate = date('d.m.Y', $this->createTime);
+        $this->createTimeTime = date('H:i', $this->createTime);
+
         return parent::afterFind();
     }
 
     protected function beforeSave()
     {
+        //var_dump($this->createTimeDate);
+        //var_dump($this->createTimeTime);
+        //die;
+        if (!empty($this->createTimeDate) && !empty($this->createTimeTime))
+            $this->createTime = strtotime($this->createTimeDate.' '.$this->createTimeTime);
+
         $this->timeCreate();
         return parent::beforeSave();
     }

@@ -17,14 +17,26 @@ class AdminNewsController extends MAdminController
         	'title' => array(
         		'type' => 'textField',
         	),
-            '_createTime' => array(
+            'createTimeDate' => array(
                 'type' => 'datepicker',
                 'htmlOptions' => array(
                     'options' => array(
-                        'format' => 'd-m-Y H:i'
+                        'format' => 'dd.mm.yyyy'
                     ),
                 ),
             ),
+            'createTimeTime' => array(
+                'type' => 'timepicker',
+                'htmlOptions' => array(
+                    'options' => array(
+                        'showMeridian' => false,
+                        'defaultTime' => 'value',
+                    ),
+                ),
+            ),
+            //'createTimeTime' => array(
+            //    'type' => 'textField',
+            //),
             'shortDesc' => array(
                 'type' => 'ckEditor',
             ),
