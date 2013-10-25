@@ -6,7 +6,7 @@
         {% if bigWork %}
             {% set link = static('CHtml', 'normalizeUrl', [{'0':'/projects/projects/show','id':bigWork.id}]) %}
             <div class='grid-left2'>
-                <div class='works-on-main-title gridHeight2'>Наши новые работы</div>
+                <div class='works-on-main-title gridHeight2 titleColor'>Наши новые работы</div>
                 <div class='works-on-main-big-image'><a href='{{link}}'><img src='{{ bigWork.getImageBigUrl() }}'></a></div>
                 <div class='gridHeight1'><div class='works-on-main-big-title'></div></div>
                 <div class='works-on-main-big-desc  text15 gridHeight1 grid-bottom1'>{{ bigWork.descBig|raw }}</div>

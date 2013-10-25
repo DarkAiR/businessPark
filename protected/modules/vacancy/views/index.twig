@@ -82,7 +82,7 @@
 
 {% block innerContent %}
     <div id='js-vacancy-block' class='vacancy-block  grid64'>
-        <div class='vacancy-block-title  grid-bottom2 grid-left2 grid-right2'>Мы ищем лучших</div>
+        <div class='vacancy-block-title  grid-bottom2 grid-left2 grid-right2 titleColor'>Мы ищем лучших</div>
         <div class='vacancy-block-list  clear'>
             {% for vacancy in vacancies %}
                 {% set link = static('CHtml', 'normalizeUrl', [{'0':'/vacancy/vacancy/show','id':vacancy.id}]) %}

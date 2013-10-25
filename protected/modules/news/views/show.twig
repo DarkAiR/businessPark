@@ -8,7 +8,7 @@
 {% block newsContent %}
     <div class='news-item'>
         <div class='news-item-date  gridHeight1'>{{ static('DateHelper', 'formatNewsDate', [news.createTime]) }}</div>
-        <div class='news-item-title grid-bottom1_5'>{{ news.title|raw }}</div>
+        <div class='news-item-title grid-bottom1_5 titleColor'>{{ news.title|raw }}</div>
         <div class='news-item-text  text15'>{{ news.desc|raw }}</div>
     </div>
 {% endblock %}
