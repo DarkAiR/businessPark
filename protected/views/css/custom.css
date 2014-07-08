@@ -88,11 +88,21 @@ a.navbar-brand {
     margin-top: -4px;
 }
 
-.green-bg {
+.level3, .level2, .level1 {
+    padding: 3px 0;
+    position: relative;
     background: url(../../img/bg_fill.png) left top repeat-y;
-    color: #fff;
-    padding: 3px 12px;
+    color: white;
     line-height: 48px;
+}
+.level1 {
+    left: 12px;
+}
+.level2 {
+    left: -24px;
+}
+.level3 {
+    left: 12px;
 }
 
 .links-group {
