@@ -1,0 +1,324 @@
+@font-face {
+    font-family: "PF DinDisplay Pro Light";
+    src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
+}
+@font-face {
+    font-family: "PF DinDisplay Pro Light Italic";
+    src: url(/fonts/PFDinDisplayPro-LightItal.ttf) format("truetype");
+}
+@font-face {
+    font-family: "PF DinDisplay Pro Medium";
+    src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+
+body {
+    margin-top: 30px;
+    color: #444444;
+    font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+i {
+    font-family: "PF DinDisplay Pro Light Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+b {
+    font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+
+
+.navbar-default {
+    border: none;
+    background: #fff;
+    margin-bottom: 0px
+}
+
+a.navbar-brand {
+    height: inherit;
+    padding-bottom: 30px;
+}
+
+.logo-beta {
+    font-size: 14px;
+    color: #ff0000;
+    margin-left: 102px;
+}
+
+.logo-image {
+    background: url(../../img/logo.png) left top no-repeat;
+    width: 164px;
+    height: 70px;
+    margin-top: -4px;
+}
+
+.open-text {
+    margin-top: 32px;
+    margin-left: 230px;
+    padding-bottom: 45px;
+}
+
+.open-text1 {
+    font-size: 24px;
+    color: #1e6d14;
+    margin-left: 40px;
+}
+
+.open-text1 sup {
+    font-size: 14px;
+    color: #ff0000;
+    top: -22px;
+}
+
+.open-text2 {
+    font-size: 24px;
+    color: #1e6d14;
+    margin-top: -4px;
+}
+
+.green-bg {
+    background: url(../../img/bg_fill.png) left top repeat-y;
+    color: #fff;
+    padding: 3px 12px;
+    line-height: 48px;
+}
+
+.links-group {
+    display: inline-block;
+    position: relative;
+    left: 0%;
+}
+.link-button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 25px 30px;
+}
+
+.link-button.link-rain {
+    background: url(../../img/icon-rain.png) center center no-repeat;
+}
+.link-button.link-fire {
+    background: url(../../img/icon-fire.png) center center no-repeat;
+}
+.link-button.link-flash {
+    background: url(../../img/icon-flash.png) center center no-repeat;
+}
+
+.logo-wrapper {
+    display: inline-block;
+}
+
+.section {
+    padding-bottom: 25px;
+}
+
+.section-heading {
+    font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 38px;
+    color: #1e6d14;
+    margin: 0px;
+    text-align: center;
+}
+
+.section-lead {
+    text-align: center;
+    font-size: 38px;
+    color: #1e6d14;
+    margin-top: 15px;
+}
+
+.section-paragraph {
+    margin: 15px 0px 15px 0px;
+}
+
+.section-annotation {
+    font-size: 16px;
+    color: #585858;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.geo-info, .geo-info * {
+    font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.geo-info-total {
+    position: relative;
+    left: 10%;
+}
+.geo-info-sale {
+    float: left;
+    margin-left: 10%;
+    padding-right: 15px;
+    border-right: 1px dotted #888;
+}
+.geo-info-left {
+    float: left;
+    margin-left: 15px;
+    color: #1e6d14;
+}
+
+.full-width-image-container {
+    position: relative;
+}
+
+.full-width-image-1 {
+    background: url(../../img/full_bg1.png) no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    height: 200px;
+    top: 80px;
+}
+
+footer {
+    margin: 50px 0;
+}
+.footer-title {
+    font-size: 18px;
+    color: #1e6d14;
+}
+.footer-info-block {
+    font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 15px;
+}
+.footer-info {
+
+}
+.footer-phone {
+    margin-left: -10px;
+}
+.video-container {
+    position: relative;
+    height: 231px;
+}
+.video-inner {
+    background: #ccc;
+    position: absolute;
+    width: 380px;
+    height: 231px;
+    padding-top: 20px;
+    padding-left: 20px;
+
+    top: 0;
+    left: 50%;
+    margin-left: -190px;
+}
+.video-inner iframe {
+    width: 340px;
+    height: 191px;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding-bottom: 25px;
+    }
+    .geo-info-total {
+        left: 20%;
+    }
+    .geo-info-sale {
+        margin-left: 0;
+    }
+    .footer-info-block {
+        padding-top: 15px;
+    }
+}
+@media (min-width: 992px) {
+    .section {
+        padding-bottom: 50px;
+    }
+    .links-group {
+        left: 5%;
+    }
+    .geo-info-sale {
+        margin-left: 0;
+    }
+    .full-width-image-1 {
+        background: url(../../img/full_bg1.png) no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        height: 300px;
+        top: 70px;
+    }
+    .video-container {
+        position: relative;
+        height: 306px;
+    }
+    .video-inner {
+        background: #ccc;
+        position: absolute;
+        width: 506px;
+        height: 306px;
+        padding-top: 26px;
+        padding-left: 26px;
+
+        top: 0;
+        left: 50%;
+        margin-left: -253px;
+    }
+    .video-inner iframe {
+        width: 454px;
+        height: 254px;
+    }
+    .footer-info-block {
+        padding-top: 20px;
+    }
+}
+@media (min-width: 1200px) {
+    .section {
+        padding-bottom: 50px;
+    }
+    .links-group {
+        left: 5%;
+    }
+    .geo-info-sale {
+        margin-left: 0;
+    }
+    .full-width-image-1 {
+        background: url(../../img/full_bg1.png) no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        height: 400px;
+        top: 70px;
+    }
+    .video-container {
+        position: relative;
+        height: 462px;
+    }
+    .video-inner {
+        background: #ccc;
+        position: absolute;
+        width: 760px;
+        height: 462px;
+        padding-top: 40px;
+        padding-left: 40px;
+
+        top: 0;
+        left: 50%;
+        margin-left: -380px;
+    }
+    .video-inner iframe {
+        width: 680px;
+        height: 382px;
+    }
+    .footer-info-block {
+        padding-top: 30px;
+    }
+}

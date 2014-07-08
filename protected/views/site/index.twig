@@ -2,84 +2,128 @@
 
 {% block css %}
     {{ parent() }}
-    {{ import('css','mainPage.css') }}
 {% endblock %}
 
 {% block js %}
     {{ parent() }}
-
-    <script type="text/javascript">
-    mainPageContent =
-    {
-        posCont: false,
-
-        init: function()
-        {
-            var self = this;
-            self.posCont = $('#js-main-page-content-pos');
-            app.addListener(app.eventReposition, mainPageContent.onResize);
-            app.resize(true);
-        },
-        onResize: function( ev )
-        {
-            var ceils = ev.ceils;
-            app.resizeElement( mainPageContent.posCont, ceils * app.gridWidth );
-        },
-    };
-    $(document).ready( function()
-    {
-        mainPageContent.init();
-    });
-    </script>
 {% endblock %}
 
 {% block content %}
-    <div class='main-page-content'>
-        <div id='js-main-page-content-pos' class='main-page-content-pos'>
 
-            <div class='main-page-block1  grid80'>
-                {{ widget('ext.widgets.projects.ProjectsOnMainWidget') }}
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.php">
+                    <div class="logo-beta">Beta</div>
+                    <div class="logo-image"></div>
+                </a>
             </div>
 
-            <div class='main-page-block2  grid80'>
-                {{ widget('ext.widgets.NewsLentaWidget') }}
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <div class="navbar-text open-text">
+                    <div class="open-text1">Открытие сайта <sup>2.0</sup></div>
+                    <div class="open-text2">12&nbsp;&nbsp;&nbsp;августа</div>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12 section">
+                <h1 class="section-heading">Мы продаем земельные участки</h1>
+                <h1 class="section-heading"><span class="green-bg">промышленного назначения</span></h1>
+                <p class='section-annotation'><i>Месторасположение г. Екатеринбург, Чкаловский район</i></p>
             </div>
 
-            <div class='main-page-block3  grid80 gridHeight16 grid-top2 grid-bottom1'>
-
-                <div class='main-page-block3_1  grid16 gridHeight16 left'>
-                    <div class='main-page-faq-widget  grid16 gridHeight6'>
-                        <div class='grid-left2 grid-right2'>
-                            {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_LEFT')}) }}
-                        </div>
-                    </div>
-                    <div class='main-page-we-did-widget  grid16 gridHeight8 grid-bottom1'>
-                        <div class='grid-left2 grid-right2'>
-                            {{ widget('ext.widgets.WeDidItWidget') }}
-                        </div>
+            <div class="col-xs-12 col-sm-12 col-lg-12 section">
+                <div class="col-xs-5 col-sm-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-lg-offset-1">
+                    <div class="links-group">
+                        <div class="link-button link-rain"></div>
+                        <div class="link-button link-fire"></div>
+                        <div class="link-button link-flash"></div>
                     </div>
                 </div>
-
-                <div class='main-page-block3_2  grid32 gridHeight16 left'>
-                    <div class='main-page-info-widget  grid32 gridHeight6'>
-                        <div class='grid-left2 grid-right2'>
-                            {{ widget('ext.widgets.ContentBlocksWidget', {'position':const('ContentBlocks', 'POS_MAIN_CENTER')}) }}
-                        </div>
-                    </div>
-                    <div class='main-page-own-projects-widget  grid32 gridHeight9'>
-                        <div class='grid-left2 grid-right2'>
-                            {{ widget('ext.widgets.ProjectsOwnWidget') }}
-                        </div>
-                    </div>
+                <div class="col-xs-5 col-sm-5 col-lg-5">
+                    <p class="section-paragraph">Каждый земельный участок индустриального парка обеспечен инженерными коммуникациями и необходимыми энергоресурсами</p>
                 </div>
+            </div>
 
-                <div class='main-page-block3_3  grid32 left'>
-                    <div class='main-page-promo-widget  grid32 gridHeight16'>
-                        {{ widget('ext.widgets.PromoWidget') }}
-                    </div>
+            <div class="-col-xs-12 col-sm-12 col-lg-12 section">
+                <div class="-col-xs-6 col-sm-6 col-lg-6 geo-info">
+                    <div class="geo-info-total"><b>180 га</b> земельных участков</div>
                 </div>
-
+                <div class="-col-xs-6 col-sm-6 col-lg-6 geo-info">
+                    <div class="geo-info-sale"><b>122 га</b> продано</div>
+                    <div class="geo-info-left"><b>58 га</b> осталось</div>
+                </div>
             </div>
         </div>
     </div>
+
+
+    <div class='full-width-image-container'>
+        <div class="full-width-image-1"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-12 section">
+                    <p class="lead section-lead">Краткая презентация</p>
+                    <div class="video-container">
+                        <div class="video-inner">
+                            <iframe src="//www.youtube.com/embed/JDy7Qmcab58" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="container">
+        <footer>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-lg-6 col-xs-offset-6 col-sm-offset-6 col-lg-offset-6">
+                    <div class="footer-title">
+                        Контактная информация
+                    </div>
+                    <div class="footer-info-block">
+                        <div class="footer-info">
+                            Отдел продаж
+                        </div>
+                        <div class="footer-phone">
+                            +7 343 310-10-28
+                        </div>
+                    </div>
+                    <div class="footer-info-block">
+                        <div class="footer-info">
+                            Управляющая компания
+                        </div>
+                        <div class="footer-phone">
+                            +7 343 263-71-70
+                        </div>
+                    </div>
+                    <div class="footer-info-block">
+                        <div class="footer-info">
+                            г. Екатеринбург,<br/>
+                            <a href='http://maps.yandex.ru/?text=%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F%2C%20%D0%A1%D0%B2%D0%B5%D1%80%D0%B4%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C%20%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%92%D0%BE%D0%BB%D0%B8%2C%2019%D0%B0&sll=60.591016%2C56.82373&ll=60.591016%2C56.823730&spn=0.023603%2C0.010401&z=16&l=map' target="_blank">ул. Народной Воли, 19а,</a><br>
+                            офис 709
+                        </div>
+                    </div>
+                    <div class="footer-info-block">
+                        <div class="footer-info">
+                            <a href="mailto:uk@p-b-p.ru">uk@p-b-p.ru</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    </div>
+    <!-- /container -->
+
 {% endblock %}
