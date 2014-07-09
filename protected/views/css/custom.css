@@ -11,32 +11,13 @@
     src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
 }
 
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 900px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 900px;
-  }
-}
-
 body {
     margin-top: 30px;
     color: #444444;
     font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 i {
-    font-family: "PF DinDisplay Pro Light Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;;
-}
-b {
-    font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-family: "PF DinDisplay Pro Light Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -141,6 +122,7 @@ a.navbar-brand {
     color: #1e6d14;
     margin: 0px;
     text-align: center;
+    font-weight: normal;
 }
 
 .section-lead {
@@ -151,16 +133,22 @@ a.navbar-brand {
 }
 
 .section-paragraph {
+    font-size: 14px;
+    line-height: 21px;
     margin: 15px 0px 15px 0px;
 }
 
 .section-annotation {
+    font-family: "PF DinDisplay Pro Light Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #585858;
     text-align: center;
     margin-top: 8px;
 }
 
+.verdana {
+    font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .geo-info, .geo-info * {
     font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -195,7 +183,7 @@ a.navbar-brand {
 }
 
 footer {
-    margin: 50px 0;
+    margin: 50px 0 100px 0;
 }
 .footer-title {
     font-size: 18px;
@@ -216,7 +204,7 @@ footer {
     height: 231px;
 }
 .video-inner {
-    background: #ccc;
+    background: #efefef;
     position: absolute;
     width: 380px;
     height: 231px;
@@ -233,6 +221,9 @@ footer {
 }
 
 @media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
     .section {
         padding-bottom: 25px;
     }
@@ -245,32 +236,12 @@ footer {
     .footer-info-block {
         padding-top: 15px;
     }
-}
-@media (min-width: 992px) {
-    .section {
-        padding-bottom: 50px;
-    }
-    .links-group {
-        left: 5%;
-    }
-    .geo-info-sale {
-        margin-left: 0;
-    }
-    .full-width-image-1 {
-        background: url(../../img/full_bg1.png) no-repeat center center;
-        background-size: cover;
-        text-align: center;
-        width: 100%;
-        position: absolute;
-        height: 300px;
-        top: 70px;
-    }
     .video-container {
         position: relative;
         height: 306px;
     }
     .video-inner {
-        background: #ccc;
+        background: #efefef;
         position: absolute;
         width: 506px;
         height: 306px;
@@ -285,11 +256,12 @@ footer {
         width: 454px;
         height: 254px;
     }
-    .footer-info-block {
-        padding-top: 20px;
-    }
 }
-@media (min-width: 1200px) {
+
+@media (min-width: 992px) {
+    .container {
+        width: 900px;
+    }
     .section {
         padding-bottom: 50px;
     }
@@ -313,7 +285,7 @@ footer {
         height: 462px;
     }
     .video-inner {
-        background: #ccc;
+        background: #efefef;
         position: absolute;
         width: 760px;
         height: 462px;
