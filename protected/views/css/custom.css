@@ -147,7 +147,7 @@ a.navbar-brand {
 }
 
 .verdana {
-    font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Verdana, "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .geo-info, .geo-info * {
     font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -186,7 +186,7 @@ footer {
     margin: 50px 0 100px 0;
 }
 .footer-title {
-    font-size: 18px;
+    font-size: 14px;
     color: #1e6d14;
 }
 .footer-info-block {
