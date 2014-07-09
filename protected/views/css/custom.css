@@ -179,10 +179,13 @@ a.navbar-brand {
     background: url(../../img/full_bg1.png) no-repeat center center;
     background-size: cover;
     text-align: center;
-    width: 100%;
+    width: 1920px;
     position: absolute;
     height: 200px;
     top: 80px;
+    max-width: 1920px;
+    left: 50%;
+    margin-left: -960px;
 }
 
 footer {
@@ -278,10 +281,13 @@ footer {
         background: url(../../img/full_bg1.png) no-repeat center center;
         background-size: cover;
         text-align: center;
-        width: 100%;
+        width: 1920px;
         position: absolute;
         height: 400px;
         top: 70px;
+        max-width: 1920px;
+        left: 50%;
+        margin-left: -960px;
     }
     .video-container {
         position: relative;
