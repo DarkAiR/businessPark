@@ -113,7 +113,7 @@ a.navbar-brand {
 }
 
 .section {
-    padding-bottom: 25px;
+    padding-bottom: 20px;
 }
 
 .section-heading {
@@ -123,13 +123,15 @@ a.navbar-brand {
     margin: 0px;
     text-align: center;
     font-weight: normal;
+    line-height: 1em;
 }
 
 .section-lead {
     text-align: center;
     font-size: 38px;
     color: #1e6d14;
-    margin-top: 15px;
+    margin-top: 30px;
+    line-height: 1em;
 }
 
 .section-paragraph {
@@ -154,11 +156,11 @@ a.navbar-brand {
 }
 .geo-info-total {
     position: relative;
-    left: 10%;
+    left: 5%;
 }
 .geo-info-sale {
     float: left;
-    margin-left: 10%;
+    margin-left: 5%;
     padding-right: 15px;
     border-right: 1px dotted #888;
 }
@@ -183,7 +185,7 @@ a.navbar-brand {
 }
 
 footer {
-    margin: 50px 0 100px 0;
+    margin: 35px 0 100px 0;
 }
 .footer-title {
     font-size: 14px;
@@ -225,7 +227,7 @@ footer {
         width: 750px;
     }
     .section {
-        padding-bottom: 25px;
+        padding-bottom: 20px;
     }
     .geo-info-total {
         left: 20%;
@@ -263,7 +265,7 @@ footer {
         width: 900px;
     }
     .section {
-        padding-bottom: 50px;
+        padding-bottom: 35px;
     }
     .links-group {
         left: 5%;
