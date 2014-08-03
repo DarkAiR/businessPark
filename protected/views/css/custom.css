@@ -11,305 +11,98 @@
     src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
 }
 
-body {
-    margin-top: 30px;
-    color: #444444;
+html {
     font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-i {
-    font-family: "PF DinDisplay Pro Light Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+/* Главная разметка */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.page-wrapper {
+    min-height: 100%;
+    margin-bottom: -150px;
+}
+* html .page-wrapper {
+    height: 100%;
+}
+.page-buffer {
+    height: 150px;
 }
 
 
-.navbar-default {
-    border: none;
-    background: #fff;
-    margin-bottom: 0px
+/* Общий контейнер */
+.common-container {
+    __background: rgba(255,0,0,0.1);
+    position: relative;
+    width: 988px;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+.common-container:before,
+.common-container:after {
+    display: table;
+    content: " ";
+}
+.common-container:after {
+    clear: both;
 }
 
-a.navbar-brand {
+
+
+.head,
+.footer {
+    __background: rgba(0,255,0,0.1);
+    height: 150px;
+    min-height: 150px;
+}
+
+
+/* Колонки */
+.col-1 {
+    background: rgba(0,0,255,0.2);
+    width: 236px;
+    min-width: 236px;
+}
+.col-2 {
+    background: rgba(0,0,255,0.4);
+    width: 371px;
+    min-width: 371px;
+}
+.col-3 {
+    background: rgba(0,255,255,0.2);
+    width: 381px;
+    min-width: 381px;
+}
+.col-2-3 {
+    background: rgba(0,255,255,0.4);
+    width: 752px;
+    min-width: 752px;
+}
+.col-1,
+.col-2,
+.col-3,
+.col-2-3 {
+    float: left;
     height: inherit;
-    padding-bottom: 30px;
+    min-height: 1px;
 }
 
-.logo-beta {
-    font-size: 14px;
-    color: #ff0000;
-    margin-left: 102px;
-}
 
-.logo-image {
-    background: url(../../img/logo.png) left top no-repeat;
-    width: 164px;
-    height: 70px;
-    margin-top: -4px;
-}
-
-.open-text {
-    margin-top: 32px;
-    margin-left: 230px;
-    padding-bottom: 45px;
-}
-
-.open-text1 {
-    font-size: 24px;
-    color: #1e6d14;
-    margin-left: 40px;
-}
-
-.open-text1 sup {
-    font-size: 14px;
-    color: #ff0000;
-    top: -22px;
-}
-
-.open-text2 {
-    font-size: 24px;
-    color: #1e6d14;
-    margin-top: -4px;
-}
-
-.level3, .level2, .level1 {
-    padding: 3px 0;
-    position: relative;
-    background: url(../../img/bg_fill.png) left top repeat-y;
-    color: white;
-    line-height: 48px;
-}
-.level1 {
-    left: 12px;
-}
-.level2 {
-    left: -24px;
-}
-.level3 {
-    left: 12px;
-}
-
-.links-group {
-    display: inline-block;
-    position: relative;
-    left: 0%;
-}
-.link-button {
-    width: 50px;
-    height: 50px;
-    float: left;
-    margin: 25px 30px;
-}
-
-.link-button.link-rain {
-    background: url(../../img/icon-rain.png) center center no-repeat;
-}
-.link-button.link-fire {
-    background: url(../../img/icon-fire.png) center center no-repeat;
-}
-.link-button.link-flash {
-    background: url(../../img/icon-flash.png) center center no-repeat;
-}
-
-.logo-wrapper {
-    display: inline-block;
-}
-
-.section {
-    padding-bottom: 20px;
-}
-
-.section-heading {
-    font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 38px;
-    color: #1e6d14;
-    margin: 0px;
-    text-align: center;
-    font-weight: normal;
-    line-height: 1em;
-}
-
-.section-lead {
-    text-align: center;
-    font-size: 38px;
-    color: #1e6d14;
-    margin-top: 30px;
-    line-height: 1em;
-    padding-bottom: 5px;
-}
-
-.section-paragraph {
-    font-size: 14px;
-    line-height: 21px;
-    margin: 15px 0px 15px 0px;
-}
-
-.section-annotation {
-    font-family: "PF DinDisplay Pro Light Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    color: #585858;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.verdana {
-    font-family: Verdana, "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.geo-info, .geo-info * {
-    font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.geo-info-total {
-    position: relative;
-    left: 5%;
-}
-.geo-info-sale {
-    float: left;
-    margin-left: 5%;
-    padding-right: 15px;
-    border-right: 1px dotted #888;
-}
-.geo-info-left {
-    float: left;
-    margin-left: 15px;
-    color: #1e6d14;
-}
-
-.full-width-image-container {
-    position: relative;
-}
-
-.full-width-image-1 {
-    background: url(../../img/full_bg1.png) no-repeat center center;
-    background-size: cover;
-    text-align: center;
-    width: 1920px;
+/* Задник */
+.bg-picture {
+    width: 1100px;
+    height: 650px;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.5);
     position: absolute;
-    height: 200px;
-    top: 80px;
-    max-width: 1920px;
+    top: 300px;
     left: 50%;
-    margin-left: -960px;
-}
+    margin-left: -550px;
 
-footer {
-    margin: 35px 0 100px 0;
-}
-.footer-title {
-    font-size: 14px;
-    color: #1e6d14;
-}
-.footer-info-block {
-    font-family: Verdana, "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding-top: 15px;
-}
-.footer-info {
-
-}
-.footer-phone {
-    margin-left: -10px;
-}
-.video-container {
-    position: relative;
-    height: 231px;
-}
-.video-inner {
-    background: #efefef;
-    position: absolute;
-    width: 380px;
-    height: 231px;
-    padding-top: 20px;
-    padding-left: 20px;
-
-    top: 0;
-    left: 50%;
-    margin-left: -190px;
-}
-.video-inner iframe {
-    width: 340px;
-    height: 191px;
-}
-
-@media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
-    .section {
-        padding-bottom: 20px;
-    }
-    .geo-info-total {
-        left: 20%;
-    }
-    .geo-info-sale {
-        margin-left: 0;
-    }
-    .footer-info-block {
-        padding-top: 15px;
-    }
-    .video-container {
-        position: relative;
-        height: 306px;
-    }
-    .video-inner {
-        background: #efefef;
-        position: absolute;
-        width: 506px;
-        height: 306px;
-        padding-top: 26px;
-        padding-left: 26px;
-
-        top: 0;
-        left: 50%;
-        margin-left: -253px;
-    }
-    .video-inner iframe {
-        width: 454px;
-        height: 254px;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        width: 900px;
-    }
-    .section {
-        padding-bottom: 35px;
-    }
-    .links-group {
-        left: 5%;
-    }
-    .geo-info-sale {
-        margin-left: 0;
-    }
-    .full-width-image-1 {
-        background: url(../../img/full_bg1.png) no-repeat center center;
-        background-size: cover;
-        text-align: center;
-        width: 1920px;
-        position: absolute;
-        height: 400px;
-        top: 70px;
-        max-width: 1920px;
-        left: 50%;
-        margin-left: -960px;
-    }
-    .video-container {
-        position: relative;
-        height: 462px;
-    }
-    .video-inner {
-        background: #efefef;
-        position: absolute;
-        width: 760px;
-        height: 462px;
-        padding-top: 40px;
-        padding-left: 40px;
-
-        top: 0;
-        left: 50%;
-        margin-left: -380px;
-    }
-    .video-inner iframe {
-        width: 680px;
-        height: 382px;
-    }
-    .footer-info-block {
-        padding-top: 30px;
-    }
+    display: none;
 }

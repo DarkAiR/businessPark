@@ -42,6 +42,27 @@
     {
         'class' : 'bootstrap.widgets.TbMenu',
         'items' : [
+            {'label':'Разделы сайта', 'action' : false, 'items': [
+                {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
+            ]},
+            {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active' : this.uniqueId == 'system2/adminUsers'},
+            {'label':'Настройки', 'url':['/system2/adminLocalConfig'], 'active' : this.uniqueId == 'system2/adminLocalConfig'},
+        ]
+    },{
+        'class' : 'bootstrap.widgets.TbMenu',
+        'htmlOptions' : {'class':'pull-right'},
+        'items' : [
+            {'label':'Выйти ('~App.user.name~')', 'url':['/site/logout'], 'visible':not App.user.isGuest}
+        ]
+    }]
+}) }}
+{#
+{{ widget('bootstrap.widgets.TbNavbar',{
+    'collapse' : true,
+    'items':[
+    {
+        'class' : 'bootstrap.widgets.TbMenu',
+        'items' : [
             {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
             {'label':'Проекты', 'active' : false, 'items': [
                 {'label':'Категории', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'},
@@ -67,6 +88,7 @@
         ]
     }]
 }) }}
+#}
 {% endblock %}
 
 <div class="container" id="page">

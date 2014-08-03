@@ -1,8 +1,8 @@
 <?php
 
-class m130702_093956_menu extends CDbMigration
+class m140801_055412_menu extends CDbMigration
 {
-    public function up()
+    public function safeUp()
     {
         $this->execute("
             CREATE TABLE IF NOT EXISTS `Menu` (
@@ -29,14 +29,31 @@ class m130702_093956_menu extends CDbMigration
         ");
 
         $this->execute("
-            INSERT INTO `Menu` (`name`,`visible`) VALUES ('Главное меню',1);
+            INSERT INTO `Menu`
+                (`id`, `name`)
+            VALUES
+                (1, 'Главное меню'),
+                (2, 'Второе меню на главной странице');
+        ");
+
+        $this->execute("
+            INSERT INTO `MenuItem`
+                (`menuId`, `name`, `link`, `orderNum`)
+            VALUES
+                (1, 'Генеральный план', 'general-plan', 1),
+                (1, 'Инфраструктура', 'structure', 2),
+                (1, 'Управляющая компания', 'company', 3),
+                (1, 'От слов к делу', 'department', 4),
+                (1, 'Новости', 'news', 5),
+                
+                (2, 'Контактная информация', 'contact-info', 1),
+                (2, 'О проекте', 'about', 2);
         ");
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('MenuItem');
         $this->dropTable("Menu");
-        return true;
     }
 }

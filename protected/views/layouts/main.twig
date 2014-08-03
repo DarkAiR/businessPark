@@ -19,6 +19,29 @@
     {% endblock %}
 </head>
 <body>
-    {% block content %}{% endblock %}
+
+    <div class='page-wrapper common-container'>
+
+        <div class='bg-picture'></div>
+
+        <div class='head'>
+            {% block header %}
+            {% endblock %}
+        </div>
+
+        <div class='body'>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div class="page-buffer"></div>
+
+    </div>
+
+    <div class='footer-wrapper common-container footer'>
+        {% block footer %}
+        {% endblock %}
+    </div>
+
 </body>
 </html>

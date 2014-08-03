@@ -2,7 +2,7 @@
 
 Yii::setPathOfAlias('lib', realpath(__DIR__ . '/../../lib'));
 
-$params = require('params.php');
+$params = require 'params.php';
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => $params['appName'],
@@ -19,15 +19,15 @@ return array(
     ),
     'modules' => array(
         'system2',
-        'company',
-        'projects',
+//        'company',
+//        'projects',
         'sitemenu',
-        'news',
+//        'news',
         'contentBlocks',
-        'articles',
-        'persons',
-        'vacancy',
-        'promo'
+//        'articles',
+//        'persons',
+//        'vacancy',
+//        'promo'
     ),
     'components' => array(
         'user' => array(
@@ -45,26 +45,26 @@ return array(
                 'uploadFile'                        => 'site/uploadFile',
 
                 // News
-                'news/show/<id:\d+>/'               => 'news/news/show',
-                'news/<year:\d+>/'                  => 'news/news/index',
-                'news/'                             => 'news/news/index',
+//                'news/show/<id:\d+>/'               => 'news/news/show',
+//                'news/<year:\d+>/'                  => 'news/news/index',
+//                'news/'                             => 'news/news/index',
 
                 // Projects
-                'works/show/<id:\d+>/'              => 'projects/projects/show',
-                'works/<sectionId:\d+>/'            => 'projects/projects/index',
-                'works/'                            => 'projects/projects/index',
+//                'works/show/<id:\d+>/'              => 'projects/projects/show',
+//                'works/<sectionId:\d+>/'            => 'projects/projects/index',
+//                'works/'                            => 'projects/projects/index',
 
                 // Service
-                'service/'                          => 'projects/projectSections/index',
+//                'service/'                          => 'projects/projectSections/index',
 
                 // Vacancy
-                'company/vacancy/<id:\d+>/'         => 'vacancy/vacancy/show',
-                'company/vacancy/<action:\w+>/'     => 'vacancy/vacancy/<action>',
-                'company/vacancy/'                  => 'vacancy/vacancy/index',
+//                'company/vacancy/<id:\d+>/'         => 'vacancy/vacancy/show',
+//                'company/vacancy/<action:\w+>/'     => 'vacancy/vacancy/<action>',
+//                'company/vacancy/'                  => 'vacancy/vacancy/index',
 
                 // Company
-                'company/'                          => 'company/company/index',
-                'company/<action:\w+>/'             => 'company/company/<action>',
+//                'company/'                          => 'company/company/index',
+//                'company/<action:\w+>/'             => 'company/company/<action>',
 
                 // Admin
                 'admin/'                            => 'system2',
@@ -134,6 +134,9 @@ return array(
                     'class'=>'CWebLogRoute',
                 ),*/
             ),
+        ),
+        'localConfig' => array(
+            'class' => 'ext.localConfig.LocalConfigExtension'
         ),
     ),
     'params' => array_merge(

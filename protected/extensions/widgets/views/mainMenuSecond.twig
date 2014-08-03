@@ -1,0 +1,6 @@
+{% extends('extensions/widgets/views/mainMenu.twig') %}
+
+{% block importBlock %}
+    {{ parent() }}
+    {{ import('css','mainMenuSecond.css','ext.widgets.views') }}
+{% endblock %}

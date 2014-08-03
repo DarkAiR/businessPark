@@ -2,7 +2,7 @@
 
 Yii::import('application.models.Menu');
 
-class MenuWidget extends ExtendedWidget
+abstract class MenuWidget extends ExtendedWidget
 {
     public $model;
     public $attribute;

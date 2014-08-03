@@ -6,7 +6,7 @@ class AdminUsersController extends MAdminController
     public $modelHumanTitle = array('пользователя', 'пользователя', 'пользователей');
 
     /**
-     * @param User $model
+     * @param  User  $model
      * @return array
      */
     public function getEditFormElements($model)
@@ -43,7 +43,7 @@ class AdminUsersController extends MAdminController
     }
 
     /**
-     * @param User $model
+     * @param User  $model
      * @param array $attributes
      */
     public function beforeSetAttributes($model, &$attributes)

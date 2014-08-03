@@ -9,6 +9,9 @@ class NewsLentaWidget extends ExtendedWidget
 
     public function run()
     {
+        echo 'Новости';
+        return;
+        
         $news = $this->getNews();
         $this->render('newsLenta', array(
             'news' => $news,

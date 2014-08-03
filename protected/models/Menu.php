@@ -1,11 +1,12 @@
 <?php
 
+Yii::import('application.models.MenuItem');
+
 class Menu extends CActiveRecord
 {
     const NONE = 0;
     const MAIN_MENU = 1;
-    const FOOTER_MENU = 2;
-    const COMPANY_MENU = 3;
+    const MAIN_MENU_SECOND = 2;
 
 
     public static function model($className = __CLASS__)

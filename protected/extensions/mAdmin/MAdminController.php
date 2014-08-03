@@ -151,8 +151,8 @@ class MAdminController extends CExtController
     }
 
     /**
-     * @param CActiveRecord $model
-     * @return string[] modified relations
+     * @param  CActiveRecord $model
+     * @return string[]      modified relations
      */
     private function setAttributes($model)
     {
@@ -168,8 +168,7 @@ class MAdminController extends CExtController
 
             // process HAS_ONE or BELONGS_TO relations
             if (isset($_POST[$relationAttributes[1]])) {
-                if (!is_array($model->$relationName))
-                {
+                if (!is_array($model->$relationName)) {
                     $modifiedRelations[] = $relationName;
                     $modifiedRelations += $this->setAttributes($model->$relationName);
                 }
@@ -414,7 +413,7 @@ class MAdminController extends CExtController
      *  );
      * </code>
      *
-     * @param CActiveRecord $model
+     * @param  CActiveRecord $model
      * @return array
      */
     public function getEditFormElements($model)
@@ -424,7 +423,7 @@ class MAdminController extends CExtController
 
     /**
      * @param CActiveRecord $model
-     * @param array $attributes
+     * @param array         $attributes
      */
     public function beforeSetAttributes($model, &$attributes)
     {
@@ -432,7 +431,7 @@ class MAdminController extends CExtController
 
     /**
      * @param CActiveRecord $model
-     * @param array $attributes
+     * @param array         $attributes
      */
     public function beforeList($model, &$attributes)
     {
