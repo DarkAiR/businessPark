@@ -5,9 +5,6 @@
     _background: rgba(255,0,0,0.2);
     overflow: hidden;
 }
-.article-title * {
-	font-size: 25px;
-}
 .article-text {
     _background: rgba(255,255,0,0.2);
 }

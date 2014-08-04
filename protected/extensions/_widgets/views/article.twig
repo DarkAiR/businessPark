@@ -1,8 +1,0 @@
-{{ import('css','article.css','ext.widgets.views') }}
-
-<div class='article-widget'>
-    {% if article.title %}
-        <div class='article-title  gridHeight1 titleColor'>{{ article.title|raw }}</div>
-    {% endif %}
-    <div class='article-text  text15'>{{ article.text|raw }}</div>
-</div>

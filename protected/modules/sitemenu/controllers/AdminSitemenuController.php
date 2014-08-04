@@ -5,7 +5,7 @@ class AdminSitemenuController extends MAdminController
     public $modelName = 'MenuItem';
     public $modelHumanTitle = array('пункт', 'пункта', 'пунктов');
 
-    protected $templateList = '/../views/list';
+    protected $templateList = '/list';
 
 
     /**

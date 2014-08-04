@@ -24,7 +24,7 @@ return array(
         'sitemenu',
 //        'news',
         'contentBlocks',
-//        'articles',
+        'articles',
 //        'persons',
 //        'vacancy',
 //        'promo'

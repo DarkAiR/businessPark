@@ -1,6 +1,6 @@
 <?php
 
-class m130919_051504_articles extends CDbMigration
+class m140802_051504_articles extends CDbMigration
 {
     /*public function up()
     {
@@ -8,7 +8,7 @@ class m130919_051504_articles extends CDbMigration
 
     public function down()
     {
-        echo "m130919_051504_articles does not support migration down.\n";
+        echo "m140802_051504_articles does not support migration down.\n";
         return false;
     }*/
 

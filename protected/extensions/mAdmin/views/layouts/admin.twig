@@ -42,6 +42,7 @@
     {
         'class' : 'bootstrap.widgets.TbMenu',
         'items' : [
+            {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
             {'label':'Разделы сайта', 'action' : false, 'items': [
                 {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
             ]},
@@ -63,7 +64,6 @@
     {
         'class' : 'bootstrap.widgets.TbMenu',
         'items' : [
-            {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
             {'label':'Проекты', 'active' : false, 'items': [
                 {'label':'Категории', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'},
                 {'label':'Работы', 'url':['/projects/adminProjects'], 'active' : this.uniqueId == 'projects/adminProjects'},

@@ -31,10 +31,6 @@ class AdminArticlesController extends MAdminController
         $buttons['deleteButtonOptions'] = array(
             'visible' => '!$data->visible;'
         );
-//echo '<pre>';
-//var_dump( ContentBlocks::getPosNames() );
-//var_dump( Articles::getTypeNames() );
-//die;
         $attributes = array(
             'id',
             'title',
