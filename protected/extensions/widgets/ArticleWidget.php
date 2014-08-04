@@ -7,7 +7,7 @@ class ArticleWidget extends ExtendedWidget
     public $model;
     public $attribute;
 
-    public $type = Articles::TYPE_CUSTOM;
+    public $type = Articles::TYPE_UNDER_CONSTRUCTION;
 
     public function run()
     {

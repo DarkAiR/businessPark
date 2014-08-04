@@ -1,0 +1,17 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css','about.css', 'application.modules.company.views.project') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block content %}
+<div class='about-page'>
+    {{ widget('ext.widgets.ArticleWidget', {'type':const('Articles', 'TYPE_UNDER_CONSTRUCTION')}) }}
+</div>
+{% endblock %}

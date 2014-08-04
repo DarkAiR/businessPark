@@ -14,15 +14,6 @@ class AdminSitemenuController extends MAdminController
      */
     public function getEditFormElements($model)
     {
-        $parents = array('0'=>'[корневой элемент]');
-        $parentRecords = CActiveRecord::model($this->modelName)->byParent(0)->orderDefault()->findAll();
-        foreach ($parentRecords as $record)
-        {
-            $parents[$record->id] = $record->name;
-            foreach ($record->children as $childRecord)
-                $parents[$childRecord->id] = ' - - '.$childRecord->name;
-        }
-
         $menu = Menu::model()->findAll();
         $menus = array();
         foreach ($menu as $m)
@@ -30,11 +21,24 @@ class AdminSitemenuController extends MAdminController
             $menus[$m->id] = $m->name;
         }
 
+        $parents = array('0'=>'[корневой элемент]');
+        $parentRecords = CActiveRecord::model($this->modelName)->byParent(0)->orderDefault()->findAll();
+        foreach ($parentRecords as $record)
+        {
+            $menuName = $menus[$record->menuId];
+            $parents[$menuName][$record->id] = $record->name;
+            foreach ($record->children as $childRecord)
+                $parents[$childRecord->id] = '- '.$childRecord->name;
+        }
+
         $res = array(
             'menuId' => array(
                 'type' => 'dropdownlist',
                 'data' => $menus,
-                'empty' => 'Выбрать'
+                'empty' => 'Выбрать',
+                'htmlOptions' => array(
+                    'onchange' => 'console.log("hello world");'
+                )
             ),
             'name' => array(
                 'type' => 'textField',
@@ -64,7 +68,7 @@ class AdminSitemenuController extends MAdminController
             'menuId',
             'name',
             'link',
-            $this->getVisibleColumn(),
+            'visible',
             $this->getButtonsColumn(),
         );
 

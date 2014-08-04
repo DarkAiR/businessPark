@@ -1,108 +1,103 @@
 @font-face {
-    font-family: "PF DinDisplay Pro Light";
-    src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
+  font-family: "PF DinDisplay Pro Light";
+  src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
 }
 @font-face {
-    font-family: "PF DinDisplay Pro Light Italic";
-    src: url(/fonts/PFDinDisplayPro-LightItal.ttf) format("truetype");
+  font-family: "PF DinDisplay Pro Light Italic";
+  src: url(/fonts/PFDinDisplayPro-LightItal.ttf) format("truetype");
 }
 @font-face {
-    font-family: "PF DinDisplay Pro Medium";
-    src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
+  font-family: "PF DinDisplay Pro Medium";
+  src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
 }
-
 html {
-    font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 /* Главная разметка */
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 .page-wrapper {
-    min-height: 100%;
-    margin-bottom: -150px;
+  min-height: 100%;
+  margin-bottom: -150px;
 }
 * html .page-wrapper {
-    height: 100%;
+  height: 100%;
 }
 .page-buffer {
-    height: 150px;
+  height: 150px;
 }
-
-
 /* Общий контейнер */
 .common-container {
-    __background: rgba(255,0,0,0.1);
-    position: relative;
-    width: 988px;
-    padding: 0;
-    margin-right: auto;
-    margin-left: auto;
+  background: rgba(255, 0, 0, 0.2);
+  position: relative;
+  width: 1024px;
+  padding: 0px 18px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .common-container:before,
 .common-container:after {
-    display: table;
-    content: " ";
+  display: table;
+  content: " ";
 }
 .common-container:after {
-    clear: both;
+  clear: both;
 }
-
-
-
 .head,
 .footer {
-    __background: rgba(0,255,0,0.1);
-    height: 150px;
-    min-height: 150px;
+  background: ;
+  height: 150px;
+  min-height: 150px;
 }
-
-
+.footer .separate-line {
+  background: #4a8226;
+  width: 966px;
+  height: 1px;
+  min-height: 1px;
+  margin-left: 9px;
+}
 /* Колонки */
 .col-1 {
-    background: rgba(0,0,255,0.2);
-    width: 236px;
-    min-width: 236px;
+  background: rgba(0, 0, 255, 0.2);
+  width: 236px;
+  min-width: 236px;
 }
 .col-2 {
-    background: rgba(0,0,255,0.4);
-    width: 371px;
-    min-width: 371px;
+  background: rgba(255, 0, 255, 0.2);
+  width: 371px;
+  min-width: 371px;
 }
 .col-3 {
-    background: rgba(0,255,255,0.2);
-    width: 381px;
-    min-width: 381px;
+  background: rgba(0, 0, 255, 0.2);
+  width: 381px;
+  min-width: 381px;
 }
 .col-2-3 {
-    background: rgba(0,255,255,0.4);
-    width: 752px;
-    min-width: 752px;
+  background: rgba(255, 0, 255, 0.2);
+  width: 752px;
+  min-width: 752px;
 }
 .col-1,
 .col-2,
 .col-3,
 .col-2-3 {
-    float: left;
-    height: inherit;
-    min-height: 1px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
 }
-
-
 /* Задник */
 .bg-picture {
-    width: 1100px;
-    height: 650px;
-    background: rgba(0,0,0,0.1);
-    border: 1px solid rgba(0,0,0,0.5);
-    position: absolute;
-    top: 300px;
-    left: 50%;
-    margin-left: -550px;
-
-    display: none;
+  width: 1100px;
+  height: 650px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  margin-left: -550px;
+  display: none;
 }

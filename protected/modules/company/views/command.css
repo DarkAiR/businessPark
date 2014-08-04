@@ -1,0 +1,19 @@
+.command-block {
+    _background: rgba(0,0,255,0.5);
+    min-height: 1px;
+    display: inline-block;
+}
+.command-item {
+    margin-bottom: 8px;
+}
+.command-item-image {
+
+}
+.command-item-name {
+    white-space: nowrap;
+    overflow: hidden;
+}
+.command-item-position {
+    line-height: 18px;
+    margin-top: 2px;
+}

@@ -1,0 +1,91 @@
+{% extends 'modules/company/views/base.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css','command.css', 'application.modules.company.views') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+    commandListContent =
+    {
+        posCont: false,
+        centerBlockWidth: 0,
+        rightColumnWidth: 0,
+
+        init: function()
+        {
+            var self = this;
+            self.posCont = $('#js-company-page-content-pos');
+            self.centerBlockWidth = $('#js-command-block').width();
+            self.rightColumnWidth = '288';      /* 18px * 16 */
+
+            app.addListener(app.eventReposition, commandListContent.onResize);
+            app.resize(true);
+        },
+        onResize: function( ev )
+        {
+            var ceils = ev.ceils;
+
+            var cont = $('#js-company-page-content');
+            var leftBlock = $('#js-company-page-menu');
+            var centerBlock = $('#js-command-block');
+
+            var innerHeight = $('#js-company-page-inner').height();
+
+            // Принудительно выставляем высоту блока
+            var h = (leftBlock.height() > innerHeight)
+                ? leftBlock.height()
+                : innerHeight;
+            h = Math.ceil(h);
+            cont.height(h);
+
+            cbWidth = commandListContent.centerBlockWidth;
+
+            if (ceils == 3)
+            {
+                centerBlock.width( cbWidth - 2 * commandListContent.rightColumnWidth );
+            }
+            else if (ceils == 4)
+            {
+                centerBlock.width( cbWidth - commandListContent.rightColumnWidth );
+            }
+            else if (ceils == 5)
+            {
+                centerBlock.width( cbWidth );
+            }
+
+            app.resizeElement( commandListContent.posCont, ceils * app.gridWidth );
+        }
+    };
+    $(document).ready( function()
+    {
+        commandListContent.init();
+    });
+    </script>
+{% endblock %}
+
+
+{% block innerContent %}
+    <div id='js-command-block' class='command-block  grid64 grid-bottom-2'>
+        {% for person in persons %}
+            <div class='command-item  grid16 gridHeight16 grid-bottom1 left'>
+                <div class='grid-left2 grid-right2'>
+
+                    <div class='command-item-image  gridHeight11 grid-right1'>
+                        <img src='{{ person.getPhotoBigUrl() }}' width='{{const("Persons","IMAGE_BIG_WIDTH")}}' height='{{const("Persons","IMAGE_BIG_HEIGHT")}}'>
+                    </div>
+                    <div class='command-item-name  text15 grid-top0_5 titleColor'>
+                        {{ person.name|raw }}
+                    </div>
+                    <div class='command-item-position'>
+                        {{ person.position|raw }} {{ person.position|raw }}
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

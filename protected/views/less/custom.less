@@ -1,0 +1,138 @@
+@mainCol1:          236px;
+@mainCol2:          371px;
+@mainCol3:          381px;
+@mainCol:           @mainCol1 + @mainCol2 + @mainCol3;
+@mainColPadding:    11px;
+
+@commonWidth:       1024px;
+@commonPaddingV:    0px;
+@commonPaddingH:    (@commonWidth - @mainCol) / 2;
+
+@footerHeight:      150px;
+
+@devFooterBg: ;   // rgba(0,255,0,0.1);
+@devRedBg:          rgba(255,0,0,0.2);
+@devGreenBg:        rgba(0,255,0,0.2);
+@devBlueBg:         rgba(0,0,255,0.2);
+@devMagentaBg:      rgba(255,0,255,0.2);
+
+
+
+@font-face {
+    font-family: "PF DinDisplay Pro Light";
+    src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
+}
+@font-face {
+    font-family: "PF DinDisplay Pro Light Italic";
+    src: url(/fonts/PFDinDisplayPro-LightItal.ttf) format("truetype");
+}
+@font-face {
+    font-family: "PF DinDisplay Pro Medium";
+    src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
+}
+
+html {
+    font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Главная разметка */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.page-wrapper {
+    min-height: 100%;
+    margin-bottom: -@footerHeight;
+}
+* html .page-wrapper {
+    height: 100%;
+}
+.page-buffer {
+    height: @footerHeight;
+}
+
+
+/* Общий контейнер */
+.common-container {
+    background: @devRedBg;
+    position: relative;
+    width: @commonWidth;
+    padding: @commonPaddingV @commonPaddingH;
+    margin-right: auto;
+    margin-left: auto;
+    
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+.head,
+.footer {
+    background: @devFooterBg;
+    height: @footerHeight;
+    min-height: @footerHeight;
+}
+
+.footer .separate-line {
+    background: #4a8226;
+    width: @mainCol - @mainColPadding * 2;
+    height: 1px;
+    min-height: 1px;
+    margin-left: 9px;
+}
+
+
+/* Колонки */
+.col-1 {
+    background: @devBlueBg;
+    width: @mainCol1;
+    min-width: @mainCol1;
+}
+.col-2 {
+    background: @devMagentaBg;
+    width: @mainCol2;
+    min-width: @mainCol2;
+}
+.col-3 {
+    background: @devBlueBg;
+    width: @mainCol3;
+    min-width: @mainCol3;
+}
+.col-2-3 {
+    background: @devMagentaBg;
+    width: @mainCol2 + @mainCol3;
+    min-width: @mainCol2 + @mainCol3;
+}
+.col-1,
+.col-2,
+.col-3,
+.col-2-3 {
+    float: left;
+    height: inherit;
+    min-height: 1px;
+}
+
+
+/* Задник */
+.bg-picture {
+    width: 1100px;
+    height: 650px;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.5);
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    margin-left: -550px;
+
+    display: none;
+}

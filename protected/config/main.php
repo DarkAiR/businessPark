@@ -19,7 +19,7 @@ return array(
     ),
     'modules' => array(
         'system2',
-//        'company',
+        'company',
 //        'projects',
         'sitemenu',
 //        'news',
@@ -63,8 +63,10 @@ return array(
 //                'company/vacancy/'                  => 'vacancy/vacancy/index',
 
                 // Company
-//                'company/'                          => 'company/company/index',
-//                'company/<action:\w+>/'             => 'company/company/<action>',
+                'company'                           => 'company/company/index',
+                'structure'                         => 'company/company/structure',
+                'contact-info'                      => 'company/company/contacts',
+                'about'                             => 'company/project/about',
 
                 // Admin
                 'admin/'                            => 'system2',

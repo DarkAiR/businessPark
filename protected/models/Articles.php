@@ -5,8 +5,7 @@
  */
 class Articles extends CActiveRecord
 {
-    const TYPE_CUSTOM = 0;              // Произольная статья
-    const TYPE_ABOUT = 1;               // О нас
+    const TYPE_UNDER_CONSTRUCTION = 0;              // Произольная статья
 
 
     public static function model($className = __CLASS__)
@@ -65,8 +64,7 @@ class Articles extends CActiveRecord
     public static function getTypeNames()
     {
         return array(
-            self::TYPE_CUSTOM => 'Произвольная',
-            self::TYPE_ABOUT => 'О нас',
+            self::TYPE_UNDER_CONSTRUCTION => 'В разработке',
         );
     }
 }

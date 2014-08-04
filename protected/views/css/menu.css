@@ -1,34 +1,31 @@
 .hmenu ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .hmenu li {
-    float: left;
-    list-style-type: none;
+  float: left;
+  list-style-type: none;
 }
 .hmenu li a {
-    __text-transform: uppercase;
-    display: inline-block;
+  __text-transform: uppercase;
+  display: inline-block;
 }
 .hmenu li a.select {
-    color: #202020;
+  color: #202020;
 }
 .hmenu li.first {
-    padding-left: 0px;
+  padding-left: 0px;
 }
 .hmenu li.last {
-    padding-right: 0px;
+  padding-right: 0px;
 }
-
-
-
 .vmenu ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .vmenu li {
-    list-style-type: none;
+  list-style-type: none;
 }
 .vmenu li a.select {
-    color: #202020;
+  color: #202020;
 }

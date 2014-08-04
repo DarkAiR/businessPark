@@ -52,7 +52,7 @@ class MenuItem extends CActiveRecord
                 'condition' => $alias.'.visible = 1',
             ),
             'orderDefault' => array(
-                'order' => $alias.'.parentItemId ASC, '.$alias.'.orderNum ASC',
+                'order' => $alias.'.menuId ASC, '.$alias.'.parentItemId ASC, '.$alias.'.orderNum ASC',
             ),
         );
     }
@@ -70,16 +70,20 @@ class MenuItem extends CActiveRecord
         );
     }
 
-    private function getRowData($parentId)
+    private function getRowData($parentId, $level = 0)
     {
-        $data = Yii::app()->db->createCommand('SELECT * from `MenuItem` WHERE parentItemId='.$parentId.' ORDER BY orderNum ASC')->queryAll();
+        $data = Yii::app()->db->createCommand('SELECT * from `MenuItem` WHERE parentItemId='.$parentId.' ORDER BY menuId, orderNum ASC')->queryAll();
         $rowData = array();
         foreach ($data as $row)
         {
             $rowData[] = $row;
-            $data2 = $this->getRowData($row['id']);
-            foreach ($data2 as $row2)
+            $data2 = $this->getRowData($row['id'], $level+1);
+            foreach ($data2 as $row2) {
+                $levelStr = str_repeat('- ', $level+1);
+                $row2['name'] = $levelStr . $row2['name'];
+                $row2['link'] = $levelStr . $row2['link'];
                 $rowData[] = $row2;
+            }
         }
         return $rowData;
     }
