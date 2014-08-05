@@ -1,0 +1,79 @@
+@import (reference) '../../../views/less/custom';
+
+.company-page {
+    min-height: 1px;
+
+    & > .title {
+        .inner-title;
+    }
+
+    table td {
+        float: none !important;
+        vertical-align: top;
+    }
+
+    .row1 {
+        height: 120px;
+        min-height: 120px;
+    }
+
+    @col1: @mainCol1;
+    @col2: 453px;
+    @col3: 288px;
+
+    .col1 {
+        .col(@col1);
+    }
+    .col2 {
+        .col(@col2);
+        padding: 0 @smallPadding;
+
+        .title {
+
+        }
+        .text {
+
+        }
+    }
+    .col1-2 {
+        .col(@col1 + @col2)
+    }
+    .col3 {
+        .col(@col3);
+        padding: 0 @bigPadding;
+    }
+
+
+    .row2 {
+        .col1 {
+            .col(228px);
+        }
+        .col2 {
+            .col(472px);
+        }
+    }
+
+
+    .contact-block {
+        height: 271px;
+        background: lightgrey;
+        padding: @bigPadding;
+
+        .row1 {
+            height: 98px - @bigPadding;
+            min-height: 98px - @bigPadding;
+        }
+        .row2 {
+            height: 46px;
+            min-height: 46px;
+        }
+        .row3 {
+            height: 125px - @bigPadding;
+            min-height: 125px - @bigPadding;
+        }
+        .separator {
+            height: 1px;
+            background: black;
+        }
+    }
+}

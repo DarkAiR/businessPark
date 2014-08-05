@@ -2,7 +2,7 @@
 
 {% block css %}
     {{ parent() }}
-    {{ import('css','company.css', 'application.modules.company.views.company') }}
+    {{ import('css','company.css', 'application.modules.company.css') }}
 {% endblock %}
 
 {% block js %}
@@ -12,6 +12,61 @@
 
 {% block content %}
 <div class='company-page'>
-    {{ widget('ext.widgets.ArticleWidget', {'type':const('Articles', 'TYPE_UNDER_CONSTRUCTION')}) }}
+    <div class='title'>
+        <div class='col1'></div>
+        <div class='col2-3>'>
+            Управляющая компания
+        </div>
+    </div>
+
+    <table border=0 cellpadding="0" cellspacing="0">
+    <tr>
+        <td class='col1-2'>
+            <div class='row1'>
+                <div class='col1'>
+                    <img src="../img/services_icon.png">
+                </div>
+                <div class='col2'>
+                    <div class='title'>
+                        Базовые услуги
+                    </div>
+                    <div class='text'>
+                        В целях обеспечения Резидентов комплексом услуг, УК управляет комплексом инфраструктуры (территорий общего пользования), в том числе:
+                    </div>
+                </div>
+            </div>
+            <div class='row2'>
+                <div class='col1'>
+                    Здесь меню
+                </div>
+                <div class='col2'>
+                    Здесь пункты
+                </div>
+            </div>
+        </td>
+        <td class='col3'>
+            <div class='row1'>
+                Контактная информация управляющей компании
+            </div>
+            <div>
+                <div class='contact-block'>
+                    <div class='row1'>
+                        г. Екатеринбург,<br/>
+                        ул. Народной Воли, 19а,<br/>
+                        офис 709
+                    </div>
+                    <div class='separator'></div>
+                    <div class='row2'>
+                        Телефон
+                    </div>
+                    <div class='separator'></div>
+                    <div class='row3'>
+                        Почта
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </table>
 </div>
 {% endblock %}

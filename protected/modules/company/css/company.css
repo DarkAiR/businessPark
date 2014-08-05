@@ -1,0 +1,86 @@
+.company-page {
+  min-height: 1px;
+}
+.company-page > .title {
+  height: 90px;
+  min-height: 90px;
+}
+.company-page table td {
+  float: none !important;
+  vertical-align: top;
+}
+.company-page .row1 {
+  height: 120px;
+  min-height: 120px;
+}
+.company-page .col1 {
+  outline: 1px dotted #808080;
+  width: 247px;
+  min-width: 247px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.company-page .col2 {
+  outline: 1px dotted #808080;
+  width: 453px;
+  min-width: 453px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+  padding: 0 11px;
+}
+.company-page .col1-2 {
+  outline: 1px dotted #808080;
+  width: 700px;
+  min-width: 700px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.company-page .col3 {
+  outline: 1px dotted #808080;
+  width: 288px;
+  min-width: 288px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+  padding: 0 22px;
+}
+.company-page .row2 .col1 {
+  outline: 1px dotted #808080;
+  width: 228px;
+  min-width: 228px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.company-page .row2 .col2 {
+  outline: 1px dotted #808080;
+  width: 472px;
+  min-width: 472px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.company-page .contact-block {
+  height: 271px;
+  background: lightgrey;
+  padding: 22px;
+}
+.company-page .contact-block .row1 {
+  height: 76px;
+  min-height: 76px;
+}
+.company-page .contact-block .row2 {
+  height: 46px;
+  min-height: 46px;
+}
+.company-page .contact-block .row3 {
+  height: 103px;
+  min-height: 103px;
+}
+.company-page .contact-block .separator {
+  height: 1px;
+  background: black;
+}

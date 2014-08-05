@@ -2,7 +2,7 @@
 
 {% block css %}
     {{ parent() }}
-    {{ import('css','structure.css', 'application.modules.company.views.company') }}
+    {{ import('css','structure.css', 'application.modules.company.css') }}
 {% endblock %}
 
 {% block js %}
@@ -12,6 +12,89 @@
 
 {% block content %}
 <div class='structure-page'>
-    {{ widget('ext.widgets.ArticleWidget', {'type':const('Articles', 'TYPE_UNDER_CONSTRUCTION')}) }}
+    <div class='title'>Инженерная инфраструктура</div>
+
+    <div class='electro-block'>
+        <div class='bg'></div>
+        <div class='icon'></div>
+        <div class='title'>
+            Сети электроснабжения
+        </div>
+        <div class='text1'>
+            Электроснабжение индустриального парка выполняется от <invert>ПС 110/10 кВ</invert> "Техноград" через распределительную сеть <invert>10/0.4 кВ</invert>
+        </div>
+        <div class='text2'>
+            Категория надежности электроснабжения - II
+        </div>
+    </div>
+
+    <div class='gas-block'>
+        <div class='bg'></div>
+        <div class='icon'></div>
+        <div class='title'>
+            Сети газоснабжения
+        </div>
+        <div class='text1'>
+            Согласно расчетной схеме газоснабжения индустриального парка, общий лимит на первую очередь составляет:
+        </div>
+        <div class='text2'>
+            7300 m<sup>3</sup>/час
+        </div>
+        <div class='text3'>
+            Протяженность газопровода составляет:
+        </div>
+        <div class='text4'>
+            4150 м
+        </div>
+    </div>
+
+    <div class='water-in-block'>
+        <div class='bg'></div>
+        <div class='icon'></div>
+        <div class='title'>
+            Сети водоснабжения <grey>(хозяйственно-питьевой и противопожарный водопровод).</grey>
+        </div>
+        <div class='text1'>
+            Гарантированный объем водоснабжения на индустриальный парк составляет:
+        </div>
+        <div class='text2'>
+            1700 м<sup>3</sup>/сут
+        </div>
+        <div class='text3'>
+            Общая протяженность сети водоснабжения от ВЗУ и до границ земельных участков всех резидентов первой очереди составляет:
+        </div>
+        <div class='text4'>
+            7200 м
+        </div>
+        <div class='text5'>
+            Источником водоснабжения хозяйственно-питьевого противопожарного водоснабжения является проектируемый водозаборный узел (ВЗУ) на артезианских скважинах с водоподготовкой.
+        </div>
+    </div>
+
+    <div class='water-out-block'>
+        <div class='bg'></div>
+        <div class='icon'></div>
+        <div class='title'>
+            Сети водоснабжения <grey>(хозяйственно-бытовая канализация).</grey>
+        </div>
+        <div class='text1'>
+            Общая протяженность безнапорной сети канализации от границ земельных участков резидентов первой очереди до КНС, составляет:
+        </div>
+        <div class='text2'>
+            4340 м
+        </div>
+    </div>
+
+    <div class='rain-out-block'>
+        <div class='bg'></div>
+        <div class='icon'></div>
+        <div class='title'>
+            Сети водоснабжения <grey>(дождевая канализация).</grey>
+        </div>
+        <div class='text1'>
+            Проектом принят закрытый водоотвод с проезжей части улиц 5 и 6 с устройством сети дождевой канализации. Сброс дождевых стоков предусмотрен в проектируемые очистные сооружения, которые расположены в северной части прощадки с дальнейшим сбросом в р.Теплая
+        </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

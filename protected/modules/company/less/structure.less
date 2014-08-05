@@ -1,0 +1,170 @@
+@import (reference) '../../../views/less/custom';
+
+@blockPaddingV: @commonPaddingH;
+@blockPaddingH: @bigPadding;
+@iconW: 24px;
+@iconH: 24px;
+
+.structure-page {
+    min-height: 1px;
+
+    & > .title {
+        .inner-title;
+    }
+
+
+    // Base block
+    .inner-block() {
+        border: 1px solid #000;
+        padding: @blockPaddingV @blockPaddingH;
+        position: relative;
+
+        .icon {
+            width:  @iconW;
+            height: @iconH;
+            min-height: @iconH;
+            background-repeat: no-repeat;
+            background-position: left top;
+            float: left;
+        }
+
+        // Title
+        & > .title {
+            float: left;
+            grey {
+                color: grey;
+            }
+        }
+
+        & invert {
+            background: #20a040;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+
+
+    .bold() {
+        font-weight: bold;
+    }
+
+
+    .bg(@w, @h) {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: @w;
+        height: @h;
+        margin-left: -@w / 2;
+    }        
+
+
+    .electro-block {
+        .inner-block;
+        height: 410px;
+
+        .bg {
+            .bg(1071px, 264px);
+            background-image: url(../../img/infra1-bg.png);
+        }
+        .icon {
+            background-image: url(../../img/infra1-icon.png);
+        }
+        .text1 {
+
+        }
+        .text2 {
+
+        }
+    }
+
+    .gas-block {
+        .inner-block;
+        height: 417px;
+
+        .bg {
+            .bg(1054px, 294px);
+            background-image: url(../../img/infra2-bg.png);
+        }
+        .icon {
+            background-image: url(../../img/infra2-icon.png);
+        }
+        .text1 {
+
+        }
+        .text2 {
+            .bold;
+        }
+        .text3 {
+
+        }
+        .text4 {
+            .bold;
+        }
+    }
+
+    .water-in-block {
+        .inner-block;
+        height: 616px;
+        
+        .bg {
+            .bg(1029px, 483px);
+            background-image: url(../../img/infra3-bg.png);
+        }
+        .icon {
+            background-image: url(../../img/infra3-icon.png);
+        }
+        .text1 {
+
+        }
+        .text2 {
+            .bold;
+        }
+        .text3 {
+
+        }
+        .text4 {
+            .bold;
+        }
+        .text5 {
+
+        }
+    }
+
+    .water-out-block {
+        .inner-block;
+        height: 519px;
+        
+        .bg {
+            .bg(1069px, 542px);
+            background-image: url(../../img/infra4-bg.png);
+        }
+        .icon {
+            background-image: url(../../img/infra4-icon.png);
+        }
+        .text1 {
+
+        }
+        .text2 {
+            .bold;
+        }
+    }
+
+    .rain-out-block {
+        .inner-block;
+        height: 558px;
+        
+        .bg {
+            .bg(1052px, 477px);
+            background-image: url(../../img/infra5-bg.png);
+        }
+        .icon {
+            background-image: url(../../img/infra5-icon.png);
+        }
+        .text1 {
+
+        }
+    }
+}

@@ -1,0 +1,212 @@
+.structure-page {
+  min-height: 1px;
+}
+.structure-page > .title {
+  height: 90px;
+  min-height: 90px;
+}
+.structure-page .electro-block {
+  border: 1px solid #000;
+  padding: 18px 22px;
+  position: relative;
+  height: 410px;
+}
+.structure-page .electro-block .icon {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  float: left;
+}
+.structure-page .electro-block > .title {
+  float: left;
+}
+.structure-page .electro-block > .title grey {
+  color: grey;
+}
+.structure-page .electro-block invert {
+  background: #20a040;
+  color: #fff;
+  font-weight: bold;
+}
+.structure-page .electro-block .bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1071px;
+  height: 264px;
+  margin-left: -535.5px;
+  background-image: url(../../img/infra1-bg.png);
+}
+.structure-page .electro-block .icon {
+  background-image: url(../../img/infra1-icon.png);
+}
+.structure-page .gas-block {
+  border: 1px solid #000;
+  padding: 18px 22px;
+  position: relative;
+  height: 417px;
+}
+.structure-page .gas-block .icon {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  float: left;
+}
+.structure-page .gas-block > .title {
+  float: left;
+}
+.structure-page .gas-block > .title grey {
+  color: grey;
+}
+.structure-page .gas-block invert {
+  background: #20a040;
+  color: #fff;
+  font-weight: bold;
+}
+.structure-page .gas-block .bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1054px;
+  height: 294px;
+  margin-left: -527px;
+  background-image: url(../../img/infra2-bg.png);
+}
+.structure-page .gas-block .icon {
+  background-image: url(../../img/infra2-icon.png);
+}
+.structure-page .gas-block .text2 {
+  font-weight: bold;
+}
+.structure-page .gas-block .text4 {
+  font-weight: bold;
+}
+.structure-page .water-in-block {
+  border: 1px solid #000;
+  padding: 18px 22px;
+  position: relative;
+  height: 616px;
+}
+.structure-page .water-in-block .icon {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  float: left;
+}
+.structure-page .water-in-block > .title {
+  float: left;
+}
+.structure-page .water-in-block > .title grey {
+  color: grey;
+}
+.structure-page .water-in-block invert {
+  background: #20a040;
+  color: #fff;
+  font-weight: bold;
+}
+.structure-page .water-in-block .bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1029px;
+  height: 483px;
+  margin-left: -514.5px;
+  background-image: url(../../img/infra3-bg.png);
+}
+.structure-page .water-in-block .icon {
+  background-image: url(../../img/infra3-icon.png);
+}
+.structure-page .water-in-block .text2 {
+  font-weight: bold;
+}
+.structure-page .water-in-block .text4 {
+  font-weight: bold;
+}
+.structure-page .water-out-block {
+  border: 1px solid #000;
+  padding: 18px 22px;
+  position: relative;
+  height: 519px;
+}
+.structure-page .water-out-block .icon {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  float: left;
+}
+.structure-page .water-out-block > .title {
+  float: left;
+}
+.structure-page .water-out-block > .title grey {
+  color: grey;
+}
+.structure-page .water-out-block invert {
+  background: #20a040;
+  color: #fff;
+  font-weight: bold;
+}
+.structure-page .water-out-block .bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1069px;
+  height: 542px;
+  margin-left: -534.5px;
+  background-image: url(../../img/infra4-bg.png);
+}
+.structure-page .water-out-block .icon {
+  background-image: url(../../img/infra4-icon.png);
+}
+.structure-page .water-out-block .text2 {
+  font-weight: bold;
+}
+.structure-page .rain-out-block {
+  border: 1px solid #000;
+  padding: 18px 22px;
+  position: relative;
+  height: 558px;
+}
+.structure-page .rain-out-block .icon {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  float: left;
+}
+.structure-page .rain-out-block > .title {
+  float: left;
+}
+.structure-page .rain-out-block > .title grey {
+  color: grey;
+}
+.structure-page .rain-out-block invert {
+  background: #20a040;
+  color: #fff;
+  font-weight: bold;
+}
+.structure-page .rain-out-block .bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1052px;
+  height: 477px;
+  margin-left: -526px;
+  background-image: url(../../img/infra5-bg.png);
+}
+.structure-page .rain-out-block .icon {
+  background-image: url(../../img/infra5-icon.png);
+}

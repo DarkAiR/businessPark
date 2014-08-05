@@ -19,6 +19,7 @@ return array(
     ),
     'modules' => array(
         'system2',
+        'mainPage',
         'company',
 //        'projects',
         'sitemenu',
@@ -40,7 +41,7 @@ return array(
             'urlSuffix' => '/',
             'showScriptName' => false,
             'rules' => array(
-                '/'                                 => 'site/index',
+                '/'                                 => 'mainPage/mainPage/index',
                 'uploadImage'                       => 'site/uploadImage',
                 'uploadFile'                        => 'site/uploadFile',
 
