@@ -1,0 +1,31 @@
+.square-widget {
+  position: absolute;
+  left: 0;
+  top: 120px;
+  padding-left: 32px;
+}
+.square-widget .summary invert {
+  background: #7aad47;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 5px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 1;
+}
+.square-widget .sold {
+  padding-top: 18px;
+  color: #3c7315;
+}
+.square-widget .sold * {
+  color: #3c7315;
+}
+.square-widget .sales {
+  padding-top: 12px;
+  color: #707070;
+}
+.square-widget .sales * {
+  color: #707070;
+}

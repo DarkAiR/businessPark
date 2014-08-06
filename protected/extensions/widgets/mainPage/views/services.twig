@@ -1,6 +1,10 @@
-{{ import('css','services.css','ext.widgets.mainPage.views') }}
+{{ import('css','services.css','ext.widgets.mainPage.css') }}
 
 <div class='services-widget'>
-    <a href='{{ static('CHtml', 'normalizeUrl', ['/company']) }}'>Услуги управляющей компании</a>
-    <img src='img/services_icon.png'>
+    <div class='text'>
+        <a href='{{ static('CHtml', 'normalizeUrl', ['/company']) }}'>Услуги управляющей компании</a>
+    </div>
+    <div class='image'>
+        <img src='img/services_icon.png'>
+    </div>
 </div>

@@ -1,0 +1,31 @@
+@import (reference) '../../../../views/less/custom';
+
+.square-widget {
+    position: absolute;
+    left: 0;
+    top: 120px;
+    padding-left: 32px;
+
+    .summary {
+        & invert {
+            .invert-text;
+            .border-radius(2px);
+            display: inline-block;
+            line-height: 1;
+        }
+    }
+    .sold {
+        padding-top: 18px;
+        color: @colorMainTitle;
+    }
+    .sold * {
+        color: @colorMainTitle;
+    }
+    .sales {
+        padding-top: 12px;
+        color: @colorTextLight;
+    }
+    .sales * {
+        color: @colorTextLight;
+    }
+}

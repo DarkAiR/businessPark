@@ -15,13 +15,16 @@
 {% endblock %}
 
 
+{% block bg %}
+    <div class='bg-picture'></div>
+{% endblock %}
+
+
 {% block content %}
 <div class='main-page'>
-    <div class='col1'>
+    <div class='col1  cont'>
         {{ widget('ext.widgets.mainPage.SquareWidget') }}
-        <div class='clearfix'></div>
         {{ widget('ext.widgets.mainPage.ServicesWidget') }}
-        <div class='clearfix'></div>
         {{ widget('ext.widgets.mainPage.WorkLineWidget') }}
     </div>
     <div class='col2-3'>
@@ -33,10 +36,13 @@
             <div class='clearfix'></div>
             {{ widget('ext.widgets.mainPage.AboutProjectWidget') }}
         </div>
+        <div class='clearfix'></div>
         {{ widget('ext.widgets.mainPage.EngineeringInfrastructureWidget') }}
         <div class='clearfix'></div>
         {{ widget('ext.widgets.mainPage.NewsLentaWidget') }}
     </div>
+    <div class='clearfix'></div>
+    <div class='bottomGap'></div>
 </div>
 {% endblock %}
 

@@ -11,34 +11,32 @@
 @commonPaddingV:    0px;
 @commonPaddingH:    @middlePadding;
 
+@headerH:           150px;
 @footerH:           150px;
+@footerPaddingTop:  90px;
 
 @pageTitleH:        90px;
 
-@devFooterBg: ;   // rgba(0,255,0,0.1);
 @devRedBg:          rgba(255,0,0,0.2);
 @devGreenBg:        rgba(0,255,0,0.2);
 @devBlueBg:         rgba(0,0,255,0.2);
 @devMagentaBg:      rgba(255,0,255,0.2);
 
 
+@colorText:         #2b2b2b;
+@colorTextLight:    #707070;
 
-@font-face {
-    font-family: "PF DinDisplay Pro Light";
-    src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
-}
-@font-face {
-    font-family: "PF DinDisplay Pro Light Italic";
-    src: url(/fonts/PFDinDisplayPro-LightItal.ttf) format("truetype");
-}
-@font-face {
-    font-family: "PF DinDisplay Pro Medium";
-    src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
-}
+@colorMenu:         #0084e2;
+@colorSubMenu:      #8f8f8f;
 
-html {
-    font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+@colorMainTitle:    #3c7315;
+@colorTitleDesc:    #6f6f6f;
+@colorBlockTitle:   #636363;
+
+@colorLink:         #0063af;
+@colorStudioLink:   #fa1010;
+
+@import 'fonts';
 
 /* Главная разметка */
 html,
@@ -46,22 +44,31 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    .font(Verdana);
 }
-.page-wrapper {
+body {
+    .font-size(12);
+    color: @colorText;
+    background-color: #fff;
+}
+.page {
     min-height: 100%;
-    margin-bottom: -@footerH;
-}
-* html .page-wrapper {
+    height: auto !important;
     height: 100%;
 }
-.page-buffer {
-    height: @footerH;
+.wrap {
+    padding-bottom: @footerH;
 }
 
+a {
+    &, &:link, &:hover, &:visited {
+        text-decoration: underline;
+        color: @colorLink;
+    }
+}
 
 /* Общий контейнер */
 .common-container {
-    background:     @devRedBg;
     position:       relative;
     width:          @commonWidth;
     padding:        @commonPaddingV @commonPaddingH;
@@ -80,22 +87,24 @@ body {
 }
 
 
-.footer .separate-line {
-    background: #4a8226;
-    width: @mainCol - @smallPadding * 2;
-    height: 1px;
-    min-height: 1px;
-    margin-left: 9px;
-}
-
-
 // Заголовок внутренних страниц
 .inner-title() {
+    .font(PF, medium);
+    .font-size(36, 90px);
+    color:      @colorMainTitle;
     height:     @pageTitleH;
     min-height: @pageTitleH;
 }
-
 // Колонка
+.col() {
+    outline: 1px dotted #808080;
+    
+    width: auto;
+    min-width: 0;
+    float: left;
+    height: inherit;
+    min-height: 1px;
+}
 .col(@w) {
     outline: 1px dotted #808080;
     
@@ -106,12 +115,39 @@ body {
     min-height: 1px;
 }
 
+// Локальное выделение текста
+.invert-text() {
+    background: #7aad47;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 5px;
+}
+
+// Бордюры
+.border-radius(@r) {
+    -moz-border-radius:     @r;
+    -webkit-border-radius:  @r;
+    border-radius:          @r;
+}
+.border-radius(@topleft, @topright, @bottomright, @bottomleft) {
+    -moz-border-radius-topleft:         @topleft;
+    -moz-border-radius-topright:        @topright;
+    -moz-border-radius-bottomright:     @bottomright;
+    -moz-border-radius-bottomleft:      @bottomleft;
+
+    -webkit-border-top-left-radius:     @topleft;
+    -webkit-border-top-right-radius:    @topright;
+    -webkit-border-bottom-right-radius: @bottomright;
+    -webkit-border-bottom-left-radius:  @bottomleft;
+
+    border-top-left-radius:             @topleft;
+    border-top-right-radius:            @topright;
+    border-bottom-right-radius:         @bottomright;
+    border-bottom-left-radius:          @bottomleft;
+}
+
 .head,
 .footer {
-    background: @devFooterBg;
-    height:     @footerH;
-    min-height: @footerH;
-
     .col1 {
         .col(@mainCol1);
     }
@@ -123,5 +159,53 @@ body {
     }
     .col2-3 {
         .col(@mainCol2 + @mainCol3);
+    }
+}
+
+.head {
+    @topOffs: 49px;
+
+    height:     @headerH;
+    min-height: @headerH;
+
+    .logo-block {
+        padding: @topOffs 0 0 32px;
+    }
+    .menu-block {
+        padding: @topOffs 0 0 0;
+    }
+}
+
+.footer {
+    @topOffs: 30px;
+
+    .font-size(11);
+    color: @colorTextLight;
+    height:     @footerH;
+    min-height: @footerH;
+    margin-top: -@footerH - 1;
+
+    .separate-line {
+        background: #4a8226;
+        width: @mainCol - @smallPadding * 2;
+        height: 1px;
+        min-height: 1px;
+        margin-left: 9px;
+    }
+
+    .copyright {
+        padding: @topOffs 0 0 45px;
+    }
+    .author {
+        padding: @topOffs 0 0 108px;
+        & a {
+            color: inherit;
+        }
+        .studio {
+            color: @colorStudioLink;
+        }
+    }
+    .contact {
+        padding: @topOffs 0 0 @smallPadding;
     }
 }

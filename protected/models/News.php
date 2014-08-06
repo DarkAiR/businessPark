@@ -5,6 +5,19 @@
  */
 class News extends CActiveRecord
 {
+    const IMAGE_ICON_W = 77;
+    const IMAGE_ICON_H = 51;
+    const IMAGE_SMALL_W = 200;
+    const IMAGE_SMALL_H = 200;
+    const IMAGE_BIG_W   = 400;
+    const IMAGE_BIG_H   = 400;
+
+    public $_image = null; //UploadedFile[]
+    public $_removeImageFlag = false; // bool
+
+    public $_imageBig = null; //UploadedFile[]
+    public $_removeImageBigFlag = false; // bool
+
     public $createTimeDate = '';
     public $createTimeTime = '';
 
@@ -20,6 +33,24 @@ class News extends CActiveRecord
             // 'manyToMany' => array(
             //     'class' => 'lib.ar-relation-behavior.EActiveRecordRelationBehavior',
             // ),
+            'imageBehavior' => array(
+                'class' => 'application.behaviors.ImageBehavior',
+                'storagePath' => 'news',
+//                'imageWidth' => self::IMAGE_SMALL_W,
+//                'imageHeight' => self::IMAGE_SMALL_H,
+                'imageField' => 'image',
+                'imageLabel' => 'Маленькая картинка',
+            ),
+            'imageBigBehavior' => array(
+                'class' => 'application.behaviors.ImageBehavior',
+                'storagePath' => 'news/big',
+//                'imageWidth' => self::IMAGE_BIG_W,
+//                'imageHeight' => self::IMAGE_BIG_H,
+                'imageField' => 'imageBig',
+                'imageLabel' => 'Большая картинка',
+                'innerImageField' => '_imageBig',
+                'innerRemoveBtnField' => '_removeImageBigFlag',
+            ),
             'timeBehavior' => array(
                 'class' => 'application.behaviors.TimeBehavior',
                 'createTimeField' => 'createTime',
@@ -36,14 +67,15 @@ class News extends CActiveRecord
     public function attributeLabels()
     {
         return array_merge(
+            $this->imageBehavior->imageLabels(),
+            $this->imageBigBehavior->imageLabels(),
             $this->timeLabels(),
             array(
                 'title' => 'Заголовок',
                 'shortDesc' => 'Короткое описание',
                 'desc' => 'Текст',
-                'sectionId' => 'Раздел',
+                'onMain' => 'Показывать на главной',
                 'visible' => 'Показывать',
-                'orderNum' => 'Порядок сортировки',
                 'newsLink' => 'Ссылка на новость',
                 'createTimeTime' => 'Время создания',
                 'createTimeDate' => 'Дата создания'
@@ -51,17 +83,28 @@ class News extends CActiveRecord
         );
     }
 
+
     public function rules()
     {
         return array_merge(
+            $this->imageBehavior->imageRules(),
+            $this->imageBigBehavior->imageRules(),
             $this->timeRules(),
             array(
-                array('sectionId', 'required'),
                 array('title, desc, shortDesc', 'safe'),
-                array('visible', 'boolean'),
-                array('orderNum, sectionId', 'numerical', 'integerOnly'=>true),
+                array('onMain, visible', 'boolean'),
             )
         );
+    }
+
+    /*
+     Отмечаем значком "required"
+     */
+    public function isAttributeRequired($attribute)
+    {
+        if (in_array($attribute, array('_image', '_imageBig')))
+            return true;
+        return parent::isAttributeRequired($attribute);
     }
 
     public function scopes()
@@ -70,6 +113,9 @@ class News extends CActiveRecord
         return array(
             'onSite' => array(
                 'condition' => $alias.'.visible = 1',
+            ),
+            'onMain' => array(
+                'condition' => $alias.'.onMain = 1',
             ),
             'orderDefault' => array(
                 'order' => $alias.'.orderNum ASC',
@@ -105,6 +151,12 @@ class News extends CActiveRecord
         //$criteria->compare('name', $this->name, true);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort' => array(
+                'defaultOrder' => array(
+                    'onMain' => CSort::SORT_DESC,
+                    'id' => CSort::SORT_ASC,
+                )
+            )
         ));
     }
 
@@ -113,8 +165,27 @@ class News extends CActiveRecord
         return CHtml::normalizeUrl( array(0=>'/news/news/show', 'id'=>$this->id) );
     }
 
+    public function getImageUrl()
+    {
+        return $this->imageBehavior->getImageUrl();
+    }
+
+    public function getImageBigUrl()
+    {
+        return $this->imageBigBehavior->getImageUrl();
+    }
+
+    protected function afterDelete()
+    {
+        $this->imageBehavior->imageAfterDelete();
+        $this->imageBigBehavior->imageAfterDelete();
+        return parent::afterDelete();
+    }
+
     protected function afterFind()
     {
+        $this->imageBehavior->imageAfterFind();
+        $this->imageBigBehavior->imageAfterFind();
         $this->timeAfterFind();
 
         $this->createTimeDate = date('d.m.Y', $this->createTime);
@@ -125,9 +196,6 @@ class News extends CActiveRecord
 
     protected function beforeSave()
     {
-        //var_dump($this->createTimeDate);
-        //var_dump($this->createTimeTime);
-        //die;
         if (!empty($this->createTimeDate) && !empty($this->createTimeTime))
             $this->createTime = strtotime($this->createTimeDate.' '.$this->createTimeTime);
 

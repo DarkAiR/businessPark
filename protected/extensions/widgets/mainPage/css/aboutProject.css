@@ -1,0 +1,17 @@
+.about-project-widget {
+  width: 336px;
+  height: 508px;
+  background: #fff;
+  padding: 0 32px;
+  margin-top: 28px;
+  margin-left: 11px;
+}
+.about-project-widget .image {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+.about-project-widget .text {
+  font-size: 11px;
+  line-height: 18px;
+  line-height: 14px;
+}

@@ -1,0 +1,30 @@
+@import (reference) '../../../../views/less/custom';
+
+.title-widget {
+    position: relative;
+    width: @mainCol2 + @mainCol3;
+    height: 0px;
+
+    .inner {
+        position: absolute:
+        left: 0;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        padding-top: 25px;
+    }
+    .text1, .text2 {
+        .font(PF, medium);
+        .font-size(36);
+        color: @colorMainTitle;
+    }
+    .text1 {
+        margin-left: -50px;
+    }
+    .desc {
+        .font(PF, regular);
+        .font-size(14);
+        color: @colorTitleDesc;
+        padding-top: 5px;
+    }
+}

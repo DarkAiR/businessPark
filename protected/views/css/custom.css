@@ -1,4 +1,8 @@
 @font-face {
+  font-family: "PF DinDisplay Pro Regular";
+  src: url(/fonts/PFDinDisplayPro-Reg.ttf) format("truetype");
+}
+@font-face {
   font-family: "PF DinDisplay Pro Light";
   src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
 }
@@ -10,8 +14,13 @@
   font-family: "PF DinDisplay Pro Medium";
   src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
 }
-html {
-  font-family: "PF DinDisplay Pro Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: "PF DinDisplay Pro Bold";
+  src: url(/fonts/PFDinDisplayPro-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Verdana";
+  src: url(/fonts/Verdana.ttf) format("truetype");
 }
 /* Главная разметка */
 html,
@@ -19,20 +28,31 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Verdana", Helvetica, Arial, sans-serif;
 }
-.page-wrapper {
+body {
+  font-size: 12px;
+  line-height: 19px;
+  color: #2b2b2b;
+  background-color: #fff;
+}
+.page {
   min-height: 100%;
-  margin-bottom: -150px;
-}
-* html .page-wrapper {
+  height: auto !important;
   height: 100%;
 }
-.page-buffer {
-  height: 150px;
+.wrap {
+  padding-bottom: 150px;
+}
+a,
+a:link,
+a:hover,
+a:visited {
+  text-decoration: underline;
+  color: #0063af;
 }
 /* Общий контейнер */
 .common-container {
-  background: rgba(255, 0, 0, 0.2);
   position: relative;
   width: 1024px;
   padding: 0px 18px;
@@ -46,19 +66,6 @@ body {
 }
 .common-container:after {
   clear: both;
-}
-.footer .separate-line {
-  background: #4a8226;
-  width: 966px;
-  height: 1px;
-  min-height: 1px;
-  margin-left: 9px;
-}
-.head,
-.footer {
-  background: ;
-  height: 150px;
-  min-height: 150px;
 }
 .head .col1,
 .footer .col1 {
@@ -95,4 +102,44 @@ body {
   float: left;
   height: inherit;
   min-height: 1px;
+}
+.head {
+  height: 150px;
+  min-height: 150px;
+}
+.head .logo-block {
+  padding: 49px 0 0 32px;
+}
+.head .menu-block {
+  padding: 49px 0 0 0;
+}
+.footer {
+  font-size: 11px;
+  line-height: 18px;
+  color: #707070;
+  height: 150px;
+  min-height: 150px;
+  margin-top: -151px;
+}
+.footer .separate-line {
+  background: #4a8226;
+  width: 966px;
+  height: 1px;
+  min-height: 1px;
+  margin-left: 9px;
+}
+.footer .copyright {
+  padding: 30px 0 0 45px;
+}
+.footer .author {
+  padding: 30px 0 0 108px;
+}
+.footer .author a {
+  color: inherit;
+}
+.footer .author .studio {
+  color: #fa1010;
+}
+.footer .contact {
+  padding: 30px 0 0 11px;
 }

@@ -7,7 +7,7 @@ class ImageBehavior extends CActiveRecordBehavior
     public $imageHeight = 0;
     public $imageMaxWidth = 0;
     public $imageMaxHeight = 0;
-    public $imageExt = 'jpeg; jpg; png';
+    public $imageExt = 'jpeg, jpg, png';
     public $imageField = '';
 
     public $imageLabel = 'Изображение';
@@ -36,16 +36,13 @@ class ImageBehavior extends CActiveRecordBehavior
 
     public function imageRules()
     {
-        $arr = array($this->innerImageField, 'ext.validators.EImageValidator', 'allowEmpty'=>true);
+        $arr = array($this->innerImageField, 'ext.validators.EImageValidator', 'types'=>$this->imageExt, 'allowEmpty'=>true);
         if (!empty($this->imageWidth))      $arr['width'] = $this->imageWidth;
         if (!empty($this->imageHeight))     $arr['height'] = $this->imageHeight; 
         if (!empty($this->imageMaxWidth))   $arr['maxWidth'] = $this->imageMaxWidth;
         if (!empty($this->imageMaxHeight))  $arr['maxHeight'] = $this->imageMaxHeight; 
 
-        return array(
-            array($this->innerImageField, 'file', 'types'=>$this->imageExt, 'allowEmpty'=>true),
-            $arr,
-        );
+        return array($arr);
     }
 
     public function getStorePath()

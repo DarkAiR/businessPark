@@ -1,0 +1,31 @@
+@import (reference) '../../../../views/less/custom';
+
+.department-of-land-sales-widget {
+    background: url(../../img/department_of_sales_icon.png) center bottom no-repeat;
+    width:          200px;
+    height:         165px;
+    margin-top:     68px;
+    margin-left:    75px;
+    text-align:     center;
+    padding-left:   @smallPadding;
+    padding-right:  @smallPadding;
+
+    .title {
+        .font(PF, medium);
+        .font-size(30);
+        color: @colorMainTitle;
+    }
+    .phone {
+        padding-top: 20px;
+        font-weight: bold;
+        .code {
+            color: @colorTextLight;
+            &:after {
+                content: " ";
+            }
+        }
+    }
+    .text {
+        padding-top: 6px;
+    }
+}

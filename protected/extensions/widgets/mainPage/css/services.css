@@ -1,0 +1,14 @@
+.services-widget {
+  position: absolute;
+  left: 0;
+  top: 622px;
+  width: 100%;
+}
+.services-widget .text {
+  padding-left: 32px;
+  padding-right: 96px;
+}
+.services-widget .image {
+  padding-left: 32px;
+  padding-top: 40px;
+}

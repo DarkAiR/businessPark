@@ -23,7 +23,7 @@ return array(
         'company',
 //        'projects',
         'sitemenu',
-//        'news',
+        'news',
         'contentBlocks',
         'articles',
 //        'persons',
@@ -46,9 +46,9 @@ return array(
                 'uploadFile'                        => 'site/uploadFile',
 
                 // News
-//                'news/show/<id:\d+>/'               => 'news/news/show',
-//                'news/<year:\d+>/'                  => 'news/news/index',
-//                'news/'                             => 'news/news/index',
+                'news/show/<id:\d+>/'               => 'news/news/show',
+                'news/<year:\d+>/'                  => 'news/news/index',
+                'news/'                             => 'news/news/index',
 
                 // Projects
 //                'works/show/<id:\d+>/'              => 'projects/projects/show',

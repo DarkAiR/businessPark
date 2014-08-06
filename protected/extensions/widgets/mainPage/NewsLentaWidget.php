@@ -2,16 +2,13 @@
 
 class NewsLentaWidget extends ExtendedWidget
 {
-    const LIMIT = 5;
+    const LIMIT = 2;
 
     public $model;
     public $attribute;
 
     public function run()
     {
-        echo 'Новости';
-        return;
-        
         $news = $this->getNews();
         $this->render('newsLenta', array(
             'news' => $news,
@@ -24,21 +21,20 @@ class NewsLentaWidget extends ExtendedWidget
     private function getNews()
     {
         $arr = array();
-        $works = News::model()->onSite()->byLimit(self::LIMIT)->findAll();
-        foreach ($works as &$work)
+        $news = News::model()
+            ->onSite()
+            ->onMain()
+            ->byLimit(self::LIMIT)
+            ->findAll();
+        foreach ($news as &$n)
         {
             $arr[] = array(
-                'id' => $work->id,
-                'date' => DateHelper::formatNewsDate($work->createTime),
-                'title' => $work->title,
-                'text' => $work->shortDesc,
-                'link' => CHtml::normalizeUrl(array('/news/news/show', 'id'=>$work->id))
+                'id'    => $n->id,
+                'date'  => DateHelper::formatNewsDate($n->createTime),
+                'text'  => $n->shortDesc,
+                'image' => $n->getImageUrl(),
+                'link'  => CHtml::normalizeUrl(array('/news/news/show', 'id'=>$n->id))
             );
-        }
-        if (count($arr) < self::LIMIT)
-        {
-            for ($i=count($arr); $i < self::LIMIT; $i++)
-                $arr[] = array();
         }
         return $arr;
     }

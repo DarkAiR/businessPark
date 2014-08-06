@@ -1,6 +1,10 @@
 .main-page {
   min-height: 1px;
 }
+.main-page .bottomGap {
+  height: 90px;
+  min-height: 90px;
+}
 .main-page .col1 {
   outline: 1px dotted #808080;
   width: 247px;
@@ -33,15 +37,16 @@
   height: inherit;
   min-height: 1px;
 }
+.main-page .cont {
+  position: relative;
+}
 /* Задник */
 .bg-picture {
-  width: 1100px;
-  height: 650px;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  width: 1124px;
+  height: 682px;
   position: absolute;
-  top: 300px;
+  top: 303px;
   left: 50%;
-  margin-left: -550px;
-  display: none;
+  margin-left: -562px;
+  background: url(../../img/mainBg.png) left top no-repeat;
 }

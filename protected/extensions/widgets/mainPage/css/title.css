@@ -1,0 +1,30 @@
+.title-widget {
+  position: relative;
+  width: 741px;
+  height: 0px;
+}
+.title-widget .inner {
+  position: absolute:
+        left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  padding-top: 25px;
+}
+.title-widget .text1,
+.title-widget .text2 {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  line-height: 38px;
+  color: #3c7315;
+}
+.title-widget .text1 {
+  margin-left: -50px;
+}
+.title-widget .desc {
+  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #6f6f6f;
+  padding-top: 5px;
+}

@@ -1,4 +1,4 @@
-{{ import('css','newsLenta.css','ext.widgets.mainPage.views') }}
+{{ import('css','newsLenta.css','ext.widgets.mainPage.css') }}
 
 <script type="text/javascript">
     $(document).ready( function()
@@ -10,28 +10,31 @@
     });
 </script>
 
-<div class='news-lenta-widget  gridHeight5'>
-Лента новостей
-    <div class='news-lenta-inner  gridHeight5'>
-        {% for item in news %}
+<div class='news-lenta-widget'>
+    {% for item in news %}
 
-            <div class='news-lenta-item  grid16 {% if loop.index == 1 %}first{% endif %} {% if item|length > 0 %}cursor-link{% endif %}' href='{{ item.link }}'>
-                <div class='border-cont' style='height:100%'>
-                    {% if not loop.first %}
-                        <div class='border-l' style='background:#fff; height:99px;'></div>
-                    {% endif %}
-
-
-                    <div class='grid-left2 grid-right2'>
-                        {% if item|length > 0 %}
-                            <div class='news-lenta-item-date  gridHeight1'>{{ item.date }}</div>
-                            <div class='news-lenta-item-text  gridHeight3'>{{ item.text|raw }}</div>
-                        {% endif %}
-                    </div>
+        <table class='item' border=0 cellpadding="0" cellspacing="0">
+        <tr>
+            <td class='tablecol1'></td>
+            <td class='tablecol2'>
+                <div class='date'>
+                    {{ item.date }}
                 </div>
-            </div>
-
-        {% endfor %}
-    </div>
-
+            </td>
+        </tr>
+        <tr>
+            <td class='tablecol1'>
+                <div class='image'>
+                    <img src='{{ item.image }}'>
+                </div>
+            </td>
+            <td class='tablecol2'>
+                <div class='text'>
+                    <a href='{{ item.link }}'>{{ item.text|raw }}</a>
+                </div>
+            </td>
+        </tr>
+        </table>
+    
+    {% endfor %}
 </div>

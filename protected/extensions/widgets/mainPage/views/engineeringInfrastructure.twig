@@ -1,24 +1,24 @@
-{{ import('css','engineeringInfrastructure.css','ext.widgets.mainPage.views') }}
+{{ import('css','engineeringInfrastructure.css','ext.widgets.mainPage.css') }}
 
 <div class='engineering-infrastructure-widget'>
-    <div class='engineering-infrastructure-item'>
-        <div class='engineering-infrastructure-title'>Инженерная инфраструктура</div>
-        <div class='engineering-infrastructure-image'>
+    <div class='item1'>
+        <div class='title'>Инженерная инфраструктура</div>
+        <div class='image'>
             <img src='img/infrastructure_icon.png'>
         </div>
-        <div class='engineering-infrastructure-text'>
+        <div class='text'>
             Каждый земельный участок индустриального парка обеспечен инженерными коммуникациями и необходимыми энергоресурсами.
         </div>
-        <div class='engineering-infrastructure-link'>
+        <div class='link'>
             <a href='{{ static('CHtml', 'normalizeUrl', ['/structure']) }}'>Узнать больше</a>
         </div>
     </div>
 
-    <div class='engineering-infrastructure-item'>
-        <div class='engineering-infrastructure-image'>
+    <div class='item2'>
+        <div class='image'>
             <img src='img/extruder.png'>
         </div>
-        <div class='engineering-infrastructure-text'>
+        <div class='text'>
             Промышленные земельные участки ориентированы под строительство производственных и логистических структур.
         </div>
     </div>

@@ -1,0 +1,47 @@
+@import (reference) '../../../../views/less/custom';
+
+.news-lenta-widget {
+    padding-top: @bigPadding;
+
+    .item {
+        @dateH: 36px;
+
+        &:nth-child(1) {
+            .col(@mainCol2);
+        }
+        &:nth-child(2) {
+            .col(@mainCol3);
+        }
+
+        & tr:nth-child(1) {
+            height: @dateH;
+            min-height: @dateH;
+        }
+        & td {
+            vertical-align: top;
+        }
+
+        .tablecol1 {
+            width: auto;
+            padding: 0 @smallPadding;
+        }
+        .tablecol2 {
+            width: 100%;
+             _padding: 0 @smallPadding;
+        }
+        .image {
+
+        }
+        .date {
+            .font-size(11);
+            line-height: 1;
+            color: @colorTextLight;
+            padding: @smallPadding @smallPadding 0 @smallPadding;
+        }
+        .text {
+            .font-size(11);
+            margin-top: -4px;
+            padding: 0 @smallPadding;
+        }
+    }
+}

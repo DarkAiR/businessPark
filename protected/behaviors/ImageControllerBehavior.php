@@ -5,9 +5,15 @@ class ImageControllerBehavior extends CBehavior
     public $imageField = '';
     public $innerImageField = '_image';
     public $innerRemoveBtnField = '_removeImageFlag';
+    public $imageWidth = 0;
+    public $imageHeight = 0;
+    public $resize = true;
 
     public function imageBeforeSave($model, $storagePath)
     {
+        // disable resize if 
+        $isResize = (empty($this->imageWidth) || empty($this->imageHeight)) ? false : $this->resize;
+
         if ($model->{$this->innerRemoveBtnField})
         {
             // removing file
@@ -17,7 +23,8 @@ class ImageControllerBehavior extends CBehavior
         }
 
         $model->{$this->innerImageField} = CUploadedFile::getInstance($model, $this->innerImageField);
-        if ($model->validate() && !empty($model->{$this->innerImageField}))
+
+        if ($model->validate(array($this->innerImageField)) && !empty($model->{$this->innerImageField}))
         {
             if ($model->{$this->imageField})
             {
@@ -33,6 +40,13 @@ class ImageControllerBehavior extends CBehavior
             $imageName = md5(time().$imageName).($ext?$ext:'');
 
             $model->{$this->innerImageField}->saveAs( $storagePath.$imageName );
+            
+            if ($isResize) {
+                $image = Yii::app()->image->load($storagePath.$imageName);
+                $image->resize($this->imageWidth, $this->imageHeight);
+                $image->save();
+            }
+
             $model->{$this->imageField} = $imageName;
         }
     }

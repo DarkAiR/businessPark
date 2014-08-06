@@ -44,6 +44,7 @@
         'items' : [
             {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
             {'label':'Разделы сайта', 'action' : false, 'items': [
+                {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == 'news/adminNews'},
                 {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
                 {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active' : this.uniqueId == '/articles/adminArticles'},
             ]},
@@ -71,7 +72,6 @@
                 {'label':'Собственные проекты', 'url':['/projects/adminProjectsOwn'], 'active' : this.uniqueId == 'projects/adminProjectsOwn'}
             ]},
             {'label':'Разделы сайта', 'action' : false, 'items': [
-                {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == 'news/adminNews'},
                 {'label':'Промо на главную', 'url':['/promo/adminPromo'], 'active' : this.uniqueId == '/promo/adminPromo'},
                 {'label':'Вопросы-ответы', 'url':['/company/adminFaq'], 'active' : this.uniqueId == '/company/adminFaq'},
                 {'label':'Команда', 'url':['/persons/adminPersons'], 'active' : this.uniqueId == '/persons/adminPersons'},

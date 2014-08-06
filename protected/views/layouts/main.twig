@@ -20,48 +20,53 @@
 </head>
 <body>
 
-    <div class='page-wrapper common-container'>
+    {% block bg %}
+    {% endblock %}
 
-        <div class='bg-picture'></div>
+    <div class='page'>
+        <div class='wrap'>
+            <div class='common-container'>
 
-        <div class='head'>
-            {% block header %}
-            
-                <div class='col1'>
-                    <div class='logo-block'>
-                        <a href='/'><img src='/img/logo.png' width="141" height="60"></a>
-                    </div>
+                <div class='head'>
+                    {% block header %}
+                    
+                        <div class='col1'>
+                            <div class='logo-block'>
+                                <a href='/'><img src='/img/logo.png' width="141" height="60"></a>
+                            </div>
+                        </div>
+                        <div class='col2-3'>
+                            <div class='menu-block'>
+                                {{ widget('ext.widgets.MainMenuSecondWidget') }}
+                                <div class='clearfix'></div>
+                                {{ widget('ext.widgets.MainMenuWidget') }}
+                            </div>
+                        </div>
+                    
+                    {% endblock %}
                 </div>
-                <div class='col2-3'>
-                    {{ widget('ext.widgets.MainMenuSecondWidget') }}
-                    <div class='clearfix'></div>
-                    {{ widget('ext.widgets.MainMenuWidget') }}
+
+                <div class='body'>
+                    {% block content %}
+                    {% endblock %}
                 </div>
-            
-            {% endblock %}
+
+            </div>
         </div>
-
-        <div class='body'>
-            {% block content %}
-            {% endblock %}
-        </div>
-
-        <div class="page-buffer"></div>
-
     </div>
 
     <div class='footer-wrapper common-container footer'>
         {% block footer %}
 
             <div class='separate-line'></div>
-            <div class='col1'>
+            <div class='col1 copyright'>
                 &copy; 2010-2014 Про-Бизнес-Парк
             </div>
-            <div class='col2'>
-                Сделано в студии <a href='#'>Redsphere</a><br/>
+            <div class='col2 author'>
+                Сделано в студии <a href='#' class='studio'>Redsphere</a><br/>
                 <a href='#'>Информация о сайте</a>
             </div>
-            <div class='col3'>
+            <div class='col3 contact'>
                 <a href='#'>Контактная информация</a>
             </div>
 

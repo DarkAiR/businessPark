@@ -1,0 +1,10 @@
+.work-line-widget {
+  position: absolute;
+  left: 0;
+  top: 885px;
+  width: 100%;
+  text-align: center;
+}
+.work-line-widget .text {
+  padding-bottom: 11px;
+}

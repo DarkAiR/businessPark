@@ -27,13 +27,13 @@ class m140801_055411_local_config extends CDbMigration
                 KEY `module` (`module`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
         );
-        $this->execute('
+        /*$this->execute('
             INSERT INTO localconfig
             (`id`, `value`, `module`, `description`, `example`, `type`)
             VALUES
             ("title", "Земельные участки\nпромышленного назначения", "", "Заголовок сайта", "Текст", "multilinestring"),
             ("titleDesc", "Месторасположение г.Екатеринбург Чкаловский район", "", "Подпись под заголовком", "Текст", "multilinestring")
-        ');
+        ');*/
     }
 
     public function safeDown()
