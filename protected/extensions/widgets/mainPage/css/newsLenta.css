@@ -2,7 +2,7 @@
   padding-top: 22px;
 }
 .news-lenta-widget .item:nth-child(1) {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -10,7 +10,7 @@
   min-height: 1px;
 }
 .news-lenta-widget .item:nth-child(2) {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;

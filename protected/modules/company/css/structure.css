@@ -15,7 +15,7 @@
   width: 100%;
 }
 .structure-page .electro-block {
-  outline: 1px dotted #333;
+  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -75,7 +75,7 @@
   text-align: center;
 }
 .structure-page .gas-block {
-  outline: 1px dotted #333;
+  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -157,7 +157,7 @@
   text-align: center;
 }
 .structure-page .water-in-block {
-  outline: 1px dotted #333;
+  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -246,7 +246,7 @@
   text-align: center;
 }
 .structure-page .water-out-block {
-  outline: 1px dotted #333;
+  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -311,7 +311,7 @@
   text-align: center;
 }
 .structure-page .rain-out-block {
-  outline: 1px dotted #333;
+  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;

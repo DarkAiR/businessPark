@@ -2,3 +2,31 @@
   _background: rgba(0, 0, 255, 0.5);
   min-height: 1px;
 }
+.contacts-page > .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  line-height: 90px;
+  color: #3c7315;
+  height: 90px;
+  min-height: 90px;
+}
+.contacts-page .col1 {
+  _outline: 1px dotted #808080;
+  width: 247px;
+  min-width: 247px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.contacts-page .col2-2 {
+  _outline: 1px dotted #808080;
+  width: 741px;
+  min-width: 741px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.contacts-page .bottomGap {
+  height: 90px;
+  min-height: 90px;
+}

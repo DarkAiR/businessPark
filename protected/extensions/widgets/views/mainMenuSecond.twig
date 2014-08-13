@@ -6,12 +6,11 @@
 <div class='main-menu-second-widget  hmenu'>
     <ul>
         {% for item in items %}
-            {% set link = static('CHtml', 'normalizeUrl', ['/'~item.link]) %}
             {% set active = item.select %}
             {% set first = loop.first %}
             {% set last = loop.last %}
             <li class='{% if first %}first{% endif %} {% if last %}last{% endif %}'>
-                <a class='{% if active %}select{% endif %}' href='{{ link }}'>
+                <a class='{% if active %}select{% endif %}' href='{{ item.link }}'>
                     {% if active %}
                     {% endif %}
                     {{ item.name|raw }}

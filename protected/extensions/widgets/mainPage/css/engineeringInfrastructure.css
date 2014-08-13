@@ -1,5 +1,5 @@
 .engineering-infrastructure-widget .item1 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -22,7 +22,7 @@
   padding-bottom: 11px;
 }
 .engineering-infrastructure-widget .item2 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   height: inherit;

@@ -23,9 +23,14 @@ abstract class MenuWidget extends ExtendedWidget
             $select = false;
             if (strpos($url, trim($item->link, '/')) === 0)
                 $select = true;
+
+            $link = (strpos($item->link, 'http://') === 0)
+                ? $item->link
+                : CHtml::normalizeUrl('/'.$item->link);
+
             $itemsArr[] = array(
                 'name' => $item->name,
-                'link' => $item->link,
+                'link' => $link,
                 'select' => $select,
             );
         }

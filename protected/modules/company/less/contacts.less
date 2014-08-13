@@ -3,4 +3,29 @@
 .contacts-page {
     _background: rgba(0,0,255,0.5);
     min-height: 1px;
+
+    & > .title {
+        .inner-title;
+    }
+
+    .col1 {
+        .col(@mainCol1);
+    }
+    .col2-2 {
+        .col(@mainCol2 + @mainCol3);
+    }
+
+    .bottomGap {
+        height: @footerPaddingTop;
+        min-height: @footerPaddingTop;
+    }
+
+    .info-block {
+        .info {
+
+        }
+        .phone {
+
+        }
+    }
 }

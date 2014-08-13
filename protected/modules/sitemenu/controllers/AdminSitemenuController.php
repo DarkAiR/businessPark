@@ -67,7 +67,6 @@ class AdminSitemenuController extends MAdminController
             'orderNum',
             'menuId',
             'name',
-            'link',
             'visible',
             $this->getButtonsColumn(),
         );
