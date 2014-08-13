@@ -18,8 +18,9 @@
   line-height: 38px;
   color: #3c7315;
 }
-.title-widget .text1 {
-  margin-left: -50px;
+.title-widget .text1 grey,
+.title-widget .text2 grey {
+  color: #939393;
 }
 .title-widget .desc {
   font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;

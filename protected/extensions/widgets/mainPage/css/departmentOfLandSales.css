@@ -1,5 +1,5 @@
 .department-of-land-sales-widget {
-  background: url(../../img/department_of_sales_icon.png) center bottom no-repeat;
+  _background: url(../../img/department_of_sales_icon.png) center bottom no-repeat;
   width: 200px;
   height: 165px;
   margin-top: 68px;
@@ -9,12 +9,14 @@
   padding-right: 11px;
 }
 .department-of-land-sales-widget .title {
+  display: none;
   font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 30px;
   line-height: 32px;
   color: #3c7315;
 }
 .department-of-land-sales-widget .phone {
+  display: none;
   padding-top: 20px;
   font-weight: bold;
 }
@@ -25,5 +27,6 @@
   content: " ";
 }
 .department-of-land-sales-widget .text {
+  display: none;
   padding-top: 6px;
 }

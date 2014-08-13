@@ -48,5 +48,5 @@
   top: 303px;
   left: 50%;
   margin-left: -562px;
-  background: url(../../img/mainBg.png) left top no-repeat;
+  _background: url(../../img/mainBg.png) left top no-repeat;
 }

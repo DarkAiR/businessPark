@@ -1,7 +1,7 @@
 @import (reference) '../../../../views/less/custom';
 
 .department-of-land-sales-widget {
-    background: url(../../img/department_of_sales_icon.png) center bottom no-repeat;
+    _background: url(../../img/department_of_sales_icon.png) center bottom no-repeat;
     width:          200px;
     height:         165px;
     margin-top:     68px;
@@ -11,11 +11,13 @@
     padding-right:  @smallPadding;
 
     .title {
+        display: none;
         .font(PF, medium);
         .font-size(30);
         color: @colorMainTitle;
     }
     .phone {
+        display: none;
         padding-top: 20px;
         font-weight: bold;
         .code {
@@ -26,6 +28,7 @@
         }
     }
     .text {
+        display: none;
         padding-top: 6px;
     }
 }
