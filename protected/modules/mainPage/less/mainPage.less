@@ -26,15 +26,24 @@
 }
 
 /* Задник */
-.bg-picture {
+.bg-container {
     @w: 1124px;
     @h: 682px;
+    @top: 303px;
 
-    width: @w;
-    height: @h;
-    position: absolute;
-    top: 303px;
-    left: 50%;
-    margin-left: -@w / 2;
-    _background: url(../../img/mainBg.png) left top no-repeat;
+    width: 100%;
+    height: @h + @top;
+    overflow:hidden;
+    position:absolute;
+
+    .bg-picture {
+        width: @w;
+        height: @h;
+        position: absolute;
+        top: @top;
+        left: 50%;
+        margin-left: -@w / 2;
+        background: url(../../img/mainBg.png) left top no-repeat;
+        z-index: -1;
+    }
 }
