@@ -38,16 +38,16 @@ class m140801_055412_menu extends CDbMigration
 
         $this->execute("
             INSERT INTO `MenuItem`
-                (`menuId`, `name`, `link`, `orderNum`)
+                (`menuId`, `name`, `link`, `orderNum`, `visible`)
             VALUES
-                (1, 'Генеральный план', 'general-plan', 1),
-                (1, 'Инфраструктура', 'structure', 2),
-                (1, 'Управляющая компания', 'company', 3),
-                (1, 'От слов к делу', 'department', 4),
-                (1, 'Новости', 'news', 5),
+                (1, 'Генеральный план', 'general-plan', 1, 1),
+                (1, 'Инфраструктура', 'structure', 2, 1),
+                (1, 'Управляющая компания', 'company', 3, 0),
+                (1, 'От слов к делу', 'department', 4, 0),
+                (1, 'Новости', 'news', 5, 0),
                 
-                (2, 'Контактная информация', 'contact-info', 1),
-                (2, 'О проекте', 'about', 2);
+                (2, 'Контактная информация', 'contact-info', 1, 1),
+                (2, 'О проекте', 'about', 2, 0);
         ");
     }
 
