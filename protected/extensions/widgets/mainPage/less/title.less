@@ -1,29 +1,9 @@
 @import (reference) '../../../../views/less/custom';
 
 .title-widget {
-    position: relative;
-    width: @mainCol2 + @mainCol3;
-    height: 0px;
+    .main-title(@mainTitleH);
 
-    .inner {
-        position: absolute:
-        left: 0;
-        top: 0;
-        width: inherit;
-        height: inherit;
-        padding-top: 25px;
-    }
-    .text1, .text2 {
-        .font(PF, medium);
-        .font-size(36);
-        color: @colorTitle;
-        grey {
-            color: @colorTitleGrey;
-        }
-    }
-    .desc {
-        .font(PF, regular);
-        .font-size(14);
-        padding-top: 5px;
-    }
+    width: @mainCol2 + @mainCol3;
+    padding-left: @bigPadding;
+    padding-top: 24px;
 }

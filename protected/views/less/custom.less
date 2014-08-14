@@ -1,3 +1,4 @@
+// Колонки
 @mainCol1:          225px;
 @mainCol2:          382px;
 @mainCol3:          359px;
@@ -6,20 +7,30 @@
 @commonPaddingV:    0px;
 @commonPaddingH:    29px;
 
+
+// Основные отступы
 @smallPadding:      11px;
 @middlePadding:     18px;
 @bigPadding:        @smallPadding * 2;  // 22
 
-@headerH:           142px;
-@footerH:           150px;
-@footerPaddingTop:  90px;
 
+// Шапка, футер
+@headerH:           142px;
+@footerH:           123px;
+@footerPaddingTop:  0px;
+
+
+// Заголовок
+@mainTitleH:        120px;
 @pageTitleH:        90px;
 
+
+// Цвета
 @devRedBg:          rgba(255,0,0,0.2);
 @devGreenBg:        rgba(0,255,0,0.2);
 @devBlueBg:         rgba(0,0,255,0.2);
 @devMagentaBg:      rgba(255,0,255,0.2);
+@devGreyBg:         rgba(0,0,0,0.05);
 
 @colorText:         #2b2b2b;
 @colorTextLight:    #8f8f8f;
@@ -31,11 +42,13 @@
 @colorLinkHover:    #4f9a00;
 @colorLinkActive:   #ffffff;
 @colorLinkActiveBg: #c2c2c2;
+@colorStudioLink:   #fa1010;
 
 @colorMenu:         @colorLink;
 @colorSubMenu:      @colorTextLight;
 
-@colorStudioLink:   #fa1010;
+
+
 
 @import 'fonts';
 
@@ -81,6 +94,8 @@ a {
 
 /* Общий контейнер */
 .common-container {
+    background-color: @devGreyBg;
+
     position:       relative;
     width:          @commonWidth;
     padding:        @commonPaddingV @commonPaddingH;
@@ -99,18 +114,26 @@ a {
 }
 
 
-// Заголовок внутренних страниц
-.inner-title() {
+// Заголовок
+.inner-title(@h:@pageTitleH) {
     .font(PF, medium);
-    .font-size(36, 90px);
+    .font-size(34, @h);
     color:      @colorTitle;
-    height:     @pageTitleH;
-    min-height: @pageTitleH;
+    height:     @h;
+    min-height: @h;
 
     grey {
         color:  @colorTitleGrey;
     }
 }
+.main-title(@h) {
+    .inner-title;
+    .font-size(34);
+    height:     @h;
+    min-height: @h;
+}
+
+
 // Колонка
 .col() {
     outline: 1px dotted #808080;
@@ -193,7 +216,9 @@ a {
 }
 
 .footer {
-    @topOffs: 30px;
+    _background-color: @devBlueBg;
+
+    @topOffs: 32px;
 
     .font-size(11);
     color: @colorTextLight;
@@ -201,27 +226,48 @@ a {
     min-height: @footerH;
     margin-top: -@footerH - 1;
 
+    .footer-inner {
+        _background-color: @devMagentaBg;
+        height: 100%;
+        padding-top: 12px;
+        padding-bottom: 13px;
+    }
     .separate-line {
-        background: #4a8226;
-        width: @mainCol - @smallPadding * 2;
+        border-top: #99b985 1px dotted;
+        width: @mainCol - 11 - 3;
         height: 1px;
         min-height: 1px;
-        margin-left: 9px;
+        max-height: 1px;
+        margin-left: 11px;
     }
 
     .copyright {
-        padding: @topOffs 0 0 45px;
+        padding: @topOffs 0 0 35px;
     }
     .author {
-        padding: @topOffs 0 0 108px;
+        padding: @topOffs 0 0 90px;
         & a {
             color: inherit;
         }
-        .studio {
-            color: @colorStudioLink;
+        .logo {
+            float: left;
+            margin-top: 8px;
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            background: url(../../img/logoDev.png) left top no-repeat;
+        }
+        .text {
+            float: left;
+            a {
+                text-decoration: none;
+            }
+            .studio {
+                color: @colorStudioLink;
+            }
         }
     }
     .contact {
-        padding: @topOffs 0 0 @smallPadding;
+        padding: @topOffs 0 0 21px;
     }
 }

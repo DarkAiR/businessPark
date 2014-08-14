@@ -2,8 +2,8 @@
   min-height: 1px;
 }
 .main-page .bottomGap {
-  height: 90px;
-  min-height: 90px;
+  height: 0px;
+  min-height: 0px;
 }
 .main-page .col1 {
   outline: 1px dotted #808080;

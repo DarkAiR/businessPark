@@ -56,19 +56,31 @@
         </div>
     </div>
 
-    <div class='footer-wrapper common-container footer'>
+    <div class='common-container footer'>
         {% block footer %}
 
-            <div class='separate-line'></div>
-            <div class='col1 copyright'>
-                &copy; 2010-2014 Про-Бизнес-Парк
-            </div>
-            <div class='col2 author'>
-                Сделано в студии <a href='#' class='studio'>Redsphere</a><br/>
-                <a href='#'>Информация о сайте</a>
-            </div>
-            <div class='col3 contact'>
-                <a href='#'>Контактная информация</a>
+            <div class='footer-inner'>
+                <div class='separate-line'></div>
+                <div class='col1 copyright'>
+                    &copy; 2010-2014 Про-Бизнес-Парк
+                </div>
+                <div class='col2 author'>
+                    <div class='logo'></div>
+                    <div class='text'>
+                        Сделано в студии <a href='#' class='studio'>Redsphere</a><br/>
+                        <a href='#'>Информация о сайте</a>
+                    </div>
+                </div>
+                <div class='col3 contact hmenu'>
+                    <ul>
+                        <li style='padding-right:10px'>
+                            <a href='#'>Контактная информация</a>
+                        </li>
+                        <li style='padding-left:10px'>
+                            <a href='#'>Документы</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         {% endblock %}

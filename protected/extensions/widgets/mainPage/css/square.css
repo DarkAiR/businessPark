@@ -1,8 +1,9 @@
 .square-widget {
+  background-color: rgba(255, 0, 0, 0.2);
   position: absolute;
   left: 0;
-  top: 120px;
-  padding-left: 32px;
+  top: 86px;
+  padding: 22px;
 }
 .square-widget .summary invert {
   background: #7aad47;
