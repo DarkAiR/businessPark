@@ -1,47 +1,37 @@
 .news-lenta-widget {
-  padding-top: 22px;
+  width: 100%;
+  height: 176px;
 }
-.news-lenta-widget .item:nth-child(1) {
-  outline: 1px dotted #808080;
+.news-lenta-widget .link {
+  width: 100%;
+  height: 68px;
+  min-height: 68px;
+  padding: 24px 22px 0px 22px;
+}
+.news-lenta-widget .items {
+  width: 100%;
+  height: 108px;
+  min-height: 108px;
+}
+.news-lenta-widget .items .item1 {
+  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
   height: inherit;
   min-height: 1px;
+  padding: 0 44px 0 22px;
 }
-.news-lenta-widget .item:nth-child(2) {
-  outline: 1px dotted #808080;
+.news-lenta-widget .items .item2 {
+  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
   height: inherit;
   min-height: 1px;
+  padding: 0 22px 0 22px;
 }
-.news-lenta-widget .item tr:nth-child(1) {
-  height: 36px;
-  min-height: 36px;
-}
-.news-lenta-widget .item td {
-  vertical-align: top;
-}
-.news-lenta-widget .item .tablecol1 {
-  width: auto;
-  padding: 0 11px;
-}
-.news-lenta-widget .item .tablecol2 {
-  width: 100%;
-  _padding: 0 11px;
-}
-.news-lenta-widget .item .date {
-  font-size: 11px;
-  line-height: 18px;
-  line-height: 1;
-  color: #8f8f8f;
-  padding: 11px 11px 0 11px;
-}
-.news-lenta-widget .item .text {
-  font-size: 11px;
-  line-height: 18px;
-  margin-top: -4px;
-  padding: 0 11px;
+.news-lenta-widget .items .item1 a,
+.news-lenta-widget .items .item2 a {
+  color: #56b312;
 }

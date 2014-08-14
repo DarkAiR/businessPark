@@ -1,47 +1,32 @@
 @import (reference) '../../../../views/less/custom';
 
 .news-lenta-widget {
-    padding-top: @bigPadding;
+    width: 100%;
+    height: 176px;
 
-    .item {
-        @dateH: 36px;
+    .link {
+        width: 100%;
+        height: 68px;
+        min-height: 68px;
+        padding: 24px @bigPadding 0px @bigPadding;
+    }
+    .items {
+        width: 100%;
+        height: 108px;
+        min-height: 108px;
 
-        &:nth-child(1) {
+        .item1 {
             .col(@mainCol2);
+            padding: 0 @bigPadding*2 0 @bigPadding;
         }
-        &:nth-child(2) {
+        .item2 {
             .col(@mainCol3);
+            padding: 0 @bigPadding 0 @bigPadding;
         }
-
-        & tr:nth-child(1) {
-            height: @dateH;
-            min-height: @dateH;
-        }
-        & td {
-            vertical-align: top;
-        }
-
-        .tablecol1 {
-            width: auto;
-            padding: 0 @smallPadding;
-        }
-        .tablecol2 {
-            width: 100%;
-             _padding: 0 @smallPadding;
-        }
-        .image {
-
-        }
-        .date {
-            .font-size(11);
-            line-height: 1;
-            color: @colorTextLight;
-            padding: @smallPadding @smallPadding 0 @smallPadding;
-        }
-        .text {
-            .font-size(11);
-            margin-top: -4px;
-            padding: 0 @smallPadding;
+        .item1, .item2 {
+            & a {
+                color: @colorNewsLink;
+            }
         }
     }
 }

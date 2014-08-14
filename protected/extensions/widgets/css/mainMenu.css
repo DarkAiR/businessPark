@@ -1,3 +1,7 @@
+.main-menu-widget {
+  font-size: 14px;
+  line-height: 22px;
+}
 .main-menu-widget li {
   padding-left: 15px;
   padding-right: 15px;

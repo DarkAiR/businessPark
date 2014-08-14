@@ -1,35 +1,43 @@
+.engineering-infrastructure-widget {
+  width: 100%;
+  height: 316px;
+}
+.engineering-infrastructure-widget .item1,
+.engineering-infrastructure-widget .item2 {
+  padding: 18px 44px 18px 22px;
+}
 .engineering-infrastructure-widget .item1 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
   height: inherit;
   min-height: 1px;
-  padding: 11px;
 }
 .engineering-infrastructure-widget .item1 .title {
   font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 22px;
+  line-height: 27px;
   color: #4f9714;
   width: 50%;
 }
 .engineering-infrastructure-widget .item1 .image {
-  padding-top: 8px;
+  padding-top: 18px;
 }
 .engineering-infrastructure-widget .item1 .text {
-  padding-top: 5px;
-  padding-bottom: 11px;
+  padding-top: 18px;
 }
 .engineering-infrastructure-widget .item2 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
+  float: left;
   height: inherit;
   min-height: 1px;
-  float: left;
-  padding: 23px 11px 0 11px;
+}
+.engineering-infrastructure-widget .item2 .image {
+  padding-top: 52px;
 }
 .engineering-infrastructure-widget .item2 .text {
-  padding-top: 18px;
+  padding-top: 28px;
 }

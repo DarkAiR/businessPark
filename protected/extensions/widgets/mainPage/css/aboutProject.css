@@ -1,17 +1,25 @@
 .about-project-widget {
-  width: 336px;
-  height: 508px;
-  background: #fff;
-  padding: 0 32px;
-  margin-top: 28px;
-  margin-left: 11px;
+  width: 359px;
+  height: 537px;
+  background: url(../../img/aboutProjectBg.png) left top no-repeat;
+  padding: 22px;
 }
-.about-project-widget .image {
-  padding-top: 80px;
-  padding-bottom: 50px;
+.about-project-widget .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #767676;
+  padding-top: 40px;
+  padding-left: 36px;
 }
 .about-project-widget .text {
+  position: absolute;
+  left: 0;
+  bottom: 76px;
   font-size: 11px;
   line-height: 18px;
   line-height: 14px;
+  color: #767676;
+  padding-left: 52px;
+  padding-right: 52px;
 }

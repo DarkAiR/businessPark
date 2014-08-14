@@ -1,0 +1,18 @@
+.slogan-widget {
+  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #767676;
+  width: 100%;
+  height: 113px;
+  padding-top: 14px;
+}
+.slogan-widget .text1 {
+  margin-left: 22px;
+}
+.slogan-widget .text2 {
+  margin-left: 75px;
+}
+.slogan-widget .text3 {
+  margin-left: 120px;
+}

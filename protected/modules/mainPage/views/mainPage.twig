@@ -25,16 +25,20 @@
 {% block content %}
 <div class='main-page'>
     <div class='col1  cont'>
-        {{ widget('ext.widgets.mainPage.SquareWidget') }}
+        <div class='col1-block1'>
+            {{ widget('ext.widgets.mainPage.SquareWidget') }}
+        </div>
+        <div class='col1-block2'>
         {{ widget('ext.widgets.mainPage.ServicesWidget') }}
-        {{ widget('ext.widgets.mainPage.WorkLineWidget') }}
+            {{ widget('ext.widgets.mainPage.WorkLineWidget') }}
+        </div>
     </div>
     <div class='col2-3'>
         {{ widget('ext.widgets.mainPage.TitleWidget') }}
         <div class='col2'>
         </div>
         <div class='col3'>
-            {{ widget('ext.widgets.mainPage.DepartmentOfLandSalesWidget') }}
+            {{ widget('ext.widgets.mainPage.SloganWidget') }}
             <div class='clearfix'></div>
             {{ widget('ext.widgets.mainPage.AboutProjectWidget') }}
         </div>

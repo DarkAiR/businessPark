@@ -11,30 +11,18 @@
 </script>
 
 <div class='news-lenta-widget'>
-    {% for item in news %}
+    <div class='link'><a href='{{ static('CHtml', 'normalizeUrl', ['/news']) }}'>Смотреть все новости</a></div>
 
-        <table class='item' border=0 cellpadding="0" cellspacing="0">
-        <tr>
-            <td class='tablecol1'></td>
-            <td class='tablecol2'>
-                <div class='date'>
-                    {{ item.date }}
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class='tablecol1'>
-                <div class='image'>
-                    <img src='{{ item.image }}'>
-                </div>
-            </td>
-            <td class='tablecol2'>
-                <div class='text'>
-                    <a href='{{ item.link }}'>{{ item.text|raw }}</a>
-                </div>
-            </td>
-        </tr>
-        </table>
-    
-    {% endfor %}
+    <div class='items'>
+        <div class='item1'>
+            <div class='text'>
+                <a href='{{ news[0].link }}'>{{ news[0].text|raw }}</a>
+            </div>
+        </div>
+        <div class='item2'>
+            <div class='text'>
+                <a href='{{ news[1].link }}'>{{ news[1].text|raw }}</a>
+            </div>
+        </div>
+    </div>
 </div>

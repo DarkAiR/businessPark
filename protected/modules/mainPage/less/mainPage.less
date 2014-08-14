@@ -23,13 +23,24 @@
     .cont {
         position: relative;
     }
+
+    .col1-block1 {
+        position: absolute;
+        top: 86px;
+        left: 0;
+    }
+    .col1-block2 {
+        position: absolute;
+        top: 596px;
+        left: 0;
+    }
 }
 
 /* Задник */
 .bg-container {
-    @w: 1124px;
-    @h: 682px;
-    @top: 303px;
+    @w: 1187px;
+    @h: 628px;
+    @top: 312px;
 
     width: 100%;
     height: @h + @top;
@@ -42,7 +53,7 @@
         position: absolute;
         top: @top;
         left: 50%;
-        margin-left: -@w / 2;
+        margin-left: -@w / 2 + 15px;
         background: url(../../img/mainBg.png) left top no-repeat;
         z-index: -1;
     }

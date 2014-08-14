@@ -14,7 +14,7 @@
   color: #767676;
 }
 .contacts-page .col1 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -22,7 +22,7 @@
   min-height: 1px;
 }
 .contacts-page .col2-2 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;

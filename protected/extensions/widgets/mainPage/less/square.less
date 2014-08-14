@@ -1,33 +1,23 @@
 @import (reference) '../../../../views/less/custom';
 
 .square-widget {
-    background-color: @devRedBg;
-
-    position: absolute;
-    left: 0;
-    top: 86px;
     padding: @bigPadding;
 
     .summary {
         & invert {
             .invert-text;
-            .border-radius(2px);
             display: inline-block;
             line-height: 1;
         }
     }
     .sold {
         padding-top: 18px;
-        color: @colorTitle;
-    }
-    .sold * {
-        color: @colorTitle;
+        color: @colorTextLight;
     }
     .sales {
         padding-top: 12px;
-        color: @colorTextLight;
     }
-    .sales * {
+    .sales, .sales * {
         color: @colorTextLight;
     }
 }
