@@ -1,17 +1,16 @@
-@mainCol1:          247px;
+@mainCol1:          225px;
 @mainCol2:          382px;
 @mainCol3:          359px;
-@mainCol:           @mainCol1 + @mainCol2 + @mainCol3;
+@mainCol:           @mainCol1 + @mainCol2 + @mainCol3;  // 966
+@commonWidth:       1024px;
+@commonPaddingV:    0px;
+@commonPaddingH:    29px;
 
 @smallPadding:      11px;
 @middlePadding:     18px;
-@bigPadding:        22px;
+@bigPadding:        @smallPadding * 2;  // 22
 
-@commonWidth:       1024px;
-@commonPaddingV:    0px;
-@commonPaddingH:    @middlePadding;
-
-@headerH:           150px;
+@headerH:           142px;
 @footerH:           150px;
 @footerPaddingTop:  90px;
 
@@ -22,19 +21,20 @@
 @devBlueBg:         rgba(0,0,255,0.2);
 @devMagentaBg:      rgba(255,0,255,0.2);
 
-
 @colorText:         #2b2b2b;
-@colorTextLight:    #707070;
+@colorTextLight:    #8f8f8f;
 
-@colorMenu:         #0084e2;
-@colorSubMenu:      #8f8f8f;
+@colorTitle:        #4f9714;
+@colorTitleGrey:    #767676;
 
-@colorMainTitle:        #3c7315;
-@colorTitleDesc:        #6f6f6f;
-@colorBlockTitle:       #636363;
-@colorBlockTitleGrey:   #939393;
+@colorLink:         #0074ce;
+@colorLinkHover:    #4f9a00;
+@colorLinkActive:   #ffffff;
+@colorLinkActiveBg: #c2c2c2;
 
-@colorLink:         #0063af;
+@colorMenu:         @colorLink;
+@colorSubMenu:      @colorTextLight;
+
 @colorStudioLink:   #fa1010;
 
 @import 'fonts';
@@ -62,9 +62,20 @@ body {
 }
 
 a {
-    &, &:link, &:hover, &:visited {
+    &, &:link, &:visited {
         text-decoration: underline;
         color: @colorLink;
+    }
+    &:hover {
+        text-decoration: underline;
+        color: @colorLinkHover;
+    }
+    &.active {
+        color: @colorLinkActive !important;
+        background-color: @colorLinkActiveBg !important;
+        text-decoration: none !important;
+        padding: 4px 6px;
+        margin: -4px -6px;
     }
 }
 
@@ -92,13 +103,17 @@ a {
 .inner-title() {
     .font(PF, medium);
     .font-size(36, 90px);
-    color:      @colorMainTitle;
+    color:      @colorTitle;
     height:     @pageTitleH;
     min-height: @pageTitleH;
+
+    grey {
+        color:  @colorTitleGrey;
+    }
 }
 // Колонка
 .col() {
-    _outline: 1px dotted #808080;
+    outline: 1px dotted #808080;
     
     width: auto;
     min-width: 0;
@@ -107,7 +122,7 @@ a {
     min-height: 1px;
 }
 .col(@w) {
-    _outline: 1px dotted #808080;
+    outline: 1px dotted #808080;
     
     width: @w;
     min-width: @w;
@@ -164,16 +179,16 @@ a {
 }
 
 .head {
-    @topOffs: 49px;
+    @topOffs: 41px;
 
     height:     @headerH;
     min-height: @headerH;
 
     .logo-block {
-        padding: @topOffs 0 0 32px;
+        padding: @topOffs @bigPadding 0 @bigPadding;
     }
     .menu-block {
-        padding: @topOffs 0 0 0;
+        padding: @topOffs @bigPadding 0 @bigPadding;
     }
 }
 

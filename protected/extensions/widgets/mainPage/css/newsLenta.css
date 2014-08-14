@@ -2,7 +2,7 @@
   padding-top: 22px;
 }
 .news-lenta-widget .item:nth-child(1) {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -10,7 +10,7 @@
   min-height: 1px;
 }
 .news-lenta-widget .item:nth-child(2) {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -36,7 +36,7 @@
   font-size: 11px;
   line-height: 18px;
   line-height: 1;
-  color: #707070;
+  color: #8f8f8f;
   padding: 11px 11px 0 11px;
 }
 .news-lenta-widget .item .text {

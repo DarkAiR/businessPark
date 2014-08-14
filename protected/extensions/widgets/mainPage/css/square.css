@@ -17,15 +17,15 @@
 }
 .square-widget .sold {
   padding-top: 18px;
-  color: #3c7315;
+  color: #4f9714;
 }
 .square-widget .sold * {
-  color: #3c7315;
+  color: #4f9714;
 }
 .square-widget .sales {
   padding-top: 12px;
-  color: #707070;
+  color: #8f8f8f;
 }
 .square-widget .sales * {
-  color: #707070;
+  color: #8f8f8f;
 }

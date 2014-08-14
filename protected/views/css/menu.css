@@ -13,9 +13,6 @@
   __text-transform: uppercase;
   display: inline-block;
 }
-.hmenu li a.select {
-  color: #202020;
-}
 .hmenu li.first {
   padding-left: 0px;
 }
@@ -31,7 +28,4 @@
 }
 .vmenu li {
   list-style-type: none;
-}
-.vmenu li a.select {
-  color: #202020;
 }

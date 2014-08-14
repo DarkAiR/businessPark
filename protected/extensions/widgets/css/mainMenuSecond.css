@@ -1,18 +1,12 @@
 .main-menu-second-widget {
   padding-bottom: 22px;
 }
-.main-menu-second-widget ul {
-  padding-left: 11px;
-  padding-right: 11px;
-}
 .main-menu-second-widget li {
   padding-left: 11px;
   padding-right: 11px;
 }
 .main-menu-second-widget li,
 .main-menu-second-widget li * {
-  font-size: 12px;
-  line-height: 19px;
   color: #8f8f8f;
   line-height: 1;
 }

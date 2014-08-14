@@ -10,7 +10,7 @@
             {% set first = loop.first %}
             {% set last = loop.last %}
             <li class='{% if first %}first{% endif %} {% if last %}last{% endif %}'>
-                <a class='{% if active %}select{% endif %}' href='{{ item.link }}'>
+                <a class='{% if active %}active{% endif %}' href='{{ item.link }}'>
                     {% if active %}
                     {% endif %}
                     {{ item.name|raw }}

@@ -1,18 +1,9 @@
-.main-menu-widget ul {
-  padding-left: 11px;
-  padding-right: 11px;
-}
 .main-menu-widget li {
   padding-left: 15px;
   padding-right: 15px;
 }
 .main-menu-widget li,
 .main-menu-widget li * {
-  font-size: 14px;
-  line-height: 22px;
-  color: #0084e2;
+  color: #0074ce;
   line-height: 1;
-}
-.main-menu-widget a {
-  background: none;
 }

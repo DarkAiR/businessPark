@@ -5,9 +5,12 @@
   font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 36px;
   line-height: 90px;
-  color: #3c7315;
+  color: #4f9714;
   height: 90px;
   min-height: 90px;
+}
+.structure-page > .title grey {
+  color: #767676;
 }
 .structure-page .gap {
   height: 6px;
@@ -20,7 +23,7 @@
   line-height: 18px;
   padding: 18px 22px;
   position: relative;
-  color: #4b4b4b;
+  color: #2b2b2b;
   height: 410px;
 }
 .structure-page .electro-block .icon {
@@ -37,11 +40,11 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4b4b4b;
+  color: #4f9714;
   padding-left: 11px;
 }
 .structure-page .electro-block > .title grey {
-  color: #939393;
+  color: #767676;
 }
 .structure-page .electro-block invert {
   background: #7aad47;
@@ -80,7 +83,7 @@
   line-height: 18px;
   padding: 18px 22px;
   position: relative;
-  color: #4b4b4b;
+  color: #2b2b2b;
   height: 417px;
 }
 .structure-page .gas-block .icon {
@@ -97,11 +100,11 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4b4b4b;
+  color: #4f9714;
   padding-left: 11px;
 }
 .structure-page .gas-block > .title grey {
-  color: #939393;
+  color: #767676;
 }
 .structure-page .gas-block invert {
   background: #7aad47;
@@ -162,7 +165,7 @@
   line-height: 18px;
   padding: 18px 22px;
   position: relative;
-  color: #4b4b4b;
+  color: #2b2b2b;
   height: 616px;
 }
 .structure-page .water-in-block .icon {
@@ -179,11 +182,11 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4b4b4b;
+  color: #4f9714;
   padding-left: 11px;
 }
 .structure-page .water-in-block > .title grey {
-  color: #939393;
+  color: #767676;
 }
 .structure-page .water-in-block invert {
   background: #7aad47;
@@ -251,7 +254,7 @@
   line-height: 18px;
   padding: 18px 22px;
   position: relative;
-  color: #4b4b4b;
+  color: #2b2b2b;
   height: 519px;
 }
 .structure-page .water-out-block .icon {
@@ -268,11 +271,11 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4b4b4b;
+  color: #4f9714;
   padding-left: 11px;
 }
 .structure-page .water-out-block > .title grey {
-  color: #939393;
+  color: #767676;
 }
 .structure-page .water-out-block invert {
   background: #7aad47;
@@ -316,7 +319,7 @@
   line-height: 18px;
   padding: 18px 22px;
   position: relative;
-  color: #4b4b4b;
+  color: #2b2b2b;
   height: 558px;
 }
 .structure-page .rain-out-block .icon {
@@ -333,11 +336,11 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4b4b4b;
+  color: #4f9714;
   padding-left: 11px;
 }
 .structure-page .rain-out-block > .title grey {
-  color: #939393;
+  color: #767676;
 }
 .structure-page .rain-out-block invert {
   background: #7aad47;

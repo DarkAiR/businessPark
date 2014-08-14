@@ -46,16 +46,26 @@ body {
 }
 a,
 a:link,
-a:hover,
 a:visited {
   text-decoration: underline;
-  color: #0063af;
+  color: #0074ce;
+}
+a:hover {
+  text-decoration: underline;
+  color: #4f9a00;
+}
+a.active {
+  color: #ffffff !important;
+  background-color: #c2c2c2 !important;
+  text-decoration: none !important;
+  padding: 4px 6px;
+  margin: -4px -6px;
 }
 /* Общий контейнер */
 .common-container {
   position: relative;
   width: 1024px;
-  padding: 0px 18px;
+  padding: 0px 29px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -69,16 +79,16 @@ a:visited {
 }
 .head .col1,
 .footer .col1 {
-  _outline: 1px dotted #808080;
-  width: 247px;
-  min-width: 247px;
+  outline: 1px dotted #808080;
+  width: 225px;
+  min-width: 225px;
   float: left;
   height: inherit;
   min-height: 1px;
 }
 .head .col2,
 .footer .col2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -87,7 +97,7 @@ a:visited {
 }
 .head .col3,
 .footer .col3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -96,7 +106,7 @@ a:visited {
 }
 .head .col2-3,
 .footer .col2-3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -104,26 +114,26 @@ a:visited {
   min-height: 1px;
 }
 .head {
-  height: 150px;
-  min-height: 150px;
+  height: 142px;
+  min-height: 142px;
 }
 .head .logo-block {
-  padding: 49px 0 0 32px;
+  padding: 41px 22px 0 22px;
 }
 .head .menu-block {
-  padding: 49px 0 0 0;
+  padding: 41px 22px 0 22px;
 }
 .footer {
   font-size: 11px;
   line-height: 18px;
-  color: #707070;
+  color: #8f8f8f;
   height: 150px;
   min-height: 150px;
   margin-top: -151px;
 }
 .footer .separate-line {
   background: #4a8226;
-  width: 966px;
+  width: 944px;
   height: 1px;
   min-height: 1px;
   margin-left: 9px;

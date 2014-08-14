@@ -1,5 +1,5 @@
 .engineering-infrastructure-widget .item1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -11,7 +11,7 @@
   font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   line-height: 24px;
-  color: #636363;
+  color: #4f9714;
   width: 50%;
 }
 .engineering-infrastructure-widget .item1 .image {
@@ -22,7 +22,7 @@
   padding-bottom: 11px;
 }
 .engineering-infrastructure-widget .item2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   height: inherit;

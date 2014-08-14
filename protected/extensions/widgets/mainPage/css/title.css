@@ -16,16 +16,15 @@
   font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 36px;
   line-height: 38px;
-  color: #3c7315;
+  color: #4f9714;
 }
 .title-widget .text1 grey,
 .title-widget .text2 grey {
-  color: #939393;
+  color: #767676;
 }
 .title-widget .desc {
   font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 22px;
-  color: #6f6f6f;
   padding-top: 5px;
 }
