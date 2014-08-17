@@ -19,7 +19,7 @@ class m140801_055412_menu extends CDbMigration
                 `parentItemId` int(11) NOT NULL DEFAULT '0',
                 `visible` tinyint(1) NOT NULL DEFAULT '1',
                 `name` varchar(100) NOT NULL,
-                `link` varchar(255) NOT NULL,
+                `link` TEXT NOT NULL,
                 `orderNum` int(10) NOT NULL DEFAULT '0',
                 PRIMARY KEY (`id`),
                 KEY `parentItemId` (`parentItemId`),
