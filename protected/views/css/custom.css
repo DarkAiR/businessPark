@@ -83,7 +83,7 @@ a.active {
 }
 .head .col1,
 .footer .col1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -92,7 +92,7 @@ a.active {
 }
 .head .col2,
 .footer .col2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -101,7 +101,7 @@ a.active {
 }
 .head .col3,
 .footer .col3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -110,7 +110,7 @@ a.active {
 }
 .head .col2-3,
 .footer .col2-3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;

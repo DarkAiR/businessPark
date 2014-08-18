@@ -7,7 +7,7 @@
   padding: 18px 44px 18px 22px;
 }
 .engineering-infrastructure-widget .item1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -28,7 +28,7 @@
   padding-top: 18px;
 }
 .engineering-infrastructure-widget .item2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;

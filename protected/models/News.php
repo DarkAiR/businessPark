@@ -144,7 +144,12 @@ class News extends CActiveRecord
 
     public function getNewsLink()
     {
-        return CHtml::normalizeUrl( array(0=>'/news/news/show', 'id'=>$this->id) );
+        return self::getNewsLinkById($this->id);
+    }
+
+    public static function getNewsLinkById($id)
+    {
+        return CHtml::normalizeUrl( array(0=>'/news/news/show', 'id'=>$id) );
     }
 
     public function getImageUrl()

@@ -20,10 +20,10 @@
         </div>
     </div>
     <div class='col3'>
-        <div class='filter'>
-            <ul>
+        <div class='filter cont'>
+            <div class='inner'>
             {% for y in years %}
-                <li>
+                <div class='item  {% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>
                     {% if y['year'] == year %}
                         {{y['year']}}
                     {% else %}
@@ -34,9 +34,9 @@
                         {% endif %}
                         <a href='{{link}}'>{{y['year']}}</a>
                     {% endif %}
-                </li>
+                </div>
             {% endfor %}
-            </ul>
+            </div>
         </div>
     </div>
 

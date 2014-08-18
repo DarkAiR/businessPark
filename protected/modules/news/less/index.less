@@ -1,22 +1,48 @@
 @import (reference) 'base';
 
 .news-page {
-    .row {
-        .image {
+    .item {
+        @dateHeight: 42px;
+        @bottomPadding: 28px;
+        @itemHeight: 195px;
 
+        .image {
+            padding-left: @bigPadding;
+            padding-top: @dateHeight;
+        }
+        .textBlock {
+            min-height: @itemHeight - @bottomPadding;
+            margin-bottom: @bottomPadding;
         }
         .date {
+            .font(PF, regular);
             color: @colorTextLight;
+            height: @dateHeight;
+            padding-top: 15px;
         }
         .title {
-            .font-size(20);
+            .font(PF, medium);
+            .font-size(18, 24px);
             color: @colorTitle;
+            margin-top: -4px;
             & * {
                 color: @colorTitle;
             }
         }
         .text {
-
+            padding-top: 11px;
         }
+        .date, .title, .text {
+            padding-right: @bigPadding;
+            padding-left: @bigPadding;
+        }
+    }
+
+    .moreBtn {
+        border: 1px solid rgba(0,0,0,0.2);
+        padding: 2px 4px;
+        background: rgba(0,0,0,0.05);
+        display: inline-block;
+        margin-left: @bigPadding;
     }
 }

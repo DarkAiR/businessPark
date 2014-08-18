@@ -1,17 +1,57 @@
 @import (reference) 'base';
 
 .news-page {
-    .date {
-        color: @colorTextLight;
-    }
-    .title {
-        .font-size(20);
-        color: @colorTitle;
-        & * {
-            color: @colorTitle;
+    .backBtnCont {
+        line-height: @pageTitleH;
+        position: relative;
+        .backBtn {
+            position: absolute;
+            right: 0;
         }
     }
-    .text {
+    .content {
+        @dateHeight: 42px;
 
+        padding-left: @bigPadding;
+        padding-right: @bigPadding;
+
+        .date {
+            .font(PF, regular);
+            color: @colorTextLight;
+            height: @dateHeight;
+            padding-top: 15px;
+        }
+        .title {
+            .font(PF, medium);
+            .font-size(18, 24px);
+            color: @colorTitle;
+            margin-top: -4px;
+            margin-bottom: @bigPadding;
+
+            & * {
+                color: @colorTitle;
+            }
+        }
+        .text {
+
+        }
+    }
+    .navigation {
+        width: 100%;
+
+        .prev {
+            float: left;
+            padding-left: @bigPadding;
+            .inactive {
+                color: @colorTextLight;
+            }
+        }
+        .next {
+            float: left;
+            padding-left: 64px;
+            .inactive {
+                color: @colorTextLight;
+            }
+        }
     }
 }

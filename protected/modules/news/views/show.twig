@@ -9,7 +9,7 @@
         if (document.referrer == '')
             window.location = "{{backUrl}}";
         else
-            history.back();
+            window.location = document.referrer;
     }
     </script>
 {% endblock %}
@@ -20,7 +20,9 @@
 {% endblock %}
 
 {% block newsBack %}
-    <a href="#" onclick="backAway(); return false;">Back</a>
+    <div class='backBtnCont'>
+        <a class='backBtn' href="#" onclick="backAway(); return false;">&larr; Вернуться</a>
+    </div>
 {% endblock %}
 
 {% block newsLeftCol %}
@@ -31,5 +33,21 @@
         <div class='date'>{{ static('DateHelper', 'formatNewsDate', [news.createTime]) }}</div>
         <div class='title'>{{ news.title|raw }}</div>
         <div class='text'>{{ news.desc|raw }}</div>
+    </div>
+    <div class='navigation'>
+        <div class='prev'>
+            {% if prevLink %}
+                <a href='{{ prevLink }}'>&larr; Предыдущая новость</a>
+            {% else %}
+                <div class='inactive'>&larr; Предыдущая новость</div>
+            {% endif %}
+        </div>
+        <div class='next'>
+            {% if nextLink %}
+                <a href='{{ nextLink }}'>Следующая новость &rarr;</a>
+            {% else %}
+                <div class='inactive'>Следующая новость &rarr;</div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
