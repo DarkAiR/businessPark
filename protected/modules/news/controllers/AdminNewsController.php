@@ -12,7 +12,7 @@ class AdminNewsController extends MAdminController
                 'class' => 'application.behaviors.ImageControllerBehavior',
                 'imageField' => 'image',
                 'imageWidth' => News::IMAGE_SMALL_W,
-                'imageHeight' => News::IMAGE_SMALL_H,
+                //'imageHeight' => News::IMAGE_SMALL_H,
             ),
         );
     }

@@ -5,14 +5,14 @@ class ImageControllerBehavior extends CBehavior
     public $imageField = '';
     public $innerImageField = '_image';
     public $innerRemoveBtnField = '_removeImageFlag';
-    public $imageWidth = 0;
-    public $imageHeight = 0;
+    public $imageWidth = null;
+    public $imageHeight = null;
     public $resize = true;
 
     public function imageBeforeSave($model, $storagePath)
     {
         // disable resize if 
-        $isResize = (empty($this->imageWidth) || empty($this->imageHeight)) ? false : $this->resize;
+        $isResize = (empty($this->imageWidth) && empty($this->imageHeight)) ? false : $this->resize;
 
         if ($model->{$this->innerRemoveBtnField})
         {
@@ -43,7 +43,17 @@ class ImageControllerBehavior extends CBehavior
             
             if ($isResize) {
                 $image = Yii::app()->image->load($storagePath.$imageName);
-                $image->resize($this->imageWidth, $this->imageHeight);
+                if (empty($this->imageWidth)) {
+                    // resize by height
+                    $image->resize(null, $this->imageHeight);
+                } else
+                if (empty($this->imageHeight)) {
+                    // resize by width
+                    $image->resize($this->imageWidth, null);
+                } else {
+                    // normal resize
+                    $image->resize($this->imageWidth, $this->imageHeight);
+                }
                 $image->save();
             }
 

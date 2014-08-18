@@ -48,6 +48,7 @@ class NewsController extends Controller
             'lastYear' => 0,
             'years' => $years,
             'news' => $news,
+            'backUrl' => Yii::app()->getRequest()->getHostInfo(),
         ));
     }
 

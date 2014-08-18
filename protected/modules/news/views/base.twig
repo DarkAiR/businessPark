@@ -5,53 +5,51 @@
     {{ import('css','base.css', 'application.modules.news.css') }}
 {% endblock %}
 
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
-<div id='js-news-list-page-content' class='news-list-page-content  grid-bottom5'>
-    <div id='js-news-list-page-content-pos' class='news-list-page-content-pos'>
-        <div class='grid80'>
-
-            <div id='js-news-list-block' class='news-list-block  grid16 left'>
-                <div class='grid-left2'>
-                    {% for y in years %}
-                        <div class='news-list-item  gridHeight1 grid-top1 semibold'>
-
-                                {% if y['year'] == year %}
-                                    {{y['year']}}
-                                {% else %}
-                                    {% if y['year'] == lastYear %}
-                                        {% set link = static('CHtml', 'normalizeUrl', [{'0':'/news/news/index'}]) %}
-                                    {% else %}
-                                        {% set link = static('CHtml', 'normalizeUrl', [{'0':'/news/news/index','year':y['year']}]) %}
-                                    {% endif %}
-                                    <a href='{{link}}'>{{y['year']}}</a>
-                                {% endif %}
-
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div id='js-news-block' class='news-block  grid48 left'>
-                <div class='grid-left2 grid-right2'>
-
-                    {% block newsContent %}{% endblock %}
-
-                </div>
-            </div>
-
-            <div id='js-news-right-block1' class='news-right-block1  grid8 left'>
-            </div>
-
-            <div id='js-news-right-block2' class='news-right-block2  grid8 left'>
-            </div>
-
-        </div>
-
-        <div id='js-news-bottom-block' class='grid80'>
-            {% block newsBottomBlock %}{% endblock %}
-        </div>
-
+<div class='news-page'>
+    <div class='col1'>
+        {% block newsBack %}{% endblock %}
     </div>
+    <div class='col2'>
+        <div class='title'>
+            Новости
+        </div>
+    </div>
+    <div class='col3'>
+        <div class='filter'>
+            <ul>
+            {% for y in years %}
+                <li>
+                    {% if y['year'] == year %}
+                        {{y['year']}}
+                    {% else %}
+                        {% if y['year'] == lastYear %}
+                            {% set link = static('CHtml', 'normalizeUrl', [{'0':'/news/news/index'}]) %}
+                        {% else %}
+                            {% set link = static('CHtml', 'normalizeUrl', [{'0':'/news/news/index','year':y['year']}]) %}
+                        {% endif %}
+                        <a href='{{link}}'>{{y['year']}}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <table border=0 cellpadding="0" cellspacing="0">
+    <tr>
+        <td class='col1'>
+            {% block newsLeftCol %}{% endblock %}
+        </td>
+        <td class='col2-3'>
+            {% block newsContent %}{% endblock %}
+        </td>
+    </tr>
+    </table>
+
 </div>
-<div class='clear'></div>
 {% endblock %}

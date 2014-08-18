@@ -2,14 +2,30 @@
 
 {% block css %}
     {{ parent() }}
-    {{ import('css','index.css', 'application.modules.news.views') }}
+    {{ import('css','index.css', 'application.modules.news.css') }}
+{% endblock %}
+
+{% block newsBack %}
+{% endblock %}
+
+{% block newsLeftCol %}
 {% endblock %}
 
 {% block newsContent %}
     {% for item in news %}
-        <div class='news-item'>
-            <div class='news-item-date  gridHeight1'>{{ static('DateHelper', 'formatNewsDate', [item.createTime]) }}</div>
-            <div class='news-item-text  text15 {% if not loop.last %}grid-bottom1{% endif %}'>{{ item.shortDesc|raw }}</div>
+        <div class='row'>
+            <table border=0 cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class='image'><img src='{{ item.getImageUrl() }}'></div>
+                    </td>
+                    <td>
+                        <div class='date'>{{ static('DateHelper', 'formatNewsDate', [item.createTime]) }}</div>
+                        <div class='title'><a href='{{ item.getNewsLink() }}'>{{ item.title|raw }}</a></div>
+                        <div class='text'>{{ item.shortDesc|raw }}</div>
+                    </td>
+                </tr>
+            </table>
         </div>
     {% endfor %}
 {% endblock %}
