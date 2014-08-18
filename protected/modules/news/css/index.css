@@ -1,0 +1,43 @@
+.news-list-page-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.news-list-page-content-pos {
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  /* Рассчитываемое значение */
+  margin-left: -50%;
+  /* Рассчитываемое значение */
+  overflow: hidden;
+}
+.news-list-block {
+  _background: rgba(255, 0, 0, 0.5);
+  min-height: 1px;
+}
+.news-list-item {
+  color: #222222;
+}
+.news-block {
+  _background: rgba(0, 0, 255, 0.5);
+  min-height: 1px;
+}
+.news-right-block1,
+.news-right-block2 {
+  min-height: 1px;
+}
+.news-right-block2 {
+  background: url(../../img/bg-pattern.png) left top repeat-y;
+  opacity: 0.4;
+}
+.news-item {
+  _background: rgba(0, 255, 0, 0.5);
+}
+.news-item-date {
+  font-size: 10px;
+  display: table-cell;
+  vertical-align: middle;
+  opacity: 0.7;
+}
