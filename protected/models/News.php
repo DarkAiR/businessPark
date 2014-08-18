@@ -5,18 +5,11 @@
  */
 class News extends CActiveRecord
 {
-    const IMAGE_ICON_W = 77;
-    const IMAGE_ICON_H = 51;
-    const IMAGE_SMALL_W = 200;
-    const IMAGE_SMALL_H = 200;
-    const IMAGE_BIG_W   = 400;
-    const IMAGE_BIG_H   = 400;
+    const IMAGE_SMALL_W = 130;
+    const IMAGE_SMALL_H = 87;
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
-
-    public $_imageBig = null; //UploadedFile[]
-    public $_removeImageBigFlag = false; // bool
 
     public $createTimeDate = '';
     public $createTimeTime = '';
@@ -41,16 +34,6 @@ class News extends CActiveRecord
                 'imageField' => 'image',
                 'imageLabel' => 'Маленькая картинка',
             ),
-            'imageBigBehavior' => array(
-                'class' => 'application.behaviors.ImageBehavior',
-                'storagePath' => 'news/big',
-//                'imageWidth' => self::IMAGE_BIG_W,
-//                'imageHeight' => self::IMAGE_BIG_H,
-                'imageField' => 'imageBig',
-                'imageLabel' => 'Большая картинка',
-                'innerImageField' => '_imageBig',
-                'innerRemoveBtnField' => '_removeImageBigFlag',
-            ),
             'timeBehavior' => array(
                 'class' => 'application.behaviors.TimeBehavior',
                 'createTimeField' => 'createTime',
@@ -68,7 +51,6 @@ class News extends CActiveRecord
     {
         return array_merge(
             $this->imageBehavior->imageLabels(),
-            $this->imageBigBehavior->imageLabels(),
             $this->timeLabels(),
             array(
                 'title' => 'Заголовок',
@@ -88,7 +70,6 @@ class News extends CActiveRecord
     {
         return array_merge(
             $this->imageBehavior->imageRules(),
-            $this->imageBigBehavior->imageRules(),
             $this->timeRules(),
             array(
                 array('title, desc, shortDesc', 'safe'),
@@ -102,7 +83,7 @@ class News extends CActiveRecord
      */
     public function isAttributeRequired($attribute)
     {
-        if (in_array($attribute, array('_image', '_imageBig')))
+        if (in_array($attribute, array('_image')))
             return true;
         return parent::isAttributeRequired($attribute);
     }
@@ -170,22 +151,15 @@ class News extends CActiveRecord
         return $this->imageBehavior->getImageUrl();
     }
 
-    public function getImageBigUrl()
-    {
-        return $this->imageBigBehavior->getImageUrl();
-    }
-
     protected function afterDelete()
     {
         $this->imageBehavior->imageAfterDelete();
-        $this->imageBigBehavior->imageAfterDelete();
         return parent::afterDelete();
     }
 
     protected function afterFind()
     {
         $this->imageBehavior->imageAfterFind();
-        $this->imageBigBehavior->imageAfterFind();
         $this->timeAfterFind();
 
         $this->createTimeDate = date('d.m.Y', $this->createTime);

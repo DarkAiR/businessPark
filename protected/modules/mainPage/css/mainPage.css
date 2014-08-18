@@ -53,6 +53,7 @@
 /* Задник */
 .bg-container {
   width: 100%;
+  min-width: 1024px;
   height: 940px;
   overflow: hidden;
   position: absolute;

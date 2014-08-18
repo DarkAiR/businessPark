@@ -14,14 +14,6 @@ class AdminNewsController extends MAdminController
                 'imageWidth' => News::IMAGE_SMALL_W,
                 'imageHeight' => News::IMAGE_SMALL_H,
             ),
-            'imageBigBehavior' => array(
-                'class' => 'application.behaviors.ImageControllerBehavior',
-                'imageField' => 'imageBig',
-                'imageWidth' => News::IMAGE_BIG_W,
-                'imageHeight' => News::IMAGE_BIG_H,
-                'innerImageField' => '_imageBig',
-                'innerRemoveBtnField' => '_removeImageBigFlag',
-            )
         );
     }
 
@@ -49,7 +41,10 @@ class AdminNewsController extends MAdminController
                 ),
             ),
             'shortDesc' => array(
-                'type' => 'ckEditor',
+                'type' => 'textarea',
+                'htmlOptions' => array(
+                    'rows' => 10,
+                ),
             ),
             'desc' => array(
                 'type' => 'ckEditor',
@@ -58,11 +53,6 @@ class AdminNewsController extends MAdminController
                 'class' => 'ext.ImageFileRowWidget',
                 'uploadedFileFieldName' => '_image',
                 'removeImageFieldName' => '_removeImageFlag',
-            ),
-            '_imageBig' => array(
-                'class' => 'ext.ImageFileRowWidget',
-                'uploadedFileFieldName' => '_imageBig',
-                'removeImageFieldName' => '_removeImageBigFlag',
             ),
             'onMain' => array(
                 'type' => 'checkBox',
@@ -92,7 +82,6 @@ class AdminNewsController extends MAdminController
     public function beforeSave($model)
     {
         $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
-        $this->imageBigBehavior->imageBeforeSave($model, $model->imageBigBehavior->getStorePath());
         parent::beforeSave($model);
     }
 }
