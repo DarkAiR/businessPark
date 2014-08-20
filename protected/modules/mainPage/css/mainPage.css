@@ -42,19 +42,19 @@
 }
 .main-page .col1-block1 {
   position: absolute;
-  top: 86px;
+  top: 100px;
   left: 0;
 }
 .main-page .col1-block2 {
   position: absolute;
-  top: 596px;
+  top: 570px;
   left: 0;
 }
 /* Задник */
 .bg-container {
   width: 100%;
   min-width: 1024px;
-  height: 891px;
+  height: 873px;
   overflow: hidden;
   position: absolute;
 }
@@ -62,7 +62,7 @@
   width: 1027px;
   height: 568px;
   position: absolute;
-  top: 323px;
+  top: 305px;
   left: 50%;
   margin-left: -498.5px;
   background: url(../../img/mainBg.png) left top no-repeat;
