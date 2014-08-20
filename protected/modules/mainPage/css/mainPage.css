@@ -6,7 +6,7 @@
   min-height: 0px;
 }
 .main-page .col1 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -14,7 +14,7 @@
   min-height: 1px;
 }
 .main-page .col2 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -22,7 +22,7 @@
   min-height: 1px;
 }
 .main-page .col3 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -30,7 +30,7 @@
   min-height: 1px;
 }
 .main-page .col2-3 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -54,17 +54,17 @@
 .bg-container {
   width: 100%;
   min-width: 1024px;
-  height: 940px;
+  height: 891px;
   overflow: hidden;
   position: absolute;
 }
 .bg-container .bg-picture {
-  width: 1187px;
-  height: 628px;
+  width: 1027px;
+  height: 568px;
   position: absolute;
-  top: 312px;
+  top: 323px;
   left: 50%;
-  margin-left: -578.5px;
+  margin-left: -498.5px;
   background: url(../../img/mainBg.png) left top no-repeat;
   z-index: -1;
 }

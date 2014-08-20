@@ -21,7 +21,7 @@
 
 {% block newsBack %}
     <div class='backBtnCont'>
-        <a class='backBtn' href="#" onclick="backAway(); return false;">&larr; Вернуться</a>
+        <a class='backBtn' href="#" onclick="backAway(); return false;"></a>
     </div>
 {% endblock %}
 
@@ -36,18 +36,20 @@
     </div>
     <div class='navigation'>
         <div class='prev'>
+            <span class='arrow'></span>
             {% if prevLink %}
-                <a href='{{ prevLink }}'>&larr; Предыдущая новость</a>
+                <a href='{{ prevLink }}'>Предыдущая новость</a>
             {% else %}
-                <div class='inactive'>&larr; Предыдущая новость</div>
+                <span class='inactive'>Предыдущая новость</span>
             {% endif %}
         </div>
         <div class='next'>
             {% if nextLink %}
-                <a href='{{ nextLink }}'>Следующая новость &rarr;</a>
+                <a href='{{ nextLink }}'>Следующая новость</a>
             {% else %}
-                <div class='inactive'>Следующая новость &rarr;</div>
+                <span class='inactive'>Следующая новость</span>
             {% endif %}
+            <span class='arrow'></span>
         </div>
     </div>
 {% endblock %}
