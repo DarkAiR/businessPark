@@ -37,7 +37,10 @@
             </div>
             <div class='row2'>
                 <div class='col1'>
-                    Здесь меню
+                    <ul>
+                        <li class='{% if type==const("CompanyService", "TYPE_BASE") %}active{% endif %}'>Базовые услуги</li>
+                        <li class='{% if type==const("CompanyService", "TYPE_ADDITIONAL") %}active{% endif %}'>Дополнительные услуги</li>
+                    </ul>
                 </div>
                 <div class='col2'>
                     Здесь пункты

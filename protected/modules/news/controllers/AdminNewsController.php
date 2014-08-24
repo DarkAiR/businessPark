@@ -20,9 +20,9 @@ class AdminNewsController extends MAdminController
     public function getEditFormElements($model)
     {
         return array(
-        	'title' => array(
-        		'type' => 'textField',
-        	),
+            'title' => array(
+                'type' => 'textField',
+            ),
             'createTimeDate' => array(
                 'type' => 'datepicker',
                 'htmlOptions' => array(

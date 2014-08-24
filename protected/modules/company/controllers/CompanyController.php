@@ -7,7 +7,9 @@ class CompanyController extends Controller
      */
     public function actionIndex()
     {
+        $type = Yii::app()->request->getQuery('type', CompanyService::TYPE_BASE);
         $this->render('/company/company', array(
+            'type' => $type
         ));
     }
 
