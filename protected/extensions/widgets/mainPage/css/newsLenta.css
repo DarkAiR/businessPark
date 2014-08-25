@@ -14,7 +14,7 @@
   min-height: 108px;
 }
 .news-lenta-widget .items .item1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -23,7 +23,7 @@
   padding: 0 44px 0 22px;
 }
 .news-lenta-widget .items .item2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;

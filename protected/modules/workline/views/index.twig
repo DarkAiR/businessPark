@@ -48,18 +48,23 @@
         {% endfor %}
         </ul>
     </div>
+    
+    <div class='clearfix'></div>
 
-    <div class='step-pages'>
-        {% for step in steps %}
-            <div id='js-page-{{loop.index}}' class='page' style='display:none;'>
-                <div class='innertitle'>
-                    {{ step.title }}
+    <div class='col1'></div>
+    <div class='col2-3'>
+        <div class='step-pages'>
+            {% for step in steps %}
+                <div id='js-page-{{loop.index}}' class='page' style='display:none;'>
+                    <div class='innertitle'>
+                        {{ step.title }}
+                    </div>
+                    <div class='text'>
+                        {{ step.text|raw }}
+                    </div>
                 </div>
-                <div class='text'>
-                    {{ step.text|raw }}
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -5,6 +5,7 @@
   color: #4f9714;
   height: 90px;
   min-height: 90px;
+  padding-left: 22px;
 }
 .workline-page .title grey {
   color: #767676;
@@ -13,7 +14,7 @@
   color: #b2b2b2;
 }
 .workline-page .col1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -21,7 +22,7 @@
   min-height: 1px;
 }
 .workline-page .col2-3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -29,19 +30,37 @@
   min-height: 1px;
 }
 .workline-page .steps ul {
+  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1;
   list-style-type: none;
   padding: 0;
   margin: 0;
+  padding-left: 141px;
 }
 .workline-page .steps ul li {
   float: left;
-  padding: 5px;
-  border: 1px dotted #ccc;
+  width: 84px;
+  height: 71px;
+  padding-left: 37px;
+  padding-top: 31px;
+  color: #4f9a00;
 }
 .workline-page .steps ul li.active {
-  background: #eee;
+  background: url(../../img/workline_step_bg.jpg) left top no-repeat;
   cursor: default !important;
+  color: #2b2b2b;
 }
 .workline-page .steps ul li:hover {
   cursor: pointer;
+}
+.workline-page .step-pages {
+  padding-top: 22px;
+  padding-left: 22px;
+}
+.workline-page .step-pages .page .innertitle {
+  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1;
+  padding: 33px 0;
 }

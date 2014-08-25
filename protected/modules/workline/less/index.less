@@ -3,7 +3,8 @@
 .workline-page {
 
     .title {
-        .inner-title();
+        .inner-title;
+        padding-left: @bigPadding;
     }
 
     .col1 {
@@ -14,18 +15,31 @@
     }
 
     .steps {
+        @itemW: 84px;
+        @itemH: 71px;
+
         ul {
+            .font(PF, bold);
+            .font-size(18);
             list-style-type: none;
             padding: 0;
             margin: 0;
+            padding-left: @mainCol1 - @itemW;
+
             li {
                 float: left;
-                padding: 5px;
-                border: 1px dotted #ccc;
+                width: @itemW;
+                height: @itemH;
+                padding-left: 37px;
+                padding-top: 31px;
+                color: @colorLinkHover;
+                
                 &.active {
-                    background: #eee;
+                    background: url(../../img/workline_step_bg.jpg) left top no-repeat;
                     cursor: default !important;
+                    color: @colorText;
                 }
+                
                 &:hover {
                     cursor: pointer;
                 }
@@ -34,9 +48,15 @@
     }
 
     .step-pages {
+        
+        padding-top: @bigPadding;
+        padding-left: @bigPadding;
+        
         .page {
             .innertitle {
-
+                .font(PF, regular);
+                .font-size(25);
+                padding: 33px 0;
             }
             .text {
 

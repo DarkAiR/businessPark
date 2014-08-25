@@ -9,7 +9,7 @@ class NewsController extends Controller
         // Получаем распределение по годам
         $years = $this->getNewsYears();
         if (empty($years))
-            Yii::app()->end();
+            $years = array(0 => array('year' => date('Y')));
 
         // Берем последний год
         $lastYear = $years[0]['year'];
@@ -18,7 +18,7 @@ class NewsController extends Controller
 
         $news = News::model()->onSite()->byYear($year)->findAll();
         if (!$news)
-            throw new CHttpException(404, 'News are not found');
+            $news = array();
 
         $this->render('/index', array(
             'year' => $year,

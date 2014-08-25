@@ -21,7 +21,7 @@
   vertical-align: top;
 }
 .company-page .col1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -33,7 +33,7 @@
   text-align: center;
 }
 .company-page .col2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 516px;
   min-width: 516px;
   float: left;
@@ -52,7 +52,7 @@
   padding-top: 16px;
 }
 .company-page .col3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -60,7 +60,7 @@
   min-height: 1px;
 }
 .company-page .col1-2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -68,7 +68,7 @@
   min-height: 1px;
 }
 .company-page .col2-3 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -80,7 +80,7 @@
   min-height: 145px;
 }
 .company-page .row2 .col1 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -88,7 +88,7 @@
   min-height: 1px;
 }
 .company-page .row2 .col2 {
-  _outline: 1px dotted #808080;
+  outline: 1px dotted #808080;
   width: 516px;
   min-width: 516px;
   float: left;
