@@ -18,7 +18,7 @@
   vertical-align: top;
 }
 .news-page .col1 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -26,7 +26,7 @@
   min-height: 1px;
 }
 .news-page .col2 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -34,7 +34,7 @@
   min-height: 1px;
 }
 .news-page .col3 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -42,7 +42,7 @@
   min-height: 1px;
 }
 .news-page .col2-3 {
-  outline: 1px dotted #808080;
+  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
