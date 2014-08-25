@@ -7,9 +7,19 @@ class CompanyController extends Controller
      */
     public function actionIndex()
     {
-        $type = Yii::app()->request->getQuery('type', CompanyService::TYPE_BASE);
+        $typeStr = CompanyService::getTypeQueryStr();
+        $type = Yii::app()->request->getQuery('type', $typeStr[CompanyService::TYPE_BASE]);
+
+        $items = CompanyService::model()
+            ->onSite()
+            ->orderDefault()
+            ->byTypeStr($type)
+            ->findAll();
+
         $this->render('/company/company', array(
-            'type' => $type
+            'type' => $type,
+            'typeStr' => $typeStr,
+            'items' => $items
         ));
     }
 

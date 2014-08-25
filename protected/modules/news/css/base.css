@@ -10,6 +10,9 @@
 .news-page .col2 > .title grey {
   color: #767676;
 }
+.news-page .col2 > .title lightgrey {
+  color: #b2b2b2;
+}
 .news-page table td {
   float: none !important;
   vertical-align: top;

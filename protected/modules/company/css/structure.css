@@ -13,6 +13,9 @@
 .structure-page > .title grey {
   color: #767676;
 }
+.structure-page > .title lightgrey {
+  color: #b2b2b2;
+}
 .structure-page .gap {
   height: 6px;
   min-height: 6px;

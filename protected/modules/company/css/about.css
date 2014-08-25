@@ -13,6 +13,9 @@
 .about-page .title grey {
   color: #767676;
 }
+.about-page .title lightgrey {
+  color: #b2b2b2;
+}
 .about-page .col1 {
   _outline: 1px dotted #808080;
   width: 225px;

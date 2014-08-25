@@ -54,6 +54,13 @@ class CompanyService extends CActiveRecord
         return $this;
     }
 
+    public function byTypeStr($typeStr)
+    {
+        $types = array_flip(self::getTypeQueryStr());
+        $type  = isset($types[$typeStr]) ? $types[$typeStr] : self::TYPE_BASE;
+        return $this->byType($type);
+    }
+
     public function search()
     {
         $criteria = new CDbCriteria;
@@ -74,6 +81,14 @@ class CompanyService extends CActiveRecord
         return array(
             self::TYPE_BASE => 'Базовая',
             self::TYPE_ADDITIONAL => 'Дополнительная',
+        );
+    }
+
+    public static function getTypeQueryStr()
+    {
+        return array(
+            self::TYPE_BASE => 'base',
+            self::TYPE_ADDITIONAL => 'additional',
         );
     }
 }

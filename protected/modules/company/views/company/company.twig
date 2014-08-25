@@ -12,10 +12,10 @@
 
 {% block content %}
 <div class='company-page'>
-    <div class='title'>
-        <div class='col1'></div>
-        <div class='col2-3>'>
-            Управляющая компания
+    <div class='col1'></div>
+    <div class='col2-3'>
+        <div class='title'>
+            <lightgrey>Управляющая</lightgrey> компания
         </div>
     </div>
 
@@ -24,10 +24,12 @@
         <td class='col1-2'>
             <div class='row1'>
                 <div class='col1'>
-                    <img src="../img/services_icon.png">
+                    <div class='image'>
+                        <img src="{{ static('CHtml','normalizeUrl',['/img/company_service_icon.png']) }}">
+                    </div>
                 </div>
                 <div class='col2'>
-                    <div class='title'>
+                    <div class='innertitle'>
                         Базовые услуги
                     </div>
                     <div class='text'>
@@ -37,34 +39,48 @@
             </div>
             <div class='row2'>
                 <div class='col1'>
-                    <ul>
-                        <li class='{% if type==const("CompanyService", "TYPE_BASE") %}active{% endif %}'>Базовые услуги</li>
-                        <li class='{% if type==const("CompanyService", "TYPE_ADDITIONAL") %}active{% endif %}'>Дополнительные услуги</li>
+                    <ul class='menu'>
+                        {% set typeBase = typeStr[const("CompanyService", "TYPE_BASE")] %}
+                        {% set typeAdditional = typeStr[const("CompanyService", "TYPE_ADDITIONAL")] %}
+
+                        {% if type == typeBase %}
+                            <li class='active'>Базовые услуги</li>
+                        {% else %}
+                            <li><a href='{{ static('CHtml', 'normalizeUrl', ['/company/'~typeBase]) }}'>Базовые услуги</a></li>
+                        {% endif %}
+
+                        {% if type == typeAdditional %}
+                            <li class='active'>Дополнительные услуги</li>
+                        {% else %}
+                            <li><a href='{{ static('CHtml', 'normalizeUrl', ['/company/'~typeAdditional]) }}'>Дополнительные услуги</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class='col2'>
-                    Здесь пункты
+                    <ul class='items'>
+                    {% for item in items %}
+                        <li class='{% if loop.first %}first{% endif %} {% if loop.last %}last{% endif %}'>{{item.text}}</li>
+                    {% endfor %}
+                    </ul>
                 </div>
             </div>
         </td>
         <td class='col3'>
             <div class='row1'>
-                Контактная информация управляющей компании
             </div>
             <div>
                 <div class='contact-block'>
                     <div class='row1'>
+                        Контактная информация
+                    </div>
+                    <div class='row2'>
                         г. Екатеринбург,<br/>
                         ул. Народной Воли, 19а,<br/>
                         офис 709
                     </div>
-                    <div class='separator'></div>
-                    <div class='row2'>
-                        Телефон
-                    </div>
-                    <div class='separator'></div>
                     <div class='row3'>
-                        Почта
+                        +7 343 263-71-71<br/>
+                        <a href='mailto:uk@p-b-p.ru'>uk@p-b-p.ru</a>
                     </div>
                 </div>
             </div>

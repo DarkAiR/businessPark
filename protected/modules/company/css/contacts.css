@@ -13,6 +13,9 @@
 .contacts-page > .title grey {
   color: #767676;
 }
+.contacts-page > .title lightgrey {
+  color: #b2b2b2;
+}
 .contacts-page .col1 {
   _outline: 1px dotted #808080;
   width: 225px;
