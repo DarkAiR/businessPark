@@ -23,7 +23,6 @@ class m140806_101347_news extends CDbMigration
                 `shortDesc`     text NOT NULL                   COMMENT 'Короткое описание',
                 `desc`          text NOT NULL                   COMMENT 'Текст',
                 `image`         varchar(100) NOT NULL           COMMENT 'Картинка',
-                `imageBig`      VARCHAR(100) NOT NULL           COMMENT 'Большая картинка',
                 `onMain`        tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Показывать на главной',
                 `visible`       tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Показывать',
                 PRIMARY KEY (`id`),

@@ -1,0 +1,40 @@
+.news-page .item .image {
+  padding-left: 22px;
+  padding-top: 42px;
+}
+.news-page .item .textBlock {
+  min-height: 167px;
+  margin-bottom: 28px;
+}
+.news-page .item .date {
+  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #8f8f8f;
+  height: 42px;
+  padding-top: 15px;
+}
+.news-page .item .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4f9714;
+  margin-top: -4px;
+}
+.news-page .item .title * {
+  color: #4f9714;
+}
+.news-page .item .text {
+  padding-top: 11px;
+}
+.news-page .item .date,
+.news-page .item .title,
+.news-page .item .text {
+  padding-right: 22px;
+  padding-left: 22px;
+}
+.news-page .moreBtn {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2px 4px;
+  background: rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  margin-left: 22px;
+}

@@ -64,6 +64,7 @@ return array(
 //                'company/vacancy/'                  => 'vacancy/vacancy/index',
 
                 // Company
+                'company/<type:\w+>/'               => 'company/company/index',
                 'company'                           => 'company/company/index',
                 'structure'                         => 'company/company/structure',
                 'contact-info'                      => 'company/company/contacts',

@@ -1,0 +1,74 @@
+.news-page {
+  padding-bottom: 65px;
+}
+.news-page .backBtnCont {
+  line-height: 90px;
+  position: relative;
+}
+.news-page .backBtnCont .backBtn {
+  width: 30px;
+  height: 30px;
+  background: url(../../img/back-btn.png) left top no-repeat;
+  position: absolute;
+  right: 0;
+  top: 26px;
+}
+.news-page .content {
+  padding-left: 22px;
+  padding-right: 107px;
+  padding-bottom: 30px;
+}
+.news-page .content .date {
+  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  color: #8f8f8f;
+  height: 42px;
+  padding-top: 15px;
+}
+.news-page .content .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #4f9714;
+  margin-top: -4px;
+  margin-bottom: 40px;
+}
+.news-page .content .title * {
+  color: #4f9714;
+}
+.news-page .content p img {
+  margin-bottom: 25px;
+}
+.news-page .navigation {
+  width: 100%;
+}
+.news-page .navigation .prev {
+  float: left;
+  width: 225px;
+  padding-left: 44px;
+}
+.news-page .navigation .prev .inactive {
+  color: #8f8f8f;
+}
+.news-page .navigation .prev .arrow {
+  display: inline-block;
+  width: 12px;
+  height: 9px;
+  background: url(../../img/nav-arrow-prev.png) left top no-repeat;
+  margin-right: 6px;
+}
+.news-page .navigation .next {
+  float: left;
+  width: 225px;
+}
+.news-page .navigation .next .inactive {
+  color: #8f8f8f;
+}
+.news-page .navigation .next .arrow {
+  display: inline-block;
+  width: 12px;
+  height: 9px;
+  background: url(../../img/nav-arrow-next.png) left top no-repeat;
+  margin-left: 6px;
+}

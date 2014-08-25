@@ -1,0 +1,84 @@
+.news-page .col2 > .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 34px;
+  line-height: 90px;
+  color: #4f9714;
+  height: 90px;
+  min-height: 90px;
+  padding-left: 22px;
+}
+.news-page .col2 > .title grey {
+  color: #767676;
+}
+.news-page .col2 > .title lightgrey {
+  color: #b2b2b2;
+}
+.news-page table td {
+  float: none !important;
+  vertical-align: top;
+}
+.news-page .col1 {
+  _outline: 1px dotted #808080;
+  width: 225px;
+  min-width: 225px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.news-page .col2 {
+  _outline: 1px dotted #808080;
+  width: 382px;
+  min-width: 382px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.news-page .col3 {
+  _outline: 1px dotted #808080;
+  width: 359px;
+  min-width: 359px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.news-page .col2-3 {
+  _outline: 1px dotted #808080;
+  width: 741px;
+  min-width: 741px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.news-page .cont {
+  position: relative;
+}
+.news-page .filter {
+  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: inherit;
+  text-align: right;
+  height: 90px;
+}
+.news-page .filter .inner {
+  position: absolute;
+  right: 22px;
+  background: url(../../img/filter-line.png) left 26px no-repeat;
+  padding-left: 44px;
+}
+.news-page .filter .item {
+  line-height: 90px;
+  float: left;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+.news-page .filter .item.first {
+  padding-left: 0px;
+}
+.news-page .filter .item.last {
+  padding-right: 0px;
+}
+.news-page .content img {
+  max-width: 500px;
+  height: auto !important;
+}

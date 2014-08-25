@@ -34,20 +34,45 @@ class NewsController extends Controller
         if ($id === null)
             throw new CHttpException(400, Yii::t('yii','Your request is invalid.'));
 
+        $news = News::model()->onSite()->findByPk($id);
+        if (!$news)
+            throw new CHttpException(404);
+
+        $year = date('Y', strtotime($news->createTimeDate));
+
         // Получаем распределение по годам
         $years = $this->getNewsYears();
         if (empty($years))
             Yii::app()->end();
 
-        $news = News::model()->onSite()->findByPk($id);
-        if (!$news)
-            throw new CHttpException(404);
+        // Берем последний год
+        $lastYear = $years[0]['year'];
+
+        // Предыдущая и следующая новости
+        $sql = "SELECT id
+                FROM News
+                WHERE createTime < {$news->createTime}
+                AND DATE_FORMAT(FROM_UNIXTIME(createTime),'%Y') = {$year}
+                ORDER BY createTime DESC";
+        $prevId = Yii::app()->db->commandBuilder->createSqlCommand($sql)->queryScalar();
+        $prevLink = $prevId ? News::getNewsLinkById($prevId) : null;
+
+        $sql = "SELECT id
+                FROM News
+                WHERE createTime > {$news->createTime}
+                AND DATE_FORMAT(FROM_UNIXTIME(createTime),'%Y') = {$year}
+                ORDER BY createTime ASC";
+        $nextId = Yii::app()->db->commandBuilder->createSqlCommand($sql)->queryScalar();
+        $nextLink = $nextId ? News::getNewsLinkById($nextId) : null;
 
         $this->render('/show', array(
-            'year' => 0,
-            'lastYear' => 0,
+            'year' => $year,
+            'lastYear' => $lastYear,
             'years' => $years,
             'news' => $news,
+            'backUrl' => Yii::app()->getRequest()->getHostInfo(),
+            'prevLink' => $prevLink,
+            'nextLink' => $nextLink,
         ));
     }
 

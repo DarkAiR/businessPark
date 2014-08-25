@@ -1,55 +1,59 @@
 // Колонки
-@mainCol1:          225px;
-@mainCol2:          382px;
-@mainCol3:          359px;
-@mainCol:           @mainCol1 + @mainCol2 + @mainCol3;  // 966
-@commonWidth:       1024px;
-@commonPaddingV:    0px;
-@commonPaddingH:    29px;
+@mainCol1:              225px;
+@mainCol2:              382px;
+@mainCol3:              359px;
+@mainCol:               @mainCol1 + @mainCol2 + @mainCol3;  // 966
+@commonWidth:           1024px;
+@commonPaddingV:        0px;
+@commonPaddingH:        29px;
 
 
 // Основные отступы
-@smallPadding:      11px;
-@middlePadding:     18px;
-@bigPadding:        @smallPadding * 2;  // 22
+@smallPadding:          11px;
+@middlePadding:         18px;
+@bigPadding:            @smallPadding * 2;  // 22
 
 
 // Шапка, футер
-@headerH:           142px;
-@footerH:           123px;
-@footerPaddingTop:  0px;
+@headerH:               142px;
+@footerH:               123px;
+@footerPaddingTop:      0px;
 
 
 // Заголовок
-@mainTitleH:        120px;
-@pageTitleH:        90px;
+@mainTitleH:            120px;
+@pageTitleH:            90px;
 
 
 // Цвета
-@devRedBg:          rgba(255,0,0,0.2);
-@devGreenBg:        rgba(0,255,0,0.2);
-@devBlueBg:         rgba(0,0,255,0.2);
-@devMagentaBg:      rgba(255,0,255,0.2);
-@devGreyBg:         rgba(0,0,0,0.05);
+@devRedBg:              rgba(255,0,0,0.2);
+@devGreenBg:            rgba(0,255,0,0.2);
+@devBlueBg:             rgba(0,0,255,0.2);
+@devMagentaBg:          rgba(255,0,255,0.2);
+@devGreyBg:             rgba(0,0,0,0.05);
 
-@colorText:         #2b2b2b;
-@colorTextLight:    #8f8f8f;
+@colorText:             #2b2b2b;
+@colorTextLight:        #8f8f8f;
 
-@colorTitle:        #4f9714;
-@colorTitleGrey:    #767676;
+@colorTitle:            #4f9714;
+@colorTitleGrey:        #767676;
+@colorTitleLightGrey:   #b2b2b2;
 
-@colorLink:         #0074ce;
-@colorLinkHover:    #4f9a00;
-@colorLinkActive:   #ffffff;
-@colorLinkActiveBg: #c2c2c2;
-@colorStudioLink:   #fa1010;
-@colorNewsLink:     #56b312;
+@colorLink:             #0074ce;
+@colorLinkHover:        #4f9a00;
+@colorLinkActive:       #ffffff;
+@colorLinkActiveBg:     #c2c2c2;
+@colorStudioLink:       #fa1010;
+@colorNewsLink:         #56b312;
 
-@colorMenu:         @colorLink;
-@colorSubMenu:      @colorTextLight;
+@colorMenu:             @colorLink;
+@colorSubMenu:          @colorTextLight;
 
-@colorInvertTextBg: #75b239;
+@colorInvertTextBg:     #75b239;
 
+
+// Контент
+@newsImageW:            500px;
 
 
 
@@ -82,9 +86,11 @@ a {
     &, &:link, &:visited {
         text-decoration: underline;
         color: @colorLink;
+        _background: url(../../img/link-underline.png) bottom repeat-x;
     }
     &:hover {
         text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
+        _background: url(../../img/link-underline.png) bottom repeat-x;
         color: @colorLinkHover !important;
     }
     &.active {
@@ -129,6 +135,10 @@ a {
 
     grey {
         color:  @colorTitleGrey;
+    }
+
+    lightgrey {
+        color:  @colorTitleLightGrey;
     }
 }
 .main-title(@h) {
@@ -240,18 +250,18 @@ a {
     }
     .separate-line {
         border-top: #99b985 1px dotted;
-        width: @mainCol - 11 - 3;
+        width: @mainCol2 + @mainCol3 - @bigPadding * 2;
         height: 1px;
         min-height: 1px;
         max-height: 1px;
-        margin-left: 11px;
+        margin-left: @mainCol1 + @bigPadding;
     }
 
     .copyright {
-        padding: @topOffs 0 0 35px;
+        padding: @topOffs 0 0 @bigPadding;
     }
     .author {
-        padding: @topOffs 0 0 124px;
+        padding: @topOffs 0 0 @bigPadding;
         & a {
             color: inherit;
         }
@@ -265,7 +275,6 @@ a {
             background: url(../../img/logoDev.png) left top no-repeat;
         }
         .text {
-            float: left;
             a {
                 text-decoration: none;
             }
@@ -275,6 +284,6 @@ a {
         }
     }
     .contact {
-        padding: @topOffs 0 0 21px;
+        padding: @topOffs 0 0 @bigPadding;
     }
 }

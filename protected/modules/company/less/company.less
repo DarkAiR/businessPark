@@ -1,10 +1,18 @@
 @import (reference) '../../../views/less/custom';
 
 .company-page {
+    @col1: @mainCol1;
+    @col2: 516px;
+    @col3: 225px;
+
+    @rowH: 145px;       // Высота верхней строки контента
+
+
     min-height: 1px;
 
-    & > .title {
+    .title {
         .inner-title;
+        padding-left: @bigPadding;
     }
 
     table td {
@@ -12,68 +20,109 @@
         vertical-align: top;
     }
 
-    .row1 {
-        height: 120px;
-        min-height: 120px;
-    }
-
-    @col1: @mainCol1;
-    @col2: 453px;
-    @col3: 288px;
-
     .col1 {
         .col(@col1);
+        .image {
+            line-height: @rowH;
+            text-align: center;
+        }
     }
     .col2 {
         .col(@col2);
-        padding: 0 @smallPadding;
+        padding: 0 @bigPadding;
 
-        .title {
-
+        .innertitle {
+            .font(PF, medium);
+            .font-size(22);
+            color:  @colorTitleGrey;
+            padding-top: 30px;
         }
         .text {
-
+            padding-top: 16px;
         }
-    }
-    .col1-2 {
-        .col(@col1 + @col2)
     }
     .col3 {
         .col(@col3);
-        padding: 0 @bigPadding;
+    }
+    .col1-2 {
+        .col(@col1 + @col2);
+    }
+    .col2-3 {
+        .col(@col2 + @col3);
     }
 
 
+    .row1 {
+        height: @rowH;
+        min-height: @rowH;
+    }
+
     .row2 {
         .col1 {
-            .col(228px);
+            .col(@col1);
         }
         .col2 {
-            .col(472px);
+            .col(@col2);
+        }
+    }
+
+    ul.menu {
+        list-style-type: none;
+        padding: 50px 0 0 0;
+        margin: 0;
+        text-align: right;
+
+        li {
+            padding: 0;
+            margin: 0;
+            height: 50px;
+            line-height: 50px;
+            display: inline-block;
+            padding-left: 25px;
+            &.active {
+                .border-radius(5px, 0px, 0px, 5px);
+                border: 1px solid #d2d2d2;
+                border-right: none;
+            }
+        }
+    }
+
+    ul.items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            border-bottom: 1px dashed #d2d2d2;
+            padding-top: @bigPadding;
+            padding-bottom: @bigPadding;
+
+            &.first {
+            }
+            &.last {
+                border-bottom: none;
+            }
         }
     }
 
 
     .contact-block {
-        height: 271px;
-        background: lightgrey;
+        width: 100%;
+        height: 278px;
+        background: url(../../img/company_service_bg.png) left top no-repeat;
         padding: @bigPadding;
 
         .row1 {
-            height: 98px - @bigPadding;
-            min-height: 98px - @bigPadding;
+            height: 19px + @bigPadding;
+            min-height: 19px + @bigPadding;
         }
         .row2 {
-            height: 46px;
-            min-height: 46px;
+            height: (19px * 3) + @bigPadding;
+            min-height: (19px * 3) + @bigPadding;
         }
         .row3 {
             height: 125px - @bigPadding;
             min-height: 125px - @bigPadding;
-        }
-        .separator {
-            height: 1px;
-            background: black;
         }
     }
 }

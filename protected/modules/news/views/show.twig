@@ -1,18 +1,55 @@
 {% extends 'modules/news/views/base.twig' %}
 
-{% block css %}
+{% block js %}
     {{ parent() }}
-    {{ import('css','show.css', 'application.modules.news.views') }}
+    <script type="text/javascript">
+    function backAway()
+    {
+        // if it was the first page
+        if (document.referrer == '')
+            window.location = "{{backUrl}}";
+        else
+            window.location = document.referrer;
+    }
+    </script>
 {% endblock %}
 
-{% block newsContent %}
-    <div class='news-item'>
-        <div class='news-item-date  gridHeight1'>{{ static('DateHelper', 'formatNewsDate', [news.createTime]) }}</div>
-        <div class='news-item-title grid-bottom1_5 titleColor'>{{ news.title|raw }}</div>
-        <div class='news-item-text  text15'>{{ news.desc|raw }}</div>
+{% block css %}
+    {{ parent() }}
+    {{ import('css','show.css', 'application.modules.news.css') }}
+{% endblock %}
+
+{% block newsBack %}
+    <div class='backBtnCont'>
+        <a class='backBtn' href="#" onclick="backAway(); return false;"></a>
     </div>
 {% endblock %}
 
-{% block newsBottomBlock %}
-    <div class='gridHeight6'></div>
+{% block newsLeftCol %}
+{% endblock %}
+
+{% block newsContent %}
+    <div class='content'>
+        <div class='date'>{{ static('DateHelper', 'formatNewsDate', [news.createTime]) }}</div>
+        <div class='title'>{{ news.title|raw }}</div>
+        <div class='text'>{{ news.desc|raw }}</div>
+    </div>
+    <div class='navigation'>
+        <div class='prev'>
+            <span class='arrow'></span>
+            {% if prevLink %}
+                <a href='{{ prevLink }}'>Предыдущая новость</a>
+            {% else %}
+                <span class='inactive'>Предыдущая новость</span>
+            {% endif %}
+        </div>
+        <div class='next'>
+            {% if nextLink %}
+                <a href='{{ nextLink }}'>Следующая новость</a>
+            {% else %}
+                <span class='inactive'>Следующая новость</span>
+            {% endif %}
+            <span class='arrow'></span>
+        </div>
+    </div>
 {% endblock %}

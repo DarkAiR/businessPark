@@ -1,6 +1,60 @@
 @import (reference) '../../../views/less/custom';
 
 .about-page {
-    _background: rgba(0,0,255,0.5);
     min-height: 1px;
+
+    .title {
+        .inner-title;
+        padding: 0 @bigPadding;
+    }
+    .col1 {
+        .col(@mainCol1);
+    }
+    .col2 {
+        .col(@mainCol2);
+    }
+    .col3 {
+        .col(@mainCol3);
+    }
+    .col2-3 {
+        .col(@mainCol2 + @mainCol3);
+    }
+
+    .content {
+        padding: 0 @bigPadding;
+        margin: 0;
+
+        .text {
+            padding: 0;
+            margin-bottom: 35px;
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+        }
+        .text2 {
+            padding: 0;
+            margin-top: 20px;
+        }
+        .text3 {
+            padding: 0;
+            margin-top: 11px;
+        }
+        .text4 li {
+            padding: 0;
+            padding-bottom: 4px;
+        }
+        .image {
+            float: left;
+            width: @mainCol2 - @bigPadding;
+            padding-left: 6px;
+            margin-top: -15px;
+        }
+        .imagetext {
+            float: left;
+            width: @mainCol3 - @bigPadding * 2;
+            margin-left: @bigPadding;
+        }
+    }
 }

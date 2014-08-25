@@ -49,9 +49,11 @@ a:link,
 a:visited {
   text-decoration: underline;
   color: #0074ce;
+  _background: url(../../img/link-underline.png) bottom repeat-x;
 }
 a:hover {
   text-decoration: underline !important;
+  _background: url(../../img/link-underline.png) bottom repeat-x;
   color: #4f9a00 !important;
 }
 a.active {
@@ -144,17 +146,17 @@ a.active {
 }
 .footer .separate-line {
   border-top: #99b985 1px dotted;
-  width: 952px;
+  width: 697px;
   height: 1px;
   min-height: 1px;
   max-height: 1px;
-  margin-left: 11px;
+  margin-left: 247px;
 }
 .footer .copyright {
-  padding: 32px 0 0 35px;
+  padding: 32px 0 0 22px;
 }
 .footer .author {
-  padding: 32px 0 0 124px;
+  padding: 32px 0 0 22px;
 }
 .footer .author a {
   color: inherit;
@@ -168,9 +170,6 @@ a.active {
   height: 20px;
   background: url(../../img/logoDev.png) left top no-repeat;
 }
-.footer .author .text {
-  float: left;
-}
 .footer .author .text a {
   text-decoration: none;
 }
@@ -178,5 +177,5 @@ a.active {
   color: #fa1010;
 }
 .footer .contact {
-  padding: 32px 0 0 21px;
+  padding: 32px 0 0 22px;
 }
