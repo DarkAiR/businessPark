@@ -1,6 +1,6 @@
 <?php
 
-class VacancyModule extends CWebModule
+class WorklineModule extends CWebModule
 {
     public $defaultController='admin';
 }

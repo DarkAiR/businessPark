@@ -1,0 +1,65 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css', 'index.css', 'application.modules.workline.css') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var currentStep = 1;
+        $(document).ready( function()
+        {
+            $('[id^=js-step-]').click(function(ev) {
+                stepId = $(this).attr('data-id');
+                if (stepId != currentStep) {
+                    $('#js-step-'+currentStep).removeClass('active');
+                    $('#js-page-'+currentStep).hide();
+
+                    currentStep = stepId;
+                    console.log(currentStep);
+                    $('#js-step-'+currentStep).addClass('active');
+                    $('#js-page-'+currentStep).show();
+                }
+            });
+
+            $('#js-step-'+currentStep).addClass('active');
+            $('#js-page-'+currentStep).show();
+        });
+    </script>
+{% endblock %}
+
+
+{% block content %}
+<div class='workline-page'>
+    <div class='col1'></div>
+    <div class='col2-3'>
+        <div class='title'>
+            <lightgrey>От слов</lightgrey> к делу
+        </div>
+    </div>
+    <div class='clearfix'></div>
+    
+    <div class='steps'>
+        <ul>
+        {% for step in steps %}
+            <li id='js-step-{{loop.index}}' data-id='{{loop.index}}'>{{loop.index}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class='step-pages'>
+        {% for step in steps %}
+            <div id='js-page-{{loop.index}}' class='page' style='display:none;'>
+                <div class='innertitle'>
+                    {{ step.title }}
+                </div>
+                <div class='text'>
+                    {{ step.text|raw }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

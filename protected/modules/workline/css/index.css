@@ -1,8 +1,4 @@
-.contacts-page {
-  _background: rgba(0, 0, 255, 0.5);
-  min-height: 1px;
-}
-.contacts-page > .title {
+.workline-page .title {
   font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   line-height: 90px;
@@ -10,13 +6,13 @@
   height: 90px;
   min-height: 90px;
 }
-.contacts-page > .title grey {
+.workline-page .title grey {
   color: #767676;
 }
-.contacts-page > .title lightgrey {
+.workline-page .title lightgrey {
   color: #b2b2b2;
 }
-.contacts-page .col1 {
+.workline-page .col1 {
   _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
@@ -24,7 +20,7 @@
   height: inherit;
   min-height: 1px;
 }
-.contacts-page .col2-3 {
+.workline-page .col2-3 {
   _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
@@ -32,7 +28,20 @@
   height: inherit;
   min-height: 1px;
 }
-.contacts-page .bottomGap {
-  height: 0px;
-  min-height: 0px;
+.workline-page .steps ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.workline-page .steps ul li {
+  float: left;
+  padding: 5px;
+  border: 1px dotted #ccc;
+}
+.workline-page .steps ul li.active {
+  background: #eee;
+  cursor: default !important;
+}
+.workline-page .steps ul li:hover {
+  cursor: pointer;
 }

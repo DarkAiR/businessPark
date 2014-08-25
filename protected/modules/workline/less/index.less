@@ -1,0 +1,46 @@
+@import (reference) '../../../views/less/custom';
+
+.workline-page {
+
+    .title {
+        .inner-title();
+    }
+
+    .col1 {
+        .col(@mainCol1);
+    }
+    .col2-3 {
+        .col(@mainCol2 + @mainCol3);
+    }
+
+    .steps {
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            li {
+                float: left;
+                padding: 5px;
+                border: 1px dotted #ccc;
+                &.active {
+                    background: #eee;
+                    cursor: default !important;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .step-pages {
+        .page {
+            .innertitle {
+
+            }
+            .text {
+
+            }
+        }
+    }
+}

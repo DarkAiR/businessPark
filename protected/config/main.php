@@ -21,14 +21,11 @@ return array(
         'system2',
         'mainPage',
         'company',
-//        'projects',
         'sitemenu',
         'news',
         'contentBlocks',
         'articles',
-//        'persons',
-//        'vacancy',
-//        'promo'
+        'workline',
     ),
     'components' => array(
         'user' => array(
@@ -55,13 +52,8 @@ return array(
 //                'works/<sectionId:\d+>/'            => 'projects/projects/index',
 //                'works/'                            => 'projects/projects/index',
 
-                // Service
-//                'service/'                          => 'projects/projectSections/index',
-
-                // Vacancy
-//                'company/vacancy/<id:\d+>/'         => 'vacancy/vacancy/show',
-//                'company/vacancy/<action:\w+>/'     => 'vacancy/vacancy/<action>',
-//                'company/vacancy/'                  => 'vacancy/vacancy/index',
+                // Workline
+                'workline/'                         => 'workline/workline/index',
 
                 // Company
                 'company/<type:\w+>/'               => 'company/company/index',

@@ -44,8 +44,9 @@
         'items' : [
             {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active' : this.uniqueId == 'sitemenu/adminSitemenu'},
             {'label':'Разделы сайта', 'action' : false, 'items': [
-                {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == '.news/adminNews'},
-                {'label':'Услуги управляющей компании', 'url':['/company/adminCompanyService'], 'active' : this.uniqueId == '.company/adminCompanyService'},
+                {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == '/news/adminNews'},
+                {'label':'Услуги управляющей компании', 'url':['/company/adminCompanyService'], 'active' : this.uniqueId == '/company/adminCompanyService'},
+                {'label':'От слов к делу', 'url':['/workline/adminWorkLine'], 'active' : this.uniqueId == '/workline/adminWorkLine'},
                 {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
                 {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active' : this.uniqueId == '/articles/adminArticles'},
             ]},
@@ -60,36 +61,6 @@
         ]
     }]
 }) }}
-{#
-{{ widget('bootstrap.widgets.TbNavbar',{
-    'collapse' : true,
-    'items':[
-    {
-        'class' : 'bootstrap.widgets.TbMenu',
-        'items' : [
-            {'label':'Проекты', 'active' : false, 'items': [
-                {'label':'Категории', 'url':['/projects/adminProjectSections'], 'active' : this.uniqueId == 'projects/adminProjectSections'},
-                {'label':'Работы', 'url':['/projects/adminProjects'], 'active' : this.uniqueId == 'projects/adminProjects'},
-                {'label':'Собственные проекты', 'url':['/projects/adminProjectsOwn'], 'active' : this.uniqueId == 'projects/adminProjectsOwn'}
-            ]},
-            {'label':'Разделы сайта', 'action' : false, 'items': [
-                {'label':'Промо на главную', 'url':['/promo/adminPromo'], 'active' : this.uniqueId == '/promo/adminPromo'},
-                {'label':'Вопросы-ответы', 'url':['/company/adminFaq'], 'active' : this.uniqueId == '/company/adminFaq'},
-                {'label':'Команда', 'url':['/persons/adminPersons'], 'active' : this.uniqueId == '/persons/adminPersons'},
-                {'label':'Вакансии', 'url':['/vacancy/adminVacancy'], 'active' : this.uniqueId == '/vacancy/adminVacancy'},
-                {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
-            ]},
-            {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active' : this.uniqueId == 'system/adminUsers'},
-        ]
-    },{
-        'class' : 'bootstrap.widgets.TbMenu',
-        'htmlOptions' : {'class':'pull-right'},
-        'items' : [
-            {'label':'Выйти ('~App.user.name~')', 'url':['/site/logout'], 'visible':not App.user.isGuest}
-        ]
-    }]
-}) }}
-#}
 {% endblock %}
 
 <div class="container" id="page">
