@@ -14,36 +14,48 @@
         .col(@mainCol2 + @mainCol3);
     }
 
-    .steps {
-        @itemW: 84px;
-        @itemH: 71px;
+    .cont {
+        position: relative;
+    }
 
-        ul {
+    .steps {
+        @itemW: 83px;
+        @itemH: 76px;
+
+        background: @devRedBg;
+        padding: 0;
+        margin: 0;
+        padding-left: @mainCol1 - @itemW;
+
+
+        .step {
             .font(PF, bold);
             .font-size(18);
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            padding-left: @mainCol1 - @itemW;
 
-            li {
-                float: left;
-                width: @itemW;
-                height: @itemH;
-                padding-left: 37px;
-                padding-top: 31px;
-                color: @colorLinkHover;
-                
-                &.active {
-                    background: url(../../img/workline_step_bg.jpg) left top no-repeat;
-                    cursor: default !important;
-                    color: @colorText;
-                }
-                
-                &:hover {
-                    cursor: pointer;
-                }
+            float: left;
+            width: @itemW;
+            height: @itemH;
+            padding-left: 37px;
+            padding-top: 38px;
+            color: @colorLinkHover;
+
+            background: url(../../img/workline/step_bg.png) 23px 26px no-repeat;
+            
+            &.active {
+                background: url(../../img/workline/step_active_bg.png) left top no-repeat;
+                cursor: default !important;
+                color: @colorLinkActive;
             }
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .separator {
+            width: 0px;
+            height: 0px;
+            background: url(../../img/workline/step_separator.png) left top no-repeat;
         }
     }
 
@@ -51,7 +63,8 @@
         
         padding-top: @bigPadding;
         padding-left: @bigPadding;
-        
+        padding-bottom: @footerPaddingTop;
+
         .page {
             .innertitle {
                 .font(PF, regular);

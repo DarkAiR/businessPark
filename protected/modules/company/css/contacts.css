@@ -9,6 +9,7 @@
   color: #4f9714;
   height: 90px;
   min-height: 90px;
+  padding-left: 22px;
 }
 .contacts-page > .title grey {
   color: #767676;
@@ -31,8 +32,9 @@
   float: left;
   height: inherit;
   min-height: 1px;
+  padding-left: 22px;
 }
 .contacts-page .bottomGap {
-  height: 0px;
-  min-height: 0px;
+  height: 80px;
+  min-height: 80px;
 }

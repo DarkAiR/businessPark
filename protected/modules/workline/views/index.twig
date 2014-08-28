@@ -42,9 +42,11 @@
     <div class='clearfix'></div>
     
     <div class='steps'>
-        <ul>
         {% for step in steps %}
-            <li id='js-step-{{loop.index}}' data-id='{{loop.index}}'>{{loop.index}}</li>
+            <div class='cont'>
+                <div class='separator'></div>
+                <div class='step' id='js-step-{{loop.index}}' data-id='{{loop.index}}'>{{loop.index}}</div>
+            </div>
         {% endfor %}
         </ul>
     </div>
