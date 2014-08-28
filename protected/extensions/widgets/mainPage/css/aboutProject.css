@@ -13,6 +13,9 @@
   padding-top: 40px;
   padding-left: 36px;
 }
+.about-project-widget .title a {
+  color: #4f9714 !important;
+}
 .about-project-widget .text {
   position: absolute;
   left: 0;
