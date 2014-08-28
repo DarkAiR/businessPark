@@ -1,21 +1,21 @@
 @font-face {
-  font-family: "APF DinDisplay Pro Regular";
+  font-family: "PF DinDisplay Pro Regular";
   src: url(/fonts/PFDinDisplayPro-Reg.ttf) format("truetype");
 }
 @font-face {
-  font-family: "APF DinDisplay Pro Light";
+  font-family: "PF DinDisplay Pro Light";
   src: url(/fonts/PFDinDisplayPro-Light.ttf) format("truetype");
 }
 @font-face {
-  font-family: "APF DinDisplay Pro Light Italic";
+  font-family: "PF DinDisplay Pro Light Italic";
   src: url(/fonts/PFDinDisplayPro-LightItal.ttf) format("truetype");
 }
 @font-face {
-  font-family: "APF DinDisplay Pro Medium";
+  font-family: "PF DinDisplay Pro Medium";
   src: url(/fonts/PFDinDisplayPro-Med.ttf) format("truetype");
 }
 @font-face {
-  font-family: "APF DinDisplay Pro Bold";
+  font-family: "PF DinDisplay Pro Bold";
   src: url(/fonts/PFDinDisplayPro-Bold.ttf) format("truetype");
 }
 @font-face {
