@@ -6,28 +6,28 @@
   min-height: 167px;
   margin-bottom: 28px;
 }
-.news-page .item .date {
+.news-page .item .textBlock .date {
   font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #8f8f8f;
   height: 42px;
   padding-top: 15px;
 }
-.news-page .item .title {
+.news-page .item .textBlock .title {
   font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #4f9714;
   margin-top: -4px;
 }
-.news-page .item .title * {
+.news-page .item .textBlock .title * {
   color: #4f9714;
 }
-.news-page .item .text {
+.news-page .item .textBlock .text {
   padding-top: 11px;
 }
-.news-page .item .date,
-.news-page .item .title,
-.news-page .item .text {
+.news-page .item .textBlock .date,
+.news-page .item .textBlock .title,
+.news-page .item .textBlock .text {
   padding-right: 22px;
   padding-left: 22px;
 }

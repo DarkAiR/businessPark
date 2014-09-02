@@ -37,6 +37,10 @@
 .news-page .content .title * {
   color: #4f9714;
 }
+.news-page .content img {
+  max-width: 500px;
+  height: auto !important;
+}
 .news-page .content p img {
   margin-bottom: 25px;
 }

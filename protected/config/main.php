@@ -26,6 +26,7 @@ return array(
         'contentBlocks',
         'articles',
         'workline',
+        'residents',
     ),
     'components' => array(
         'user' => array(
@@ -61,6 +62,9 @@ return array(
                 'structure'                         => 'company/company/structure',
                 'contact-info'                      => 'company/company/contacts',
                 'about'                             => 'company/project/about',
+
+                // Residents
+                'residents'                         => 'residents/residents/index',
 
                 // Admin
                 'admin/'                            => 'system2',

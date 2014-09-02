@@ -13,28 +13,29 @@
         .textBlock {
             min-height: @itemHeight - @bottomPadding;
             margin-bottom: @bottomPadding;
-        }
-        .date {
-            .font(PF, regular);
-            color: @colorTextLight;
-            height: @dateHeight;
-            padding-top: 15px;
-        }
-        .title {
-            .font(PF, medium);
-            .font-size(18, 24px);
-            color: @colorTitle;
-            margin-top: -4px;
-            & * {
-                color: @colorTitle;
+
+            .date {
+                .font(PF, regular);
+                color: @colorTextLight;
+                height: @dateHeight;
+                padding-top: 15px;
             }
-        }
-        .text {
-            padding-top: 11px;
-        }
-        .date, .title, .text {
-            padding-right: @bigPadding;
-            padding-left: @bigPadding;
+            .title {
+                .font(PF, medium);
+                .font-size(18, 24px);
+                color: @colorTitle;
+                margin-top: -4px;
+                & * {
+                    color: @colorTitle;
+                }
+            }
+            .text {
+                padding-top: 11px;
+            }
+            .date, .title, .text {
+                padding-right: @bigPadding;
+                padding-left: @bigPadding;
+            }
         }
     }
 

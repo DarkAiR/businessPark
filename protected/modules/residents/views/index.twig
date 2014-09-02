@@ -1,0 +1,55 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css','index.css', 'application.modules.residents.css') }}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+<div class='residents-page'>
+    <div class='col1'>
+    </div>
+    <div class='col2'>
+        <div class='title'>
+            Резиденты парка
+        </div>
+    </div>
+    <div class='col3'>
+    </div>
+
+    <table border=0 cellpadding="0" cellspacing="0">
+    <tr>
+        <td class='col1'>
+        </td>
+        <td class='col2-3'>
+
+            {% set imageW = const('Residents', 'IMAGE_SMALL_W') %}
+            <table border=0 cellpadding="0" cellspacing="0">
+                {% for item in residents %}
+                <tr class='item'>
+                    <td class='image'>
+                        <img src='{{ item.getImageUrl() }}' style='width:{{imageW}}px'>
+                    </td>
+                    <td>
+                        <div class='textBlock'>
+                            <div class='title'>{{ item.name }}</div>
+                            <div class='text'>{{ item.desc|raw }}</div>
+                            <div class='phones'>Телефоны: {{ item.phones }}</div>
+                            <div class='site'>Сайт: <a href='{{ item.site }}' target="_blank">{{ item.site }}</a></div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </td>
+    </tr>
+    </table>
+
+</div>
+{% endblock %}

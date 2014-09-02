@@ -6,6 +6,8 @@
     <meta name="author" content="">
     <!--meta content='True' name='HandheldFriendly'-->
     <!--meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, target-densitydpi=device-dpi"/-->
+    <!--meta content="Dynamic" name="document-state">
+    <meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"-->
 
     <title>{% block title %}{{ this.pageTitle }}{% endblock %}</title>
 
@@ -74,7 +76,7 @@
                 <div class='col3 contact hmenu'>
                     <ul>
                         <li style='padding-right:10px'>
-                            <a href='#'>Резиденты парка</a>
+                            <a href='{{ static('CHtml', 'normalizeUrl', ['/residents']) }}'>Резиденты парка</a>
                         </li>
                         <li style='padding-left:10px'>
                             <a href='#'>Документы</a>

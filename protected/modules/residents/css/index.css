@@ -1,0 +1,75 @@
+.residents-page .col2 > .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 34px;
+  line-height: 90px;
+  color: #4f9714;
+  height: 90px;
+  min-height: 90px;
+  padding-left: 22px;
+}
+.residents-page .col2 > .title grey {
+  color: #767676;
+}
+.residents-page .col2 > .title lightgrey {
+  color: #b2b2b2;
+}
+.residents-page table td {
+  float: none !important;
+  vertical-align: top;
+}
+.residents-page .col1 {
+  _outline: 1px dotted #808080;
+  width: 225px;
+  min-width: 225px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.residents-page .col2 {
+  _outline: 1px dotted #808080;
+  width: 382px;
+  min-width: 382px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.residents-page .col3 {
+  _outline: 1px dotted #808080;
+  width: 359px;
+  min-width: 359px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.residents-page .col2-3 {
+  _outline: 1px dotted #808080;
+  width: 741px;
+  min-width: 741px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.residents-page .item .image {
+  padding-left: 22px;
+  padding-top: 42px;
+}
+.residents-page .item .textBlock {
+  min-height: 167px;
+  margin-bottom: 28px;
+}
+.residents-page .item .textBlock .title {
+  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4f9714;
+}
+.residents-page .item .textBlock .text {
+  padding-top: 11px;
+}
+.residents-page .item .textBlock .title,
+.residents-page .item .textBlock .text,
+.residents-page .item .textBlock .phones,
+.residents-page .item .textBlock .site {
+  padding-right: 22px;
+  padding-left: 22px;
+}
