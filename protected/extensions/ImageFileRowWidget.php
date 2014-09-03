@@ -100,10 +100,12 @@ class ImageFileRowWidget extends CInputWidget
                 ),
             );
         }
+        echo '<fieldset>';
         echo $form->fileFieldRow($model, $this->uploadedFileFieldName, $htmlOptions);
         if (!empty($model->$attributeName)) {
             echo $form->checkboxRow($model, $this->removeImageFieldName);
         }
+        echo '</fieldset>';
     }
 
 }
