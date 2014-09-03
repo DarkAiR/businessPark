@@ -1,0 +1,27 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block js %}
+    {{ import('js', 'p2q_embed_object.js') }}
+{% endblock %}
+
+{% block content %}
+        <script type="text/javascript">
+<!--
+            if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
+                // Check to see if the version meets the requirements for playback
+                var flashvars="";
+                p2q_EmbedFlash('/panorama/60_Panorama_out.swf','100%','500px','allowFullScreen','true','FlashVars',flashvars);
+                
+                if (!DetectFlashVer(9,0,0)) {
+                    document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
+                                 + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
+                }
+            } else {
+                document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
+            }
+//-->
+        </script>
+        <noscript>
+            <p class="warning">Please enable Javascript!</p>
+        </noscript>
+{% endblock %}

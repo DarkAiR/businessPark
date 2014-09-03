@@ -60,6 +60,14 @@ class SiteController extends Controller
     }
 
     /**
+     * Panorama
+     */
+    public function actionPanorama()
+    {
+        $this->render('panorama');
+    }
+
+    /**
      * Upload image
      */
     public function actionUploadImage()

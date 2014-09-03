@@ -42,6 +42,7 @@ return array(
                 '/'                                 => 'mainPage/mainPage/index',
                 'uploadImage'                       => 'site/uploadImage',
                 'uploadFile'                        => 'site/uploadFile',
+                'panorams'                          => 'site/panorama',
 
                 // News
                 'news/show/<id:\d+>/'               => 'news/news/show',
