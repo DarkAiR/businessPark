@@ -26,6 +26,7 @@ class Residents extends CActiveRecord
 //                'imageWidth' => self::IMAGE_SMALL_W,
 //                'imageHeight' => self::IMAGE_SMALL_H,
                 'imageField' => 'image',
+                'imageExt' => 'jpeg, jpg, png, gif'
             ),
             'orderBehavior' => array(
                 'class' => 'application.behaviors.OrderBehavior',
@@ -73,8 +74,8 @@ class Residents extends CActiveRecord
      */
     public function isAttributeRequired($attribute)
     {
-        if (in_array($attribute, array('_image')))
-            return true;
+        //if (in_array($attribute, array('_image')))
+        //    return true;
         return parent::isAttributeRequired($attribute);
     }
 
