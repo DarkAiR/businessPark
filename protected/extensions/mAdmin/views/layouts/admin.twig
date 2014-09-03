@@ -42,18 +42,17 @@
     {
         'class' : 'bootstrap.widgets.TbMenu',
         'items' : [
-            {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active':this.uniqueId == 'sitemenu/adminSitemenu'},
-
+            {'label':'Меню', 'url':['/sitemenu/adminSitemenu'], 'active':this.uniqueId == 'sitemenu/adminSitemenu', 'visible':App.user.checkAccess('admin')},
             {'label':'Разделы сайта', 'action' : false, 'items': [
-                {'label':'Новости', 'url':['/news/adminNews'], 'active' : this.uniqueId == '/news/adminNews'},
-                {'label':'Услуги управляющей компании', 'url':['/company/adminCompanyService'], 'active' : this.uniqueId == '/company/adminCompanyService'},
-                {'label':'От слов к делу', 'url':['/workline/adminWorkLine'], 'active' : this.uniqueId == '/workline/adminWorkLine'},
-                {'label':'Резиденты', 'url':['/residents/adminResidents'], 'active' : this.uniqueId == '/residents/adminResidents'},
-                {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active' : this.uniqueId == '/contentBlocks/adminContentBlocks'},
-                {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active' : this.uniqueId == '/articles/adminArticles'},
+                {'label':'Новости', 'url':['/news/adminNews'], 'active':this.uniqueId == '/news/adminNews'},
+                {'label':'Услуги управляющей компании', 'url':['/company/adminCompanyService'], 'active':this.uniqueId == '/company/adminCompanyService', 'visible':App.user.checkAccess('admin')},
+                {'label':'От слов к делу', 'url':['/workline/adminWorkLine'], 'active':this.uniqueId == '/workline/adminWorkLine', 'visible':App.user.checkAccess('admin')},
+                {'label':'Резиденты', 'url':['/residents/adminResidents'], 'active':this.uniqueId == '/residents/adminResidents', 'visible':App.user.checkAccess('admin')},
+                {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active':this.uniqueId == '/contentBlocks/adminContentBlocks', 'visible':App.user.checkAccess('admin')},
+                {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active':this.uniqueId == '/articles/adminArticles', 'visible':App.user.checkAccess('admin')},
             ]},
-            {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active' : this.uniqueId == 'system2/adminUsers'},
-            {'label':'Настройки', 'url':['/system2/adminLocalConfig'], 'active' : this.uniqueId == 'system2/adminLocalConfig'},
+            {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active':this.uniqueId == 'system2/adminUsers', 'visible':App.user.checkAccess('admin')},
+            {'label':'Настройки', 'url':['/system2/adminLocalConfig'], 'active':this.uniqueId == 'system2/adminLocalConfig', 'visible':App.user.checkAccess('admin')},
         ]
     },{
         'class' : 'bootstrap.widgets.TbMenu',
