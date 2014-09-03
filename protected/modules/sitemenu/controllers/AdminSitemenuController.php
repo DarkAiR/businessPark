@@ -4,6 +4,7 @@ class AdminSitemenuController extends MAdminController
 {
     public $modelName = 'MenuItem';
     public $modelHumanTitle = array('пункт', 'пункта', 'пунктов');
+    public $allowedRoles = 'admin';
 
     protected $templateList = '/list';
 

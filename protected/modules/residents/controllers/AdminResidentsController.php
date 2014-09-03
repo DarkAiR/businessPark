@@ -4,6 +4,7 @@ class AdminResidentsController extends MAdminController
 {
     public $modelName = 'Residents';
     public $modelHumanTitle = array('резидента', 'резидента', 'резидентов');
+    public $allowedRoles = 'admin';
 
 
     public function behaviors()

@@ -4,6 +4,7 @@ class AdminNewsController extends MAdminController
 {
     public $modelName = 'News';
     public $modelHumanTitle = array('новость', 'новости', 'новостей');
+    public $allowedRoles = 'admin';
 
     public function behaviors()
     {

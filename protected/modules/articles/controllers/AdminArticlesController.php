@@ -4,6 +4,7 @@ class AdminArticlesController extends MAdminController
 {
     public $modelName = 'Articles';
     public $modelHumanTitle = array('статью', 'статьи', 'статей');
+    public $allowedRoles = 'admin';
 
     public function getEditFormElements($model)
     {

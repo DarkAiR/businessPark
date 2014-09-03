@@ -22,6 +22,11 @@ class MAdminController extends CExtController
     public $allowedActions = 'add,edit,delete,update';
 
     /**
+     * @var string Allowed roles.
+     */
+    public $allowedRoles = 'admin, moderator';
+
+    /**
      * @var string One of AdminController->allowedActions
      */
     public $defaultAction = 'list';
@@ -69,7 +74,22 @@ class MAdminController extends CExtController
                     $value = trim($value);
                 }
             );
+            return $res;
+        }
+    }
 
+    private function getAllowedRoles()
+    {
+        if (is_array($this->allowedRoles)) {
+            return $this->allowedRoles;
+        } else {
+            $res = explode(',', $this->allowedRoles);
+            array_walk(
+                $res,
+                function (&$value) {
+                    $value = trim($value);
+                }
+            );
             return $res;
         }
     }
@@ -81,7 +101,7 @@ class MAdminController extends CExtController
             array(
                 'allow',
                 'actions' => $allowedActions,
-                'roles' => array('admin', 'moderator')
+                'roles' => $this->getAllowedRoles()
             ),
             array(
                 'deny',
