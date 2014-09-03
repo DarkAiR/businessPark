@@ -74,7 +74,8 @@ class News extends CActiveRecord
             array(
                 array('title, desc, shortDesc', 'safe'),
                 array('onMain, visible', 'boolean'),
-                array('createTimeTime, createTimeDate', 'safe')
+                array('createTimeTime, createTimeDate', 'safe'),
+                array('title, desc, shortDesc, _image, createTimeTime, createTimeDate', 'required'),
             )
         );
     }
