@@ -81,7 +81,7 @@ class MAdminController extends CExtController
             array(
                 'allow',
                 'actions' => $allowedActions,
-                'roles' => array('admin')
+                'roles' => array('admin', 'moderator')
             ),
             array(
                 'deny',
