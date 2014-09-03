@@ -38,8 +38,8 @@
                         <div class='textBlock'>
                             <div class='title'>{{ item.name }}</div>
                             <div class='text'>{{ item.desc|raw }}</div>
-                            <div class='phones'>Телефоны: {{ item.phones }}</div>
-                            <div class='site'>Сайт: <a href='{{ item.site }}' target="_blank">{{ item.site }}</a></div>
+                            {% if item.phones %}<div class='phones'>Телефоны: {{ item.phones }}</div>{% endif %}
+                            {% if item.site %}<div class='site'>Сайт: <a href='{{ item.site }}' target="_blank">{{ item.site }}</a></div>{% endif %}
                         </div>
                     </td>
                 </tr>

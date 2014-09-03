@@ -26,7 +26,7 @@ class Residents extends CActiveRecord
 //                'imageWidth' => self::IMAGE_SMALL_W,
 //                'imageHeight' => self::IMAGE_SMALL_H,
                 'imageField' => 'image',
-                'imageExt' => 'jpeg, jpg, png, gif'
+                'imageExt' => 'png'
             ),
             'orderBehavior' => array(
                 'class' => 'application.behaviors.OrderBehavior',
