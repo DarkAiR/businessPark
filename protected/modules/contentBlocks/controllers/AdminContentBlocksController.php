@@ -4,6 +4,7 @@ class AdminContentBlocksController extends MAdminController
 {
     public $modelName = 'ContentBlocks';
     public $modelHumanTitle = array('контентный блок', 'контентные блоки', 'контентных блоков');
+    public $allowedRoles = 'admin';
 
     public function getEditFormElements($model)
     {

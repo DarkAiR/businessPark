@@ -1,12 +1,14 @@
 @import (reference) '../../../views/less/custom';
 
 .main-menu-widget {
-    .font-size(14);
+    .font-size(16);
+    .font(PF, regular);
+
     ul {
     }
     li {
-        padding-left:  15px;
-        padding-right: 15px;
+        padding-left:  @bigPadding/2;
+        padding-right: @bigPadding/2;
     }
     li, li * {
         color: @colorMenu;

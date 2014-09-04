@@ -6,6 +6,8 @@
     <meta name="author" content="">
     <!--meta content='True' name='HandheldFriendly'-->
     <!--meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, target-densitydpi=device-dpi"/-->
+    <!--meta content="Dynamic" name="document-state">
+    <meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"-->
 
     <title>{% block title %}{{ this.pageTitle }}{% endblock %}</title>
 
@@ -33,7 +35,7 @@
                     
                         <div class='col1'>
                             <div class='logo-block'>
-                                <a href='/'><img src='/img/logo.png' width="141" height="60"></a>
+                                <a href='/'><img src='/img/logo.png' width="142" height="55"></a>
                             </div>
                         </div>
                         <div class='col2-3'>
@@ -71,16 +73,12 @@
                     &copy; 2010-2014 Про-Бизнес-Парк<br/>
                     <a href='{{ static('CHtml', 'normalizeUrl', ['/contact-info']) }}'>Контактная информация</a>
                 </div>
-                <div class='col3 contact hmenu'>
-                    <ul>
-                        <li style='padding-right:10px'>
-                            <a href='#'>Резиденты парка</a>
-                        </li>
-                        <li style='padding-left:10px'>
-                            <a href='#'>Документы</a>
-                        </li>
-                    </ul>
+                <div class='col3'>
+                    <div class='menu-block'>
+                        {{ widget('ext.widgets.FooterMenuWidget') }}
+                    </div>
                 </div>
+
             </div>
 
         {% endblock %}

@@ -10,6 +10,15 @@ class WorkLine extends CActiveRecord
         return parent::model($className);
     }
 
+    public function behaviors()
+    {
+        return array(
+            'orderBehavior' => array(
+                'class' => 'application.behaviors.OrderBehavior',
+            ),
+        );
+    }
+
     public function relations()
     {
         return array(
@@ -18,21 +27,24 @@ class WorkLine extends CActiveRecord
 
     public function attributeLabels()
     {
-        return array(
-            'title' => 'Заголовок',
-            'text' => 'Текст',
-            'visible' => 'Показывать',
-            'orderNum' => 'Порядок шагов',
+        return array_merge(
+            $this->orderBehavior->orderLabels(),
+            array(
+                'title' => 'Заголовок',
+                'text' => 'Текст',
+                'visible' => 'Показывать',
+            )
         );
     }
 
-
     public function rules()
     {
-        return array(
-            array('title, text', 'safe'),
-            array('visible', 'boolean'),
-            array('orderNum', 'numerical', 'integerOnly'=>true),
+        return array_merge(
+            $this->orderBehavior->orderRules(),
+            array(
+                array('title, text', 'safe'),
+                array('visible', 'boolean'),
+            )
         );
     }
 
@@ -66,22 +78,7 @@ class WorkLine extends CActiveRecord
 
     public function beforeSave()
     {
-        if (empty($this->orderNum)) {
-            // Автоматическое выставление orderNum
-            $sql = 'SELECT MAX(orderNum)+1 as orderNum FROM '.$this->tableName();
-            $orderNum = Yii::app()->db->createCommand($sql)->queryScalar();
-            $this->orderNum = ($orderNum === null) ? 1 : $orderNum;
-        } else {
-            // Проверяем существующий orderNum
-            $sql = 'SELECT id, count(*) as count FROM '.$this->tableName().' WHERE orderNum='.$this->orderNum;
-            $row = Yii::app()->db->createCommand($sql)->queryRow();
-            if ($row['id'] != $this->id  &&  $row['count'] > 0) {
-                // Пересортируем все записи до конца
-                $sql = 'UPDATE '.$this->tableName().' SET orderNum = orderNum+1 WHERE orderNum >= '.$this->orderNum;
-                Yii::app()->db->createCommand($sql)->execute();
-            }
-        }
-
+        $this->orderBehavior->orderBeforeSave();
         return parent::beforeSave();
     }
 }

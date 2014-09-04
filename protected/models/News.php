@@ -74,9 +74,26 @@ class News extends CActiveRecord
             array(
                 array('title, desc, shortDesc', 'safe'),
                 array('onMain, visible', 'boolean'),
-                array('createTimeTime, createTimeDate', 'safe')
+                array('createTimeTime, createTimeDate', 'safe'),
+                array('title, shortDesc, createTimeTime, createTimeDate', 'required'),
+                array('_image', 'requiredImageValidator'),
             )
         );
+    }
+
+    public function requiredImageValidator($attribute,$params)
+    {
+        $value = $this->$attribute;
+        $isEmpty = ($value===null || $value===array() || $value==='');
+
+        $value = $this->image;
+        $isEmptyImage = ($value===null || $value===array() || $value==='');
+
+        if ($isEmpty && $isEmptyImage) {
+            $message = Yii::t('yii','{attribute} cannot be blank.');
+            $params['{attribute}'] = $this->getAttributeLabel($attribute);
+            $this->addError($attribute, strtr($message,$params));
+        }
     }
 
     /*

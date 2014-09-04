@@ -26,6 +26,7 @@ return array(
         'contentBlocks',
         'articles',
         'workline',
+        'residents',
     ),
     'components' => array(
         'user' => array(
@@ -41,6 +42,7 @@ return array(
                 '/'                                 => 'mainPage/mainPage/index',
                 'uploadImage'                       => 'site/uploadImage',
                 'uploadFile'                        => 'site/uploadFile',
+                'panorams'                          => 'site/panorama',
 
                 // News
                 'news/show/<id:\d+>/'               => 'news/news/show',
@@ -61,6 +63,9 @@ return array(
                 'structure'                         => 'company/company/structure',
                 'contact-info'                      => 'company/company/contacts',
                 'about'                             => 'company/project/about',
+
+                // Residents
+                'residents'                         => 'residents/residents/index',
 
                 // Admin
                 'admin/'                            => 'system2',

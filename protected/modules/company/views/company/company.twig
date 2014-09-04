@@ -11,6 +11,10 @@
 
 
 {% block content %}
+
+{% set typeBase = typeStr[const("CompanyService", "TYPE_BASE")] %}
+{% set typeAdditional = typeStr[const("CompanyService", "TYPE_ADDITIONAL")] %}
+
 <div class='company-page'>
     <div class='col1'></div>
     <div class='col2-3'>
@@ -29,20 +33,28 @@
                     </div>
                 </div>
                 <div class='col2'>
-                    <div class='innertitle'>
-                        Базовые услуги
-                    </div>
-                    <div class='text'>
-                        В целях обеспечения Резидентов комплексом услуг, УК управляет комплексом инфраструктуры (территорий общего пользования), в том числе:
-                    </div>
+
+                    {% if type == typeBase %}
+                        <div class='innertitle'>
+                            Базовые услуги
+                        </div>
+                        <div class='text'>
+                            В целях обеспечения Резидентов комплексом услуг, УК управляет комплексом инфраструктуры (территорий общего пользования),<br/>в том числе:
+                        </div>
+                    {% else %}
+                        <div class='innertitle'>
+                            Дополнительные услуги
+                        </div>
+                        <div class='text'>
+                            По дополнительному запросу резидентов индустриального парка, управляющая компания готова указать следующие услуги:
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
             <div class='row2'>
                 <div class='col1'>
                     <ul class='menu'>
-                        {% set typeBase = typeStr[const("CompanyService", "TYPE_BASE")] %}
-                        {% set typeAdditional = typeStr[const("CompanyService", "TYPE_ADDITIONAL")] %}
-
                         {% if type == typeBase %}
                             <li class='active'>Базовые услуги</li>
                         {% else %}
@@ -79,7 +91,7 @@
                         офис 709
                     </div>
                     <div class='row3'>
-                        +7 343 263-71-71<br/>
+                        +7 343 263-71-70<br/>
                         <a href='mailto:uk@p-b-p.ru'>uk@p-b-p.ru</a>
                     </div>
                 </div>

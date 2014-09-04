@@ -31,3 +31,13 @@ h1, h2, h3, h4, h5, h6 {
 .form-horizontal .control-label {
 	width: 170px !important;
 }
+
+fieldset {
+	background:#f8f8f8;
+	border-right: 1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+fieldset > .control-group {
+	float: left;
+	width: auto;
+}

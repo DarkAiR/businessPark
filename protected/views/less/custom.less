@@ -17,7 +17,7 @@
 // Шапка, футер
 @headerH:               142px;
 @footerH:               123px;
-@footerPaddingTop:      0px;
+@footerPaddingTop:      80px;
 
 
 // Заголовок
@@ -42,11 +42,11 @@
 @colorLink:             #0074ce;
 @colorLinkHover:        #4f9a00;
 @colorLinkActive:       #ffffff;
-@colorLinkActiveBg:     #c2c2c2;
+@colorLinkActiveBg:     @colorInvertTextBg;
 @colorStudioLink:       #fa1010;
 @colorNewsLink:         #56b312;
 
-@colorMenu:             @colorLink;
+@colorMenu:             @colorLinkHover;
 @colorSubMenu:          @colorTextLight;
 
 @colorInvertTextBg:     #75b239;
@@ -98,8 +98,8 @@ a {
         color: @colorLinkActive !important;
         background-color: @colorLinkActiveBg !important;
         text-decoration: none !important;
-        padding: 4px 6px;
-        margin: -4px -6px;
+        padding: 5px 9px 4px 9px;
+        margin: -5px -9px;
     }
 }
 
@@ -224,7 +224,7 @@ a {
     min-height: @headerH;
 
     .logo-block {
-        padding: @topOffs @bigPadding 0 @bigPadding;
+        padding: @topOffs @bigPadding 0 29px;
     }
     .menu-block {
         padding: @topOffs @bigPadding 0 @bigPadding;
@@ -283,7 +283,7 @@ a {
             }
         }
     }
-    .contact {
+    .menu-block {
         padding: @topOffs 0 0 @bigPadding;
     }
 }

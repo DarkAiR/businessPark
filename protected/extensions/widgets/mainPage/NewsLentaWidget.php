@@ -29,7 +29,7 @@ class NewsLentaWidget extends ExtendedWidget
         foreach ($news as &$n)
         {
             $size = 140;
-            $text = strip_tags($n->shortDesc);
+            $text = strip_tags($n->title);
             if (mb_strlen($text, 'utf-8') > $size) {
                 $lastSpacePos = mb_strrpos(mb_substr($text, 0, $size, 'utf-8'), ' ', 'utf-8');
                 $text = mb_substr($text, 0, $lastSpacePos, 'utf-8')."…";

@@ -16,6 +16,7 @@
             top: 26px;
         }
     }
+
     .content {
         @dateHeight: 42px;
 
@@ -32,7 +33,7 @@
         }
         .title {
             .font(PF, medium);
-            .font-size(22);
+            .font-size(22, 24px);
             color: @colorTitle;
             margin-top: -4px;
             margin-bottom: 40px;
@@ -43,6 +44,10 @@
         }
         .text {
 
+        }
+        img {
+            max-width: @newsImageW;
+            height: auto !important;
         }
         p img {
             margin-bottom: 25px;

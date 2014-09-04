@@ -4,6 +4,7 @@ class AdminUsersController extends MAdminController
 {
     public $modelName = 'User';
     public $modelHumanTitle = array('пользователя', 'пользователя', 'пользователей');
+    public $allowedRoles = 'admin';
 
     /**
      * @param  User  $model

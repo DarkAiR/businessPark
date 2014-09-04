@@ -3,7 +3,8 @@
 .workline-page {
 
     .title {
-        .inner-title();
+        .inner-title;
+        padding-left: @bigPadding;
     }
 
     .col1 {
@@ -13,30 +14,64 @@
         .col(@mainCol2 + @mainCol3);
     }
 
+    .cont {
+        position: relative;
+    }
+
     .steps {
-        ul {
-            list-style-type: none;
+        @itemW: 83px;
+        @itemH: 76px;
+
+        background: @devRedBg;
+        padding: 0;
+        margin: 0;
+        padding-left: @mainCol1 - @itemW;
+
+
+        .step {
+            .font(PF, bold);
+            .font-size(18);
+
+            float: left;
+            width: @itemW;
+            height: @itemH;
             padding: 0;
             margin: 0;
-            li {
-                float: left;
-                padding: 5px;
-                border: 1px dotted #ccc;
-                &.active {
-                    background: #eee;
-                    cursor: default !important;
-                }
-                &:hover {
-                    cursor: pointer;
-                }
+            padding-left: 37px;
+            padding-top: 2.1em;
+            color: @colorLinkHover;
+
+            background: url(../../img/workline/step_bg.png) 23px 26px no-repeat;
+            
+            &.active {
+                background: url(../../img/workline/step_active_bg.png) left top no-repeat;
+                cursor: default !important;
+                color: @colorLinkActive;
             }
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .separator {
+            width: 0px;
+            height: 0px;
+            background: url(../../img/workline/step_separator.png) left top no-repeat;
         }
     }
 
     .step-pages {
+        
+        padding-top: @bigPadding;
+        padding-left: @bigPadding;
+        padding-bottom: @footerPaddingTop;
+
         .page {
             .innertitle {
-
+                .font(PF, regular);
+                .font-size(25);
+                padding: 33px 0;
             }
             .text {
 

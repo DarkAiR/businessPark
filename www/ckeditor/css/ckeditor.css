@@ -61,10 +61,10 @@ a.active {
   -webkit-border-radius: 2px;
   border-radius: 2px;
   color: #ffffff !important;
-  background-color: #c2c2c2 !important;
+  background-color: #75b239 !important;
   text-decoration: none !important;
-  padding: 4px 6px;
-  margin: -4px -6px;
+  padding: 5px 9px 4px 9px;
+  margin: -5px -9px;
 }
 /* Общий контейнер */
 .common-container {
@@ -124,7 +124,7 @@ a.active {
   min-height: 142px;
 }
 .head .logo-block {
-  padding: 41px 22px 0 22px;
+  padding: 41px 22px 0 29px;
 }
 .head .menu-block {
   padding: 41px 22px 0 22px;
@@ -176,7 +176,7 @@ a.active {
 .footer .author .text .studio {
   color: #fa1010;
 }
-.footer .contact {
+.footer .menu-block {
   padding: 32px 0 0 22px;
 }
 img {

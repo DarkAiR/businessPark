@@ -1,0 +1,59 @@
+@import (reference) '../../../views/less/custom';
+
+.residents-page {
+    .col2 > .title {
+        .inner-title;
+        padding-left: @bigPadding;
+    }
+    table td {
+        float: none !important;
+        vertical-align: top;
+    }
+    .col1 {
+        .col(@mainCol1);
+    }
+    .col2 {
+        .col(@mainCol2);
+    }
+    .col3 {
+        .col(@mainCol3);
+    }
+    .col2-3 {
+        .col(@mainCol2 + @mainCol3);
+    }
+
+    .item {
+        @titleHeight: 18px + 24px;
+        @bottomPadding: 28px;
+        @itemHeight: 195px;
+
+        .image {
+            padding-left: @bigPadding;
+            padding-top: @titleHeight;
+        }
+        .textBlock {
+            min-height: @itemHeight - @bottomPadding;
+            margin-bottom: @bottomPadding;
+
+            .title {
+                .font(PF, medium);
+                .font-size(18, 24px);
+                color: @colorTitle;
+            }
+            .text {
+                padding-top: 11px;
+            }
+            .phones {
+
+            }
+            .site {
+
+            }
+            .title, .text, .phones, .site {
+                padding-right: @bigPadding;
+                padding-left: @bigPadding;
+            }
+        }
+    }
+}
+
