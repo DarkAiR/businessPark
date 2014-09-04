@@ -125,10 +125,10 @@ class LocalConfigItem extends CActiveRecord
     {
         parent::afterFind();
 
-//        if (in_array($this->type, array(self::TYPE_FIXEDARRAY, self::TYPE_DYNAMICARRAY, self::TYPE_TWOPOWARRAY))) {
-//            $this->value = json_decode($this->value, true);
-//            $this->example = json_decode($this->example, true);
-//        }
+        if (in_array($this->type, array(self::TYPE_FIXEDARRAY, self::TYPE_DYNAMICARRAY, self::TYPE_TWOPOWARRAY))) {
+            $this->value = json_decode($this->value, true);
+            $this->example = json_decode($this->example, true);
+        }
 
         // Возвращаем именно тот тип данных, в котором хранится конфиг
         $this->checkReturnValue();
@@ -151,9 +151,9 @@ class LocalConfigItem extends CActiveRecord
 //                $this->value = (array) $this->value;
 //                break;
 
-//            case self::TYPE_DYNAMICARRAY:
-//                $this->value = (array) $this->value;
-//                break;
+            case self::TYPE_DYNAMICARRAY:
+                $this->value = (array) $this->value;
+                break;
 
             case self::TYPE_STRING:
                 $this->value = (string) $this->value;
@@ -175,10 +175,10 @@ class LocalConfigItem extends CActiveRecord
 
     protected function beforeSave()
     {
-//        if (in_array($this->type, array(self::TYPE_FIXEDARRAY, self::TYPE_DYNAMICARRAY))) {
-//            $this->value = json_encode($this->value);
-//            $this->example = json_encode($this->example);
-//        }
+        if (in_array($this->type, array(self::TYPE_FIXEDARRAY, self::TYPE_DYNAMICARRAY))) {
+            $this->value = json_encode($this->value);
+            $this->example = json_encode($this->example);
+        }
 
         // Расстановка степеней двойки в качестве ключей массива
 //        if ($this->type == self::TYPE_TWOPOWARRAY) {

@@ -50,12 +50,13 @@ class AdminLocalConfigController extends MAdminController
 //                    'example' => $model->example
 //                );
 //                break;
-//            case LocalConfigItem::TYPE_DYNAMICARRAY:
-//                $res['value'] = array(
-//                    'type'=> 'admin.components.EditArrayWidget',
-//                  'example' => $model->example
-//                );
-//                break;
+            case LocalConfigItem::TYPE_DYNAMICARRAY:
+                $res['value'] = array(
+                    'class' => 'application.components.admin.EditArrayWidget',
+                    'example' => $model->example,
+                    'label' => 'asdhjashdjka'
+                );
+                break;
 //            case LocalConfigItem::TYPE_FILE:
 //                $validateParams = localConfigValidateHelper::getParams();
 //                $res['_file'] = array(
@@ -79,6 +80,27 @@ class AdminLocalConfigController extends MAdminController
 //                break;
         }
         return $res;
+    }
+
+    public function getTableColumns()
+    {
+        $attributes = array(
+            'id',
+            'module',
+            array(
+                'name' => 'value',
+                'value' => function($data, $row) {
+                    if (is_array($data->value)) {
+                        echo implode('<br/>', $data->value);
+                    } else {
+                        echo $data->value;
+                    }
+                }
+            ),
+            'description',
+            $this->getButtonsColumn(),
+        );
+        return $attributes;
     }
 
     /**
