@@ -12,3 +12,12 @@
   color: #4f9a00;
   line-height: 1;
 }
+.main-menu-widget a.active {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #75b239 !important;
+  padding: 5px 9px 4px 9px;
+  margin: -5px -9px;
+  color: #ffffff !important;
+}
