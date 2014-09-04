@@ -81,4 +81,10 @@ class WorkLine extends CActiveRecord
         $this->orderBehavior->orderBeforeSave();
         return parent::beforeSave();
     }
+
+    public function afterFind()
+    {
+        $this->text = LocalConfigHelper::parseText($this->text);
+        return parent::afterFind();
+    }
 }
