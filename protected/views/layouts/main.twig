@@ -73,16 +73,12 @@
                     &copy; 2010-2014 Про-Бизнес-Парк<br/>
                     <a href='{{ static('CHtml', 'normalizeUrl', ['/contact-info']) }}'>Контактная информация</a>
                 </div>
-                <div class='col3 contact hmenu'>
-                    <ul>
-                        <li style='padding-right:10px'>
-                            <a href='{{ static('CHtml', 'normalizeUrl', ['/residents']) }}'>Резиденты парка</a>
-                        </li>
-                        <li style='padding-left:10px'>
-                            <a href='#'>Документы</a>
-                        </li>
-                    </ul>
+                <div class='col3'>
+                    <div class='menu-block'>
+                        {{ widget('ext.widgets.FooterMenuWidget') }}
+                    </div>
                 </div>
+
             </div>
 
         {% endblock %}

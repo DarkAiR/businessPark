@@ -1,0 +1,8 @@
+.footer-widget {
+  font-size: 11px;
+  line-height: 1;
+}
+.footer-widget li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
