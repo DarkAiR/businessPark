@@ -11,6 +11,9 @@ class ImageControllerBehavior extends CBehavior
 
     public function imageBeforeSave($model, $storagePath)
     {
+        // path to original
+        $storageOrig = $storagePath.'original/';
+
         // disable resize if 
         $isResize = (empty($this->imageWidth) && empty($this->imageHeight)) ? false : $this->resize;
 
@@ -18,7 +21,8 @@ class ImageControllerBehavior extends CBehavior
         {
             // removing file
             // set attribute to null
-            unlink( $storagePath.$model->{$this->imageField} );
+            @unlink( $storagePath.$model->{$this->imageField} );
+            @unlink( $storageOrig.$model->{$this->imageField} );
             $model->{$this->imageField} = null;
         }
 
@@ -28,21 +32,25 @@ class ImageControllerBehavior extends CBehavior
         {
             if ($model->{$this->imageField})
             {
-                unlink( $storagePath.$model->{$this->imageField} );
+                @unlink( $storagePath.$model->{$this->imageField} );
+                @unlink( $storageOrig.$model->{$this->imageField} );
                 $model->{$this->imageField} = null;
             }
+            
             // saving file from CUploadFile instance $model->{$this->innerImageField}
             if (!is_dir($storagePath))
-                mkdir($storagePath, 755);
+                mkdir($storagePath, 755, true);
+            if (!is_dir($storageOrig))
+                mkdir($storageOrig, 755, true);
 
             $imageName = basename($model->{$this->innerImageField}->name);
             $ext = strrchr($imageName, '.');
             $imageName = md5(time().$imageName).($ext?$ext:'');
 
-            $model->{$this->innerImageField}->saveAs( $storagePath.$imageName );
+            $model->{$this->innerImageField}->saveAs( $storageOrig.$imageName );
             
             if ($isResize) {
-                $image = Yii::app()->image->load($storagePath.$imageName);
+                $image = Yii::app()->image->load($storageOrig.$imageName);
                 if (empty($this->imageWidth)) {
                     // resize by height
                     $image->resize(null, $this->imageHeight);
@@ -54,7 +62,8 @@ class ImageControllerBehavior extends CBehavior
                     // normal resize
                     $image->resize($this->imageWidth, $this->imageHeight);
                 }
-                $image->save();
+                // rewrite under other name
+                $image->save($storagePath.$imageName);
             }
 
             $model->{$this->imageField} = $imageName;
