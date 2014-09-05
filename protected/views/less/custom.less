@@ -84,18 +84,18 @@ body {
 
 a {
     &, &:link, &:visited {
-        text-decoration: underline;
+        .link();
         color: @colorLink;
-        _background: url(../../img/link-underline.png) bottom repeat-x;
     }
     &:hover {
-        text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
-        _background: url(../../img/link-underline.png) bottom repeat-x;
+        .link(hover);
         color: @colorLinkHover !important;
+        __text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
     }
     &.active {
+        .link(none);
         color: @colorText !important;
-        text-decoration: none;
+        __text-decoration: none;
     }
 }
 
@@ -272,7 +272,7 @@ a {
         }
         .text {
             a {
-                text-decoration: none;
+                .link(none);
             }
             .studio {
                 color: @colorStudioLink;

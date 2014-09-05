@@ -17,13 +17,15 @@
   color: #4f9714 !important;
 }
 .about-project-widget .text {
+  font-size: 11px;
+  line-height: 14px;
   position: absolute;
   left: 0;
   bottom: 76px;
-  font-size: 11px;
-  line-height: 18px;
-  line-height: 14px;
   color: #767676;
   padding-left: 52px;
   padding-right: 52px;
+}
+.about-project-widget .text a {
+  background-position: center 15px;
 }

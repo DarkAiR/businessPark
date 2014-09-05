@@ -1,6 +1,9 @@
 .footer-widget {
   font-size: 11px;
-  line-height: 1;
+  line-height: 18px;
+}
+.footer-widget a {
+  background-position: center 15px;
 }
 .footer-widget li {
   padding-left: 10px;

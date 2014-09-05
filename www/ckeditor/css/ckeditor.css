@@ -47,18 +47,26 @@ body {
 a,
 a:link,
 a:visited {
-  text-decoration: underline;
+  text-decoration: none;
+  display: inline;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
   color: #0074ce;
-  _background: url(../../img/link-underline.png) bottom repeat-x;
 }
 a:hover {
-  text-decoration: underline !important;
-  _background: url(../../img/link-underline.png) bottom repeat-x;
+  text-decoration: none;
+  display: inline;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
   color: #4f9a00 !important;
+  __text-decoration: underline !important;
 }
 a.active {
-  color: #2b2b2b !important;
   text-decoration: none;
+  display: inline;
+  background-image: none;
+  color: #2b2b2b !important;
+  __text-decoration: none;
 }
 /* Общий контейнер */
 .common-container {
@@ -132,6 +140,9 @@ a.active {
   min-height: 123px;
   margin-top: -124px;
 }
+.footer a {
+  background-position: center 15px;
+}
 .footer .footer-inner {
   _background-color: rgba(255, 0, 255, 0.2);
   height: 100%;
@@ -166,6 +177,8 @@ a.active {
 }
 .footer .author .text a {
   text-decoration: none;
+  display: inline;
+  background-image: none;
 }
 .footer .author .text .studio {
   color: #fa1010;
