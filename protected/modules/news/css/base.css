@@ -7,6 +7,9 @@
   min-height: 90px;
   padding-left: 22px;
 }
+.news-page .col2 > .title a {
+  background-position: center 38px;
+}
 .news-page .col2 > .title grey {
   color: #767676;
 }
@@ -59,6 +62,9 @@
   color: inherit;
   text-align: right;
   height: 90px;
+}
+.news-page .filter a {
+  background-position: center 15px;
 }
 .news-page .filter .inner {
   position: absolute;

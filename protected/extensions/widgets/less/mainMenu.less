@@ -1,7 +1,7 @@
 @import (reference) '../../../views/less/custom';
 
 .main-menu-widget {
-    .font-size(16);
+    .font-size(16, 1);
     .font(PF, regular);
 
     ul {
@@ -14,7 +14,18 @@
         color: @colorMenu;
         line-height: 1;
     }
+    li a {
+        .link(title);
+    }
+    li a:hover {
+        .link(hover);
+    }
     a.active {
+        .link(none);
+        &:hover {
+            .link(none);
+        }
+        
         .border-radius(2px);
         background-color: @colorLinkActiveBg !important;
         padding: 5px 9px 4px 9px;

@@ -83,7 +83,7 @@ body {
 }
 
 a {
-    &, &:link, &:visited {
+    &, &:visited, &:link {
         .link();
         color: @colorLink;
     }
@@ -221,6 +221,9 @@ a {
 
     .logo-block {
         padding: @topOffs @bigPadding 0 29px;
+        & a {
+            .link(none);
+        }
     }
     .menu-block {
         padding: @topOffs @bigPadding 0 @bigPadding;
@@ -259,7 +262,8 @@ a {
     .author {
         padding: @topOffs 0 0 @bigPadding;
         & a {
-            color: inherit;
+            .link(none);
+            color: inherit !important;
         }
         .logo {
             display: none;
@@ -271,9 +275,6 @@ a {
             background: url(../../img/logoDev.png) left top no-repeat;
         }
         .text {
-            a {
-                .link(none);
-            }
             .studio {
                 color: @colorStudioLink;
             }

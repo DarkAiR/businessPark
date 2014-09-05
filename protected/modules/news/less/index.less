@@ -22,11 +22,14 @@
             }
             .title {
                 .font(PF, medium);
-                .font-size(18, 24px);
+                .font-size(18);
                 color: @colorTitle;
                 margin-top: -4px;
                 & * {
                     color: @colorTitle;
+                }
+                a {
+                    .link(title);
                 }
             }
             .text {

@@ -12,9 +12,15 @@
   padding-left: 22px;
   padding-top: 24px;
 }
+.title-widget a {
+  background-position: center 38px;
+}
 .title-widget grey {
   color: #767676;
 }
 .title-widget lightgrey {
   color: #b2b2b2;
+}
+.title-widget a {
+  background-position: center 38px;
 }

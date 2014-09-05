@@ -37,8 +37,14 @@
 
             .title {
                 .font(PF, medium);
-                .font-size(18, 24px);
+                .font-size(18);
                 color: @colorTitle;
+                & * {
+                    color: @colorTitle;
+                }
+                a {
+                    .link(title);
+                }
             }
             .text {
                 padding-top: 11px;

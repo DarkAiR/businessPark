@@ -4,6 +4,9 @@
   font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-bottom: 22px;
 }
+.main-menu-second-widget a {
+  background-position: center 15px;
+}
 .main-menu-second-widget li {
   padding-left: 11px;
   padding-right: 11px;
@@ -12,4 +15,28 @@
 .main-menu-second-widget li * {
   color: #8f8f8f;
   line-height: 1;
+}
+.main-menu-second-widget li a {
+  text-decoration: none;
+  display: inline;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBRA6VCtMtAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Po7+8HAANeAa4/FTM4AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  _background-position: center 0.99em;
+}
+.main-menu-second-widget li a:hover {
+  text-decoration: none;
+  display: inline;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  _background-position: center 0.99em;
+}
+.main-menu-second-widget a.active {
+  text-decoration: none;
+  display: inline;
+  background-image: none;
+}
+.main-menu-second-widget a.active:hover {
+  text-decoration: none;
+  display: inline;
+  background-image: none;
 }

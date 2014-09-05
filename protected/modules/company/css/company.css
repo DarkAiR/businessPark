@@ -10,6 +10,9 @@
   min-height: 90px;
   padding-left: 22px;
 }
+.company-page .title a {
+  background-position: center 38px;
+}
 .company-page .title grey {
   color: #767676;
 }
@@ -48,6 +51,9 @@
   color: #767676;
   padding-top: 30px;
   padding-left: 22px;
+}
+.company-page .col2 .innertitle a {
+  background-position: center 25px;
 }
 .company-page .col2 .text {
   padding-top: 16px;

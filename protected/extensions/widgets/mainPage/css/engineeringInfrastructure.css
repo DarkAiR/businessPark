@@ -21,6 +21,9 @@
   color: #4f9714;
   width: 50%;
 }
+.engineering-infrastructure-widget .item1 .title a {
+  background-position: center 25px;
+}
 .engineering-infrastructure-widget .item1 .image {
   padding-top: 18px;
 }

@@ -7,6 +7,9 @@
   height: 113px;
   padding-top: 14px;
 }
+.slogan-widget a {
+  background-position: center 15px;
+}
 .slogan-widget .text1 {
   margin-left: 22px;
 }
