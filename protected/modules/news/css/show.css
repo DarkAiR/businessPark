@@ -19,7 +19,7 @@
   padding-bottom: 30px;
 }
 .news-page .content .date {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1;
   color: #8f8f8f;
@@ -30,7 +30,7 @@
   background-position: center 15px;
 }
 .news-page .content .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 24px;
   color: #4f9714;
