@@ -1,5 +1,5 @@
 .residents-page .col2 > .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   line-height: 90px;
   color: #4f9714;
@@ -61,7 +61,7 @@
   margin-bottom: 28px;
 }
 .residents-page .item .textBlock .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #4f9714;

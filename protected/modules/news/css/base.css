@@ -1,5 +1,5 @@
 .news-page .col2 > .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   line-height: 90px;
   color: #4f9714;
@@ -56,7 +56,7 @@
   position: relative;
 }
 .news-page .filter {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 22px;
   color: inherit;

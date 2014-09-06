@@ -12,6 +12,7 @@
     <title>{% block title %}{{ this.pageTitle }}{% endblock %}</title>
 
     {% block css %}
+        {{ import('css','fonts.css') }}
         {{ import('css','bootstrap.css') }}             {# Bootstrap core CSS #}
         {{ import('css','custom.css') }}
     {% endblock %}
