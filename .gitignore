@@ -1,5 +1,8 @@
 /protected/config/params.php
-/gfx/*
+gfx/
+gfx/*
+data/
+data/*
 /www/store/*
 .htaccess
 .htpasswd
