@@ -46,3 +46,8 @@
   display: inline;
   background-image: none;
 }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .main-menu-widget a.active {
+    margin: 0px;
+  }
+}
