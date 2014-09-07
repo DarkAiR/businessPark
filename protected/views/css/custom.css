@@ -26,14 +26,14 @@ a:link {
   text-decoration: none;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  background-position: center bottom;
+  background-position: center 99%;
   color: #0074ce;
 }
 a:hover {
   text-decoration: none;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  background-position: center bottom;
+  background-position: center 99%;
   color: #4f9a00 !important;
   __text-decoration: underline !important;
 }
