@@ -48,9 +48,9 @@
   padding: 0;
   margin: 0;
   padding-left: 37px;
-  padding-top: 37px;
+  padding-top: 38px;
   color: #4f9a00;
-  background: url(../../img/workline/step_bg.png) 23px 26px no-repeat;
+  background: url(../../img/workline/step_bg.png) 23px 27px no-repeat;
 }
 .workline-page .steps .step.active {
   background: url(../../img/workline/step_active_bg.png) left top no-repeat;
