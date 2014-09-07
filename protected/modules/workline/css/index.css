@@ -7,9 +7,6 @@
   min-height: 90px;
   padding-left: 22px;
 }
-.workline-page .title a {
-  background-position: center 38px;
-}
 .workline-page .title grey {
   color: #767676;
 }
@@ -55,9 +52,6 @@
   color: #4f9a00;
   background: url(../../img/workline/step_bg.png) 23px 26px no-repeat;
 }
-.workline-page .steps .step a {
-  background-position: center 20px;
-}
 .workline-page .steps .step.active {
   background: url(../../img/workline/step_active_bg.png) left top no-repeat;
   cursor: default !important;
@@ -81,7 +75,4 @@
   font-size: 25px;
   line-height: 1;
   padding: 33px 0;
-}
-.workline-page .step-pages .page .innertitle a {
-  background-position: center 27px;
 }

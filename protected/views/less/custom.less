@@ -65,56 +65,56 @@
     font-size: 11px;
     line-height: @lh;
     a {
-        background-position: center 12px;
+        // background-position: center 12px;
     }
 }
 .font-size(12, @lh:19px) {
     font-size: 12px;
     line-height: @lh;
     a {
-        background-position: center 14px;
+        // background-position: center 14px;
     }
 }
 .font-size(14, @lh:22px) {
     font-size: 14px;
     line-height: @lh;
     a {
-        background-position: center 15px;
+        // background-position: center 15px;
     }
 }
 .font-size(16, @lh:24px) {
     font-size: 16px;
     line-height: @lh;
     a {
-        background-position: center 17px;
+        // background-position: center 17px;
     }
 }
 .font-size(18, @lh:24px) {
     font-size: 18px;
     line-height: @lh;
     a {
-        background-position: center 20px;
+        // background-position: center 20px;
     }
 }
 .font-size(22, @lh:27px) {
     font-size: 22px;
     line-height: @lh;
     a {
-        background-position: center 25px;
+        // background-position: center 25px;
     }
 }
 .font-size(25, @lh:35px) {
     font-size: 25px;
     line-height: @lh;
     a {
-        background-position: center 27px;
+        // background-position: center 27px;
     }
 }
 .font-size(34, @lh:38px) {
     font-size: 34px;
     line-height: @lh;
     a {
-        background-position: center 38px;
+        // background-position: center 38px;
     }
 }
 
@@ -139,35 +139,35 @@
 // ------------------------------------------
 // Links
 
-@linkBgPos: 0.99em;
+@linkBgPos: bottom;
 
 .link() {
     text-decoration: none;
-    display: inline;
+    // display: inline;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
-    _background-position: center @linkBgPos;
+    background-position: center @linkBgPos;
 }
 .link(hover) {
     text-decoration: none;
-    display: inline;
+    // display: inline;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
-    _background-position: center @linkBgPos;
+    background-position: center @linkBgPos;
 }
 .link(submenu) {
     text-decoration: none;
-    display: inline;
+    // display: inline;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBRA6VCtMtAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Po7+8HAANeAa4/FTM4AAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
-    _background-position: center @linkBgPos;
+    background-position: center @linkBgPos;
 }
 .link(title) {
     .link(hover);
 }
 .link(none) {
     text-decoration: none;
-    display: inline;
+    // display: inline;
     background-image: none;
 }
 

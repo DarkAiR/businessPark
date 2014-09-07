@@ -34,9 +34,8 @@
 .news-lenta-widget .items .item1 a,
 .news-lenta-widget .items .item2 a {
   text-decoration: none;
-  display: inline;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  _background-position: center 0.99em;
+  background-position: center bottom;
   color: #56b312;
 }

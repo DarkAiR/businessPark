@@ -10,9 +10,6 @@
   min-height: 90px;
   padding-left: 57px;
 }
-.structure-page > .title a {
-  background-position: center 38px;
-}
 .structure-page > .title grey {
   color: #767676;
 }
@@ -33,9 +30,6 @@
   color: #2b2b2b;
   height: 410px;
 }
-.structure-page .electro-block a {
-  background-position: center 14px;
-}
 .structure-page .electro-block .icon {
   width: 24px;
   height: 24px;
@@ -52,9 +46,6 @@
   float: left;
   color: #4f9714;
   padding-left: 11px;
-}
-.structure-page .electro-block > .title a {
-  background-position: center 27px;
 }
 .structure-page .electro-block > .title grey {
   color: #767676;
@@ -102,9 +93,6 @@
   color: #2b2b2b;
   height: 417px;
 }
-.structure-page .gas-block a {
-  background-position: center 14px;
-}
 .structure-page .gas-block .icon {
   width: 24px;
   height: 24px;
@@ -121,9 +109,6 @@
   float: left;
   color: #4f9714;
   padding-left: 11px;
-}
-.structure-page .gas-block > .title a {
-  background-position: center 27px;
 }
 .structure-page .gas-block > .title grey {
   color: #767676;
@@ -167,9 +152,6 @@
   width: 230px;
   text-align: center;
 }
-.structure-page .gas-block .text2 a {
-  background-position: center 20px;
-}
 .structure-page .gas-block .text3 {
   position: absolute;
   left: 620px;
@@ -187,9 +169,6 @@
   width: 282px;
   text-align: center;
 }
-.structure-page .gas-block .text4 a {
-  background-position: center 20px;
-}
 .structure-page .water-in-block {
   _outline: 1px dotted #333;
   font-size: 12px;
@@ -198,9 +177,6 @@
   position: relative;
   color: #2b2b2b;
   height: 616px;
-}
-.structure-page .water-in-block a {
-  background-position: center 14px;
 }
 .structure-page .water-in-block .icon {
   width: 24px;
@@ -218,9 +194,6 @@
   float: left;
   color: #4f9714;
   padding-left: 11px;
-}
-.structure-page .water-in-block > .title a {
-  background-position: center 27px;
 }
 .structure-page .water-in-block > .title grey {
   color: #767676;
@@ -264,9 +237,6 @@
   width: 230px;
   text-align: center;
 }
-.structure-page .water-in-block .text2 a {
-  background-position: center 20px;
-}
 .structure-page .water-in-block .text3 {
   position: absolute;
   left: 631px;
@@ -284,9 +254,6 @@
   width: 260px;
   text-align: center;
 }
-.structure-page .water-in-block .text4 a {
-  background-position: center 20px;
-}
 .structure-page .water-in-block .text5 {
   position: absolute;
   left: 600px;
@@ -302,9 +269,6 @@
   position: relative;
   color: #2b2b2b;
   height: 519px;
-}
-.structure-page .water-out-block a {
-  background-position: center 14px;
 }
 .structure-page .water-out-block .icon {
   width: 24px;
@@ -322,9 +286,6 @@
   float: left;
   color: #4f9714;
   padding-left: 11px;
-}
-.structure-page .water-out-block > .title a {
-  background-position: center 27px;
 }
 .structure-page .water-out-block > .title grey {
   color: #767676;
@@ -368,9 +329,6 @@
   width: 250px;
   text-align: center;
 }
-.structure-page .water-out-block .text2 a {
-  background-position: center 20px;
-}
 .structure-page .rain-out-block {
   _outline: 1px dotted #333;
   font-size: 12px;
@@ -379,9 +337,6 @@
   position: relative;
   color: #2b2b2b;
   height: 558px;
-}
-.structure-page .rain-out-block a {
-  background-position: center 14px;
 }
 .structure-page .rain-out-block .icon {
   width: 24px;
@@ -399,9 +354,6 @@
   float: left;
   color: #4f9714;
   padding-left: 11px;
-}
-.structure-page .rain-out-block > .title a {
-  background-position: center 27px;
 }
 .structure-page .rain-out-block > .title grey {
   color: #767676;

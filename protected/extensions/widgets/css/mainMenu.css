@@ -3,9 +3,6 @@
   line-height: 1;
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.main-menu-widget a {
-  background-position: center 17px;
-}
 .main-menu-widget li {
   padding-left: 11px;
   padding-right: 11px;
@@ -17,21 +14,18 @@
 }
 .main-menu-widget li a {
   text-decoration: none;
-  display: inline;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  _background-position: center 0.99em;
+  background-position: center bottom;
 }
 .main-menu-widget li a:hover {
   text-decoration: none;
-  display: inline;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  _background-position: center 0.99em;
+  background-position: center bottom;
 }
 .main-menu-widget a.active {
   text-decoration: none;
-  display: inline;
   background-image: none;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -43,11 +37,5 @@
 }
 .main-menu-widget a.active:hover {
   text-decoration: none;
-  display: inline;
   background-image: none;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .main-menu-widget a.active {
-    margin: 0px;
-  }
 }
