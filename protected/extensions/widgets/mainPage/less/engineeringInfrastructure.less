@@ -2,7 +2,8 @@
 
 .engineering-infrastructure-widget {
     width: 100%;
-    height: 316px;
+    height: 316px - 100px;
+    padding-top: @bigPadding * 2;
 
     .item1, .item2 {
         padding: @middlePadding @bigPadding*2 @middlePadding @bigPadding;
@@ -19,6 +20,7 @@
         }
         .image {
             padding-top: 18px;
+            display: none;
         }
         .text {
             padding-top: 18px;
@@ -28,8 +30,15 @@
     .item2 {
         .col(@mainCol3);
 
+        .title {
+            .font(PF, regular);
+            .font-size(22);
+            color: @colorTitle;
+            width: 50%;
+        }
         .image {
             padding-top: 52px;
+            display: none;
         }
         .text {
             padding-top: 28px;

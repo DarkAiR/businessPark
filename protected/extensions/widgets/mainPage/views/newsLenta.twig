@@ -1,28 +1,39 @@
 {{ import('css','newsLenta.css','ext.widgets.mainPage.css') }}
 
-<script type="text/javascript">
-    $(document).ready( function()
-    {
-        $('.news-lenta-item').click( function()
-        {
-            window.location.href = $(this).attr('href');
-        });
-    });
-</script>
+{% set imageW = const('News', 'IMAGE_SMALL_W') %}
 
 <div class='news-lenta-widget'>
-    <div class='link'><a href='{{ static('CHtml', 'normalizeUrl', ['/news']) }}'>Смотреть все новости</a></div>
 
-    <div class='items'>
-        <div class='item1'>
-            <div class='text'>
-                <a href='{{ news[0].link }}'>{{ news[0].text|raw }}</a>
-            </div>
-        </div>
-        <div class='item2'>
-            <div class='text'>
-                <a href='{{ news[1].link }}'>{{ news[1].text|raw }}</a>
-            </div>
+    <div class='col2-3'>
+        <div class='title'>
+            Новости
         </div>
     </div>
+
+    <table border=0 cellpadding="0" cellspacing="0">
+    <tr>
+        <td class='col2-3'>
+        
+            <table border=0 cellpadding="0" cellspacing="0">
+                {% for item in news %}
+                <tr class='item'>
+                    <td class='image'>
+                        <img src='{{ item.getImageUrl() }}' style='width:{{imageW}}px'>
+                    </td>
+                    <td>
+                        <div class='textBlock'>
+                            <div class='date'>{{ static('DateHelper', 'formatNewsDate', [item.createTime]) }}</div>
+                            <div class='title'><a href='{{ item.getNewsLink() }}'>{{ item.title|raw }}</a></div>
+                            <div class='text'>{{ item.shortDesc|raw }}</div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </td>
+    </tr>
+    </table>
+
 </div>
