@@ -23,13 +23,13 @@
   background-position: center 99%;
   color: #767676 !important;
 }
-.news-lenta-widget .item {
-  min-height: 97px;
-  height: 97px;
-  margin-bottom: 28px;
+.news-lenta-widget .item td {
+  vertical-align: top;
+  padding-top: 28px;
+  min-height: 125px;
+  height: 125px;
 }
 .news-lenta-widget .item .image {
-  vertical-align: top;
   padding-left: 22px;
   padding-top: 42px;
 }

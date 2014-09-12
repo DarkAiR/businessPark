@@ -26,12 +26,13 @@
         @bottomPadding: 28px;
         @itemHeight: 125px;
 
-        min-height: @itemHeight - @bottomPadding;
-        height: @itemHeight - @bottomPadding;
-        margin-bottom: @bottomPadding;
-
-        .image {
+        td {
             vertical-align: top;
+            padding-top: @bottomPadding;
+            min-height: @itemHeight;
+            height: @itemHeight;
+        }
+        .image {
             padding-left: @bigPadding;
             padding-top: @dateHeight;
         }

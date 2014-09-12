@@ -54,9 +54,6 @@
     $(document).ready( function() {
         var onClick = function() {
             var id = $(this).attr('data-id');
-
-console.log(id);
-
             $('[id^="js-pan-"]').hide();
             $('#js-pan-'+id).show();
         };
