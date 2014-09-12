@@ -4,16 +4,17 @@
     .item {
         @dateHeight: 42px;
         @bottomPadding: 28px;
-        @itemHeight: 125px;
+        @itemHeight: 195px;
+
+        min-height: @itemHeight - @bottomPadding;
+        height: @itemHeight - @bottomPadding;
+        margin-bottom: @bottomPadding;
 
         .image {
             padding-left: @bigPadding;
             padding-top: @dateHeight;
         }
         .textBlock {
-            min-height: @itemHeight - @bottomPadding;
-            margin-bottom: @bottomPadding;
-
             .date {
                 .font(PF, regular);
                 color: @colorTextLight;

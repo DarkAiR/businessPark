@@ -10,19 +10,18 @@
   min-height: 1px;
 }
 .news-lenta-widget .col2-3 > .title {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 34px;
-  line-height: 90px;
-  color: #4f9714;
-  height: 90px;
-  min-height: 90px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 27px;
+  color: #767676;
   padding-left: 174px;
 }
-.news-lenta-widget .col2-3 > .title grey {
-  color: #767676;
-}
-.news-lenta-widget .col2-3 > .title lightgrey {
-  color: #b2b2b2;
+.news-lenta-widget .col2-3 > .title a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #767676 !important;
 }
 .news-lenta-widget .item .image {
   vertical-align: top;

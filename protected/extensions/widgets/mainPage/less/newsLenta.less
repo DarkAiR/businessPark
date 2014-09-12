@@ -9,8 +9,15 @@
         .col(@mainCol2 + @mainCol3);
         
         & > .title {
-            .inner-title;
+            .font(PF, regular);
+            .font-size(22);
+            color: @colorTitleGrey;
             padding-left: (@bigPadding + @imageW) + @bigPadding;
+
+            & a {
+                .link(title);
+                color: @colorTitleGrey !important;
+            }
         }
     }
 

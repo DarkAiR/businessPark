@@ -1,10 +1,11 @@
+.news-page .item {
+  min-height: 167px;
+  height: 167px;
+  margin-bottom: 28px;
+}
 .news-page .item .image {
   padding-left: 22px;
   padding-top: 42px;
-}
-.news-page .item .textBlock {
-  min-height: 97px;
-  margin-bottom: 28px;
 }
 .news-page .item .textBlock .date {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
