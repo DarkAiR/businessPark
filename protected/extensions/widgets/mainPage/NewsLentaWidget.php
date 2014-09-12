@@ -24,6 +24,7 @@ class NewsLentaWidget extends ExtendedWidget
             ->onSite()
             ->onMain()
             ->orderDefault()
+            ->byLimit(4)
             ->findAll();
         return $news;
 
