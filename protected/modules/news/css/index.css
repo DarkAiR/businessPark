@@ -3,7 +3,7 @@
   padding-top: 42px;
 }
 .news-page .item .textBlock {
-  min-height: 167px;
+  min-height: 97px;
   margin-bottom: 28px;
 }
 .news-page .item .textBlock .date {
@@ -19,18 +19,14 @@
   color: #4f9714;
   margin-top: -4px;
 }
-.news-page .item .textBlock .title a {
-  background-position: center 20px;
-}
 .news-page .item .textBlock .title * {
   color: #4f9714;
 }
 .news-page .item .textBlock .title a {
   text-decoration: none;
-  display: inline;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  _background-position: center 0.99em;
+  background-position: center 99%;
 }
 .news-page .item .textBlock .text {
   padding-top: 11px;
