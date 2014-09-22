@@ -59,8 +59,10 @@ class ImageBehavior extends CActiveRecordBehavior
 
     public function imageAfterDelete()
     {
-        if ($this->owner->{$this->imageField})
-            unlink( $this->getStorePath().$this->owner->{$this->imageField} );
+        if ($this->owner->{$this->imageField}) {
+            @unlink( $this->getStorePath().$this->owner->{$this->imageField} );
+            @unlink( $this->getStorePath().'original/'.$this->owner->{$this->imageField} );
+        }
     }
 
     public function imageAfterFind()
