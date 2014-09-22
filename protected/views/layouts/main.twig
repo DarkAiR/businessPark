@@ -6,12 +6,14 @@
     <meta name="author" content="">
     <!--meta content='True' name='HandheldFriendly'-->
     <!--meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, target-densitydpi=device-dpi"/-->
-    <!--meta content="Dynamic" name="document-state">
-    <meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport"-->
+    <!--meta content="Dynamic" name="document-state"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <title>{% block title %}{{ this.pageTitle }}{% endblock %}</title>
 
     {% block css %}
+        {{ import('css','fonts.css') }}
         {{ import('css','bootstrap.css') }}             {# Bootstrap core CSS #}
         {{ import('css','custom.css') }}
     {% endblock %}

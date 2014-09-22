@@ -1,5 +1,5 @@
 .residents-page .col2 > .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   line-height: 90px;
   color: #4f9714;
@@ -49,27 +49,55 @@
   height: inherit;
   min-height: 1px;
 }
-.residents-page .item .image {
+.residents-page .vmenu li {
+  padding-bottom: 18px;
   padding-left: 22px;
-  padding-top: 42px;
 }
-.residents-page .item .textBlock {
-  min-height: 167px;
-  margin-bottom: 28px;
+.residents-page .item {
+  border-bottom: 1px solid #b2b2b2;
 }
-.residents-page .item .textBlock .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+.residents-page .item .image {
+  padding: 44px 0 22px 22px;
+  text-align: center;
+}
+.residents-page .item .name {
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
-  color: #4f9714;
+  padding: 44px 0 22px 0;
+  text-align: center;
+}
+.residents-page .item .name * {
+  color: inherit;
+}
+.residents-page .item .name a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+}
+.residents-page .item .textBlock {
+  margin-bottom: 22px;
 }
 .residents-page .item .textBlock .text {
+  padding-top: 22px;
+}
+.residents-page .item .textBlock .phones {
+  padding-top: 22px;
+}
+.residents-page .item .textBlock .site {
   padding-top: 11px;
 }
-.residents-page .item .textBlock .title,
 .residents-page .item .textBlock .text,
 .residents-page .item .textBlock .phones,
 .residents-page .item .textBlock .site {
   padding-right: 22px;
   padding-left: 22px;
+}
+.residents-page .item.first .image,
+.residents-page .item.first .name {
+  padding-top: 0;
+}
+.residents-page .item.last {
+  border-bottom: none;
 }

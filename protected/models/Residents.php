@@ -5,8 +5,8 @@
  */
 class Residents extends CActiveRecord
 {
-    const IMAGE_SMALL_W = 130;
-    const IMAGE_SMALL_H = 87;
+//    const IMAGE_SMALL_W = 130;
+//    const IMAGE_SMALL_H = 87;
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
@@ -26,7 +26,7 @@ class Residents extends CActiveRecord
 //                'imageWidth' => self::IMAGE_SMALL_W,
 //                'imageHeight' => self::IMAGE_SMALL_H,
                 'imageField' => 'image',
-                'imageExt' => 'png'
+                'imageExt' => 'jpg, png'
             ),
             'orderBehavior' => array(
                 'class' => 'application.behaviors.OrderBehavior',
@@ -46,7 +46,7 @@ class Residents extends CActiveRecord
             $this->imageBehavior->imageLabels(),
             $this->orderBehavior->orderLabels(),
             array(
-                'name'          => 'Название',
+                'name'          => 'Имя резидента',
                 'desc'          => 'Описание',
                 'site'          => 'Сайт',
                 'phones'        => 'Телефоны',
@@ -64,7 +64,7 @@ class Residents extends CActiveRecord
                 array('name, desc, phones', 'safe'),
                 array('name', 'required'),
                 array('visible', 'boolean'),
-                array('site', 'url'),
+                array('site', 'url', 'pattern'=>'/^({schemes}:\/\/)?(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)/i'),
             )
         );
     }

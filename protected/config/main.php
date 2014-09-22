@@ -109,6 +109,8 @@ return array(
             'filters' => array(
                 'unset' => 'TwigFunctions::filterUnset',
                 'date' => 'TwigFunctions::filterDate',
+                'translit' => 'TwigFunctions::filterTranslit',
+                'externalLink' => 'TwigFunctions::filterExternalLink',
             ),
         ),
         'bootstrap' => array(

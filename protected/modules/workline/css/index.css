@@ -1,5 +1,5 @@
 .workline-page .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   line-height: 90px;
   color: #4f9714;
@@ -39,7 +39,7 @@
   padding-left: 142px;
 }
 .workline-page .steps .step {
-  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1;
   float: left;
@@ -48,9 +48,9 @@
   padding: 0;
   margin: 0;
   padding-left: 37px;
-  padding-top: 2.1em;
+  padding-top: 38px;
   color: #4f9a00;
-  background: url(../../img/workline/step_bg.png) 23px 26px no-repeat;
+  background: url(../../img/workline/step_bg.png) 23px 27px no-repeat;
 }
 .workline-page .steps .step.active {
   background: url(../../img/workline/step_active_bg.png) left top no-repeat;
@@ -71,7 +71,7 @@
   padding-bottom: 80px;
 }
 .workline-page .step-pages .page .innertitle {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
   padding: 33px 0;

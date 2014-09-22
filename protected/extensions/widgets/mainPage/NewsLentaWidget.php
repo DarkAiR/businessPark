@@ -20,6 +20,16 @@ class NewsLentaWidget extends ExtendedWidget
      */
     private function getNews()
     {
+        $news = News::model()
+            ->onSite()
+            ->onMain()
+            ->orderDefault()
+            ->byLimit(4)
+            ->findAll();
+        return $news;
+
+
+
         $arr = array();
         $news = News::model()
             ->onSite()

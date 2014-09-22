@@ -1,7 +1,7 @@
 .main-menu-widget {
   font-size: 16px;
   line-height: 1;
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .main-menu-widget li {
   padding-left: 11px;
@@ -12,12 +12,31 @@
   color: #4f9a00;
   line-height: 1;
 }
+.main-menu-widget li a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+}
+.main-menu-widget li a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+}
 .main-menu-widget a.active {
+  text-decoration: none;
+  background-image: none;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   background-color: #75b239 !important;
+  display: inline-block;
   padding: 5px 9px 4px 9px;
   margin: -5px -9px;
   color: #ffffff !important;
+}
+.main-menu-widget a.active:hover {
+  text-decoration: none;
+  background-image: none;
 }

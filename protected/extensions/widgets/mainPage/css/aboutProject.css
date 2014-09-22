@@ -6,7 +6,7 @@
   padding: 22px;
 }
 .about-project-widget .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1;
   color: #767676;
@@ -14,15 +14,18 @@
   padding-left: 36px;
 }
 .about-project-widget .title a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
   color: #4f9714 !important;
 }
 .about-project-widget .text {
+  font-size: 11px;
+  line-height: 14px;
   position: absolute;
   left: 0;
   bottom: 76px;
-  font-size: 11px;
-  line-height: 18px;
-  line-height: 14px;
   color: #767676;
   padding-left: 52px;
   padding-right: 52px;

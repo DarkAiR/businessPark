@@ -117,7 +117,7 @@ class News extends CActiveRecord
                 'condition' => $alias.'.onMain = 1',
             ),
             'orderDefault' => array(
-                'order' => $alias.'.orderNum ASC',
+                'order' => $alias.'.createTime DESC',
             ),
         );
     }

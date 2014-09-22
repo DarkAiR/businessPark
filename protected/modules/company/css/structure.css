@@ -2,7 +2,7 @@
   min-height: 1px;
 }
 .structure-page > .title {
-  font-family: "PF DinDisplay Pro Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
   line-height: 90px;
   color: #4f9714;
@@ -40,7 +40,7 @@
   margin-top: -2px;
 }
 .structure-page .electro-block > .title {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
   float: left;
@@ -103,7 +103,7 @@
   margin-top: -2px;
 }
 .structure-page .gas-block > .title {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
   float: left;
@@ -143,9 +143,9 @@
   text-align: center;
 }
 .structure-page .gas-block .text2 {
-  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 1;
+  line-height: 24px;
   position: absolute;
   left: 310px;
   top: 161px;
@@ -160,9 +160,9 @@
   text-align: center;
 }
 .structure-page .gas-block .text4 {
-  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 1;
+  line-height: 24px;
   position: absolute;
   left: 620px;
   top: 127px;
@@ -188,7 +188,7 @@
   margin-top: -2px;
 }
 .structure-page .water-in-block > .title {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
   float: left;
@@ -228,9 +228,9 @@
   text-align: center;
 }
 .structure-page .water-in-block .text2 {
-  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 1;
+  line-height: 24px;
   position: absolute;
   left: 311px;
   top: 162px;
@@ -245,9 +245,9 @@
   text-align: center;
 }
 .structure-page .water-in-block .text4 {
-  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 1;
+  line-height: 24px;
   position: absolute;
   left: 634px;
   top: 194px;
@@ -280,7 +280,7 @@
   margin-top: -2px;
 }
 .structure-page .water-out-block > .title {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
   float: left;
@@ -320,9 +320,9 @@
   text-align: center;
 }
 .structure-page .water-out-block .text2 {
-  font-family: "PF DinDisplay Pro Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  line-height: 1;
+  line-height: 24px;
   position: absolute;
   left: 637px;
   top: 205px;
@@ -348,7 +348,7 @@
   margin-top: -2px;
 }
 .structure-page .rain-out-block > .title {
-  font-family: "PF DinDisplay Pro Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
   float: left;

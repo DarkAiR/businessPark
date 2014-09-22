@@ -57,8 +57,120 @@
 
 
 
+// -------------------------------
+// Fonts
 
-@import 'fonts';
+// Sizes
+.font-size(11, @lh:18px) {
+    font-size: 11px;
+    line-height: @lh;
+    a {
+        // background-position: center 12px;
+    }
+}
+.font-size(12, @lh:19px) {
+    font-size: 12px;
+    line-height: @lh;
+    a {
+        // background-position: center 14px;
+    }
+}
+.font-size(14, @lh:22px) {
+    font-size: 14px;
+    line-height: @lh;
+    a {
+        // background-position: center 15px;
+    }
+}
+.font-size(16, @lh:24px) {
+    font-size: 16px;
+    line-height: @lh;
+    a {
+        // background-position: center 17px;
+    }
+}
+.font-size(18, @lh:24px) {
+    font-size: 18px;
+    line-height: @lh;
+    a {
+        // background-position: center 20px;
+    }
+}
+.font-size(22, @lh:27px) {
+    font-size: 22px;
+    line-height: @lh;
+    a {
+        // background-position: center 25px;
+    }
+}
+.font-size(25, @lh:35px) {
+    font-size: 25px;
+    line-height: @lh;
+    a {
+        // background-position: center 27px;
+    }
+}
+.font-size(34, @lh:38px) {
+    font-size: 34px;
+    line-height: @lh;
+    a {
+        // background-position: center 38px;
+    }
+}
+
+// Family
+.font(PF, regular) {
+    font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.font(PF, medium) {
+    font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.font(PF, bold) {
+    font-family: "pf_dindisplay_probold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.font(Verdana) {
+    font-family: "verdanaregular", Helvetica, Arial, sans-serif;
+}
+
+
+// ------------------------------------------
+// Links
+
+@linkBgPos: 99%;
+
+.link() {
+    text-decoration: none;
+    // display: inline;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: center @linkBgPos;
+}
+.link(hover) {
+    text-decoration: none;
+    // display: inline;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: center @linkBgPos;
+}
+.link(submenu) {
+    text-decoration: none;
+    // display: inline;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBRA6VCtMtAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Po7+8HAANeAa4/FTM4AAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: center @linkBgPos;
+}
+.link(title) {
+    .link(hover);
+}
+.link(none) {
+    text-decoration: none;
+    // display: inline;
+    background-image: none;
+}
+
+
+
+// ------------------------------------------------------
 
 /* Главная разметка */
 html,
@@ -83,20 +195,25 @@ body {
 }
 
 a {
-    &, &:link, &:visited {
-        text-decoration: underline;
+    &, &:visited, &:link {
+        .link();
         color: @colorLink;
-        _background: url(../../img/link-underline.png) bottom repeat-x;
     }
     &:hover {
-        text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
-        _background: url(../../img/link-underline.png) bottom repeat-x;
+        .link(hover);
         color: @colorLinkHover !important;
+        __text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
     }
     &.active {
+        .link(none);
         color: @colorText !important;
-        text-decoration: none;
+        __text-decoration: none;
     }
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Общий контейнер */
@@ -221,6 +338,9 @@ a {
 
     .logo-block {
         padding: @topOffs @bigPadding 0 29px;
+        & a {
+            .link(none);
+        }
     }
     .menu-block {
         padding: @topOffs @bigPadding 0 @bigPadding;
@@ -259,7 +379,8 @@ a {
     .author {
         padding: @topOffs 0 0 @bigPadding;
         & a {
-            color: inherit;
+            .link(none);
+            color: inherit !important;
         }
         .logo {
             display: none;
@@ -271,9 +392,6 @@ a {
             background: url(../../img/logoDev.png) left top no-repeat;
         }
         .text {
-            a {
-                text-decoration: none;
-            }
             .studio {
                 color: @colorStudioLink;
             }

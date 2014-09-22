@@ -16,7 +16,7 @@ class NewsController extends Controller
         if ($year === null)
             $year = $lastYear;
 
-        $news = News::model()->onSite()->byYear($year)->findAll();
+        $news = News::model()->onSite()->byYear($year)->orderDefault()->findAll();
         if (!$news)
             $news = array();
 

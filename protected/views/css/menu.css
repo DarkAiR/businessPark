@@ -9,10 +9,6 @@
   float: left;
   list-style-type: none;
 }
-.hmenu li a {
-  __text-transform: uppercase;
-  display: inline-block;
-}
 .hmenu li.first {
   padding-left: 0px;
 }
@@ -28,4 +24,10 @@
 }
 .vmenu li {
   list-style-type: none;
+}
+.vmenu li.first {
+  padding-top: 0px;
+}
+.vmenu li.last {
+  padding-bottom: 0px;
 }
