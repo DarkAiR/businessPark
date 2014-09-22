@@ -314,6 +314,14 @@ p {
     border-bottom-left-radius:          @bottomleft;
 }
 
+// Разделитель
+.separate-line() {
+    border-top: #99b985 1px dotted;
+    height: 1px;
+    min-height: 1px;
+    max-height: 1px;
+}
+
 .head,
 .footer {
     .col1 {
@@ -365,11 +373,8 @@ p {
         padding-bottom: 13px;
     }
     .separate-line {
-        border-top: #99b985 1px dotted;
+        .separate-line();
         width: @mainCol2 + @mainCol3 - @bigPadding * 2;
-        height: 1px;
-        min-height: 1px;
-        max-height: 1px;
         margin-left: @mainCol1 + @bigPadding;
     }
 

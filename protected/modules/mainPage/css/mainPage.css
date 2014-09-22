@@ -42,13 +42,25 @@
 }
 .main-page .col1-block1 {
   position: absolute;
-  top: 100px;
+  top: 18px;
   left: 0;
 }
 .main-page .col1-block2 {
   position: absolute;
   top: 570px;
   left: 0;
+}
+.main-page .col1-block3 {
+  position: absolute;
+  top: 180px;
+  left: 500px;
+}
+.main-page .separator {
+  border-top: #99b985 1px dotted;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  width: 100%;
 }
 /* Задник */
 .bg-container {
@@ -64,7 +76,7 @@
   position: absolute;
   top: 305px;
   left: 50%;
-  margin-left: -498.49999999px;
-  background: url(../../img/mainBg.png) left top no-repeat;
+  margin-left: -498.5px;
+  background: url(../../img/mainBg.jpg) left top no-repeat;
   z-index: -1;
 }

@@ -26,12 +26,14 @@
 <div class='main-page'>
     <div class='col1  cont'>
         <div class='col1-block1'>
-            {# { widget('ext.widgets.mainPage.SquareWidget') } #}
-            {{ widget('ext.widgets.mainPage.PanoramaWidget') }}
+            {{ widget('ext.widgets.mainPage.SquareWidget') }}
         </div>
         <div class='col1-block2'>
-        {{ widget('ext.widgets.mainPage.ServicesWidget') }}
-            {{ widget('ext.widgets.mainPage.WorkLineWidget') }}
+            {# { widget('ext.widgets.mainPage.ServicesWidget') } #}
+            {# { widget('ext.widgets.mainPage.WorkLineWidget') } #}
+        </div>
+        <div class='col1-block3'>
+            {{ widget('ext.widgets.mainPage.PanoramaWidget') }}
         </div>
     </div>
     <div class='col2-3'>
@@ -44,10 +46,16 @@
             <div class='clearfix'></div>
             #}
             {{ widget('ext.widgets.mainPage.AboutProjectWidget') }}
+            <div class='separator'></div>
         </div>
+
         <div class='clearfix'></div>
+
         {{ widget('ext.widgets.mainPage.EngineeringInfrastructureWidget') }}
+
         <div class='clearfix'></div>
+        <div class='separator'></div>
+
         {{ widget('ext.widgets.mainPage.NewsLentaWidget') }}
     </div>
     <div class='clearfix'></div>

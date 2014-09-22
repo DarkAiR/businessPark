@@ -1,5 +1,6 @@
 .news-lenta-widget {
   width: 100%;
+  padding-top: 44px;
 }
 .news-lenta-widget .col2-3 {
   _outline: 1px dotted #808080;

@@ -131,10 +131,10 @@ p {
 }
 .footer .separate-line {
   border-top: #99b985 1px dotted;
-  width: 697px;
   height: 1px;
   min-height: 1px;
   max-height: 1px;
+  width: 697px;
   margin-left: 247px;
 }
 .footer .copyright {
