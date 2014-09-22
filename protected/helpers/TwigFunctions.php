@@ -102,7 +102,7 @@ class TwigFunctions
         return date($format, $ts);
     }
 
-    function filterTranslit($st)
+    public static function filterTranslit($st)
     {
         // Сначала заменяем "односимвольные" фонемы.
         $st = strtr($st,"абвгдеёзийклмнопрстуфхъыэ ", "abvgdeeziyklmnoprstufh'ie_");
@@ -117,5 +117,12 @@ class TwigFunctions
             "ї"=>"i", "Ї"=>"Yi", "є"=>"ie", "Є"=>"Ye"
         ));
         return $st;
+    }
+
+    public static function filterExternalLink($url)
+    {
+        if (strpos($url, 'http')===0)
+            return $url;
+        return 'http://'.$url;
     }
 }
