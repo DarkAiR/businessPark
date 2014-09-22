@@ -2,6 +2,7 @@
 
 {% block css %}
     {{ parent() }}
+    {{ import('css','menu.css') }}
     {{ import('css','index.css', 'application.modules.residents.css') }}
 {% endblock %}
 
@@ -15,7 +16,7 @@
     </div>
     <div class='col2'>
         <div class='title'>
-            Резиденты парка
+            Резиденты <lightgrey>парка</lightgrey>
         </div>
     </div>
     <div class='col3'>
@@ -23,26 +24,45 @@
 
     <table border=0 cellpadding="0" cellspacing="0">
     <tr>
-        <td class='col1'>
+        <td class='col1  vmenu'>
+            <ul>
+                {% for item in residents %}
+                    {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
+                    <li class='{{posClass}}'>
+                        <a class='' href='{{ '#resident'~loop.index }}'>
+                            {{ item.name|raw }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </td>
         <td class='col2-3'>
 
             {% set imageW = const('Residents', 'IMAGE_SMALL_W') %}
             <table border=0 cellpadding="0" cellspacing="0">
                 {% for item in residents %}
-                <tr class='item'>
-                    <td class='image'>
-                        <img src='{{ item.getImageUrl() }}' style='width:{{imageW}}px'>
-                    </td>
-                    <td>
-                        <div class='textBlock'>
-                            <div class='title'>{{ item.name }}</div>
-                            <div class='text'>{{ item.desc|raw }}</div>
-                            {% if item.phones %}<div class='phones'>Телефоны: {{ item.phones }}</div>{% endif %}
-                            {% if item.site %}<div class='site'>Сайт: <a href='{{ item.site }}' target="_blank">{{ item.site }}</a></div>{% endif %}
-                        </div>
-                    </td>
-                </tr>
+                    {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
+                    {% set url = item.getImageUrl() %}
+
+                    <tr class='item {{posClass}}'>
+                        <td>
+                            <a name="resident{{loop.index}}"></a>
+                            {% if url %}
+                                <div class='image'>
+                                    <img src='{{ item.getImageUrl() }}' style='width:{{imageW}}px' alt='{{ item.name }}'>
+                                </div>
+                            {% else %}
+                                <div class='name'>
+                                    {{ item.name }}
+                                </div>
+                            {% endif %}
+                            <div class='textBlock'>
+                                <div class='text'>{{ item.desc|raw }}</div>
+                                {% if item.phones %}<div class='phones'>Телефоны: {{ item.phones }}</div>{% endif %}
+                                {% if item.site %}<div class='site'>Сайт: <a href='{{ item.site }}' target="_blank">{{ item.site }}</a></div>{% endif %}
+                            </div>
+                        </td>
+                    </tr>
                 {% endfor %}
 
             </table>

@@ -13,7 +13,7 @@ class AdminResidentsController extends MAdminController
             'imageBehavior' => array(
                 'class' => 'application.behaviors.ImageControllerBehavior',
                 'imageField' => 'image',
-                'imageWidth' => Residents::IMAGE_SMALL_W,
+                //'imageWidth' => Residents::IMAGE_SMALL_W,
                 //'imageHeight' => Residents::IMAGE_SMALL_H,
             ),
         );

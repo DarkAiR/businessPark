@@ -5,8 +5,8 @@
  */
 class Residents extends CActiveRecord
 {
-    const IMAGE_SMALL_W = 130;
-    const IMAGE_SMALL_H = 87;
+//    const IMAGE_SMALL_W = 130;
+//    const IMAGE_SMALL_H = 87;
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool

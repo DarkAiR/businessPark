@@ -43,6 +43,10 @@ a.active {
   color: #2b2b2b !important;
   __text-decoration: none;
 }
+p {
+  margin: 0px;
+  padding: 0px;
+}
 /* Общий контейнер */
 .common-container {
   _background-color: rgba(0, 0, 0, 0.05);

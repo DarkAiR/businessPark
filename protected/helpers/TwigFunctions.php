@@ -101,4 +101,21 @@ class TwigFunctions
 
         return date($format, $ts);
     }
+
+    function filterTranslit($st)
+    {
+        // Сначала заменяем "односимвольные" фонемы.
+        $st = strtr($st,"абвгдеёзийклмнопрстуфхъыэ ", "abvgdeeziyklmnoprstufh'ie_");
+        $st = strtr($st,"АБВГДЕЁЗИЙКЛМНОПРСТУФХЪЫЭ", "ABVGDEEZIYKLMNOPRSTUFH'IE");
+        
+        // Затем - "многосимвольные".
+        $st = strtr($st, array(
+            "ж"=>"zh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", 
+            "щ"=>"shch","ь"=>"", "ю"=>"yu", "я"=>"ya",
+            "Ж"=>"ZH", "Ц"=>"TS", "Ч"=>"CH", "Ш"=>"SH", 
+            "Щ"=>"SHCH","Ь"=>"", "Ю"=>"YU", "Я"=>"YA",
+            "ї"=>"i", "Ї"=>"Yi", "є"=>"ie", "Є"=>"Ye"
+        ));
+        return $st;
+    }
 }

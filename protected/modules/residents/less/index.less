@@ -22,43 +22,59 @@
         .col(@mainCol2 + @mainCol3);
     }
 
+    .vmenu {
+        li {
+            padding-bottom: @middlePadding;
+        }
+    }
+
     .item {
-        @titleHeight: 18px + 24px;
-        @bottomPadding: 28px;
         @itemHeight: 195px;
 
+        border-bottom: 1px solid @colorTitleLightGrey;
+
         .image {
-            padding-left: @bigPadding;
-            padding-top: @titleHeight;
+            padding: @bigPadding*2 0 @bigPadding @bigPadding;
+            text-align: center;
+        }
+        .name {
+            .font(PF, medium);
+            .font-size(18);
+            padding: @bigPadding*2 0 @bigPadding 0;
+            text-align: center;
+
+            & * {
+                color: inherit;
+            }
+            a {
+                .link(title);
+            }
         }
         .textBlock {
-            min-height: @itemHeight - @bottomPadding;
-            margin-bottom: @bottomPadding;
+            margin-bottom: @bigPadding;
 
-            .title {
-                .font(PF, medium);
-                .font-size(18);
-                color: @colorTitle;
-                & * {
-                    color: @colorTitle;
-                }
-                a {
-                    .link(title);
-                }
-            }
             .text {
-                padding-top: 11px;
+                padding-top: @bigPadding;
             }
             .phones {
-
+                padding-top: @bigPadding;
             }
             .site {
-
+                padding-top: @smallPadding;
             }
-            .title, .text, .phones, .site {
+            .text, .phones, .site {
                 padding-right: @bigPadding;
                 padding-left: @bigPadding;
             }
+        }
+
+        &.first {
+            .image, .name {
+                padding-top: 0;
+            }
+        }
+        &.last {
+            border-bottom: none;
         }
     }
 }

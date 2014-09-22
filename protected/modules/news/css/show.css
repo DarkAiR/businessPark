@@ -26,9 +26,6 @@
   height: 42px;
   padding-top: 15px;
 }
-.news-page .content .date a {
-  background-position: center 15px;
-}
 .news-page .content .title {
   font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
@@ -37,22 +34,19 @@
   margin-top: -4px;
   margin-bottom: 40px;
 }
-.news-page .content .title a {
-  background-position: center 25px;
-}
 .news-page .content .title * {
   color: #4f9714;
 }
 .news-page .content .title a {
   text-decoration: none;
-  display: inline;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
-  _background-position: center 0.99em;
+  background-position: center 99%;
 }
 .news-page .content img {
   max-width: 500px;
   height: auto !important;
+  display: block;
 }
 .news-page .content p img {
   margin-bottom: 25px;
