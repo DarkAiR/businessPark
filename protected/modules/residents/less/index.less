@@ -1,6 +1,9 @@
 @import (reference) '../../../views/less/custom';
 
 .residents-page {
+    padding-bottom: @footerPaddingTop;
+
+    
     .col2 > .title {
         .inner-title;
         padding-left: @bigPadding;
@@ -20,11 +23,13 @@
     }
     .col2-3 {
         .col(@mainCol2 + @mainCol3);
+        padding-top: @bigPadding * 2 - (@pageTitleH - @pageTitleFontSize) / 2;
     }
 
     .vmenu {
         li {
-            padding-bottom: @middlePadding;
+            .font-size(12);
+            padding-bottom: @bigPadding;
             padding-left: @bigPadding;
         }
     }
@@ -32,16 +37,15 @@
     .item {
         @itemHeight: 195px;
 
-        border-bottom: 1px solid @colorTitleLightGrey;
-
         .image {
-            padding: @bigPadding*2 0 @bigPadding @bigPadding;
+            padding: @bigPadding*2 0 @bigPadding*2 @bigPadding;
             text-align: center;
         }
         .name {
-            .font(PF, medium);
-            .font-size(18);
-            padding: @bigPadding*2 0 @bigPadding 0;
+            .font(Verdana);
+            .font-size(16);
+            font-weight: bold;
+            padding: @bigPadding*2+@smallPadding 0 @bigPadding*2 0;
             text-align: center;
 
             & * {
@@ -52,21 +56,27 @@
             }
         }
         .textBlock {
-            margin-bottom: @bigPadding;
+            margin-bottom: @bigPadding * 2;
 
+            p {
+                margin-bottom: @paragraphPadding;
+            }
             .text {
-                padding-top: @bigPadding;
             }
             .phones {
-                padding-top: @bigPadding;
+                padding-bottom: 5px;
             }
             .site {
-                padding-top: @smallPadding;
             }
             .text, .phones, .site {
                 padding-right: @bigPadding;
                 padding-left: @bigPadding;
             }
+        }
+        .separate {
+            .separate-line();
+            width: 100%;
+            margin-left: @bigPadding;
         }
 
         &.first {
@@ -75,7 +85,6 @@
             }
         }
         &.last {
-            border-bottom: none;
         }
     }
 }

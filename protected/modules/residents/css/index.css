@@ -1,3 +1,6 @@
+.residents-page {
+  padding-bottom: 80px;
+}
 .residents-page .col2 > .title {
   font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 34px;
@@ -48,23 +51,24 @@
   float: left;
   height: inherit;
   min-height: 1px;
+  padding-top: 16px;
 }
 .residents-page .vmenu li {
-  padding-bottom: 18px;
+  font-size: 12px;
+  line-height: 19px;
+  padding-bottom: 22px;
   padding-left: 22px;
 }
-.residents-page .item {
-  border-bottom: 1px solid #b2b2b2;
-}
 .residents-page .item .image {
-  padding: 44px 0 22px 22px;
+  padding: 44px 0 44px 22px;
   text-align: center;
 }
 .residents-page .item .name {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: "verdanaregular", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 24px;
-  padding: 44px 0 22px 0;
+  font-weight: bold;
+  padding: 55px 0 44px 0;
   text-align: center;
 }
 .residents-page .item .name * {
@@ -77,16 +81,13 @@
   background-position: center 99%;
 }
 .residents-page .item .textBlock {
-  margin-bottom: 22px;
+  margin-bottom: 44px;
 }
-.residents-page .item .textBlock .text {
-  padding-top: 22px;
+.residents-page .item .textBlock p {
+  margin-bottom: 19px;
 }
 .residents-page .item .textBlock .phones {
-  padding-top: 22px;
-}
-.residents-page .item .textBlock .site {
-  padding-top: 11px;
+  padding-bottom: 5px;
 }
 .residents-page .item .textBlock .text,
 .residents-page .item .textBlock .phones,
@@ -94,10 +95,15 @@
   padding-right: 22px;
   padding-left: 22px;
 }
+.residents-page .item .separate {
+  border-top: #99b985 1px dotted;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  width: 100%;
+  margin-left: 22px;
+}
 .residents-page .item.first .image,
 .residents-page .item.first .name {
   padding-top: 0;
-}
-.residents-page .item.last {
-  border-bottom: none;
 }

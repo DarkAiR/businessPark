@@ -13,6 +13,8 @@
 @middlePadding:         18px;
 @bigPadding:            @smallPadding * 2;  // 22
 
+@paragraphPadding:      19px;       // По размеру основного 12 или 13 шрифта
+
 
 // Шапка, футер
 @headerH:               142px;
@@ -23,7 +25,7 @@
 // Заголовок
 @mainTitleH:            120px;
 @pageTitleH:            90px;
-
+@pageTitleFontSize:     34;
 
 // Цвета
 @devRedBg:              rgba(255,0,0,0.2);
@@ -248,7 +250,7 @@ p {
 // Заголовок
 .inner-title(@h:@pageTitleH) {
     .font(PF, medium);
-    .font-size(34, @h);
+    .font-size(@pageTitleFontSize, @h);
     color:      @colorTitle;
     height:     @h;
     min-height: @h;
@@ -263,7 +265,7 @@ p {
 }
 .main-title(@h) {
     .inner-title;
-    .font-size(34);
+    .font-size(@pageTitleFontSize);
     height:     @h;
     min-height: @h;
 }
