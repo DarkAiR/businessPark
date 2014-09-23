@@ -22,8 +22,12 @@
         .title {
             .font(PF, regular);
             .font-size(22);
-            color: @colorTitle;
             padding-left: @bigPadding;
+    
+            a {
+                .link(title);
+                color: @colorTitle !important;
+            }
         }
         .image {
             width: @imageW;

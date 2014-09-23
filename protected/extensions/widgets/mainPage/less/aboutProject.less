@@ -5,15 +5,15 @@
 
     width: @mainCol3;
     height: 537px;
-    background: url(../../img/aboutProjectBg.png) left top no-repeat;
     padding: @bigPadding;
 
     .title {
-        .font(PF, medium);
-        .font-size(18, 1);
+        .font(PF, regular);
+        .font-size(22, 1);
         color: @colorTitleGrey;
         padding-top: 40px;
         padding-left: 36px;
+        padding-bottom: @bigPadding;
 
         a {
             .link(title);
@@ -21,14 +21,11 @@
         }
     }
     .image {
+        padding-left: 30px;
+        padding-bottom: @bigPadding;
     }
     .text {
-        .font-size(11, 14px);
-        position: absolute;
-        left: 0;
-        bottom: 54px + @bigPadding;
         color: @colorTitleGrey;
-        padding-left: 30px + @bigPadding;
-        padding-right: 30px + @bigPadding;
+        padding-left: 30px;
     }
 }

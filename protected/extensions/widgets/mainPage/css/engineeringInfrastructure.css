@@ -29,8 +29,15 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 27px;
-  color: #4f9714;
   padding-left: 22px;
+}
+.engineering-infrastructure-widget .item1 .title a,
+.engineering-infrastructure-widget .item2 .title a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #4f9714 !important;
 }
 .engineering-infrastructure-widget .item1 .image,
 .engineering-infrastructure-widget .item2 .image {

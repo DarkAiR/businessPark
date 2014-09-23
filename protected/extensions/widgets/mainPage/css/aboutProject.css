@@ -2,16 +2,16 @@
   margin-top: 44px;
   width: 359px;
   height: 537px;
-  background: url(../../img/aboutProjectBg.png) left top no-repeat;
   padding: 22px;
 }
 .about-project-widget .title {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
   line-height: 1;
   color: #767676;
   padding-top: 40px;
   padding-left: 36px;
+  padding-bottom: 22px;
 }
 .about-project-widget .title a {
   text-decoration: none;
@@ -20,13 +20,11 @@
   background-position: center 99%;
   color: #4f9714 !important;
 }
+.about-project-widget .image {
+  padding-left: 30px;
+  padding-bottom: 22px;
+}
 .about-project-widget .text {
-  font-size: 11px;
-  line-height: 14px;
-  position: absolute;
-  left: 0;
-  bottom: 76px;
   color: #767676;
-  padding-left: 52px;
-  padding-right: 52px;
+  padding-left: 30px;
 }
