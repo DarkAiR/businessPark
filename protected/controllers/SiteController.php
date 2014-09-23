@@ -68,6 +68,14 @@ class SiteController extends Controller
     }
 
     /**
+     * Карта
+     */
+    public function actionMap()
+    {
+        $this->render('map');
+    }
+
+    /**
      * Upload image
      */
     public function actionUploadImage()

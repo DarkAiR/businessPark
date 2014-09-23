@@ -43,6 +43,7 @@ return array(
                 'uploadImage'                       => 'site/uploadImage',
                 'uploadFile'                        => 'site/uploadFile',
                 'panorams'                          => 'site/panorama',
+                'map'                               => 'site/map',
 
                 // News
                 'news/show/<id:\d+>/'               => 'news/news/show',

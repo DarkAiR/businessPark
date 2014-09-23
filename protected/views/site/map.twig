@@ -1,0 +1,91 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <style type="text/css">
+        .map {
+            width: inherit;
+            _margin-left: -50%;
+            height: 600px;
+            overflow: hidden;
+        }
+        .svg-map {
+        }
+    </style>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class='map'>
+        <object type="image/svg+xml" data="/img/map.svg" class="svg-map" id='svgmap'>
+            SVG not supported<!-- запасное изображение в CSS -->
+        </object>
+    </div>
+
+    <script type="text/javascript">
+        // Нам нужно дождаться, пока вся графика (и наша карта тоже) загрузится, поэтому используем window.onload,
+        $(window).load(function () {
+            var svgobject = document.getElementById('svgmap');
+            if ('contentDocument' in svgobject) {
+                // Получаем доступ к объектной модели SVG-файла
+                var svgdom = $(svgobject.contentDocument);
+
+                var dragging = null;
+                var pageX = 0;
+                var pageY = 0;
+
+                $(svgdom)
+                    .on("mousedown", function(e) {
+                        //dragging = $(e.target);
+                        dragging = $('.svg-map');
+                        pageX = e.pageX;
+                        pageY = e.pageY;
+                    })
+                    .on("mouseup", function(e) {
+                        dragging = null;
+                        pageX = 0;
+                        pageY = 0;
+                    })
+                    .on("mousemove", function(e) {
+                        if (dragging) {
+                            var deltaX = e.pageX - pageX;
+                            var deltaY = e.pageY - pageY;
+                            pageX = e.pageX;
+                            pageY = e.pageY;
+
+                            var svgEl  = $(svgdom).find('svg');
+                            var coords = svgEl.attr('viewBox').split(' ');
+                            var width  = parseInt(svgEl.attr('width'));
+                            var height = parseInt(svgEl.attr('height'));
+                            var viewPortW = parseInt($('.map').css('width'));
+                            var viewPortH = parseInt($('.map').css('height'));
+
+                            var x = parseInt(coords[0]);
+                            var y = parseInt(coords[1]);
+                            var w = parseInt(coords[2]);
+                            var h = parseInt(coords[3]);
+                            x -= deltaX * (w / width);
+                            y -= deltaY * (h / height);
+
+                            if (x < 0)
+                                x = 0;
+                            if (y < 0)
+                                y = 0;
+                            if (x > w - viewPortW * (w / width))
+                                x = w - viewPortW * (w / width);
+                            if (y > h - viewPortH * (h / height))
+                                y = h - viewPortH * (h / height);
+
+                            svgEl.attr('viewBox', x+' '+y+' '+w+' '+h);
+                        }
+                    });
+
+                // Теперь делаем свою работу, например:
+//                $("#figure1", svgdom).attr("fill", "red");  // Находим тег с id="figure1" в SVG DOM и заливаем его красным
+            } 
+        });
+    </script>
+{% endblock %}
