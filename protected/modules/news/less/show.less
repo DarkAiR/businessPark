@@ -36,7 +36,6 @@
             .font-size(22, 24px);
             color: @colorTitle;
             margin-top: -4px;
-            margin-bottom: @paragraphPadding;
 
             & * {
                 color: @colorTitle;
@@ -46,16 +45,16 @@
             }
         }
         .text {
-
+            margin-top: @paragraphPadding;
         }
         img {
             max-width: @newsImageW;
             height: auto !important;
             display: block;             // Убираем короткие слова справа от картинки
-            margin-bottom: @paragraphPadding;
+            margin-top: @paragraphPadding;
         }
         p, p img {
-            margin-bottom: @paragraphPadding;
+            margin-top: @paragraphPadding;
         }
     }
     .navigation {
