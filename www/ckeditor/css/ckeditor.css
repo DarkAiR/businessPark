@@ -178,3 +178,6 @@ img {
   max-width: 500px;
   height: auto !important;
 }
+p {
+  padding-bottom: 19px;
+}
