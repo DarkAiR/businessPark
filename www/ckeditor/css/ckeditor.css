@@ -174,10 +174,16 @@ p {
     }
 }
 */
+/* Брать из новостей */
 img {
   max-width: 500px;
   height: auto !important;
+  display: block;
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
 }
-p {
-  padding-bottom: 19px;
+p,
+p img {
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
 }
