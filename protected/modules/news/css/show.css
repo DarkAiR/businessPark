@@ -1,5 +1,5 @@
 .news-page {
-  padding-bottom: 65px;
+  padding-bottom: 80px;
 }
 .news-page .backBtnCont {
   line-height: 90px;
@@ -32,7 +32,7 @@
   line-height: 24px;
   color: #4f9714;
   margin-top: -4px;
-  margin-bottom: 40px;
+  margin-bottom: 19px;
 }
 .news-page .content .title * {
   color: #4f9714;
@@ -47,9 +47,11 @@
   max-width: 500px;
   height: auto !important;
   display: block;
+  margin-bottom: 19px;
 }
+.news-page .content p,
 .news-page .content p img {
-  margin-bottom: 25px;
+  margin-bottom: 19px;
 }
 .news-page .navigation {
   width: 100%;

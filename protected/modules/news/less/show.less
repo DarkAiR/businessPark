@@ -1,7 +1,7 @@
 @import (reference) 'base';
 
 .news-page {
-    padding-bottom: 65px;
+    padding-bottom: @footerPaddingTop;
 
     .backBtnCont {
         line-height: @pageTitleH;
@@ -36,7 +36,7 @@
             .font-size(22, 24px);
             color: @colorTitle;
             margin-top: -4px;
-            margin-bottom: 40px;
+            margin-bottom: @paragraphPadding;
 
             & * {
                 color: @colorTitle;
@@ -52,9 +52,10 @@
             max-width: @newsImageW;
             height: auto !important;
             display: block;             // Убираем короткие слова справа от картинки
+            margin-bottom: @paragraphPadding;
         }
-        p img {
-            margin-bottom: 25px;
+        p, p img {
+            margin-bottom: @paragraphPadding;
         }
     }
     .navigation {
