@@ -1,0 +1,42 @@
+@import (reference) 'custom';
+
+*[unselectable=on] {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.map-page {
+    min-height: 1px;
+
+    .title {
+        .inner-title;
+        padding-left: @bigPadding;
+    }
+
+    .col1 {
+        .col(@mainCol1);
+    }
+    .col2-3 {
+        .col(@mainCol2 + @mainCol3);
+    }
+}
+
+.svg-map {
+}
+
+.map-container {
+    width: 100%;
+    min-width: @commonWidth;
+    height: 700px;
+    overflow: hidden;
+    background: #A1CE99;
+}
+.map {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}

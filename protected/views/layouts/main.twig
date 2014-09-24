@@ -23,7 +23,7 @@
         {{ import('js', 'bootstrap.js') }}
     {% endblock %}
 </head>
-<body>
+<body {% block bodyAttr %}{% endblock %}>
 
     {% block bg %}
     {% endblock %}
@@ -57,6 +57,9 @@
                 </div>
 
             </div>
+
+            {% block afterbody %}
+            {% endblock %}
         </div>
     </div>
 

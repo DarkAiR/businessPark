@@ -2,31 +2,95 @@
 
 {% block css %}
     {{ parent() }}
-    <style type="text/css">
-        .map {
-            width: 1366px;  /*966 + 400*/
-            height: 1000px;
-            margin-left: -200px;
-            overflow: hidden;
-        }
-        .svg-map {
-        }
-    </style>
+    {{ import('css', 'map.css') }}
 {% endblock %}
+
 
 {% block js %}
     {{ parent() }}
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 {% endblock %}
 
+
+{% block bodyAttr %}
+    {# Запрещаем выделение, чтобы при таскании карты ничего лишнего не происходило #}
+    onselectstart="return false"
+{% endblock %}
+
 {% block content %}
+<div class='map-page'>
+    <div class='col1'></div>
+    <div class='col2-3'>
+        <div class='title'>
+            Генеральный <lightgrey>план</lightgrey>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-    <div style='position: absolute; left:-222px; top:0px; background:url(/img/1.jpg) left top no-repeat; width: 2000px; height: 2000px; opacity:0.3; z-index:-1'></div>
+{% block afterbody %}
 
-    <div class='map'>
+    <div class='map-container'>
+        <div class='map'>
+        </div>
     </div>
 
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="612px" height="502.174px" viewBox="0 65.326 612 502.174" enable-background="new 0 65.326 612 502.174"
+   xml:space="preserve" class="logo">
+<filter id="pictureFilter" >
+  <feGaussianBlur stdDeviation="15" />
+</filter>
+</svg>
+
+
     <script type="text/javascript">
+
+        function setMapCoords(svgobject, deltaX, deltaY)
+        {
+            var coords = svgobject.getAttribute('viewBox').split(' ');
+            var width  = parseInt(svgobject.getAttribute('width'));
+            var height = parseInt(svgobject.getAttribute('height'));
+            var viewPortW = parseInt($('.map').css('width'));
+            var viewPortH = parseInt($('.map').css('height'));
+
+            var x = parseInt(coords[0]);
+            var y = parseInt(coords[1]);
+            var w = parseInt(coords[2]);
+            var h = parseInt(coords[3]);
+            x -= deltaX * (w / width);
+            y -= deltaY * (h / height);
+
+            if (x < 0)
+                x = 0;
+            if (y < 0)
+                y = 0;
+            if (x > w - viewPortW * (w / width))
+                x = w - viewPortW * (w / width);
+            if (y > h - viewPortH * (h / height))
+                y = h - viewPortH * (h / height);
+
+            svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+        }
+
+        function centerMapCoords(svgobject)
+        {
+            var coords = svgobject.getAttribute('viewBox').split(' ');
+            var width  = parseInt(svgobject.getAttribute('width'));
+            var height = parseInt(svgobject.getAttribute('height'));
+            var viewPortW = parseInt($('.map').css('width'));
+            var viewPortH = parseInt($('.map').css('height'));
+
+            var x = parseInt(coords[0]);
+            var y = parseInt(coords[1]);
+            var w = parseInt(coords[2]);
+            var h = parseInt(coords[3]);
+            x = (w - viewPortW * (w / width)) / 2;
+            y = (h - viewPortH * (h / height)) / 2;
+
+            svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+        }
+
 
         $('.map').load("/img/map.svg", function (response, status, xhr)
         {
@@ -45,52 +109,45 @@
             var pageX = 0;
             var pageY = 0;
 
+            // Центрируем карту
+            centerMapCoords(svgobject);
+
             mc.on("panstart", function(e) {
-                //console.log(e.type);
                 dragging = svgobject;
                 pageX = e.center.x;
                 pageY = e.center.y;
             });
             mc.on("panend", function(e) {
-                //console.log(e.type);
                 dragging = null;
                 pageX = 0;
                 pageY = 0;
             });
             mc.on("panmove", function(e) {
-                //console.log(e.type);
                 if (dragging) {
                     var deltaX = e.center.x - pageX;
                     var deltaY = e.center.y - pageY;
                     pageX = e.center.x;
                     pageY = e.center.y;
 
-                    var coords = svgobject.getAttribute('viewBox').split(' ');
-                    var width  = parseInt(svgobject.getAttribute('width'));
-                    var height = parseInt(svgobject.getAttribute('height'));
-                    var viewPortW = parseInt($('.map').css('width'));
-                    var viewPortH = parseInt($('.map').css('height'));
-
-                    var x = parseInt(coords[0]);
-                    var y = parseInt(coords[1]);
-                    var w = parseInt(coords[2]);
-                    var h = parseInt(coords[3]);
-                    x -= deltaX * (w / width);
-                    y -= deltaY * (h / height);
-
-                    if (x < 0)
-                        x = 0;
-                    if (y < 0)
-                        y = 0;
-                    if (x > w - viewPortW * (w / width))
-                        x = w - viewPortW * (w / width);
-                    if (y > h - viewPortH * (h / height))
-                        y = h - viewPortH * (h / height);
-
-                    svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+                    setMapCoords(svgobject, deltaX, deltaY);
                 }
             });
-        });
 
+            // Выправление координат после ресайза
+            $(window).on('resize', function(ev) {
+                setMapCoords(svgobject, 0, 0);
+            });
+
+
+            // Тестирование выделения полигона
+            $('[id^="_x"]').hover(
+                function() {
+                    $(this).css({'filter':'url(#pictureFilter)'});
+                },
+                function() {
+                    $(this).css({'filter':''});
+                }
+            );
+        });
     </script>
 {% endblock %}
