@@ -18,7 +18,7 @@ body {
   height: 100%;
 }
 .wrap {
-  padding-bottom: 111px;
+  padding-bottom: 123px;
 }
 a,
 a:visited,
@@ -119,9 +119,9 @@ p {
   font-size: 11px;
   line-height: 18px;
   color: #8f8f8f;
-  height: 111px;
-  min-height: 111px;
-  margin-top: -112px;
+  height: 123px;
+  min-height: 123px;
+  margin-top: -124px;
 }
 .footer .footer-inner {
   _background-color: rgba(255, 0, 255, 0.2);
