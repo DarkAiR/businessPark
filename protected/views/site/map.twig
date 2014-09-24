@@ -16,22 +16,101 @@
 
 {% block js %}
     {{ parent() }}
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 {% endblock %}
 
 {% block content %}
     <div class='map'>
-        <object type="image/svg+xml" data="/img/map.svg" class="svg-map" id='svgmap'>
-            SVG not supported<!-- запасное изображение в CSS -->
-        </object>
+        <!--object type="image/svg+xml" data="/img/map.svg" class="svg-map" id='svgmap'>
+            SVG not supported
+        </object-->
     </div>
 
     <script type="text/javascript">
+
+
+$('.map').load("/img/map.svg",
+function (response, status, xhr) {
+
+    var svgobject = document.getElementsByTagName('svg')[0];
+
+    // Получаем доступ к объектной модели SVG-файла
+    var svgdom = $(svgobject.contentDocument);
+
+    var mc = Hammer(svgobject);
+    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    mc.get('pinch').set({ enable: true });
+    mc.get('rotate').set({ enable: true });
+
+
+    var dragging = null;
+    var pageX = 0;
+    var pageY = 0;
+
+    mc.on("panstart", function(e) {
+        //console.log(e.type);
+        dragging = svgobject;
+        pageX = e.center.x;
+        pageY = e.center.y;
+    });
+    mc.on("panend", function(e) {
+        //console.log(e.type);
+        dragging = null;
+        pageX = 0;
+        pageY = 0;
+    });
+    mc.on("panmove", function(e) {
+        //console.log(e.type);
+        if (dragging) {
+            var deltaX = e.center.x - pageX;
+            var deltaY = e.center.y - pageY;
+            pageX = e.center.x;
+            pageY = e.center.y;
+
+            var coords = svgobject.getAttribute('viewBox').split(' ');
+            var width  = parseInt(svgobject.getAttribute('width'));
+            var height = parseInt(svgobject.getAttribute('height'));
+            var viewPortW = parseInt($('.map').css('width'));
+            var viewPortH = parseInt($('.map').css('height'));
+
+            var x = parseInt(coords[0]);
+            var y = parseInt(coords[1]);
+            var w = parseInt(coords[2]);
+            var h = parseInt(coords[3]);
+            x -= deltaX * (w / width);
+            y -= deltaY * (h / height);
+
+            if (x < 0)
+                x = 0;
+            if (y < 0)
+                y = 0;
+            if (x > w - viewPortW * (w / width))
+                x = w - viewPortW * (w / width);
+            if (y > h - viewPortH * (h / height))
+                y = h - viewPortH * (h / height);
+
+            svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+        }
+    });
+/*
+    mc.on("panstart panend pancancel panmove", function(ev){
+        console.log(ev.type, ev);
+    });
+*/
+});
+
+
+
         // Нам нужно дождаться, пока вся графика (и наша карта тоже) загрузится, поэтому используем window.onload,
-        $(window).load(function () {
+/*        $(window).load(function () {
             var svgobject = document.getElementById('svgmap');
+
+
+
             if ('contentDocument' in svgobject) {
                 // Получаем доступ к объектной модели SVG-файла
                 var svgdom = $(svgobject.contentDocument);
+
 
                 var dragging = null;
                 var pageX = 0;
@@ -43,6 +122,7 @@
                         dragging = $('.svg-map');
                         pageX = e.pageX;
                         pageY = e.pageY;
+                        console.log(e);
                     })
                     .on("mouseup", function(e) {
                         dragging = null;
@@ -82,10 +162,7 @@
                             svgEl.attr('viewBox', x+' '+y+' '+w+' '+h);
                         }
                     });
-
-                // Теперь делаем свою работу, например:
-//                $("#figure1", svgdom).attr("fill", "red");  // Находим тег с id="figure1" в SVG DOM и заливаем его красным
             } 
-        });
+        });*/
     </script>
 {% endblock %}

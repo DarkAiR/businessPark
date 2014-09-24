@@ -76,6 +76,14 @@ class SiteController extends Controller
     }
 
     /**
+     * Тест
+     */
+    public function actionTest()
+    {
+        $this->render('test');
+    }
+
+    /**
      * Upload image
      */
     public function actionUploadImage()
