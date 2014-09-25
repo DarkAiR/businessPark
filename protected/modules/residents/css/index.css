@@ -21,7 +21,6 @@
   vertical-align: top;
 }
 .residents-page .col1 {
-  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -29,7 +28,6 @@
   min-height: 1px;
 }
 .residents-page .col2 {
-  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -37,7 +35,6 @@
   min-height: 1px;
 }
 .residents-page .col3 {
-  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -45,7 +42,6 @@
   min-height: 1px;
 }
 .residents-page .col2-3 {
-  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;

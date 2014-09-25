@@ -1,0 +1,38 @@
+{{ import('css','footerMainPage.css','ext.widgets.mainPage.css') }}
+
+<div class='footer-main-page-widget'>
+    
+    <div class='separate-line'></div>
+    <div class='col2'>
+        <div class='phone-icon'>
+        </div>
+        <div class='phone-text'>
+            <div class='text'>
+                Управляющая компания
+            </div>
+            <div class='phone'>
+                {{ mainPhones }}
+            </div>
+            <div class='text'>
+                Отдел продаж
+            </div>
+            <div class='phone'>
+                {{ salePhones }}
+            </div>
+        </div>
+    </div>
+
+    <div class='col3'>
+        <div class='mail-icon'>
+        </div>
+        <div class='mail-text'>
+            <div class='text'>
+                Электронная почта
+            </div>
+            <div class='mail'>
+                <a href='mailto:{{email}}'>{{email}}</a>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -14,7 +14,6 @@
   color: #b2b2b2;
 }
 .workline-page .col1 {
-  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -22,7 +21,6 @@
   min-height: 1px;
 }
 .workline-page .col2-3 {
-  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
