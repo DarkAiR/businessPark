@@ -2,6 +2,13 @@
 
 class MenuItem extends CActiveRecord
 {
+    const IMAGE_W = 28;
+    const IMAGE_H = 28;
+
+    public $_image = null; //UploadedFile[]
+    public $_removeImageFlag = false; // bool
+
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -12,6 +19,17 @@ class MenuItem extends CActiveRecord
         return array(
             'manyToMany' => array(
                 'class' => 'lib.ar-relation-behavior.EActiveRecordRelationBehavior',
+            ),
+            'imageBehavior' => array(
+                'class' => 'application.behaviors.ImageBehavior',
+                'storagePath' => 'menu',
+                'imageWidth' => self::IMAGE_W,
+                'imageHeight' => self::IMAGE_H,
+                'imageField' => 'image',
+                'imageLabel' => 'Иконка'
+            ),
+            'orderBehavior' => array(
+                'class' => 'application.behaviors.OrderBehavior',
             ),
         );
     }
@@ -25,22 +43,29 @@ class MenuItem extends CActiveRecord
 
     public function attributeLabels()
     {
-        return array(
-            'menuId' => 'Меню',
-            'parentItemId' => 'Родительский раздел',
-            'visible' => 'Показывать',
-            'link' => 'Ссылка',
-            'name' => 'Текст',
-            'orderNum' => 'Порядковый номер'
+        return array_merge(
+            $this->imageBehavior->imageLabels(),
+            $this->orderBehavior->orderLabels(),
+            array(
+                'menuId' => 'Меню',
+                'parentItemId' => 'Родительский раздел',
+                'visible' => 'Показывать',
+                'link' => 'Ссылка',
+                'name' => 'Текст',
+            )
         );
     }
 
     public function rules()
     {
-        return array(
-            array('menuId, name, link', 'required'),
-            array('visible', 'boolean'),
-            array('orderNum, parentItemId', 'numerical', 'integerOnly'=>true),
+        return array_merge(
+            $this->imageBehavior->imageRules(),
+            $this->orderBehavior->orderRules(),
+            array(
+                array('menuId, name, link', 'required'),
+                array('visible', 'boolean'),
+                array('orderNum, parentItemId', 'numerical', 'integerOnly'=>true),
+            )
         );
     }
 
@@ -59,34 +84,22 @@ class MenuItem extends CActiveRecord
 
     public function search()
     {
-        $rowData = $this->getRowData(0);
-        return new CArrayDataProvider(
-            $rowData,
-            array(
-                'pagination'=>array(
-                    'pageSize'=>20,
-                ),
+        $criteria = new CDbCriteria;
+        //$criteria->compare('name', $this->name, true);
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
+            'sort' => array(
+                'defaultOrder' => array(
+                    'menuId' => CSort::SORT_ASC,
+                    'orderNum' => CSort::SORT_ASC,
+                )
             )
-        );
+        ));
     }
 
-    private function getRowData($parentId, $level = 0)
-    {
-        $data = Yii::app()->db->createCommand('SELECT * from `MenuItem` WHERE parentItemId='.$parentId.' ORDER BY menuId, orderNum ASC')->queryAll();
-        $rowData = array();
-        foreach ($data as $row)
-        {
-            $rowData[] = $row;
-            $data2 = $this->getRowData($row['id'], $level+1);
-            foreach ($data2 as $row2) {
-                $levelStr = str_repeat('- ', $level+1);
-                $row2['name'] = $levelStr . $row2['name'];
-                $row2['link'] = $levelStr . $row2['link'];
-                $rowData[] = $row2;
-            }
-        }
-        return $rowData;
-    }
 
     public function byParent($parent)
     {
@@ -104,5 +117,28 @@ class MenuItem extends CActiveRecord
             'condition' => $alias.'.menuId = '.$menuId,
         ));
         return $this;
+    }
+
+    public function getIconUrl()
+    {
+        return $this->imageBehavior->getImageUrl();
+    }
+
+    protected function afterDelete()
+    {
+        $this->imageBehavior->imageAfterDelete();
+        return parent::afterDelete();
+    }
+
+    protected function afterFind()
+    {
+        $this->imageBehavior->imageAfterFind();
+        return parent::afterFind();
+    }
+
+    public function beforeSave()
+    {
+        $this->orderBehavior->orderBeforeSave();
+        return parent::beforeSave();
     }
 }

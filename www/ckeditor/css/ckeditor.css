@@ -101,14 +101,14 @@ p {
   min-height: 142px;
 }
 .head .logo-block {
-  padding: 41px 22px 0 29px;
+  padding: 64px 22px 0 29px;
 }
 .head .logo-block a {
   text-decoration: none;
   background-image: none;
 }
 .head .menu-block {
-  padding: 41px 22px 0 22px;
+  padding: 25px 22px 0 22px;
 }
 .footer {
   _background-color: rgba(0, 0, 255, 0.2);
