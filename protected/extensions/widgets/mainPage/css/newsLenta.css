@@ -9,15 +9,14 @@
   height: inherit;
   min-height: 1px;
 }
-.news-lenta-widget .col2-3 > .title {
+.news-lenta-widget .header .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 27px;
   color: #767676;
-  padding-left: 174px;
-  padding-bottom: 22px;
+  padding-left: 22px;
 }
-.news-lenta-widget .col2-3 > .title a {
+.news-lenta-widget .header .title a {
   text-decoration: none;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
@@ -26,18 +25,22 @@
 }
 .news-lenta-widget .item td {
   vertical-align: top;
-  padding-bottom: 28px;
+  padding-bottom: 32px;
   min-height: 125px;
   height: 125px;
 }
 .news-lenta-widget .item .image {
+  width: 137px;
   padding-left: 22px;
-  padding-top: 42px;
+  padding-top: 41px;
+}
+.news-lenta-widget .item .textBlock {
+  padding-top: 38px;
 }
 .news-lenta-widget .item .textBlock .date {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #8f8f8f;
-  height: 42px;
+  height: 38px;
   padding-top: 15px;
 }
 .news-lenta-widget .item .textBlock .title {
@@ -64,4 +67,11 @@
 .news-lenta-widget .item .textBlock .text {
   padding-right: 22px;
   padding-left: 22px;
+}
+.news-lenta-widget .separatorLine {
+  border-top: #99b985 1px dotted;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  border-top: 1px #eddbcd solid;
 }
