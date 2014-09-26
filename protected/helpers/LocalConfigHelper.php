@@ -18,10 +18,10 @@ class LocalConfigHelper
             '%OFFICE%',
         );
         $replace = array(
-            implode(', ', Yii::app()->localConfig->getConfig('contact-info.mainPhones')),
-            array_shift(Yii::app()->localConfig->getConfig('contact-info.mainPhones')),
-            implode(', ', Yii::app()->localConfig->getConfig('contact-info.salePhones')),
-            array_shift(Yii::app()->localConfig->getConfig('contact-info.salePhones')),
+            implode(', ', Yii::app()->localConfig->getConfig('contact-info.mainPhones', true)),
+            array_shift(Yii::app()->localConfig->getConfig('contact-info.mainPhones', true)),
+            implode(', ', Yii::app()->localConfig->getConfig('contact-info.salePhones', true)),
+            array_shift(Yii::app()->localConfig->getConfig('contact-info.salePhones', true)),
             Yii::app()->localConfig->getConfig('contact-info.email'),
             Yii::app()->localConfig->getConfig('contact-info.city'),
             Yii::app()->localConfig->getConfig('contact-info.address'),
