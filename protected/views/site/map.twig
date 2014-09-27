@@ -127,7 +127,7 @@
         {
             var svgobject = document.getElementsByTagName('svg')[0];
 
-            initDragging(svgobject);
+            mc = initDragging(svgobject);
 
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {
@@ -139,6 +139,21 @@
 
             // Тестирование выделения полигона
             var poly = null;
+
+
+            mc.on('tap', function(e) {
+                console.log('tap');
+                if (poly != null) {
+                    poly.remove();
+                    poly = null;
+                    return;
+                }
+                
+                var points = $(e.target).attr('points');
+                poly = snap.polyline(points);
+                poly.attr('fill', 'rgba(255,0,0,0.3)');
+            });
+/*
             $('[id^="_x3"]').mouseover( function() {
                 if (poly != null) {
                     poly.remove();
@@ -154,23 +169,7 @@
                     poly = null;
                 });
             });
-
-            $('[id^="_x3"]').mouseover( function() {
-                if (poly != null) {
-                    poly.remove();
-                    poly = null;
-                }
-                var points = $(this).attr('points');
-                poly = snap.polyline(points);
-                poly.attr('fill', 'rgba(255,0,0,0.3)');
-
-                poly.mouseout( function() {
-                    if (poly != null)
-                        poly.remove();
-                    poly = null;
-                });
-            });
-
+*/
             // Отключаем нажатие на участках
             $('rect').css({'pointer-events':'none'});
         });
