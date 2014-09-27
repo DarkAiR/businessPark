@@ -1,0 +1,39 @@
+@import (reference) '../../../views/less/custom';
+
+.left-menu-widget {
+    .font-size(12);
+    padding: @bigPadding @bigPadding @bigPadding @bigPadding;
+
+    ul {
+    }
+    li {
+        td {
+            vertical-align: middle;
+        }
+        .image {
+            padding: @bigPadding @smallPadding;
+        }
+        .text {
+        }
+    }
+    li, li * {
+    }
+    li a {
+        .link();
+    }
+    li a:hover {
+        .link(hover);
+    }
+    a.active {
+        .link(none);
+        &:hover {
+            .link(none);
+        }
+    }
+
+    .left-menu-separator {
+        .separate-line();
+        border-top: 1px solid @colorTitleLightGrey;
+        margin-left: @middlePadding;
+    }
+}

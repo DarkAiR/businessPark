@@ -48,16 +48,26 @@
             {{ widget('ext.widgets.mainPage.AboutProjectWidget') }}
             <div class='separator'></div>
         </div>
+    </div>
 
-        <div class='clearfix'></div>
+    <div class='clearfix'></div>
 
-        {{ widget('ext.widgets.mainPage.EngineeringInfrastructureWidget') }}
+    <div class='col1'>
+        <div class='padding-block'>
+            {{ widget('ext.widgets.LeftMenuWidget', {'menuId':const('Menu','LEFT_MENU_MAIN')}) }}
+        </div>
+    </div>
+    <div class='col2-3'>
+        <div class='padding-block'>
+            {{ widget('ext.widgets.mainPage.EngineeringInfrastructureWidget') }}
+        </div>
 
         <div class='clearfix'></div>
         <div class='separator'></div>
 
         {{ widget('ext.widgets.mainPage.NewsLentaWidget') }}
     </div>
+
     <div class='clearfix'></div>
     <div class='bottomGap'></div>
 

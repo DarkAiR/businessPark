@@ -49,8 +49,8 @@ class ImageControllerBehavior extends CBehavior
 
             $model->{$this->innerImageField}->saveAs( $storageOrig.$imageName );
             
+            $image = Yii::app()->image->load($storageOrig.$imageName);
             if ($isResize) {
-                $image = Yii::app()->image->load($storageOrig.$imageName);
                 if (empty($this->imageWidth)) {
                     // resize by height
                     $image->resize(null, $this->imageHeight);
@@ -62,9 +62,9 @@ class ImageControllerBehavior extends CBehavior
                     // normal resize
                     $image->resize($this->imageWidth, $this->imageHeight);
                 }
-                // rewrite under other name
-                $image->save($storagePath.$imageName);
             }
+            // rewrite under other name
+            $image->save($storagePath.$imageName);
 
             $model->{$this->imageField} = $imageName;
         }

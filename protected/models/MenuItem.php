@@ -82,15 +82,16 @@ class MenuItem extends CActiveRecord
         );
     }
 
-    public function search()
+    public function search($menuId)
     {
         $criteria = new CDbCriteria;
-        //$criteria->compare('name', $this->name, true);
+        $criteria->condition = 'menuId=:menuId';
+        $criteria->params = array(':menuId'=>$menuId);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'pagination'=>array(
-                'pageSize'=>20,
-            ),
+            //'pagination'=>array(
+            //    'pageSize'=>20,
+            //),
             'sort' => array(
                 'defaultOrder' => array(
                     'menuId' => CSort::SORT_ASC,

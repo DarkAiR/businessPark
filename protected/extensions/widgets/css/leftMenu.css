@@ -1,0 +1,39 @@
+.left-menu-widget {
+  font-size: 12px;
+  line-height: 19px;
+  padding: 22px 22px 22px 22px;
+}
+.left-menu-widget li td {
+  vertical-align: middle;
+}
+.left-menu-widget li .image {
+  padding: 22px 11px;
+}
+.left-menu-widget li a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+}
+.left-menu-widget li a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+}
+.left-menu-widget a.active {
+  text-decoration: none;
+  background-image: none;
+}
+.left-menu-widget a.active:hover {
+  text-decoration: none;
+  background-image: none;
+}
+.left-menu-widget .left-menu-separator {
+  border-top: #99b985 1px dotted;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  border-top: 1px solid #b2b2b2;
+  margin-left: 18px;
+}

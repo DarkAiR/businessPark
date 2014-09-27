@@ -16,7 +16,13 @@ abstract class MenuWidget extends ExtendedWidget
             return;
 
         $url = trim( Yii::app()->request->url, '/' );
-        $items = MenuItem::model()->onSite()->byParent(0)->byMenuId($this->menuId)->orderDefault()->findAll();
+        $items = MenuItem::model()
+            ->onSite()
+            ->byParent(0)
+            ->byMenuId($this->menuId)
+            ->orderDefault()
+            ->findAll();
+
         $itemsArr = array();
         foreach ($items as $item)
         {
@@ -28,13 +34,22 @@ abstract class MenuWidget extends ExtendedWidget
                 ? $item->link
                 : CHtml::normalizeUrl('/'.$item->link);
 
+            $iconUrl = $item->getIconUrl();
+
             $itemsArr[] = array(
                 'name' => $item->name,
                 'link' => $link,
                 'select' => $select,
+                'iconUrl' => $iconUrl,
             );
         }
 
+        $this->beforeRender($itemsArr);
+
         $this->render($this->template, array('items'=>$itemsArr));
+    }
+
+    protected function beforeRender(&$itemsArr)
+    {
     }
 }

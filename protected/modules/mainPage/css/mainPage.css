@@ -58,6 +58,10 @@
   max-height: 1px;
   width: 100%;
 }
+.main-page .padding-block {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
 /* Задник */
 .bg-container {
   width: 100%;
