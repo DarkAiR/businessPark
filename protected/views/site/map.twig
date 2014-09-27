@@ -110,13 +110,11 @@
             centerMapCoords(svgobject);
 
             mc.on("panstart", function(e) {
-                console.log('panstart');
                 dragging = svgobject;
                 pageX = e.center.x;
                 pageY = e.center.y;
             });
             mc.on("panend", function(e) {
-                console.log('panend');
                 dragging = null;
                 pageX = 0;
                 pageY = 0;
@@ -148,43 +146,50 @@
             $(window).on('resize', function(ev) {
                 setMapCoords(svgobject, 0, 0);
             });
-/*
+
             // Создаем объект для рисования в SVG
             var snap = Snap('.map svg');
 
-            // Тестирование выделения полигона
+            // Выделения полигона
             var poly = null;
-
+            var polyId = 0;
 
             mc.on('tap', function(e) {
                 console.log('tap');
+                var id = $(e.target).attr('id');
+                var regStr = /^_x3/i;
+                if (regStr.exec(id)) {
+                    if (id != polyId) {
+                        if (poly != null) {
+                            poly.remove();
+                            poly = null;
+                        }
+                        var points = $(e.target).attr('points');
+                        poly = snap.polyline(points);
+                        poly.attr('fill', 'rgba(255,0,0,0.3)');
+                        polyId = id;
+                    }
+                }
+            });
+
+            $('[id^="_x3"]').mouseover( function() {
+                console.log('mouseover');
                 if (poly != null) {
                     poly.remove();
                     poly = null;
-                    return;
                 }
-                
-                var points = $(e.target).attr('points');
+                var points = $(this).attr('points');
                 poly = snap.polyline(points);
                 poly.attr('fill', 'rgba(255,0,0,0.3)');
+
+                poly.mouseout( function() {
+                    console.log('mouseout');
+                    if (poly != null)
+                        poly.remove();
+                    poly = null;
+                });
             });
 
-            // $('[id^="_x3"]').mouseover( function() {
-            //     if (poly != null) {
-            //         poly.remove();
-            //         poly = null;
-            //     }
-            //     var points = $(this).attr('points');
-            //     poly = snap.polyline(points);
-            //     poly.attr('fill', 'rgba(255,0,0,0.3)');
-
-            //     poly.mouseout( function() {
-            //         if (poly != null)
-            //             poly.remove();
-            //         poly = null;
-            //     });
-            // });
-*/
             // Отключаем нажатие на участках
             $(svgobject).find('rect').css({'pointer-events':'none'});
         });
