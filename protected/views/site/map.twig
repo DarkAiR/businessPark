@@ -51,17 +51,17 @@
             var y = parseInt(coords[1]);
             var w = parseInt(coords[2]);
             var h = parseInt(coords[3]);
-            x -= deltaX * (w / width);
-            y -= deltaY * (h / height);
+            x -= deltaX * 3;//(w / width);
+            y -= deltaY * 3;//(h / height);
 
             if (x < 0)
                 x = 0;
             if (y < 0)
                 y = 0;
-            if (x > w - viewPortW * (w / width))
-                x = w - viewPortW * (w / width);
-            if (y > h - viewPortH * (h / height))
-                y = h - viewPortH * (h / height);
+            if (x > w - viewPortW * 3/*(w / width)*/)
+                x = w - viewPortW * 3;//(w / width);
+            if (y > h - viewPortH * 3/*(h / height)*/)
+                y = h - viewPortH * 3;//(h / height);
 
             svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
         }
@@ -87,10 +87,10 @@
         function initDragging(svgobject)
         {
             var mc = Hammer(svgobject);
-            mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':64 });
+            mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':64/3 });
             mc.get('pinch').set({ enable: true });
             mc.get('rotate').set({ enable: true });
-            mc.get('tap').set({ 'enable': true, 'threshold':64, 'time':1000 });
+            mc.get('tap').set({ 'enable': true, 'threshold':64/3, 'time':1000 });
 
             var dragging = null;
             var pageX = 0;
