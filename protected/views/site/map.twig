@@ -25,10 +25,10 @@
         <div class='title'>
             Генеральный <lightgrey>план</lightgrey>
         </div>
-        <div id='debug' style='width:500px; height:100px; display:none;'>
+        <!--div id='debug' style='width:500px; height:100px; display:none;'>
         </div>
         <div id='debug2' style='width:500px; height:100px; display:none;'>
-        </div>
+        </div-->
     </div>
 </div>
 {% endblock %}
@@ -59,7 +59,7 @@
             var ratioW = w / width;
             var ratioH = h / height;
 
-            $('#debug').html('xy ('+x+', '+y+')<br>' + 'wh ('+w+', '+h+')<br>' + 'ratio ('+ratioW+', '+ratioH+')<br>');
+            //$('#debug').html('xy ('+x+', '+y+')<br>' + 'wh ('+w+', '+h+')<br>' + 'ratio ('+ratioW+', '+ratioH+')<br>');
 
             x -= deltaX * ratioW;
             y -= deltaY * ratioH;
@@ -126,7 +126,7 @@
                     pageX = e.center.x;
                     pageY = e.center.y;
 
-                    $('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
+                    //$('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
 
 
                     setMapCoords(svgobject, deltaX, deltaY);
@@ -146,7 +146,6 @@
                 w = 2048;
             if (h < 512)
                 h = 512;
-            console.log(h);
             $('.map').css({
                 'width': w + 'px',
                 'margin-left': parseInt(-w/2) + 'px'
@@ -167,7 +166,7 @@
             $(window).on('resize', function(ev) {
                 resizeMap(svgobject);
             });
-            resizeMap();
+            resizeMap(svgobject);
 
 
             // Создаем объект для рисования в SVG
