@@ -298,7 +298,7 @@
 			c0.304-4.215,1.768-8.264,4.229-11.699l14.275-19.919c1.611-2.248,5.16-1.012,5.026,1.751L5855.128,1854.549z"/>
 	</g>
 	<g id="Layer_40">
-		<polygon style="fill:#EAE1D3;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1226.51,3552.55 723.75,3741.75 
+		<polygon id='test_poly' style="fill:#EAE1D3;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1226.51,3552.55 723.75,3741.75 
 			705.349,3729.75 796.25,3219.25 1401.86,3080.906 		"/>
 		<polygon style="fill:#EAE1D3;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="999.475,3317.801 1022.219,3167.63 
 			1401.86,3080.906 1295.72,3366.392 		"/>
@@ -938,8 +938,6 @@
 </g>
 <g id="Layer_27">
 	
-		<image style="display:none;overflow:visible;opacity:0.4;" width="6803" height="6750" xlink:href="&#x412;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;/&#x41A;&#x430;&#x440;&#x442;&#x430;2.jpg"  transform="matrix(1 0 0 1 79.8333 12)">
-	</image>
 	<g id="&#x412;&#x440;&#x435;&#x43C;&#x435;&#x43D;&#x43D;&#x43E;">
 	</g>
 </g>
@@ -1776,7 +1774,7 @@
 </g>
 <g id="&#x411;&#x43B;&#x43E;&#x43A;_5">
 	<g id="&#x423;&#x447;&#x430;&#x441;&#x442;&#x43A;&#x438;">
-		<polygon id="_x31_" style="fill:#EAE1D3;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="2385.375,2487.313 
+		<polygon id="test_poly2" style="fill:#EAE1D3;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="2385.375,2487.313 
 			1989.318,2878.444 2403.821,3325.174 2781.305,2985.051 		"/>
 		<polygon id="_x32_" style="fill:#EAE1D3;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="2781.305,2985.051 
 			2403.821,3325.174 2703.827,3648.506 3057.589,3331.929 		"/>
@@ -2948,11 +2946,6 @@
 	<circle style="display:inline;fill:#EC1C24;" cx="1822.221" cy="3711.917" r="8.87"/>
 	<circle style="display:inline;fill:#EC1C24;" cx="1706.846" cy="3625.413" r="8.87"/>
 	<circle style="display:inline;fill:#EC1C24;" cx="2992.531" cy="4135.507" r="8.87"/>
-</g>
-<g id="Layer_67" style="display:none;">
-	
-		<image style="display:inline;overflow:visible;" width="14183" height="14081" xlink:href="&#x41A;&#x430;&#x440;&#x442;&#x430; &#x432;&#x435;&#x43A;&#x442;&#x43E;&#x440; 277.jpg"  transform="matrix(0.48 0 0 0.48 73 44)">
-	</image>
 </g>
 <g id="_x30_01" style="display:none;">
 	<path style="display:inline;fill:#EAB28C;stroke:#BE1E2D;stroke-width:2;stroke-miterlimit:10;" d="M2157.131,2600.381

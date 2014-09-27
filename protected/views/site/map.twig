@@ -9,6 +9,7 @@
 {% block js %}
     {{ parent() }}
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    {{ import('js','snap.svg.js') }}
 {% endblock %}
 
 
@@ -91,14 +92,8 @@
             svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
         }
 
-
-        $('.map').load("/img/map.svg", function (response, status, xhr)
+        function initDragging(svgobject)
         {
-            var svgobject = document.getElementsByTagName('svg')[0];
-
-            // Получаем доступ к объектной модели SVG-файла
-            var svgdom = $(svgobject.contentDocument);
-
             var mc = Hammer(svgobject);
             mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
             mc.get('pinch').set({ enable: true });
@@ -132,22 +127,39 @@
                     setMapCoords(svgobject, deltaX, deltaY);
                 }
             });
+        }
+
+        $('.map').load("/img/map.svg", function (response, status, xhr)
+        {
+            var svgobject = document.getElementsByTagName('svg')[0];
+
+            initDragging(svgobject);
 
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {
                 setMapCoords(svgobject, 0, 0);
             });
 
+            // Создаем объект для рисования в SVG
+            var snap = Snap('.map svg');
 
             // Тестирование выделения полигона
-            $('[id^="_x"]').hover(
-                function() {
-                    $(this).css({'filter':'url(#pictureFilter)'});
-                },
-                function() {
-                    $(this).css({'filter':''});
+            var poly = null;
+            $('[id^="_x3"]').mouseenter( function() {
+                if (poly != null) {
+                    poly.remove();
+                    poly = null;
                 }
-            );
+                var points = $(this).attr('points');
+                poly = snap.polyline(points);
+                poly.attr('fill', 'rgba(255,0,0,0.3)');
+
+                poly.mouseout( function() {
+                    if (poly != null)
+                        poly.remove();
+                    poly = null;
+                });
+            });
         });
     </script>
 {% endblock %}
