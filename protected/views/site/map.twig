@@ -98,6 +98,7 @@
             mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
             mc.get('pinch').set({ enable: true });
             mc.get('rotate').set({ enable: true });
+            mc.get('tap').set({ enable: true });
 
 
             var dragging = null;
@@ -127,6 +128,8 @@
                     setMapCoords(svgobject, deltaX, deltaY);
                 }
             });
+
+            return mc;
         }
 
         $('.map').load("/img/map.svg", function (response, status, xhr)
@@ -145,7 +148,7 @@
 
             // Тестирование выделения полигона
             var poly = null;
-            $('[id^="_x3"]').mouseenter( function() {
+            $('[id^="_x3"]').mouseover( function() {
                 if (poly != null) {
                     poly.remove();
                     poly = null;
@@ -160,6 +163,25 @@
                     poly = null;
                 });
             });
+
+            $('[id^="_x3"]').mouseover( function() {
+                if (poly != null) {
+                    poly.remove();
+                    poly = null;
+                }
+                var points = $(this).attr('points');
+                poly = snap.polyline(points);
+                poly.attr('fill', 'rgba(255,0,0,0.3)');
+
+                poly.mouseout( function() {
+                    if (poly != null)
+                        poly.remove();
+                    poly = null;
+                });
+            });
+
+            // Отключаем
+            $('rect').css({'pointer-events':'none'});
         });
     </script>
 {% endblock %}
