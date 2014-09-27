@@ -25,6 +25,8 @@
         <div class='title'>
             Генеральный <lightgrey>план</lightgrey>
         </div>
+        <div id='debug' style='width:500px; height:150px'>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -51,17 +53,23 @@
             var y = parseInt(coords[1]);
             var w = parseInt(coords[2]);
             var h = parseInt(coords[3]);
-            x -= deltaX * 3;//(w / width);
-            y -= deltaY * 3;//(h / height);
+
+            var ratioW = w / width;
+            var ratioH = h / height;
+
+            $('#debug').html('xy ('+x+', '+y+')<br>' + 'wh ('+w+', '+h+')<br>' + 'ratio ('+ratioW+', '+ratioH+')<br>');
+
+            x -= deltaX * ratioW;
+            y -= deltaY * ratioH;
 
             if (x < 0)
                 x = 0;
             if (y < 0)
                 y = 0;
-            if (x > w - viewPortW * 3/*(w / width)*/)
-                x = w - viewPortW * 3;//(w / width);
-            if (y > h - viewPortH * 3/*(h / height)*/)
-                y = h - viewPortH * 3;//(h / height);
+            if (x > w - viewPortW * ratioW)
+                x = w - viewPortW * ratioW;
+            if (y > h - viewPortH * ratioH)
+                y = h - viewPortH * ratioH;
 
             svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
         }
@@ -87,10 +95,10 @@
         function initDragging(svgobject)
         {
             var mc = Hammer(svgobject);
-            mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':64/3 });
+            mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':64 });
             mc.get('pinch').set({ enable: true });
             mc.get('rotate').set({ enable: true });
-            mc.get('tap').set({ 'enable': true, 'threshold':64/3, 'time':1000 });
+            mc.get('tap').set({ 'enable': true, 'threshold':64, 'time':1000 });
 
             var dragging = null;
             var pageX = 0;
