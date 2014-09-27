@@ -27,6 +27,8 @@
         </div>
         <div id='debug' style='width:500px; height:100px'>
         </div>
+        <div id='debug2' style='width:500px; height:100px'>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -95,10 +97,10 @@
         function initDragging(svgobject)
         {
             var mc = Hammer(svgobject);
-            mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':64 });
+            mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':32 });
             mc.get('pinch').set({ enable: true });
             mc.get('rotate').set({ enable: true });
-            mc.get('tap').set({ 'enable': true, 'threshold':64, 'time':1000 });
+            mc.get('tap').set({ 'enable': true, 'threshold':32, 'time':1000 });
 
             var dragging = null;
             var pageX = 0;
@@ -120,12 +122,14 @@
                 pageY = 0;
             });
             mc.on("panmove", function(e) {
-                console.log('panmove');
                 if (dragging) {
                     var deltaX = e.center.x - pageX;
                     var deltaY = e.center.y - pageY;
                     pageX = e.center.x;
                     pageY = e.center.y;
+
+                    $('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
+
 
                     setMapCoords(svgobject, deltaX, deltaY);
                 }
