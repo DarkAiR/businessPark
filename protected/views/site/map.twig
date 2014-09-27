@@ -25,7 +25,7 @@
         <div class='title'>
             Генеральный <lightgrey>план</lightgrey>
         </div>
-        <div id='debug' style='width:500px; height:150px'>
+        <div id='debug' style='width:500px; height:100px'>
         </div>
     </div>
 </div>
@@ -144,7 +144,7 @@
             $(window).on('resize', function(ev) {
                 setMapCoords(svgobject, 0, 0);
             });
-
+/*
             // Создаем объект для рисования в SVG
             var snap = Snap('.map svg');
 
@@ -164,25 +164,25 @@
                 poly = snap.polyline(points);
                 poly.attr('fill', 'rgba(255,0,0,0.3)');
             });
-/*
-            $('[id^="_x3"]').mouseover( function() {
-                if (poly != null) {
-                    poly.remove();
-                    poly = null;
-                }
-                var points = $(this).attr('points');
-                poly = snap.polyline(points);
-                poly.attr('fill', 'rgba(255,0,0,0.3)');
 
-                poly.mouseout( function() {
-                    if (poly != null)
-                        poly.remove();
-                    poly = null;
-                });
-            });
+            // $('[id^="_x3"]').mouseover( function() {
+            //     if (poly != null) {
+            //         poly.remove();
+            //         poly = null;
+            //     }
+            //     var points = $(this).attr('points');
+            //     poly = snap.polyline(points);
+            //     poly.attr('fill', 'rgba(255,0,0,0.3)');
+
+            //     poly.mouseout( function() {
+            //         if (poly != null)
+            //             poly.remove();
+            //         poly = null;
+            //     });
+            // });
 */
             // Отключаем нажатие на участках
-            $('rect').css({'pointer-events':'none'});
+            $(svgobject).find('rect').css({'pointer-events':'none'});
         });
     </script>
 {% endblock %}
