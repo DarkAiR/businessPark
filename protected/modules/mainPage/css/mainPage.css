@@ -71,12 +71,12 @@
   position: absolute;
 }
 .bg-container .bg-picture {
-  width: 1016px;
+  width: 1024px;
   height: 568px;
   position: absolute;
   top: 260px;
   left: 50%;
-  margin-left: -493px;
+  margin-left: -497px;
   background: url(../../img/mainBg.jpg) left top no-repeat;
   z-index: -1;
 }
