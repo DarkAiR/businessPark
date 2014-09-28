@@ -63,6 +63,13 @@ p {
 .common-container:after {
   clear: both;
 }
+.separator {
+  background: #cacaca;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  width: 100%;
+}
 .head .col1,
 .footer .col1 {
   width: 225px;
@@ -100,7 +107,7 @@ p {
   min-height: 142px;
 }
 .head .logo-block {
-  padding: 50px 22px 0 29px;
+  padding: 50px 22px 0 22px;
 }
 .head .logo-block a {
   text-decoration: none;
@@ -124,7 +131,7 @@ p {
   padding-bottom: 13px;
 }
 .footer .separate-line {
-  border-top: #99b985 1px dotted;
+  background: #cacaca;
   height: 1px;
   min-height: 1px;
   max-height: 1px;

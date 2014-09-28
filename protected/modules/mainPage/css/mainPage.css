@@ -51,16 +51,9 @@
   top: 180px;
   left: 500px;
 }
-.main-page .separator {
-  border-top: #99b985 1px dotted;
-  height: 1px;
-  min-height: 1px;
-  max-height: 1px;
-  width: 100%;
-}
 .main-page .padding-block {
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding-left: 22px;
+  padding-right: 22px;
 }
 /* Задник */
 .bg-container {
@@ -71,12 +64,12 @@
   position: absolute;
 }
 .bg-container .bg-picture {
-  width: 1024px;
+  width: 1040px;
   height: 568px;
   position: absolute;
   top: 260px;
   left: 50%;
-  margin-left: -497px;
+  margin-left: -505px;
   background: url(../../img/mainBg.jpg) left top no-repeat;
   z-index: -1;
 }

@@ -69,7 +69,7 @@
   padding-left: 22px;
 }
 .news-lenta-widget .separatorLine {
-  border-top: #99b985 1px dotted;
+  background: #cacaca;
   height: 1px;
   min-height: 1px;
   max-height: 1px;

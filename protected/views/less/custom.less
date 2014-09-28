@@ -334,10 +334,14 @@ p {
 
 // Разделитель
 .separate-line() {
-    border-top: #99b985 1px dotted;
+    background: #cacaca;
     height: 1px;
     min-height: 1px;
     max-height: 1px;
+}
+.separator {
+    .separate-line();
+    width: 100%;
 }
 
 .head,
@@ -361,7 +365,7 @@ p {
     min-height: @headerH;
 
     .logo-block {
-        padding: 50px @bigPadding 0 29px;
+        padding: 50px @bigPadding 0 @bigPadding;
         & a {
             .link(none);
         }

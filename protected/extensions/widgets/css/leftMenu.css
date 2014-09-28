@@ -1,16 +1,17 @@
 .left-menu-widget {
-  padding: 22px 22px 22px 22px;
+  padding: 0 44px 22px 22px;
+  width: 100%;
 }
 .left-menu-widget,
 .left-menu-widget table {
   font-size: 11px;
-  line-height: 18px;
+  line-height: 15px;
 }
 .left-menu-widget li td {
   vertical-align: middle;
 }
 .left-menu-widget li .image {
-  padding: 22px 11px;
+  padding: 20px 14px 20px 11px;
 }
 .left-menu-widget li a {
   text-decoration: none;
@@ -35,10 +36,10 @@
   background-image: none;
 }
 .left-menu-widget .left-menu-separator {
-  border-top: #99b985 1px dotted;
+  background: #cacaca;
   height: 1px;
   min-height: 1px;
   max-height: 1px;
-  border-top: 1px solid #929da0;
-  margin-left: 18px;
+  border-top: 1px solid #d0d6da;
+  margin-left: 11px;
 }
