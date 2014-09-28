@@ -13,7 +13,7 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 27px;
-  color: #767676;
+  color: #667075;
   padding-left: 22px;
 }
 .news-lenta-widget .header .title a {
@@ -21,7 +21,7 @@
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
-  color: #767676 !important;
+  color: #667075 !important;
 }
 .news-lenta-widget .item td {
   vertical-align: top;
@@ -67,12 +67,4 @@
 .news-lenta-widget .item .textBlock .text {
   padding-right: 22px;
   padding-left: 22px;
-}
-.news-lenta-widget .separatorLine {
-  background: #cacaca;
-  height: 1px;
-  min-height: 1px;
-  max-height: 1px;
-  border-top: 1px #eddbcd solid;
-  margin-left: 22px;
 }
