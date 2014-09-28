@@ -6,7 +6,8 @@ body {
   padding: 0;
   font-family: "verdanaregular", Helvetica, Arial, sans-serif;
 }
-body {
+body,
+table {
   font-size: 13px;
   line-height: 19px;
   color: #2b2b2b;
