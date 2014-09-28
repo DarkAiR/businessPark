@@ -131,7 +131,7 @@ p {
   padding-bottom: 13px;
 }
 .footer .separate-line {
-  background: #cacaca;
+  border-top: 1px dashed #a6adb4;
   height: 1px;
   min-height: 1px;
   max-height: 1px;
@@ -163,6 +163,20 @@ p {
 .footer .copyright {
   padding: 36px 0 0 22px;
 }
+.footer .copyright a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #00aff0 !important;
+}
+.footer .copyright a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #48cdff !important;
+}
 .footer .author {
   padding: 36px 0 0 22px;
 }
@@ -186,14 +200,3 @@ p {
 .footer .menu-block {
   padding: 36px 0 0 22px;
 }
-/*
-.skype_c2c_textarea_span {
-    img {
-        display: none;
-    }
-    a {
-        .link();
-        color: @colorLink;
-    }
-}
-*/

@@ -4,7 +4,11 @@
     min-height: 1px;
 
     .separate-line {
-        .separate-line();
+        border-top: 1px dashed @footerSeparatorColor;
+        height: 1px;
+        min-height: 1px;
+        max-height: 1px;
+
         width: @mainCol2 + @mainCol3 - @bigPadding * 2;
         margin-left: @bigPadding;
         margin-bottom: @bigPadding * 2;
@@ -66,6 +70,15 @@
             .font-size(22);
             color: @colorTitleGrey;
             margin-top: 4px;
+        }
+
+        a {
+            .link(blue);
+            color: @colorLinkBlue !important;
+        }
+        a:hover {
+            .link(bluehover);
+            color: @colorLinkBlueHover !important;
         }
     }
 }

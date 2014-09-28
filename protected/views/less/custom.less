@@ -20,7 +20,7 @@
 @headerH:               142px;
 @footerH:               123px;
 @footerPaddingTop:      92px;
-
+@footerSeparatorColor:  #a6adb4;
 
 // Заголовок
 @mainTitleH:            120px;
@@ -392,7 +392,11 @@ p {
         padding-bottom: 13px;
     }
     .separate-line {
-        .separate-line();
+        border-top: 1px dashed @footerSeparatorColor;
+        height: 1px;
+        min-height: 1px;
+        max-height: 1px;
+
         width: @mainCol2 + @mainCol3 - @bigPadding * 2;
         margin-left: @mainCol1 + @bigPadding;
     }
@@ -424,6 +428,18 @@ p {
 
     .copyright {
         padding: @topOffs 0 0 @bigPadding;
+
+        a {
+            .link(blue);
+            color: @colorLinkBlue !important;
+        }
+        a:hover {
+            .link(bluehover);
+            color: @colorLinkBlueHover !important;
+        }
+    }
+    .social {
+        
     }
     .author {
         padding: @topOffs 0 0 @bigPadding;
@@ -450,16 +466,3 @@ p {
         padding: @topOffs 0 0 @bigPadding;
     }
 }
-
-// Skype
-/*
-.skype_c2c_textarea_span {
-    img {
-        display: none;
-    }
-    a {
-        .link();
-        color: @colorLink;
-    }
-}
-*/
