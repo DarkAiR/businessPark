@@ -1,23 +1,42 @@
 .square-widget {
   padding: 22px;
 }
+.square-widget a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #00aff0 !important;
+}
+.square-widget a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #48cdff !important;
+}
+.square-widget .summary {
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  padding-bottom: 15px;
+}
 .square-widget .summary invert {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #75b239;
+  background-color: #6d984a;
+  border: 1px solid #608743;
   color: #fff;
-  font-weight: bold;
-  padding: 3px 5px;
   display: inline-block;
-  line-height: 1;
+  padding: 5px 7px 3px;
+}
+.square-widget .text {
+  padding-bottom: 12px;
 }
 .square-widget .sold {
-  padding-top: 18px;
   color: #8f8f8f;
-}
-.square-widget .sales {
-  padding-top: 12px;
+  padding-bottom: 4px;
 }
 .square-widget .sales,
 .square-widget .sales * {

@@ -2,12 +2,11 @@
   padding-bottom: 92px;
 }
 .residents-page .col2 > .title {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 34px;
-  line-height: 90px;
-  color: #4f9714;
-  height: 90px;
-  min-height: 90px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 22px;
   white-space: nowrap;
   padding-left: 22px;
 }
@@ -15,7 +14,7 @@
   color: #767676;
 }
 .residents-page .col2 > .title lightgrey {
-  color: #b2b2b2;
+  color: #929da0;
 }
 .residents-page table td {
   float: none !important;
@@ -48,7 +47,7 @@
   float: left;
   height: inherit;
   min-height: 1px;
-  padding-top: 16px;
+  padding-top: 35.5px;
 }
 .residents-page .vmenu li {
   font-size: 12px;
@@ -73,7 +72,7 @@
 }
 .residents-page .item .name a {
   text-decoration: none;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
 }

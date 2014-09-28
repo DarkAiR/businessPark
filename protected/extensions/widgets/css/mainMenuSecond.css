@@ -1,8 +1,11 @@
 .main-menu-second-widget {
+  padding-bottom: 34px;
+}
+.main-menu-second-widget,
+.main-menu-second-widget table {
   font-size: 14px;
   line-height: 22px;
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding-bottom: 40px;
 }
 .main-menu-second-widget li {
   padding-left: 11px;
@@ -10,20 +13,21 @@
 }
 .main-menu-second-widget li,
 .main-menu-second-widget li * {
-  color: #8f8f8f;
   line-height: 1;
 }
 .main-menu-second-widget li a {
   text-decoration: none;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBRA6VCtMtAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Po7+8HAANeAa4/FTM4AAAAAElFTkSuQmCC);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
+  color: #00aff0 !important;
 }
 .main-menu-second-widget li a:hover {
   text-decoration: none;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
+  color: #48cdff !important;
 }
 .main-menu-second-widget a.active {
   text-decoration: none;

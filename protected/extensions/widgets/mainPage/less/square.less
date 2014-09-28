@@ -3,19 +3,35 @@
 .square-widget {
     padding: @bigPadding;
 
+
+    a {
+        .link(blue);
+        color: @colorLinkBlue !important;
+    }
+    a:hover {
+        .link(bluehover);
+        color: @colorLinkBlueHover !important;
+    }
+
     .summary {
-        & invert {
+        .font(PF, medium);
+        .font-size(14, 1);
+        padding-bottom: 15px;
+
+        invert {
             .invert-text;
             display: inline-block;
-            line-height: 1;
+            padding: 5px 7px 3px;
         }
     }
+    .text {
+        padding-bottom: 12px;
+    }
     .sold {
-        padding-top: 18px;
         color: @colorTextLight;
+        padding-bottom: 4px;
     }
     .sales {
-        padding-top: 12px;
     }
     .sales, .sales * {
         color: @colorTextLight;

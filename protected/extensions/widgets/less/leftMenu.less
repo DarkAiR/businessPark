@@ -1,8 +1,11 @@
 @import (reference) '../../../views/less/custom';
 
 .left-menu-widget {
-    .font-size(12);
     padding: @bigPadding @bigPadding @bigPadding @bigPadding;
+
+    &, table {
+        .font-size(11);
+    }
 
     ul {
     }
@@ -19,10 +22,12 @@
     li, li * {
     }
     li a {
-        .link();
+        .link(blue);
+        color: @colorLinkBlue !important;
     }
     li a:hover {
-        .link(hover);
+        .link(bluehover);
+        color: @colorLinkBlueHover !important;
     }
     a.active {
         .link(none);

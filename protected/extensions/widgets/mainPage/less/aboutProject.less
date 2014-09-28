@@ -1,18 +1,18 @@
 @import (reference) '../../../../views/less/custom';
 
 .about-project-widget {
-    margin-top: 44px; 
+    @leftPadding: 30px;
 
     width: @mainCol3;
     height: 537px;
-    padding: @bigPadding;
+    padding: 0 @bigPadding @bigPadding @bigPadding;
 
     .title {
         .font(PF, regular);
         .font-size(22, 1);
         color: @colorTitleGrey;
         padding-top: 40px;
-        padding-left: 36px;
+        padding-left: @leftPadding;
         padding-bottom: @bigPadding;
 
         a {
@@ -21,11 +21,11 @@
         }
     }
     .image {
-        padding-left: 30px;
-        padding-bottom: @bigPadding;
+        padding-left: @leftPadding;
+        padding-bottom: @middlePadding;
     }
     .text {
         color: @colorTitleGrey;
-        padding-left: 30px;
+        padding-left: @leftPadding;
     }
 }

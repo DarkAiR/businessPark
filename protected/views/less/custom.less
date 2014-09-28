@@ -24,8 +24,8 @@
 
 // Заголовок
 @mainTitleH:            120px;
-@pageTitleH:            90px;
-@pageTitleFontSize:     34;
+@pageTitleH:            49px;
+@pageTitleFontSize:     32;
 
 // Цвета
 @devRedBg:              rgba(255,0,0,0.2);
@@ -37,19 +37,19 @@
 @colorText:             #2b2b2b;
 @colorTextLight:        #8f8f8f;
 
-@colorTitle:            #4f9714;
+@colorTitle:            #719e3d;
 @colorTitleGrey:        #767676;
-@colorTitleLightGrey:   #b2b2b2;
+@colorTitleLightGrey:   #929da0;
 
-@colorLink:             #0074ce;
-@colorLinkHover:        #4f9a00;
+@colorLink:             #6a9e40;
+@colorLinkHover:        #87c159;
+@colorLinkBlue:         #00aff0;
+@colorLinkBlueHover:    #48cdff;
+
 @colorLinkActive:       #ffffff;
 @colorLinkActiveBg:     @colorInvertTextBg;
 @colorStudioLink:       #fa1010;
 @colorNewsLink:         #56b312;
-
-@colorMenu:             @colorLinkHover;
-@colorSubMenu:          @colorTextLight;
 
 @colorInvertTextBg:     #75b239;
 
@@ -121,8 +121,8 @@
         // background-position: center 27px;
     }
 }
-.font-size(34, @lh:38px) {
-    font-size: 34px;
+.font-size(32, @lh:35px) {
+    font-size: 32px;
     line-height: @lh;
     a {
         // background-position: center 38px;
@@ -146,30 +146,40 @@
 
 // ------------------------------------------
 // Links
+// http://webcodertools.com/imagetobase64converter
 
 @linkBgPos: 99%;
 
+// Green
 .link() {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjYpJzMjrgAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PImucAAAK+AUlYjpCuAAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
+// Light green
 .link(hover) {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
-    background-repeat: repeat-x;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);    background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
-.link(submenu) {
+.link(blue) {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBRA6VCtMtAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Po7+8HAANeAa4/FTM4AAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
+.link(bluehover) {
+    text-decoration: none;
+    // display: inline;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: center @linkBgPos;
+}
+
 .link(title) {
     .link(hover);
 }
@@ -213,12 +223,10 @@ a {
     &:hover {
         .link(hover);
         color: @colorLinkHover !important;
-        __text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
     }
     &.active {
         .link(none);
         color: @colorText !important;
-        __text-decoration: none;
     }
 }
 
@@ -251,11 +259,12 @@ p {
 
 // Заголовок
 .inner-title(@h:@pageTitleH) {
-    .font(PF, medium);
-    .font-size(@pageTitleFontSize, @h);
+    .font(PF, regular);
+    .font-size(@pageTitleFontSize, 1);
     color:      @colorTitle;
-    height:     @h;
-    min-height: @h;
+    padding-bottom: @bigPadding;
+    //height:     @h;
+    //min-height: @h;       // Чтобы прилипало к верху
     white-space: nowrap;
 
     grey {
@@ -295,10 +304,9 @@ p {
 // Локальное выделение текста
 .invert-text() {
     .border-radius(2px);
-    background: @colorInvertTextBg;
+    background-color: #6d984a;
+    border: 1px solid #608743;
     color: #fff;
-    font-weight: bold;
-    padding: 3px 5px;
 }
 
 // Бордюры
@@ -353,13 +361,13 @@ p {
     min-height: @headerH;
 
     .logo-block {
-        padding: 64px @bigPadding 0 29px;
+        padding: 50px @bigPadding 0 29px;
         & a {
             .link(none);
         }
     }
     .menu-block {
-        padding: 25px @bigPadding 0 @bigPadding;
+        padding: @middlePadding @bigPadding 0 @bigPadding;
     }
 }
 

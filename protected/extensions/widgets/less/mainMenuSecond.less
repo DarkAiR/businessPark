@@ -1,10 +1,13 @@
 @import (reference) '../../../views/less/custom';
 
 .main-menu-second-widget {
-    .font-size(14);
-    .font(PF, regular);
 
-    padding-bottom: 40px;    
+    &, table {
+        .font-size(14);
+        .font(PF, regular);
+    }
+
+    padding-bottom: 34px;
 
     ul {
     }
@@ -13,14 +16,15 @@
         padding-right: @smallPadding;
     }
     li, li * {
-        color: @colorSubMenu;
         line-height: 1;
     }
     li a {
-        .link(submenu);
+        .link(blue);
+        color: @colorLinkBlue !important;
     }
     li a:hover {
-        .link(hover);
+        .link(bluehover);
+        color: @colorLinkBlueHover !important;
     }
 
     a.active {

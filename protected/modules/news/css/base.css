@@ -1,10 +1,9 @@
 .news-page .col2 > .title {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 34px;
-  line-height: 90px;
-  color: #4f9714;
-  height: 90px;
-  min-height: 90px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 22px;
   white-space: nowrap;
   padding-left: 22px;
 }
@@ -12,7 +11,7 @@
   color: #767676;
 }
 .news-page .col2 > .title lightgrey {
-  color: #b2b2b2;
+  color: #929da0;
 }
 .news-page table td {
   float: none !important;
@@ -55,7 +54,7 @@
   line-height: 22px;
   color: inherit;
   text-align: right;
-  height: 90px;
+  height: 49px;
 }
 .news-page .filter .inner {
   position: absolute;
@@ -64,7 +63,7 @@
   padding-left: 44px;
 }
 .news-page .filter .item {
-  line-height: 90px;
+  line-height: 49px;
   float: left;
   padding-left: 11px;
   padding-right: 11px;

@@ -1,22 +1,20 @@
 .title-widget {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 120px;
-  color: #4f9714;
-  height: 120px;
-  min-height: 120px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 22px;
   white-space: nowrap;
-  font-size: 34px;
-  line-height: 38px;
+  font-size: 32px;
+  line-height: 35px;
   width: 741px;
   min-width: 741px;
   padding-left: 22px;
-  padding-top: 24px;
 }
 .title-widget grey {
   color: #767676;
 }
 .title-widget lightgrey {
-  color: #b2b2b2;
+  color: #929da0;
 }
 .title-widget .text1 {
   padding-left: 60px;

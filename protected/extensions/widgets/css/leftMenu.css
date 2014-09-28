@@ -1,7 +1,10 @@
 .left-menu-widget {
-  font-size: 12px;
-  line-height: 19px;
   padding: 22px 22px 22px 22px;
+}
+.left-menu-widget,
+.left-menu-widget table {
+  font-size: 11px;
+  line-height: 18px;
 }
 .left-menu-widget li td {
   vertical-align: middle;
@@ -11,15 +14,17 @@
 }
 .left-menu-widget li a {
   text-decoration: none;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
+  color: #00aff0 !important;
 }
 .left-menu-widget li a:hover {
   text-decoration: none;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
+  color: #48cdff !important;
 }
 .left-menu-widget a.active {
   text-decoration: none;
@@ -34,6 +39,6 @@
   height: 1px;
   min-height: 1px;
   max-height: 1px;
-  border-top: 1px solid #b2b2b2;
+  border-top: 1px solid #929da0;
   margin-left: 18px;
 }
