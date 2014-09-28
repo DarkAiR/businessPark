@@ -18,7 +18,12 @@
         <div class='title'>
             О проекте
         </div>
+    </div>
 
+    <div class='col1'>
+        {{ widget('ext.widgets.LeftMenuWidget', {'menuId':const('Menu','LEFT_MENU_CONTACTS')}) }}
+    </div>
+    <div class='col2-3'>
         <div class='content'>
             <div class='text'>
                 «ПРО-БИЗНЕС-ПАРК» &mdash; проект комплексного освоения и развития территории индустриальной зоны в <a href='#'>Чкаловском районе г. Екатеринбурга</a>, предусмотренный Генеральным планом развития Муниципального Образования «город Екатеринбург»;
@@ -101,6 +106,7 @@
                 </div>
             </div>
         </div>
+        <div class='bottomGap'></div>
     </div>
 </div>
 {% endblock %}
