@@ -59,7 +59,7 @@
 .news-page .filter .inner {
   position: absolute;
   right: 22px;
-  background: url(../../img/filter-line.png) left 26px no-repeat;
+  background: url(../../img/filter-line.png) left 11px no-repeat;
   padding-left: 44px;
 }
 .news-page .filter .item {

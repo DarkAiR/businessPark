@@ -8,7 +8,7 @@
   color: #719e3d;
   padding-bottom: 22px;
   white-space: nowrap;
-  padding: 0 22px;
+  padding-left: 22px;
 }
 .about-page .title grey {
   color: #667075;
@@ -48,31 +48,39 @@
   padding: 0 22px;
   margin: 0;
 }
-.about-page .content .text {
+.about-page .content h6 {
+  font-size: inherit;
+  line-height: inherit;
   padding: 0;
-  margin-bottom: 35px;
+  margin: 0;
+  font-weight: bold;
+  padding-bottom: 6px;
 }
-.about-page .content .text ul {
-  list-style: none;
+.about-page .content ul {
   padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.about-page .content li {
+  margin: 0.5em 0 0.5em 1.2em;
+}
+.about-page .content li:before {
+  content: ' — ';
+  margin-left: -1.5em;
+}
+.about-page .content .text {
+  padding-bottom: 17px;
 }
 .about-page .content .text2 {
-  padding: 0;
-  margin-top: 20px;
+  padding-bottom: 19px;
 }
 .about-page .content .text3 {
-  padding: 0;
-  margin-top: 11px;
-}
-.about-page .content .text4 li {
-  padding: 0;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 .about-page .content .image {
   float: left;
   width: 360px;
-  padding-left: 6px;
-  margin-top: -15px;
+  margin-top: 7px;
 }
 .about-page .content .imagetext {
   float: left;
