@@ -9,6 +9,7 @@
   color: #4f9714;
   height: 90px;
   min-height: 90px;
+  white-space: nowrap;
   padding-left: 22px;
 }
 .contacts-page .title grey {

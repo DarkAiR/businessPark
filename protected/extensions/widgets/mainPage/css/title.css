@@ -4,6 +4,7 @@
   color: #4f9714;
   height: 120px;
   min-height: 120px;
+  white-space: nowrap;
   font-size: 34px;
   line-height: 38px;
   width: 741px;
@@ -19,10 +20,4 @@
 }
 .title-widget .text1 {
   padding-left: 60px;
-  width: inherit;
-  min-width: inherit;
-}
-.title-widget .text2 {
-  width: inherit;
-  min-width: inherit;
 }
