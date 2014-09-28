@@ -19,4 +19,10 @@
 }
 .title-widget .text1 {
   padding-left: 60px;
+  width: inherit;
+  min-width: inherit;
+}
+.title-widget .text2 {
+  width: inherit;
+  min-width: inherit;
 }
