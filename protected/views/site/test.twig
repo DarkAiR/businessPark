@@ -8,7 +8,7 @@
     <!--meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, target-densitydpi=device-dpi"/-->
     <!--meta content="Dynamic" name="document-state"-->
     <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
 
     <title>{% block title %}{{ this.pageTitle }}{% endblock %}</title>
 
@@ -19,10 +19,6 @@
     {{ import('js', 'bootstrap.js') }}
 </head>
 <body>
-
-<script type="text/javascript">
-    alert(window.navigator.userAgent);
-</script>
 
     <div style='border:1px solid #000; width: 800px; height: 600px;'>CONTENT</div>
 
