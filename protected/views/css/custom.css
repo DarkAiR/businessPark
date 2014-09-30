@@ -11,7 +11,7 @@ table {
   font-size: 13px;
   line-height: 19px;
   color: #2b2b2b;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .page {
   min-height: 100%;
@@ -103,8 +103,8 @@ p {
   min-height: 1px;
 }
 .head {
-  height: 142px;
-  min-height: 142px;
+  height: 117px;
+  min-height: 117px;
 }
 .head .logo-block {
   padding: 50px 22px 0 22px;

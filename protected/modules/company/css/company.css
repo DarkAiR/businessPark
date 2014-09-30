@@ -82,6 +82,7 @@
   float: left;
   height: inherit;
   min-height: 1px;
+  float: right;
 }
 .company-page .row2 .col2 {
   width: 516px;
@@ -89,6 +90,7 @@
   float: left;
   height: inherit;
   min-height: 1px;
+  float: right;
 }
 .company-page ul.menu {
   list-style-type: none;
@@ -120,6 +122,8 @@
   border-bottom-left-radius: 5px;
   border: 1px solid #d2d2d2;
   border-right: none;
+  margin-right: -1px;
+  background: #ffffff;
 }
 .company-page ul.items {
   list-style-type: none;

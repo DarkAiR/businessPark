@@ -16,6 +16,7 @@
   color: #48cdff !important;
 }
 .square-widget .summary {
+  display: none;
   font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1;
@@ -32,7 +33,32 @@
   padding: 5px 7px 3px;
 }
 .square-widget .text {
-  padding-bottom: 12px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  color: #719e3d;
+  padding-bottom: 11px;
+}
+.square-widget .sold-btn {
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  width: 159px;
+  height: 48px;
+  text-align: center;
+  margin-left: -6px;
+  margin-bottom: 15px;
+}
+.square-widget .sold-btn a {
+  line-height: 50px;
+  width: inherit;
+  height: inherit;
+  display: inline-block;
+  color: #ffffff !important;
+  background: url(../../img/sale_btn.png) left top no-repeat;
+}
+.square-widget .sold-btn a:hover {
+  background: url(../../img/sale_btn_hover.png) left top no-repeat;
 }
 .square-widget .sold {
   color: #8f8f8f;
@@ -41,4 +67,10 @@
 .square-widget .sales,
 .square-widget .sales * {
   color: #8f8f8f;
+}
+.square-widget .number {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1;
+  display: inline-block;
 }

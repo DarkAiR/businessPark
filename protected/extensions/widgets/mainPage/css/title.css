@@ -9,6 +9,7 @@
   width: 741px;
   min-width: 741px;
   padding-left: 22px;
+  display: inline-block;
 }
 .title-widget grey {
   color: #667075;
@@ -16,6 +17,6 @@
 .title-widget lightgrey {
   color: #929da0;
 }
-.title-widget .text1 {
-  padding-left: 60px;
+.title-widget .text2 {
+  display: none;
 }

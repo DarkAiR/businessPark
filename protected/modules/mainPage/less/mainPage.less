@@ -4,8 +4,8 @@
     min-height: 1px;
 
     .bottomGap {
-        height: @footerPaddingTop;
-        min-height: @footerPaddingTop;
+        height: @bigPadding * 2;
+        min-height: @bigPadding * 2;
     }
 
     .col1 {
@@ -26,7 +26,7 @@
 
     .col1-block1 {
         position: absolute;
-        top: 0;
+        top: 14px;
         left: 0;
     }
     .col1-block2 {
@@ -36,8 +36,8 @@
     }
     .col1-block3 {
         position: absolute;
-        top: 180px;
-        left: 500px;
+        top: 100px;
+        left: 490px;
     }
 
     .padding-block {
@@ -50,7 +50,7 @@
 .bg-container {
     @w: 1040px;
     @h: 568px;
-    @top: 260px;
+    @top: 184px;
 
     width: 100%;
     min-width: @commonWidth;
@@ -65,7 +65,7 @@
         top: @top;
         left: 50%;
         margin-left: -@w / 2 + 15px;
-        background: url(../../img/mainBg.jpg) left top no-repeat;
+        background: url(../../img/mainBg.png) left top no-repeat;
         z-index: -1;
     }
 }

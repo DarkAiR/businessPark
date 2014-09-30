@@ -11,10 +11,17 @@
         <br/>
         Чкаловский район
     </div>
+    
+    <div class='sold-btn'>
+        <a href="{{ static('CHtml', 'normalizeUrl', ['/map']) }}">
+            СМОТРЕТЬ УЧАСТКИ
+        </a>
+    </div>
+
     <div class='sold'>
-        <a href='#'>осталось 22 га</a>
+        <a href='#'>осталось <div class='number'>22</div> га</a>
     </div>
     <div class='sales'>
-        продано 158 га
+        продано <div class='number'>158</div> га
     </div>
 </div>

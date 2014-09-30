@@ -17,7 +17,7 @@
 
 
 // Шапка, футер
-@headerH:               142px;
+@headerH:               117px;
 @footerH:               123px;
 @footerPaddingTop:      92px;
 @footerSeparatorColor:  #a6adb4;
@@ -33,6 +33,8 @@
 @devBlueBg:             rgba(0,0,255,0.2);
 @devMagentaBg:          rgba(255,0,255,0.2);
 @devGreyBg:             rgba(0,0,0,0.05);
+
+@mainBg:                #fff;
 
 @colorText:             #2b2b2b;
 @colorTextLight:        #8f8f8f;
@@ -211,7 +213,7 @@ body {
 body, table {
     .font-size(13);
     color: @colorText;
-    background-color: #fff;
+    background-color: @mainBg;
 }
 .page {
     min-height: 100%;

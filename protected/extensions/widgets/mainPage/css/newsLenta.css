@@ -9,6 +9,9 @@
   height: inherit;
   min-height: 1px;
 }
+.news-lenta-widget .header {
+  display: none;
+}
 .news-lenta-widget .header .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
@@ -33,9 +36,6 @@
   width: 137px;
   padding-left: 22px;
   padding-top: 41px;
-}
-.news-lenta-widget .item .textBlock {
-  padding-top: 38px;
 }
 .news-lenta-widget .item .textBlock .date {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;

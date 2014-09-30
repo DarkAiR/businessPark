@@ -14,6 +14,9 @@
     }
 
     .summary {
+
+        display: none;
+
         .font(PF, medium);
         .font-size(14, 1);
         padding-bottom: 15px;
@@ -25,8 +28,34 @@
         }
     }
     .text {
-        padding-bottom: 12px;
+        .font(PF, regular);
+        .font-size(17);
+        color: @colorTitle;
+        padding-bottom: @smallPadding;
     }
+
+    .sold-btn {
+        .font(PF, medium);
+        .font-size(14, 1);
+        width: 159px;
+        height: 48px;
+        text-align: center;
+        margin-left: -6px;
+        margin-bottom: 15px;
+
+        a {
+            line-height: 50px;  // Выравниваем текст по вертикали
+            width: inherit;
+            height: inherit;
+            display: inline-block;
+            color: @colorLinkActive !important;
+            background: url(../../img/sale_btn.png) left top no-repeat;
+        }
+        a:hover {
+            background: url(../../img/sale_btn_hover.png) left top no-repeat;
+        }
+    }
+
     .sold {
         color: @colorTextLight;
         padding-bottom: 4px;
@@ -35,5 +64,11 @@
     }
     .sales, .sales * {
         color: @colorTextLight;
+    }
+
+    .number {
+        .font(PF, regular);
+        .font-size(17, 1);
+        display: inline-block;
     }
 }
