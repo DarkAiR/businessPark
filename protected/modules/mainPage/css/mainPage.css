@@ -38,7 +38,7 @@
 }
 .main-page .col1-block1 {
   position: absolute;
-  top: 14px;
+  top: -8px;
   left: 0;
 }
 .main-page .col1-block2 {
@@ -59,7 +59,7 @@
 .bg-container {
   width: 100%;
   min-width: 1024px;
-  height: 752px;
+  height: 738px;
   overflow: hidden;
   position: absolute;
 }
@@ -67,7 +67,7 @@
   width: 1040px;
   height: 568px;
   position: absolute;
-  top: 184px;
+  top: 170px;
   left: 50%;
   margin-left: -505px;
   background: url(../../img/mainBg.png) left top no-repeat;
