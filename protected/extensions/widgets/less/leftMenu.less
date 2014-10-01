@@ -1,0 +1,45 @@
+@import (reference) '../../../views/less/custom';
+
+.left-menu-widget {
+    padding: 0 @bigPadding*2 @bigPadding @bigPadding;
+    width: 100%;
+
+    &, table {
+        .font-size(11, 15px);
+    }
+
+    ul {
+    }
+    li {
+        td {
+            vertical-align: middle;
+        }
+        .image {
+            padding: 20px @smallPadding+3 20px @smallPadding;
+        }
+        .text {
+        }
+    }
+    li, li * {
+    }
+    li a {
+        .link(blue);
+        color: @colorLinkBlue !important;
+    }
+    li a:hover {
+        .link(bluehover);
+        color: @colorLinkBlueHover !important;
+    }
+    a.active {
+        .link(none);
+        &:hover {
+            .link(none);
+        }
+    }
+
+    .left-menu-separator {
+        .separate-line();
+        border-top: 1px solid #d0d6da;
+        margin-left: @smallPadding;
+    }
+}

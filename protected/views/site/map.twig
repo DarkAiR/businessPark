@@ -1,0 +1,107 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css', 'map.css') }}
+{% endblock %}
+
+
+{% block js %}
+    {{ parent() }}
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    {{ import('js','snap.svg.js') }}
+    {{ import('js','map.js') }}
+{% endblock %}
+
+
+{% block bodyAttr %}
+    {# Запрещаем выделение, чтобы при таскании карты ничего лишнего не происходило #}
+    onselectstart="return false"
+{% endblock %}
+
+{% block content %}
+<div class='map-page'>
+    <div class='col1'></div>
+    <div class='col2-3'>
+        <div class='title'>
+            Генеральный <lightgrey>план</lightgrey>
+        </div>
+        <!--div id='debug' style='width:500px; height:100px; display:none;'>
+        </div>
+        <div id='debug2' style='width:500px; height:100px; display:none;'>
+        </div-->
+    </div>
+</div>
+{% endblock %}
+
+{% block afterbody %}
+
+    <div class='map-container'>
+        <div class='map'>
+        </div>
+    </div>
+
+    <div style='display:none'>
+        <svg id='window' xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <rect width="150" height="150" fill="rgb(0, 255, 0)" stroke-width="1" stroke="rgb(0, 0, 0)" />
+        </svg>
+    </div>
+
+    <script type="text/javascript">
+        $('.map').load("/img/map.svg", function (response, status, xhr)
+        {
+            var svgobject = document.getElementsByTagName('svg')[0];
+
+            map.init(svgobject);
+
+            // Выправление координат после ресайза
+            $(window).on('resize', function(ev) {
+                map.resizeMap();
+            });
+            map.resizeMap();
+
+
+            var snap = map.snap;
+
+            // Выделения полигона
+            var poly = null;
+            var polyId = 0;
+
+            mc.on('tap', function(e) {
+                var id = $(e.target).attr('id');
+                var regStr = /^_x3/i;
+                if (regStr.exec(id)) {
+                    if (id != polyId) {
+                        if (poly != null) {
+                            poly.remove();
+                            poly = null;
+                        }
+                        var points = $(e.target).attr('points');
+                        poly = snap.polyline(points);
+                        poly.attr('fill', 'rgba(255,0,0,0.3)');
+                        polyId = id;
+                    }
+                }
+            });
+
+            $('[id^="_x3"]').mouseover( function() {
+                if (poly != null) {
+                    poly.remove();
+                    poly = null;
+                }
+                var points = $(this).attr('points');
+                poly = snap.polyline(points);
+                poly.attr('fill', 'rgba(255,0,0,0.3)');
+
+                poly.mouseout( function() {
+                    if (poly != null)
+                        poly.remove();
+                    poly = null;
+                });
+            });
+
+            // Отключаем нажатие на участках
+            $(svgobject).find('rect').css({'pointer-events':'none'});
+        });
+    </script>
+{% endblock %}

@@ -4,8 +4,8 @@
     min-height: 1px;
 
     .bottomGap {
-        height: @footerPaddingTop;
-        min-height: @footerPaddingTop;
+        height: @bigPadding * 2;
+        min-height: @bigPadding * 2;
     }
 
     .col1 {
@@ -26,7 +26,7 @@
 
     .col1-block1 {
         position: absolute;
-        top: 100px;
+        top: -4px;
         left: 0;
     }
     .col1-block2 {
@@ -34,13 +34,23 @@
         top: 570px;
         left: 0;
     }
+    .col1-block3 {
+        position: absolute;
+        top: 100px;
+        left: 490px;
+    }
+
+    .padding-block {
+        padding-left: @bigPadding;
+        padding-right: @bigPadding;
+    }
 }
 
 /* Задник */
 .bg-container {
-    @w: 1027px;
+    @w: 1040px;
     @h: 568px;
-    @top: 305px;
+    @top: 170px;
 
     width: 100%;
     min-width: @commonWidth;

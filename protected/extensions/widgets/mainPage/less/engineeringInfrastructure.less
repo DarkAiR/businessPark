@@ -1,42 +1,39 @@
 @import (reference) '../../../../views/less/custom';
 
 .engineering-infrastructure-widget {
-    width: 100%;
-    height: 316px - 100px;
-    padding-top: @bigPadding * 2;
+    @imageW: @widgetImageW;
+    @imageH: 106px;
 
-    .item1, .item2 {
-        padding: @middlePadding @bigPadding @middlePadding @bigPadding;
-    }
+    width: 100%;
+    padding-top: @bigPadding;
+    padding-bottom: @bigPadding;
+    display: inline-block;              // Чтобы автоматически считалась высота
 
     .item1 {
         .col(@mainCol2);
-
-        .title {
-            .font(PF, regular);
-            .font-size(22);
-            color: @colorTitle;
-        }
-        .image {
-            padding-top: 18px;
-            display: none;
-        }
-        .text {
-            padding-top: 18px;
-        }
     }
-
     .item2 {
         .col(@mainCol3);
+    }
+
+    .item1, .item2 {
+        padding: @smallPadding @bigPadding @bigPadding @bigPadding;
 
         .title {
             .font(PF, regular);
             .font-size(22);
-            color: @colorTitle;
+            padding-left: @bigPadding;
+    
+            a {
+                .link(title);
+                color: @colorTitle !important;
+            }
         }
         .image {
-            padding-top: 52px;
-            display: none;
+            width: @imageW;
+            height: @imageH;
+            text-align: center;
+            vertical-align: middle;
         }
         .text {
             padding-top: 18px;

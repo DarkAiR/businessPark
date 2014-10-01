@@ -61,6 +61,10 @@
                                 {% if item.phones %}<div class='phones'>Телефон: {{ item.phones }}</div>{% endif %}
                                 {% if item.site %}<div class='site'>Сайт: <a href="{{ item.site|externalLink }}" target="_blank">{{ item.site }}</a></div>{% endif %}
                             </div>
+
+                            {% if not loop.last %}
+                                <div class='separate'></div>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}

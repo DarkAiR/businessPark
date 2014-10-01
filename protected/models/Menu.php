@@ -8,6 +8,9 @@ class Menu extends CActiveRecord
     const MAIN_MENU = 1;
     const MAIN_MENU_SECOND = 2;
     const FOOTER_MENU = 3;
+    const LEFT_MENU_MAIN = 4;
+    const LEFT_MENU_NEWS = 5;
+    const LEFT_MENU_CONTACTS = 6;
 
 
     public static function model($className = __CLASS__)
@@ -66,5 +69,18 @@ class Menu extends CActiveRecord
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
+    }
+
+    public static function getMenuTypes()
+    {
+        $criteria = new CDbCriteria;
+        $criteria->select = 'id, name';
+        $menus = Menu::model()->findAll($criteria);
+        
+        $arr = array();
+        foreach ($menus as $menu) {
+            $arr[$menu->id] = $menu->name;
+        }
+        return $arr;
     }
 }

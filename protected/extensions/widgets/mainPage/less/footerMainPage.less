@@ -1,0 +1,84 @@
+@import (reference) '../../../../views/less/custom';
+
+.footer-main-page-widget {
+    min-height: 1px;
+
+    .separate-line {
+        border-top: 1px dashed @footerSeparatorColor;
+        height: 1px;
+        min-height: 1px;
+        max-height: 1px;
+
+        width: @mainCol2 + @mainCol3 - @bigPadding * 2;
+        margin-left: @bigPadding;
+        margin-bottom: @bigPadding * 2;
+    }
+
+    .col2 {
+        .col(@mainCol2);
+        padding-left: @bigPadding;
+    }
+    .col3 {
+        .col(@mainCol3);
+        padding-left: @bigPadding;
+        padding-right: @bigPadding;
+    }
+
+    .phone-icon {
+        float: left;
+        min-height: 1px;
+
+        width: @widgetImageW;
+        height: 179px;
+        background: url(../../img/mainpage/phone_icon.jpg) left top no-repeat;
+    }
+    .phone-text {
+        float: left;
+        padding-left: @bigPadding;
+
+        .text {
+            .font-size(11);
+            padding-top: @smallPadding;
+        }
+        .phone {
+            .font(PF, regular);
+            .font-size(22);
+            color: @colorTitleGrey;
+            margin-left: -10px;
+            margin-top: 4px;
+        }
+    }
+
+    .mail-icon {
+        float: left;
+        min-height: 1px;
+
+        width: 106px;
+        height: 179px;
+        background: url(../../img/mainpage/mail_icon.jpg) center top no-repeat;
+    }
+    .mail-text {
+        float: left;
+        padding-left: @bigPadding;
+
+        .text {
+            .font-size(11);
+            padding-top: @smallPadding;
+        }
+        .mail {
+            .font(PF, regular);
+            .font-size(22);
+            color: @colorTitleGrey;
+            margin-top: 4px;
+        }
+
+        a {
+            .link(blue);
+            color: @colorLinkBlue !important;
+        }
+        a:hover {
+            .link(bluehover);
+            color: @colorLinkBlueHover !important;
+        }
+    }
+}

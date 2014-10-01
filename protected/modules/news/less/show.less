@@ -1,7 +1,7 @@
 @import (reference) 'base';
 
 .news-page {
-    padding-bottom: 65px;
+    padding-bottom: @footerPaddingTop;
 
     .backBtnCont {
         line-height: @pageTitleH;
@@ -13,7 +13,7 @@
             background: url(../../img/back-btn.png) left top no-repeat;
             position: absolute;
             right: 0;
-            top: 26px;
+            top: 0;
         }
     }
 
@@ -36,7 +36,6 @@
             .font-size(22, 24px);
             color: @colorTitle;
             margin-top: -4px;
-            margin-bottom: 40px;
 
             & * {
                 color: @colorTitle;
@@ -46,15 +45,19 @@
             }
         }
         .text {
-
+            padding-top: @paragraphPadding / 2;
+            padding-bottom: @paragraphPadding / 2;
         }
         img {
             max-width: @newsImageW;
             height: auto !important;
             display: block;             // Убираем короткие слова справа от картинки
+            padding-top: @paragraphPadding / 2;
+            padding-bottom: @paragraphPadding / 2;
         }
-        p img {
-            margin-bottom: 25px;
+        p, p img {
+            padding-top: @paragraphPadding / 2;
+            padding-bottom: @paragraphPadding / 2;
         }
     }
     .navigation {

@@ -24,6 +24,7 @@
 
     .col1 {
         .col(@col1);
+
         .image {
             line-height: @rowH;
             text-align: center;
@@ -64,9 +65,11 @@
     .row2 {
         .col1 {
             .col(@col1);
+            float: right;       // Чтобы сперва выводился блок, потом меню
         }
         .col2 {
             .col(@col2);
+            float: right;       // Чтобы сперва выводился блок, потом меню
         }
     }
 
@@ -84,11 +87,13 @@
             display: inline-block;
             padding-left: @bigPadding;
             padding-right: @bigPadding;
-
+    
             &.active {
                 .border-radius(5px, 0px, 0px, 5px);
                 border: 1px solid @borderColor;
                 border-right: none;
+                margin-right: -1px;
+                background: @mainBg;
             }
         }
     }

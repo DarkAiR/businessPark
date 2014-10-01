@@ -13,17 +13,19 @@
 @middlePadding:         18px;
 @bigPadding:            @smallPadding * 2;  // 22
 
+@paragraphPadding:      19px;       // По размеру основного 12 или 13 шрифта
+
 
 // Шапка, футер
-@headerH:               142px;
+@headerH:               117px;
 @footerH:               123px;
-@footerPaddingTop:      80px;
-
+@footerPaddingTop:      92px;
+@footerSeparatorColor:  #a6adb4;
 
 // Заголовок
 @mainTitleH:            120px;
-@pageTitleH:            90px;
-
+@pageTitleH:            49px;
+@pageTitleFontSize:     32;
 
 // Цвета
 @devRedBg:              rgba(255,0,0,0.2);
@@ -32,29 +34,33 @@
 @devMagentaBg:          rgba(255,0,255,0.2);
 @devGreyBg:             rgba(0,0,0,0.05);
 
+@mainBg:                #fff;
+
 @colorText:             #2b2b2b;
 @colorTextLight:        #8f8f8f;
 
-@colorTitle:            #4f9714;
-@colorTitleGrey:        #767676;
-@colorTitleLightGrey:   #b2b2b2;
+@colorTitle:            #719e3d;
+@colorTitleGrey:        #667075;
+@colorTitleLightGrey:   #929da0;
 
-@colorLink:             #0074ce;
-@colorLinkHover:        #4f9a00;
+@colorLink:             #6a9e40;
+@colorLinkHover:        #87c159;
+@colorLinkBlue:         #00aff0;
+@colorLinkBlueHover:    #48cdff;
+
 @colorLinkActive:       #ffffff;
 @colorLinkActiveBg:     @colorInvertTextBg;
 @colorStudioLink:       #fa1010;
 @colorNewsLink:         #56b312;
 
-@colorMenu:             @colorLinkHover;
-@colorSubMenu:          @colorTextLight;
-
-@colorInvertTextBg:     #75b239;
+@colorInvertTextBg:     #84ab58; //#75b239;
 
 
 // Контент
-@newsImageW:            500px;
+@newsImageW:            500px;      // Ширина картинки в новостях
 
+// Главная страница
+@widgetImageW:          115px;      // Ширина картинки в виджетах (News::IMAGE_SMALL_MAIN_W)
 
 
 // -------------------------------
@@ -75,6 +81,13 @@
         // background-position: center 14px;
     }
 }
+.font-size(13, @lh:19px) {
+    font-size: 13px;
+    line-height: @lh;
+    a {
+        // background-position: center 14px;
+    }
+}
 .font-size(14, @lh:22px) {
     font-size: 14px;
     line-height: @lh;
@@ -84,6 +97,13 @@
 }
 .font-size(16, @lh:24px) {
     font-size: 16px;
+    line-height: @lh;
+    a {
+        // background-position: center 17px;
+    }
+}
+.font-size(17, @lh:24px) {
+    font-size: 17px;
     line-height: @lh;
     a {
         // background-position: center 17px;
@@ -110,8 +130,8 @@
         // background-position: center 27px;
     }
 }
-.font-size(34, @lh:38px) {
-    font-size: 34px;
+.font-size(32, @lh:35px) {
+    font-size: 32px;
     line-height: @lh;
     a {
         // background-position: center 38px;
@@ -135,30 +155,40 @@
 
 // ------------------------------------------
 // Links
+// http://webcodertools.com/imagetobase64converter
 
 @linkBgPos: 99%;
 
+// Green
 .link() {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ4dJWDGAAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgKDkHAAG6AUOAsccMAAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjYpJzMjrgAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PImucAAAK+AUlYjpCuAAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
+// Light green
 .link(hover) {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
-    background-repeat: repeat-x;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);    background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
-.link(submenu) {
+.link(blue) {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBRA6VCtMtAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Po7+8HAANeAa4/FTM4AAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
     background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
+.link(bluehover) {
+    text-decoration: none;
+    // display: inline;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: center @linkBgPos;
+}
+
 .link(title) {
     .link(hover);
 }
@@ -180,10 +210,10 @@ body {
     padding: 0;
     .font(Verdana);
 }
-body {
-    .font-size(12);
+body, table {
+    .font-size(13);
     color: @colorText;
-    background-color: #fff;
+    background-color: @mainBg;
 }
 .page {
     min-height: 100%;
@@ -202,12 +232,10 @@ a {
     &:hover {
         .link(hover);
         color: @colorLinkHover !important;
-        __text-decoration: underline !important;      // important для того, чтобы можно было задать цвет текста, а наведение осталось прежним
     }
     &.active {
         .link(none);
         color: @colorText !important;
-        __text-decoration: none;
     }
 }
 
@@ -240,11 +268,14 @@ p {
 
 // Заголовок
 .inner-title(@h:@pageTitleH) {
-    .font(PF, medium);
-    .font-size(34, @h);
+    .font(PF, regular);
+    .font-size(@pageTitleFontSize, 1);
     color:      @colorTitle;
-    height:     @h;
-    min-height: @h;
+    padding-bottom: @bigPadding;
+    padding-top: @smallPadding;
+    //height:     @h;
+    //min-height: @h;       // Чтобы прилипало к верху
+    white-space: nowrap;
 
     grey {
         color:  @colorTitleGrey;
@@ -255,16 +286,15 @@ p {
     }
 }
 .main-title(@h) {
-    .inner-title;
-    .font-size(34);
-    height:     @h;
-    min-height: @h;
+    .inner-title(@h);
+    .font-size(@pageTitleFontSize);
+    padding-top: 0;
 }
 
 
 // Колонка
 .col() {
-    _outline: 1px dotted #808080;
+    //outline: 1px dotted #808080;
     
     width: auto;
     min-width: 0;
@@ -273,7 +303,7 @@ p {
     min-height: 1px;
 }
 .col(@w) {
-    _outline: 1px dotted #808080;
+    //outline: 1px dotted #808080;
     
     width: @w;
     min-width: @w;
@@ -285,10 +315,9 @@ p {
 // Локальное выделение текста
 .invert-text() {
     .border-radius(2px);
-    background: @colorInvertTextBg;
+    background-color: #6d984a;
+    border: 1px solid #608743;
     color: #fff;
-    font-weight: bold;
-    padding: 3px 5px;
 }
 
 // Бордюры
@@ -314,6 +343,18 @@ p {
     border-bottom-left-radius:          @bottomleft;
 }
 
+// Разделитель
+.separate-line() {
+    background: #cacaca;
+    height: 1px;
+    min-height: 1px;
+    max-height: 1px;
+}
+.separator {
+    .separate-line();
+    width: 100%;
+}
+
 .head,
 .footer {
     .col1 {
@@ -331,26 +372,24 @@ p {
 }
 
 .head {
-    @topOffs: 41px;
-
     height:     @headerH;
     min-height: @headerH;
 
     .logo-block {
-        padding: @topOffs @bigPadding 0 29px;
+        padding: 44px @bigPadding 0 @bigPadding;
         & a {
             .link(none);
         }
     }
     .menu-block {
-        padding: @topOffs @bigPadding 0 @bigPadding;
+        padding: @middlePadding @bigPadding 0 @bigPadding;
     }
 }
 
 .footer {
     _background-color: @devBlueBg;
 
-    @topOffs: 32px;
+    @topOffs: @middlePadding * 2;
 
     .font-size(11);
     color: @colorTextLight;
@@ -361,24 +400,61 @@ p {
     .footer-inner {
         _background-color: @devMagentaBg;
         height: 100%;
-        padding-top: 12px;
         padding-bottom: 13px;
     }
     .separate-line {
-        border-top: #99b985 1px dotted;
-        width: @mainCol2 + @mainCol3 - @bigPadding * 2;
+        border-top: 1px dashed @footerSeparatorColor;
         height: 1px;
         min-height: 1px;
         max-height: 1px;
+
+        width: @mainCol2 + @mainCol3 - @bigPadding * 2;
         margin-left: @mainCol1 + @bigPadding;
+    }
+
+    .cont {
+        position: relative;
+    }
+    .home-icon {
+        width: 19px;
+        height: 16px;
+        background: url(../../img/mainpage/home_icon.jpg) left top no-repeat;
+        display: block;
+        
+        position: absolute;
+        top: @topOffs;
+        left: 50%;
+        margin-left: -10px;
+    }
+    .facebook-icon {
+        width: 19px;
+        height: 19px;
+        background: url(../../img/mainpage/facebook_icon.jpg) left top no-repeat;
+        display: block;
+
+        position: absolute;
+        top: @topOffs;
+        right: 70px;
     }
 
     .copyright {
         padding: @topOffs 0 0 @bigPadding;
+
+        a {
+            .link(blue);
+            color: @colorLinkBlue !important;
+        }
+        a:hover {
+            .link(bluehover);
+            color: @colorLinkBlueHover !important;
+        }
+    }
+    .social {
+
     }
     .author {
         padding: @topOffs 0 0 @bigPadding;
-        & a {
+        a {
             .link(none);
             color: inherit !important;
         }

@@ -1,0 +1,90 @@
+.footer-main-page-widget {
+  min-height: 1px;
+}
+.footer-main-page-widget .separate-line {
+  border-top: 1px dashed #a6adb4;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  width: 697px;
+  margin-left: 22px;
+  margin-bottom: 44px;
+}
+.footer-main-page-widget .col2 {
+  width: 382px;
+  min-width: 382px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+  padding-left: 22px;
+}
+.footer-main-page-widget .col3 {
+  width: 359px;
+  min-width: 359px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.footer-main-page-widget .phone-icon {
+  float: left;
+  min-height: 1px;
+  width: 115px;
+  height: 179px;
+  background: url(../../img/mainpage/phone_icon.jpg) left top no-repeat;
+}
+.footer-main-page-widget .phone-text {
+  float: left;
+  padding-left: 22px;
+}
+.footer-main-page-widget .phone-text .text {
+  font-size: 11px;
+  line-height: 18px;
+  padding-top: 11px;
+}
+.footer-main-page-widget .phone-text .phone {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 27px;
+  color: #667075;
+  margin-left: -10px;
+  margin-top: 4px;
+}
+.footer-main-page-widget .mail-icon {
+  float: left;
+  min-height: 1px;
+  width: 106px;
+  height: 179px;
+  background: url(../../img/mainpage/mail_icon.jpg) center top no-repeat;
+}
+.footer-main-page-widget .mail-text {
+  float: left;
+  padding-left: 22px;
+}
+.footer-main-page-widget .mail-text .text {
+  font-size: 11px;
+  line-height: 18px;
+  padding-top: 11px;
+}
+.footer-main-page-widget .mail-text .mail {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 27px;
+  color: #667075;
+  margin-top: 4px;
+}
+.footer-main-page-widget .mail-text a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #00aff0 !important;
+}
+.footer-main-page-widget .mail-text a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #48cdff !important;
+}

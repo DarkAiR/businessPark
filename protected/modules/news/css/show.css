@@ -1,8 +1,8 @@
 .news-page {
-  padding-bottom: 65px;
+  padding-bottom: 92px;
 }
 .news-page .backBtnCont {
-  line-height: 90px;
+  line-height: 49px;
   position: relative;
 }
 .news-page .backBtnCont .backBtn {
@@ -11,7 +11,7 @@
   background: url(../../img/back-btn.png) left top no-repeat;
   position: absolute;
   right: 0;
-  top: 26px;
+  top: 0;
 }
 .news-page .content {
   padding-left: 22px;
@@ -30,26 +30,33 @@
   font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 24px;
-  color: #4f9714;
+  color: #719e3d;
   margin-top: -4px;
-  margin-bottom: 40px;
 }
 .news-page .content .title * {
-  color: #4f9714;
+  color: #719e3d;
 }
 .news-page .content .title a {
   text-decoration: none;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkFBQ877nZyvAAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12Pwn8UAAAIlAOp6J0C3AAAAAElFTkSuQmCC);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);
   background-repeat: repeat-x;
   background-position: center 99%;
+}
+.news-page .content .text {
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
 }
 .news-page .content img {
   max-width: 500px;
   height: auto !important;
   display: block;
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
 }
+.news-page .content p,
 .news-page .content p img {
-  margin-bottom: 25px;
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
 }
 .news-page .navigation {
   width: 100%;

@@ -1,26 +1,30 @@
 @import (reference) '../../../views/less/custom';
 
 .main-menu-second-widget {
-    .font-size(14);
-    .font(PF, regular);
 
-    padding-bottom: @bigPadding;    
+    &, table {
+        .font-size(14);
+        .font(PF, regular);
+    }
+
+    padding-bottom: 28px;
 
     ul {
     }
     li {
-        padding-left:  @bigPadding / 2;
-        padding-right: @bigPadding / 2;
+        padding-left:  @smallPadding;
+        padding-right: @smallPadding;
     }
     li, li * {
-        color: @colorSubMenu;
         line-height: 1;
     }
     li a {
-        .link(submenu);
+        .link(blue);
+        color: @colorLinkBlue !important;
     }
     li a:hover {
-        .link(hover);
+        .link(bluehover);
+        color: @colorLinkBlueHover !important;
     }
 
     a.active {

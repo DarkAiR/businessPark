@@ -2,19 +2,20 @@
   min-height: 1px;
 }
 .structure-page > .title {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 34px;
-  line-height: 90px;
-  color: #4f9714;
-  height: 90px;
-  min-height: 90px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
   padding-left: 57px;
 }
 .structure-page > .title grey {
-  color: #767676;
+  color: #667075;
 }
 .structure-page > .title lightgrey {
-  color: #b2b2b2;
+  color: #929da0;
 }
 .structure-page .gap {
   height: 6px;
@@ -44,20 +45,19 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4f9714;
+  color: #719e3d;
   padding-left: 11px;
 }
 .structure-page .electro-block > .title grey {
-  color: #767676;
+  color: #667075;
 }
 .structure-page .electro-block invert {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #75b239;
+  background-color: #6d984a;
+  border: 1px solid #608743;
   color: #fff;
-  font-weight: bold;
-  padding: 3px 5px;
 }
 .structure-page .electro-block .bg {
   z-index: -1;
@@ -107,20 +107,19 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4f9714;
+  color: #719e3d;
   padding-left: 11px;
 }
 .structure-page .gas-block > .title grey {
-  color: #767676;
+  color: #667075;
 }
 .structure-page .gas-block invert {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #75b239;
+  background-color: #6d984a;
+  border: 1px solid #608743;
   color: #fff;
-  font-weight: bold;
-  padding: 3px 5px;
 }
 .structure-page .gas-block .bg {
   z-index: -1;
@@ -192,20 +191,19 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4f9714;
+  color: #719e3d;
   padding-left: 11px;
 }
 .structure-page .water-in-block > .title grey {
-  color: #767676;
+  color: #667075;
 }
 .structure-page .water-in-block invert {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #75b239;
+  background-color: #6d984a;
+  border: 1px solid #608743;
   color: #fff;
-  font-weight: bold;
-  padding: 3px 5px;
 }
 .structure-page .water-in-block .bg {
   z-index: -1;
@@ -284,20 +282,19 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4f9714;
+  color: #719e3d;
   padding-left: 11px;
 }
 .structure-page .water-out-block > .title grey {
-  color: #767676;
+  color: #667075;
 }
 .structure-page .water-out-block invert {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #75b239;
+  background-color: #6d984a;
+  border: 1px solid #608743;
   color: #fff;
-  font-weight: bold;
-  padding: 3px 5px;
 }
 .structure-page .water-out-block .bg {
   z-index: -1;
@@ -352,20 +349,19 @@
   font-size: 25px;
   line-height: 1;
   float: left;
-  color: #4f9714;
+  color: #719e3d;
   padding-left: 11px;
 }
 .structure-page .rain-out-block > .title grey {
-  color: #767676;
+  color: #667075;
 }
 .structure-page .rain-out-block invert {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #75b239;
+  background-color: #6d984a;
+  border: 1px solid #608743;
   color: #fff;
-  font-weight: bold;
-  padding: 3px 5px;
 }
 .structure-page .rain-out-block .bg {
   z-index: -1;

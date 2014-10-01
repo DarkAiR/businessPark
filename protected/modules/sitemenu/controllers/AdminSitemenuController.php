@@ -9,6 +9,16 @@ class AdminSitemenuController extends MAdminController
     protected $templateList = '/list';
 
 
+    public function behaviors()
+    {
+        return array(
+            'imageBehavior' => array(
+                'class' => 'application.behaviors.ImageControllerBehavior',
+                'imageField' => 'image',
+            ),
+        );
+    }
+
     /**
      * @param User $model
      * @return array
@@ -47,6 +57,11 @@ class AdminSitemenuController extends MAdminController
             'link' => array(
                 'type' => 'textField',
             ),
+            '_image' => array(
+                'class' => 'ext.ImageFileRowWidget',
+                'uploadedFileFieldName' => '_image',
+                'removeImageFieldName' => '_removeImageFlag',
+            ),
             'visible' => array(
                 'type' => 'checkBox',
             ),
@@ -63,15 +78,21 @@ class AdminSitemenuController extends MAdminController
     public function getTableColumns()
     {
         $attributes = array(
-            'id',
+            $this->getOrderColumn(),
             'parentItemId',
-            'orderNum',
             'menuId',
+            $this->getImageColumn('image', 'getIconUrl()'),
             'name',
-            'visible',
+            $this->getVisibleColumn(),
             $this->getButtonsColumn(),
         );
 
         return $attributes;
+    }
+
+    public function beforeSave($model)
+    {
+        $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
+        parent::beforeSave($model);
     }
 }

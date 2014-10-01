@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block newsLeftCol %}
+    {{ parent() }}
+    {{ widget('ext.widgets.LeftMenuWidget', {'menuId':const('Menu','LEFT_MENU_NEWS')}) }}
 {% endblock %}
 
 {% block newsContent %}

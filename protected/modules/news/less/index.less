@@ -2,13 +2,16 @@
 
 .news-page {
     .item {
-        @dateHeight: 42px;
-        @bottomPadding: 28px;
-        @itemHeight: 195px;
+        @dateHeight: 38px;
+        @bottomPadding: 32px;
+        @itemHeight: 125px;
 
-        min-height: @itemHeight - @bottomPadding;
-        height: @itemHeight - @bottomPadding;
-        margin-bottom: @bottomPadding;
+        td {
+            vertical-align: top;
+            padding-bottom: @bottomPadding;
+            min-height: @itemHeight;
+            height: @itemHeight;
+        }
 
         .image {
             padding-left: @bigPadding;
