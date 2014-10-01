@@ -128,7 +128,7 @@
                         }
                         var points = $(e.target).attr('points');
                         poly = snap.polyline(points);
-                        poly.attr('fill', 'rgba(255,0,0,0.3)');
+                        poly.attr('fill', 'rgba(255,255,255,0.3)');
                         polyId = id;
                     }
                 }
@@ -141,7 +141,7 @@
                 }
                 var points = $(this).attr('points');
                 poly = snap.polyline(points);
-                poly.attr('fill', 'rgba(255,0,0,0.3)');
+                poly.attr('fill', 'rgba(255,255,255,0.3)');
 
                 poly.mouseout( function() {
                     if (poly != null)
