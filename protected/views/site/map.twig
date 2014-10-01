@@ -98,7 +98,7 @@
     </div>
 
     <script type="text/javascript">
-        $('.map').load("/img/map.svg", function (response, status, xhr)
+        $('.map').load("/img/map/map.svg", function (response, status, xhr)
         {
             var svgobject = document.getElementsByTagName('svg')[0];
 
@@ -119,7 +119,7 @@
 
             mc.on('tap', function(e) {
                 var id = $(e.target).attr('id');
-                var regStr = /^_x3/i;
+                var regStr = /^area_/i;
                 if (regStr.exec(id)) {
                     if (id != polyId) {
                         if (poly != null) {
@@ -134,7 +134,7 @@
                 }
             });
 
-            $('[id^="_x3"]').mouseover( function() {
+            $('[id^="area_"]').mouseover( function() {
                 if (poly != null) {
                     poly.remove();
                     poly = null;
@@ -151,7 +151,7 @@
             });
 
             // Отключаем нажатие на участках
-            $(svgobject).find('rect').css({'pointer-events':'none'});
+            $(svgobject).find('[id^="objects_"]').css({'pointer-events':'none'});
         });
     </script>
 {% endblock %}
