@@ -117,10 +117,11 @@ map = {
     /**
      * Resize map
      */
-    resizeMap: function()
+    resize: function()
     {
+        var footerH = $('.footer .footer-inner').height();
         var w = window.innerWidth;
-        var h = window.innerHeight - 360;
+        var h = window.innerHeight - footerH;
         if (w < 1024)
             w = 1024;
         if (w > 2048)
@@ -135,5 +136,15 @@ map = {
             'height': h + 'px'
         });
         map.setMapCoords(0, 0);
+    }
+};
+
+
+
+
+filter = {
+    resize: function()
+    {
+        //$('#js-filter').css({'left':'11px', 'top':'11px'});
     }
 };

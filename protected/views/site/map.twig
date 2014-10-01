@@ -3,6 +3,12 @@
 {% block css %}
     {{ parent() }}
     {{ import('css', 'map.css') }}
+    {{ import('css','jquery-ui.css') }}
+
+    <style>
+        #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
+        #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+    </style>
 {% endblock %}
 
 
@@ -10,7 +16,30 @@
     {{ parent() }}
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
     {{ import('js','snap.svg.js') }}
+    {{ import('js','jquery-ui.js') }}
     {{ import('js','map.js') }}
+
+    <script type="text/javascript">
+        $(document).ready( function()
+        {
+            $( "#js-filter" ).accordion({
+                collapsible: true
+            });
+/*
+            $( "#js-filter" ).draggable({
+                containment: "#js-map-container",
+                scroll: false
+            });
+*/
+
+//            function runEffect()
+//            {
+//                $("#js-filter").show('drop', {});
+//            };
+//            runEffect();
+
+        });
+    </script>
 {% endblock %}
 
 
@@ -36,15 +65,15 @@
 
 {% block afterbody %}
 
-    <div class='map-container'>
+    <div id='js-map-container' class='map-container'>
+
+        <div id='js-filter' class="filter">
+            <div class='header'></div>
+            <div class='window'></div>
+        </div>
+
         <div class='map'>
         </div>
-    </div>
-
-    <div style='display:none'>
-        <svg id='window' xmlns="http://www.w3.org/2000/svg" version="1.1">
-            <rect width="150" height="150" fill="rgb(0, 255, 0)" stroke-width="1" stroke="rgb(0, 0, 0)" />
-        </svg>
     </div>
 
     <script type="text/javascript">
@@ -56,9 +85,11 @@
 
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {
-                map.resizeMap();
+                map.resize();
+                filter.resize();
             });
-            map.resizeMap();
+            map.resize();
+            filter.resize();
 
 
             var snap = map.snap;

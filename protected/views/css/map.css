@@ -55,3 +55,22 @@
   left: 50%;
   margin-left: -1024px;
 }
+.filter {
+  width: 219px;
+  height: 430px;
+  min-height: 430px;
+  position: absolute;
+  left: 11px;
+  top: 11px;
+  z-index: 1;
+}
+.filter .header {
+  width: inherit;
+  height: 44px;
+  background: url(../../img/map/filter_header.png) left top no-repeat;
+}
+.filter .window {
+  width: inherit;
+  height: 386px;
+  background: url(../../img/map/filter_window.png) left top no-repeat;
+}

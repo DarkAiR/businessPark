@@ -34,7 +34,7 @@
     height: 700px;
     overflow: hidden;
     background: #A1CE99;
-    position:relative;
+    position: relative;
 }
 .map {
     height: 100%;
@@ -43,4 +43,30 @@
     position: absolute;
     left: 50%;
     margin-left: -1024px;
+}
+
+
+.filter {
+    @headerH:       44px;
+    @windowH:       386px;
+
+    width: 219px;
+    height: @headerH + @windowH;
+    min-height: @headerH + @windowH;
+
+    position: absolute;
+    left: @smallPadding;
+    top: @smallPadding;
+    z-index: 1;
+
+    .header {
+        width: inherit;
+        height: @headerH;
+        background: url(../../img/map/filter_header.png) left top no-repeat;
+    }
+    .window {
+        width: inherit;
+        height: @windowH;
+        background: url(../../img/map/filter_window.png) left top no-repeat;
+    }
 }
