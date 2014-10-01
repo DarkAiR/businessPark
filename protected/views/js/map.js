@@ -138,13 +138,3 @@ map = {
         map.setMapCoords(0, 0);
     }
 };
-
-
-
-
-filter = {
-    resize: function()
-    {
-        //$('#js-filter').css({'left':'11px', 'top':'11px'});
-    }
-};

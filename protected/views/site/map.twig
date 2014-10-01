@@ -2,13 +2,8 @@
 
 {% block css %}
     {{ parent() }}
-    {{ import('css', 'map.css') }}
     {{ import('css','jquery-ui.css') }}
-
-    <style>
-        #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
-        #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
-    </style>
+    {{ import('css', 'map.css') }}
 {% endblock %}
 
 
@@ -25,12 +20,6 @@
             $( "#js-filter" ).accordion({
                 collapsible: true
             });
-/*
-            $( "#js-filter" ).draggable({
-                containment: "#js-map-container",
-                scroll: false
-            });
-*/
 
 //            function runEffect()
 //            {
@@ -68,8 +57,40 @@
     <div id='js-map-container' class='map-container'>
 
         <div id='js-filter' class="filter">
-            <div class='header'></div>
-            <div class='window'></div>
+            <div class='header'>
+                Фильтр
+            </div>
+            <div class='window'>
+                <div class='status-title'>
+                    Статус участка
+                </div>
+                <div class='status-text'>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="check-reserved">
+                            <label for="check-reserved"><span></span>Занят</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="check-free">
+                            <label for="check-free"><span></span>Свободен</label></li>
+                    </ul>
+                </div>
+                <div class='structure-title'>
+                    Инженерная инфраструктура
+                </div>
+                <div class='structure-text'>
+                    <ul>
+                        <li><input type="checkbox" id="check-f1"><label for="check-f1"><span></span>Электроснабжение</label></li>
+                        <li><input type="checkbox" id="check-f2"><label for="check-f2"><span></span>Газоснабжение</label></li>
+                        <li><input type="checkbox" id="check-f3"><label for="check-f3"><span></span>Водоснабжение</label></li>
+                        <li><input type="checkbox" id="check-f4"><label for="check-f4"><span></span>Водоотведение</label></li>
+                        <li><input type="checkbox" id="check-f5"><label for="check-f5"><span></span>Ливневая канализация</label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id='js-info'>
         </div>
 
         <div class='map'>
@@ -86,10 +107,8 @@
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {
                 map.resize();
-                filter.resize();
             });
             map.resize();
-            filter.resize();
 
 
             var snap = map.snap;
