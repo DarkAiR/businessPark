@@ -63,6 +63,8 @@
   left: 11px;
   top: 11px;
   z-index: 1;
+  font-size: 12px;
+  line-height: 19px;
 }
 .filter .header {
   background: url(../../img/map/filter_header.png) left top no-repeat;
@@ -71,6 +73,7 @@
   line-height: 44px;
   padding: 0 22px 0 22px;
   color: #ffffff;
+  font-weight: bold;
 }
 .filter .window {
   background: url(../../img/map/filter_window.png) left top no-repeat;
@@ -97,6 +100,7 @@
 .filter .window input[type="checkbox"] + label {
   cursor: pointer;
   margin-left: 31px;
+  font-weight: normal;
 }
 .filter .window ul {
   padding: 0;
@@ -111,20 +115,18 @@
 .filter .window .status-title {
   height: 38px;
   line-height: 38px;
+  font-weight: bold;
 }
 .filter .window .status-text {
-  font-size: 12px;
-  line-height: 19px;
   height: 89px;
   padding-top: 10px;
 }
 .filter .window .structure-title {
   height: 55px;
   padding-top: 11px;
+  font-weight: bold;
 }
 .filter .window .structure-text {
-  font-size: 12px;
-  line-height: 19px;
   height: 200px;
   padding-top: 13px;
 }
