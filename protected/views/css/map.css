@@ -56,6 +56,7 @@
   margin-left: -1024px;
 }
 .filter {
+  display: none;
   width: 219px;
   height: 44px;
   min-height: 44px;
@@ -174,6 +175,9 @@
   width: 200px;
   margin-left: 22px;
   color: #368521;
+}
+.info-window > .inner .window.busy {
+  display: none;
 }
 .info-window > .inner .window .item {
   width: inherit;

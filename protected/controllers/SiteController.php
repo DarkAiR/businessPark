@@ -72,7 +72,10 @@ class SiteController extends Controller
      */
     public function actionMap()
     {
-        $this->render('map');
+        $areas = MapArea::model()->findAll();
+        $this->render('map', array(
+            'areas' => $areas
+        ));
     }
 
     /**

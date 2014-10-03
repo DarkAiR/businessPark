@@ -54,6 +54,13 @@ map = {
                 pageY = e.center.y;
                 //$('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
                 map.setMapCoords(deltaX, deltaY);
+
+                var infoWndX = parseInt($('#js-info-window').css('left'));
+                var infoWndY = parseInt($('#js-info-window').css('top'));
+                $('#js-info-window').css({
+                    'left': infoWndX + deltaX + 'px',
+                    'top': infoWndY + deltaY + 'px'
+                });
             }
         });
     },
@@ -152,7 +159,6 @@ map = {
                 map.poly = map.snap.polyline(points);
                 map.poly.attr('id', el.attr('id'));
                 map.poly.attr('fill', 'rgba(255,255,255,0.3)');
-                map.poly.attr('data-selector', 1);
                 break;
 
             case 'path':
@@ -160,7 +166,6 @@ map = {
                 map.poly = map.snap.path(d);
                 map.poly.attr('id', el.attr('id'));
                 map.poly.attr('fill', 'rgba(255,255,255,0.3)');
-                map.poly.attr('data-selector', 1);
                 break;
         }
         return map.poly;
@@ -175,5 +180,29 @@ map = {
             return;
         map.poly.remove();
         map.poly = null;
+    },
+
+    /**
+     * Create polygon for busy area
+     */
+    createBusyPolygon: function(el)
+    {
+        var tagName = el.prop("tagName");
+        switch (tagName) {
+            case 'polygon':
+            case 'polyline':
+                var points = el.attr('points');
+                var busyPoly = map.snap.polyline(points);
+                busyPoly.attr('id', el.attr('id'));
+                busyPoly.attr('fill', 'rgba(255,0,0,0.2)');
+                break;
+
+            case 'path':
+                var d = el.attr('d');
+                var busyPoly = map.snap.path(d);
+                busyPoly.attr('id', el.attr('id'));
+                busyPoly.attr('fill', 'rgba(255,0,0,0.2)');
+                break;
+        }
     }
 };

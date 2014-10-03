@@ -96,16 +96,24 @@
                 <div class='header'>
                     Участок № <div class='number' id='js-cadastral-number'></div>
                 </div>
-                <div class='window'>
-                    <div class='item first'>
-                        Статус: <div class='text'>?</div>
+                <div class='window free'>
+                    <div class='item'>
+                        Статус: <div class='text' id='js-info-status'></div>
                     </div>
                     <div class='item'>
-                        Площадь: <div class='text'>?</div>
+                        Площадь: <div class='text' id='js-info-square'></div>
                     </div>
                     <div class='item last'>
-                        Размеры: <div class='text'>?</div>
+                        Размеры: <div class='text' id='js-info-size'></div>
                     </div>                    
+                </div>
+                <div class='window busy'>
+                    <div class='item'>
+                        Статус: <div class='text' id='js-info-status'></div>
+                    </div>
+                    <div class='item last'>
+                        Резидент: <div class='text' id='js-info-resident'></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,6 +123,18 @@
     </div>
 
     <script type="text/javascript">
+        var areas = {
+{% for area in areas %}
+            '{{area.cadastral}}': {
+                'busy': {{area.busy}},
+                'square': '{{area.square}}',
+                'size': '{{area.width}} x {{area.height}}',
+                'resident': '{{area.resident}}'
+            }{% if not loop.last %},{% endif %}
+
+{% endfor %}
+        };
+
         $('.map').load("/img/map/map.svg", function (response, status, xhr)
         {
             var svgobject = document.getElementsByTagName('svg')[0];
@@ -146,6 +166,33 @@
 
                     var cadastralNumber = /\d+$/i.exec(id);
                     $('#js-cadastral-number').text( cadastralNumber[0] );
+
+                    if (areas[cadastralNumber] != undefined) {
+                        var area = areas[cadastralNumber];
+                        if (area.busy) {
+                            $('.window.busy').show();
+                            $('.window.free').hide();
+
+                            $('.window.busy #js-info-status').text('занят');
+                            $('#js-info-resident').text( area.resident );
+                        } else {
+                            $('.window.busy').hide();
+                            $('.window.free').show();
+
+                            $('.window.free #js-info-status').text('свободен');
+                            $('#js-info-square').text( area.square + ' га' );
+                            $('#js-info-size').text( area.size );
+                        }
+                    } else {
+                        $('.window.busy').hide();
+                        $('.window.free').show();
+
+                        $('.window.free #js-info-status').text('');
+                        $('.window.busy #js-info-status').text('');
+                        $('#js-info-square').text('');
+                        $('#js-info-size').text('');
+                        $('#js-info-resident').text('');
+                    }
 
                     var x = e.srcEvent.offsetX;
                     var y = e.srcEvent.offsetY;
@@ -193,6 +240,16 @@
             $('.close-btn').click( function(ev) {
                 $('#js-info-window').hide();
             });
+
+            // Подсветка всех занятых участков
+            for (var prop in areas) {
+                if (areas.hasOwnProperty(prop)) {
+                    var area = areas[prop];
+                    if (area.busy) {
+                        map.createBusyPolygon($('[id$="_' + prop + '"]'));
+                    }
+                } 
+            };
         });
     </script>
 {% endblock %}

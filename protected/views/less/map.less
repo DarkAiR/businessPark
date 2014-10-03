@@ -55,6 +55,8 @@
     @checkboxH:         17px;
     @checkboxPadding:   14px;   // Отступ справа до текста 
 
+    display: none;
+
     // Не учитываем высоту окна, чтобы окно не перекрывало нажатие
     width: @windowW;
     height: @headerH;           
@@ -194,6 +196,13 @@
             width: @windowW - @windowPadding * 2 - @innerPadding * 2;
             margin-left: @innerPadding;
             color: @titleColor;
+
+            &.busy {
+                display: none;
+            }
+            &.free {
+
+            }
 
             .item {
                 width: inherit;
