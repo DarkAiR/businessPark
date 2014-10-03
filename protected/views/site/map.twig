@@ -90,7 +90,24 @@
             </div>
         </div>
 
-        <div id='js-info' class='info-window'>
+        <div id='js-info-window' class='info-window'>
+            <div class='inner'>
+                <div class='close-btn'></div>
+                <div class='header'>
+                    Участок № <div class='number' id='js-cadastral-number'></div>
+                </div>
+                <div class='window'>
+                    <div class='item first'>
+                        Строка 1: <div class='text'>наименование</div>
+                    </div>
+                    <div class='item'>
+                        Площадь: <div class='text'>?</div>
+                    </div>
+                    <div class='item last'>
+                        Размеры: <div class='text'>?</div>
+                    </div>                    
+                </div>
+            </div>
         </div>
 
         <div class='map'>
@@ -126,12 +143,40 @@
                         map.createPolygon($(e.target));
                         polyId = id;
                     }
-                }
 
-                //console.log($(e.target));
-                //console.log($(e.target).offset());
-                //console.log($(e.target).width);
-                //console.log($(e.target).height);
+                    var cadastralNumber = /\d+$/i.exec(id);
+                    console.log(cadastralNumber[0]);
+                    $('#js-cadastral-number').text( cadastralNumber[0] );
+
+                    var x = e.srcEvent.offsetX;
+                    var y = e.srcEvent.offsetY;
+
+                    var wnd = $('#js-info-window');
+                    var wndW = wnd.width();
+                    var wndH = wnd.height();
+                    
+                    var mapWnd = $('.map');
+                    var mapW = mapWnd.width();
+                    var mapH = mapWnd.height();
+
+                    // Отступы от края карты
+                    var padding = 11;
+
+                    // Не даем окну вылезти за пределы карты
+                    if (x < padding)                x = padding;
+                    if (x + wndW + padding > mapW)  x = mapW - wndW - padding;
+                    if (y < wndH + padding)         y = wndH + padding;
+                    if (y > mapH - padding)         y = mapH - padding;
+
+                    // Позиционируемся в левый нижний угол
+                    y -= wndH;
+
+                    wnd.css({
+                        'left': x+'px',
+                        'top': y+'px'
+                    });
+                    wnd.show();
+                }
             });
 
             $('[id^="area_"]').mouseover( function() {
@@ -144,6 +189,11 @@
 
             // Отключаем нажатие на участках
             $(svgobject).find('[id^="objects_"]').css({'pointer-events':'none'});
+
+            // Окно информации
+            $('.close-btn').click( function(ev) {
+                $('#js-info-window').hide();
+            });
         });
     </script>
 {% endblock %}

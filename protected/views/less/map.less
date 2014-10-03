@@ -49,14 +49,16 @@
 
 .filter {
     @headerH:           44px;
+    @windowW:           219px;
     @windowH:           386px;
     @checkboxW:         17px;
     @checkboxH:         17px;
     @checkboxPadding:   14px;   // Отступ справа до текста 
 
-    width: 219px;
-    height: @headerH;
-    min-height: @headerH;
+    // Не учитываем высоту окна, чтобы окно не перекрывало нажатие
+    width: @windowW;
+    height: @headerH;           
+    min-height: @headerH;       
 
     position: absolute;
     left: @smallPadding;
@@ -138,9 +140,77 @@
 
 
 .info-window {
-    width: 200px;
-    height: 200px;
-    .border-radius(2);
-    border: 1px solid #888;
-    background: rgba(255,255,255,0.5);
+    @windowW:           258px;
+    @windowH:           220px;
+    @windowPadding:     7px;
+    @innerPadding:      @bigPadding;
+    @headerH:           59px;
+    @titleColor:        #368521;
+
+
+    display: none;
+    width: @windowW;
+    height: @windowH;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index:2;
+    background: url(../../img/map/info_window.png) left top no-repeat;
+
+    & > .inner {
+        width: @windowW - @windowPadding * 2;
+        height: @windowH - @windowPadding * 2;
+        margin-left: @windowPadding;
+        margin-top: @windowPadding;
+        position: relative;
+
+        .close-btn {
+            position: absolute;
+            width: 29px;
+            height: 29px;
+            top: 0px;
+            right: 0px;
+            cursor: pointer;
+        }
+
+        .header {
+            .font(PF, medium);
+            .font-size(18, @headerH);
+
+            width: inherit;
+            height: @headerH;
+            white-space: nowrap;
+            padding-left: @innerPadding;
+            color: @titleColor;
+
+            .number {
+                display: inline-block;
+                color: @colorText;
+            }
+        }
+
+        .window {
+            width: @windowW - @windowPadding * 2 - @innerPadding * 2;
+            margin-left: @innerPadding;
+            color: @titleColor;
+
+            .item {
+                width: inherit;
+                height: 47px;
+                line-height: 47px;
+                white-space: nowrap;
+
+                border-bottom: 1px solid @colorInvertTextBg;
+
+                &.last {
+                    border-bottom: none;
+                }
+
+                .text {
+                    display: inline-block;
+                    color: @colorText;
+                }
+            }
+        }
+    }
 }

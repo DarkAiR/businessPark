@@ -149,13 +149,17 @@ map = {
             case 'polygon':
                 var points = el.attr('points');
                 map.poly = map.snap.polyline(points);
+                map.poly.attr('id', el.attr('id'));
                 map.poly.attr('fill', 'rgba(255,255,255,0.3)');
+                map.poly.attr('data-selector', 1);
                 break;
 
             case 'path':
                 var d = el.attr('d');
                 map.poly = map.snap.path(d);
+                map.poly.attr('id', el.attr('id'));
                 map.poly.attr('fill', 'rgba(255,255,255,0.3)');
+                map.poly.attr('data-selector', 1);
                 break;
         }
         return map.poly;
