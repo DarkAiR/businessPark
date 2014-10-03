@@ -27,6 +27,7 @@ return array(
         'articles',
         'workline',
         'residents',
+        'map',
     ),
     'components' => array(
         'user' => array(

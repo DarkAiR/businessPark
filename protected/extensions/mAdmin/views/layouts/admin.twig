@@ -51,6 +51,7 @@
                 {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active':this.uniqueId == '/contentBlocks/adminContentBlocks', 'visible':App.user.checkAccess('admin')},
                 {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active':this.uniqueId == '/articles/adminArticles', 'visible':App.user.checkAccess('admin')},
             ]},
+            {'label':'Участки', 'url':['/map/adminMapArea'], 'active':this.uniqueId == '/map/adminMapArea'},
             {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active':this.uniqueId == 'system2/adminUsers', 'visible':App.user.checkAccess('admin')},
             {'label':'Настройки', 'url':['/system2/adminLocalConfig'], 'active':this.uniqueId == 'system2/adminLocalConfig', 'visible':App.user.checkAccess('admin')},
         ]

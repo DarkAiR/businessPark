@@ -147,6 +147,7 @@ map = {
         var tagName = el.prop("tagName");
         switch (tagName) {
             case 'polygon':
+            case 'polyline':
                 var points = el.attr('points');
                 map.poly = map.snap.polyline(points);
                 map.poly.attr('id', el.attr('id'));

@@ -98,7 +98,7 @@
                 </div>
                 <div class='window'>
                     <div class='item first'>
-                        Строка 1: <div class='text'>наименование</div>
+                        Статус: <div class='text'>?</div>
                     </div>
                     <div class='item'>
                         Площадь: <div class='text'>?</div>
@@ -138,14 +138,13 @@
 
                 var regStr = /^area_/i;
                 if (regStr.exec(id)) {
-                    if (id != map.polyId) {
+                    if (id != polyId) {
                         map.removePolygon();
                         map.createPolygon($(e.target));
                         polyId = id;
                     }
 
                     var cadastralNumber = /\d+$/i.exec(id);
-                    console.log(cadastralNumber[0]);
                     $('#js-cadastral-number').text( cadastralNumber[0] );
 
                     var x = e.srcEvent.offsetX;
