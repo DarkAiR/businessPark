@@ -90,7 +90,7 @@
             </div>
         </div>
 
-        <div id='js-info'>
+        <div id='js-info' class='info-window'>
         </div>
 
         <div class='map'>
@@ -114,39 +114,31 @@
             var snap = map.snap;
 
             // Выделения полигона
-            var poly = null;
             var polyId = 0;
 
             mc.on('tap', function(e) {
                 var id = $(e.target).attr('id');
+
                 var regStr = /^area_/i;
                 if (regStr.exec(id)) {
-                    if (id != polyId) {
-                        if (poly != null) {
-                            poly.remove();
-                            poly = null;
-                        }
-                        var points = $(e.target).attr('points');
-                        poly = snap.polyline(points);
-                        poly.attr('fill', 'rgba(255,255,255,0.3)');
+                    if (id != map.polyId) {
+                        map.removePolygon();
+                        map.createPolygon($(e.target));
                         polyId = id;
                     }
                 }
+
+                //console.log($(e.target));
+                //console.log($(e.target).offset());
+                //console.log($(e.target).width);
+                //console.log($(e.target).height);
             });
 
             $('[id^="area_"]').mouseover( function() {
-                if (poly != null) {
-                    poly.remove();
-                    poly = null;
-                }
-                var points = $(this).attr('points');
-                poly = snap.polyline(points);
-                poly.attr('fill', 'rgba(255,255,255,0.3)');
-
+                map.removePolygon();
+                var poly = map.createPolygon($(this));
                 poly.mouseout( function() {
-                    if (poly != null)
-                        poly.remove();
-                    poly = null;
+                    map.removePolygon();
                 });
             });
 

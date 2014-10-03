@@ -2,6 +2,7 @@ map = {
     svgobject: null,    // svgobject
     mc: null,           // hammerjs
     snap: null,         // snap
+    poly: null,
 
     /**
      * Init SVG
@@ -136,5 +137,38 @@ map = {
             'height': h + 'px'
         });
         map.setMapCoords(0, 0);
+    },
+
+    /**
+     * Create selected area
+     */
+    createPolygon: function(el)
+    {
+        var tagName = el.prop("tagName");
+        switch (tagName) {
+            case 'polygon':
+                var points = el.attr('points');
+                map.poly = map.snap.polyline(points);
+                map.poly.attr('fill', 'rgba(255,255,255,0.3)');
+                break;
+
+            case 'path':
+                var d = el.attr('d');
+                map.poly = map.snap.path(d);
+                map.poly.attr('fill', 'rgba(255,255,255,0.3)');
+                break;
+        }
+        return map.poly;
+    },
+
+    /**
+     * Remove selected area
+     */
+    removePolygon: function()
+    {
+        if (map.poly == null)
+            return;
+        map.poly.remove();
+        map.poly = null;
     }
 };

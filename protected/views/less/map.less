@@ -1,5 +1,6 @@
 @import (reference) 'custom';
 
+// Отключаем выделение на уровне CSS
 *[unselectable=on] {
     -moz-user-select: none;
     -o-user-select: none;
@@ -133,4 +134,13 @@
             padding-top: 13px;
         }
     }
+}
+
+
+.info-window {
+    width: 200px;
+    height: 200px;
+    .border-radius(2);
+    border: 1px solid #888;
+    background: rgba(255,255,255,0.5);
 }
