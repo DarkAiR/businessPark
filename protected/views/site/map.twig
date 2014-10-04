@@ -106,7 +106,7 @@
                     <div class='item'>
                         Площадь: <div class='text' id='js-info-square'></div>
                     </div>
-                    <div class='item last'>
+                    <div class='item'>
                         Размеры: <div class='text' id='js-info-size'></div>
                     </div>                    
                 </div>
@@ -115,7 +115,7 @@
                     <div class='item'>
                         Статус: <div class='text' id='js-info-status'></div>
                     </div>
-                    <div class='item last'>
+                    <div class='item'>
                         Резидент: <div class='text' id='js-info-resident'></div>
                     </div>
                 </div>
@@ -152,6 +152,13 @@
                 el.text('');
                 el.closest('.item').hide();
             }
+        }
+
+        function setItemLast(selector)
+        {
+            var el = $(selector);
+            el.find('.item').removeClass('last');
+            el.find('.item:last').addClass('last');
         }
 
         $('.map').load("/img/map/map.svg", function (response, status, xhr)
@@ -194,6 +201,9 @@
 
                             setItemText('.window.busy #js-info-status', 'занят');
                             setItemText('#js-info-resident', area.resident);
+
+                            // После обработки всех пунктов
+                            setItemLast('.window.busy');
                         } else {
                             $('.window.busy').hide();
                             $('.window.free').show();
@@ -201,16 +211,14 @@
                             setItemText('.window.busy #js-info-status', 'свободен');
                             setItemText('#js-info-square', area.square, ' га');
                             setItemText('#js-info-size', area.size);
+
+                            // После обработки всех пунктов
+                            setItemLast('.window.free');
                         }
                     } else {
                         $('.window.busy').hide();
                         $('.window.free').show();
-
-                        setItemText('.window.free #js-info-status', '');
-                        setItemText('.window.busy #js-info-status', '');
-                        setItemText('#js-info-square', '');
-                        setItemText('#js-info-size', '');
-                        setItemText('#js-info-resident', '');
+                        $('.window.free .item').hide();
                     }
 
                     var x = e.srcEvent.offsetX;
