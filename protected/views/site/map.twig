@@ -90,12 +90,15 @@
             </div>
         </div>
 
-        <div id='js-info-window' class='info-window'>
-            <div class='inner'>
-                <div class='close-btn'></div>
-                <div class='header'>
+        <div id='js-info-window' class='modal-dialog'>
+            <div class='modal-content'>
+
+                <button type="button" class="close" id='js-info-close-btn' data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+
+                <div class="header">
                     Участок № <div class='number' id='js-cadastral-number'></div>
                 </div>
+
                 <div class='window free'>
                     <div class='item'>
                         Статус: <div class='text' id='js-info-status'></div>
@@ -107,6 +110,7 @@
                         Размеры: <div class='text' id='js-info-size'></div>
                     </div>                    
                 </div>
+
                 <div class='window busy'>
                     <div class='item'>
                         Статус: <div class='text' id='js-info-status'></div>
@@ -115,9 +119,10 @@
                         Резидент: <div class='text' id='js-info-resident'></div>
                     </div>
                 </div>
+
             </div>
         </div>
-
+ 
         <div class='map'>
         </div>
     </div>
@@ -134,6 +139,20 @@
 
 {% endfor %}
         };
+
+        function setItemText(selector, value, suffix)
+        {
+            suffix = suffix||'';
+            var el = $(selector);
+            if (value) {
+                el.text( value + suffix );
+                el.closest('.item').show();
+            }
+            else {
+                el.text('');
+                el.closest('.item').hide();
+            }
+        }
 
         $('.map').load("/img/map/map.svg", function (response, status, xhr)
         {
@@ -173,25 +192,25 @@
                             $('.window.busy').show();
                             $('.window.free').hide();
 
-                            $('.window.busy #js-info-status').text('занят');
-                            $('#js-info-resident').text( area.resident );
+                            setItemText('.window.busy #js-info-status', 'занят');
+                            setItemText('#js-info-resident', area.resident);
                         } else {
                             $('.window.busy').hide();
                             $('.window.free').show();
 
-                            $('.window.free #js-info-status').text('свободен');
-                            $('#js-info-square').text( area.square + ' га' );
-                            $('#js-info-size').text( area.size );
+                            setItemText('.window.busy #js-info-status', 'свободен');
+                            setItemText('#js-info-square', area.square, ' га');
+                            setItemText('#js-info-size', area.size);
                         }
                     } else {
                         $('.window.busy').hide();
                         $('.window.free').show();
 
-                        $('.window.free #js-info-status').text('');
-                        $('.window.busy #js-info-status').text('');
-                        $('#js-info-square').text('');
-                        $('#js-info-size').text('');
-                        $('#js-info-resident').text('');
+                        setItemText('.window.free #js-info-status', '');
+                        setItemText('.window.busy #js-info-status', '');
+                        setItemText('#js-info-square', '');
+                        setItemText('#js-info-size', '');
+                        setItemText('#js-info-resident', '');
                     }
 
                     var x = e.srcEvent.offsetX;
@@ -206,13 +225,14 @@
                     var mapH = mapWnd.height();
 
                     // Отступы от края карты
-                    var padding = 11;
+                    var paddingH = 0;
+                    var paddingW = 22;
 
                     // Не даем окну вылезти за пределы карты
-                    if (x < padding)                x = padding;
-                    if (x + wndW + padding > mapW)  x = mapW - wndW - padding;
-                    if (y < wndH + padding)         y = wndH + padding;
-                    if (y > mapH - padding)         y = mapH - padding;
+                    if (x < paddingW)               x = paddingW;
+                    if (x + wndW + paddingW > mapW) x = mapW - wndW - paddingW;
+                    if (y < wndH + paddingH)        y = wndH + paddingH;
+                    if (y > mapH - paddingH)        y = mapH - paddingH;
 
                     // Позиционируемся в левый нижний угол
                     y -= wndH;
@@ -237,7 +257,7 @@
             $(svgobject).find('[id^="objects_"]').css({'pointer-events':'none'});
 
             // Окно информации
-            $('.close-btn').click( function(ev) {
+            $('#js-info-close-btn').click( function(ev) {
                 $('#js-info-window').hide();
             });
 
