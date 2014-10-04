@@ -158,7 +158,14 @@
         {
             var el = $(selector);
             el.find('.item').removeClass('last');
-            el.find('.item:last').addClass('last');
+
+            var lastItem = null;
+            el.find('.item').each( function() {
+                if ($(this).css('display') != 'none')
+                    lastItem = $(this);
+            });
+            if (lastItem != null)
+                lastItem.addClass('last');
         }
 
         $('.map').load("/img/map/map.svg", function (response, status, xhr)
