@@ -16,12 +16,12 @@ table {
 *:focus {
   outline: none;
 }
-.page {
+body > .page {
   min-height: 100%;
   height: auto !important;
   height: 100%;
 }
-.wrap {
+body > .page > .wrap {
   padding-bottom: 123px;
 }
 a,

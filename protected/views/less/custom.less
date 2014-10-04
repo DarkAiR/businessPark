@@ -218,13 +218,14 @@ body, table {
 *:focus {
     outline: none;
 }
-.page {
+body > .page {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-}
-.wrap {
-    padding-bottom: @footerH;
+
+    & > .wrap {
+        padding-bottom: @footerH;
+    }
 }
 
 a {
