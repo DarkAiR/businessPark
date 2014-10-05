@@ -348,9 +348,9 @@ p {
 }
 
 // Тень
-.shadow(@dist, @offsX, @offsY) {
-    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
-    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+.shadow(@offsX, @offsY, @blur) {
+    -webkit-box-shadow: @offsX @offsY @blur rgba(0,0,0,.3);
+    box-shadow: @offsX @offsY @blur rgba(0,0,0,.3);
 }
 
 // Разделитель

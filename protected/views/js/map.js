@@ -99,6 +99,7 @@ map = {
             y = h - viewPortH * ratioH;
 
         map.svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+        map.nav.showViewport( map.getViewport() );
     },
 
     /**
@@ -144,6 +145,24 @@ map = {
             'height': h + 'px'
         });
         map.setMapCoords(0, 0);
+    },
+
+    /**
+     * Get viewport
+     */
+    getViewport: function()
+    {
+        var arr = map.svgobject.getAttribute('viewBox').split(' ');
+        var width  = parseInt(map.svgobject.getAttribute('width'));
+        var height = parseInt(map.svgobject.getAttribute('height'));
+        return {
+            'x':arr[0] * width / arr[2],
+            'y':arr[1] * height / arr[3],
+            'w':$('.map').width(),
+            'h':$('.map').height(),
+            'totalW':width,
+            'totalH':height
+        };
     },
 
     /**
@@ -203,6 +222,155 @@ map = {
                 busyPoly.attr('id', el.attr('id'));
                 busyPoly.attr('fill', 'rgba(255,0,0,0.2)');
                 break;
+        }
+    },
+
+
+
+    /**
+     * Info window
+     */
+    info: {
+        // Set text and show/hide item element
+        setItemText: function(selector, value, suffix)
+        {
+            suffix = suffix||'';
+            var el = $(selector);
+            if (value) {
+                el.text( value + suffix );
+                el.closest('.item').show();
+            }
+            else {
+                el.text('');
+                el.closest('.item').hide();
+            }
+        },
+
+        // Set last class at items list
+        setItemLast: function(selector)
+        {
+            var el = $(selector);
+            el.find('.item').removeClass('last');
+
+            var lastItem = null;
+            el.find('.item').each( function() {
+                if ($(this).css('display') != 'none')
+                    lastItem = $(this);
+            });
+            if (lastItem != null)
+                lastItem.addClass('last');
+        },
+
+        // Show free or busy info window
+        showInfoWindow: function(area)
+        {
+            if (area.busy) {
+                $('.window.busy').show();
+                $('.window.free').hide();
+
+                map.info.setItemText('.window.busy #js-info-status', 'занят');
+                map.info.setItemText('#js-info-resident', area.resident);
+
+                // После обработки всех пунктов
+                map.info.setItemLast('.window.busy');
+            } else {
+                $('.window.busy').hide();
+                $('.window.free').show();
+
+                map.info.setItemText('.window.busy #js-info-status', 'свободен');
+                map.info.setItemText('#js-info-square', area.square, ' га');
+                map.info.setItemText('#js-info-size', area.size);
+
+                // После обработки всех пунктов
+                map.info.setItemLast('.window.free');
+            }
+        },
+
+        // Show empty info window
+        showEmptyInfoWindow: function()
+        {
+            $('.window.busy').hide();
+            $('.window.free').show();
+            $('.window.free .item').hide();
+        },
+
+        // Set window position
+        setPosition: function(x, y)
+        {
+            var wnd = $('#js-info-window');
+            var wndW = wnd.width();
+            var wndH = wnd.height();
+            
+            var mapWnd = $('.map');
+            var mapW = mapWnd.width();
+            var mapH = mapWnd.height();
+
+            // Отступы от края карты
+            var paddingH = 0;
+            var paddingW = 22;
+
+            // Не даем окну вылезти за пределы карты
+            if (x < paddingW)               x = paddingW;
+            if (x + wndW + paddingW > mapW) x = mapW - wndW - paddingW;
+            if (y < wndH + paddingH)        y = wndH + paddingH;
+            if (y > mapH - paddingH)        y = mapH - paddingH;
+
+            // Позиционируемся в левый нижний угол
+            y -= wndH;
+
+            wnd.css({
+                'left': x+'px',
+                'top': y+'px'
+            });
+            wnd.show();
+        }
+    },
+
+
+    /**
+     * Navigation window
+     */
+    nav: {
+        snap: null,
+        window: null,
+        rect: null,
+
+        init: function(selector)
+        {
+            var el = $(selector);
+            map.nav.window = el.find('#js-window');
+
+            var switchBtn = el.find('#js-switch-btn');
+            switchBtn.click( function() {
+                $(this).toggleClass('show');
+                map.nav.window.toggleClass('show');
+            });
+
+            map.nav.snap = Snap(selector+' #js-window svg');
+        },
+
+        showViewport: function(viewport)
+        {
+            if (map.nav.rect != null)
+                map.nav.rect.remove();
+            map.nav.rect = null;
+
+            var navW = map.nav.window.width();
+            var navH = map.nav.window.height();
+            var ratioW = navW / viewport.totalW;
+            var ratioH = navH / viewport.totalH;
+
+            map.nav.rect = map.nav.snap.rect(
+                viewport.x * ratioW,
+                viewport.y * ratioH,
+                viewport.w * ratioW,
+                viewport.h * ratioH
+            ).attr({
+                'fill': "rgba(255,255,255,1)",
+                'fill-opacity': 0.2,
+                'stroke': "rgba(0,0,0,0.2)",
+                'strokeWidth': 1 
+            });
         }
     }
 };

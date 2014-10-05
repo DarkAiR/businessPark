@@ -56,6 +56,8 @@
 
     <div id='js-map-container' class='map-container'>
 
+        
+        {# filter #}
         <div id='js-filter' class="filter">
             <div class='header'>
                 Фильтр
@@ -90,6 +92,19 @@
             </div>
         </div>
 
+
+        {# navigation #}
+        <div class='nav'>
+            <div id='js-switch-btn' class='switch-button'><span class='glyphicon glyphicon-eye-open' style='font-size: 18px;padding:6px; opacity:0.6;'></span></div>
+            <div id='js-window' class='window'>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="300" height="298" viewBox="0 0 300 298" xml:space="preserve">
+                </svg>
+            </div>
+        </div>
+
+
+        {# info window #}
         <div id='js-info-window' class='modal-dialog'>
             <div class='modal-content'>
 
@@ -128,6 +143,7 @@
     </div>
 
     <script type="text/javascript">
+
         var areas = {
 {% for area in areas %}
             '{{area.cadastral}}': {
@@ -140,46 +156,18 @@
 {% endfor %}
         };
 
-        function setItemText(selector, value, suffix)
-        {
-            suffix = suffix||'';
-            var el = $(selector);
-            if (value) {
-                el.text( value + suffix );
-                el.closest('.item').show();
-            }
-            else {
-                el.text('');
-                el.closest('.item').hide();
-            }
-        }
-
-        function setItemLast(selector)
-        {
-            var el = $(selector);
-            el.find('.item').removeClass('last');
-
-            var lastItem = null;
-            el.find('.item').each( function() {
-                if ($(this).css('display') != 'none')
-                    lastItem = $(this);
-            });
-            if (lastItem != null)
-                lastItem.addClass('last');
-        }
-
         $('.map').load("/img/map/map.svg", function (response, status, xhr)
         {
-            var svgobject = document.getElementsByTagName('svg')[0];
+            var svgobject = $('.map svg')[0];
 
             map.init(svgobject);
+            map.nav.init('.nav');
 
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {
                 map.resize();
             });
             map.resize();
-
 
             var snap = map.snap;
 
@@ -198,65 +186,19 @@
                     }
 
                     var cadastralNumber = /\d+$/i.exec(id);
-                    $('#js-cadastral-number').text( cadastralNumber[0] );
+                    cadastralNumber = cadastralNumber[0];
 
-                    if (areas[cadastralNumber] != undefined) {
-                        var area = areas[cadastralNumber];
-                        if (area.busy) {
-                            $('.window.busy').show();
-                            $('.window.free').hide();
+                    // Устанавливаем кадастровый номер здесь, чтобы он появился даже у отсутсвующего окна
+                    $('#js-cadastral-number').text( cadastralNumber );
 
-                            setItemText('.window.busy #js-info-status', 'занят');
-                            setItemText('#js-info-resident', area.resident);
-
-                            // После обработки всех пунктов
-                            setItemLast('.window.busy');
-                        } else {
-                            $('.window.busy').hide();
-                            $('.window.free').show();
-
-                            setItemText('.window.busy #js-info-status', 'свободен');
-                            setItemText('#js-info-square', area.square, ' га');
-                            setItemText('#js-info-size', area.size);
-
-                            // После обработки всех пунктов
-                            setItemLast('.window.free');
-                        }
-                    } else {
-                        $('.window.busy').hide();
-                        $('.window.free').show();
-                        $('.window.free .item').hide();
-                    }
+                    if (areas[cadastralNumber] != undefined)
+                        map.info.showInfoWindow( areas[cadastralNumber] );
+                    else
+                        map.info.showEmptyInfoWindow();
 
                     var x = e.srcEvent.offsetX;
                     var y = e.srcEvent.offsetY;
-
-                    var wnd = $('#js-info-window');
-                    var wndW = wnd.width();
-                    var wndH = wnd.height();
-                    
-                    var mapWnd = $('.map');
-                    var mapW = mapWnd.width();
-                    var mapH = mapWnd.height();
-
-                    // Отступы от края карты
-                    var paddingH = 0;
-                    var paddingW = 22;
-
-                    // Не даем окну вылезти за пределы карты
-                    if (x < paddingW)               x = paddingW;
-                    if (x + wndW + paddingW > mapW) x = mapW - wndW - paddingW;
-                    if (y < wndH + paddingH)        y = wndH + paddingH;
-                    if (y > mapH - paddingH)        y = mapH - paddingH;
-
-                    // Позиционируемся в левый нижний угол
-                    y -= wndH;
-
-                    wnd.css({
-                        'left': x+'px',
-                        'top': y+'px'
-                    });
-                    wnd.show();
+                    map.info.setPosition(x, y);
                 }
             });
 
