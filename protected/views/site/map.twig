@@ -186,19 +186,21 @@
                     }
 
                     var cadastralNumber = /\d+$/i.exec(id);
-                    cadastralNumber = cadastralNumber[0];
+                    if (cadastralNumber != null) {
+                        cadastralNumber = cadastralNumber[0];
 
-                    // Устанавливаем кадастровый номер здесь, чтобы он появился даже у отсутсвующего окна
-                    $('#js-cadastral-number').text( cadastralNumber );
+                        // Устанавливаем кадастровый номер здесь, чтобы он появился даже у отсутсвующего окна
+                        $('#js-cadastral-number').text( cadastralNumber );
 
-                    if (areas[cadastralNumber] != undefined)
-                        map.info.showInfoWindow( areas[cadastralNumber] );
-                    else
-                        map.info.showEmptyInfoWindow();
+                        if (areas[cadastralNumber] != undefined)
+                            map.info.showInfoWindow( areas[cadastralNumber] );
+                        else
+                            map.info.showEmptyInfoWindow();
 
-                    var x = e.srcEvent.offsetX;
-                    var y = e.srcEvent.offsetY;
-                    map.info.setPosition(x, y);
+                        var x = e.pointers[0].pageX;
+                        var y = e.pointers[0].pageY;
+                        map.info.setPosition(x, y);
+                    }
                 }
             });
 

@@ -304,18 +304,23 @@ map = {
             var mapWnd = $('.map');
             var mapW = mapWnd.width();
             var mapH = mapWnd.height();
+            var mapOffs = mapWnd.offset();
+
+            //x -= mapOffs.left;
+            y -= mapOffs.top;
 
             // Отступы от края карты
             var paddingH = 0;
             var paddingW = 22;
 
             // Не даем окну вылезти за пределы карты
-            if (x < paddingW)               x = paddingW;
-            if (x + wndW + paddingW > mapW) x = mapW - wndW - paddingW;
-            if (y < wndH + paddingH)        y = wndH + paddingH;
-            if (y > mapH - paddingH)        y = mapH - paddingH;
+            if (x < wndW/2 + paddingW)          x = wndW/2 + paddingW;
+            if (x + wndW/2 + paddingW > mapW)   x = mapW - wndW/2 - paddingW;
+            if (y < wndH + paddingH)            y = wndH + paddingH;
+            if (y > mapH - paddingH)            y = mapH - paddingH;
 
-            // Позиционируемся в левый нижний угол
+            // Позиционируемся в центр низ
+            x -= wndW/2;
             y -= wndH;
 
             wnd.css({
