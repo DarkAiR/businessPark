@@ -95,8 +95,8 @@
 
         {# navigation #}
         <div class='nav'>
-            <div id='js-switch-btn' class='switch-button'><span class='glyphicon glyphicon-eye-open' style='font-size: 18px;padding:6px; opacity:0.6;'></span></div>
-            <div id='js-window' class='window'>
+            <div id='js-switch-btn' class='switch-button  show'><span class='glyphicon glyphicon-eye-open' style='font-size: 18px;padding:6px; opacity:0.6;'></span></div>
+            <div id='js-window' class='window  show'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="300" height="298" viewBox="0 0 300 298" xml:space="preserve">
                 </svg>
@@ -225,7 +225,7 @@
                 if (areas.hasOwnProperty(prop)) {
                     var area = areas[prop];
                     if (area.busy) {
-                        map.createBusyPolygon($('[id$="_' + prop + '"]'));
+                        map.createBusyPolygon($('[id^="area_"][id$="_' + prop + '"]'));
                     }
                 } 
             };
