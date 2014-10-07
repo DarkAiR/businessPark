@@ -3,17 +3,27 @@ map = {
     mc: null,           // hammerjs
     snap: null,         // snap
     poly: null,
+    freePoly: null,
+    busyPoly: null,
+    freePolyArr: [],
+    busyPolyArr: [],
+    areas: null,
 
     /**
      * Init SVG
      */
-    init: function(svgobject)
+    init: function(svgobject, areas)
     {
         map.svgobject = svgobject;
+        map.areas = areas;
+
         map.initHammerJS();
 
         // Создаем объект для рисования в SVG
         map.snap = Snap('.map svg');
+
+        // Создание участков
+        map.createAreas();
     },
 
     /**
@@ -168,7 +178,7 @@ map = {
     /**
      * Create selected area
      */
-    createPolygon: function(el)
+    createSelectedPolygon: function(el)
     {
         var tagName = el.prop("tagName");
         switch (tagName) {
@@ -193,7 +203,7 @@ map = {
     /**
      * Remove selected area
      */
-    removePolygon: function()
+    removeSelectedPolygon: function()
     {
         if (map.poly == null)
             return;
@@ -202,27 +212,76 @@ map = {
     },
 
     /**
-     * Create polygon for busy area
+     * Create polygon area
      */
-    createBusyPolygon: function(el)
+    createPolygon: function(cont, el, fill)
     {
+        fill = fill||'rgba(255,150,0,0.15)';
+        var poly = null;
         var tagName = el.prop("tagName");
         switch (tagName) {
             case 'polygon':
             case 'polyline':
                 var points = el.attr('points');
-                var busyPoly = map.snap.polyline(points);
-                busyPoly.attr('id', el.attr('id'));
-                busyPoly.attr('fill', 'rgba(255,0,0,0.2)');
+                poly = cont.polyline(points);
                 break;
 
             case 'path':
                 var d = el.attr('d');
-                var busyPoly = map.snap.path(d);
-                busyPoly.attr('id', el.attr('id'));
-                busyPoly.attr('fill', 'rgba(255,0,0,0.2)');
+                poly = cont.path(d);
                 break;
         }
+        if (poly != null) {
+            var id = el.attr('id');
+            poly.attr('id', id);
+            poly.attr('fill', fill);
+//            poly.attr('display', 'none');
+        }
+        return poly;
+    },
+
+    /**
+     * Create busy areas
+     */
+    createAreas: function()
+    {
+        map.freePoly = map.snap.g();
+        map.busyPoly = map.snap.g();
+
+        for (var prop in map.areas) {
+            if (map.areas.hasOwnProperty(prop)) {
+                var area = map.areas[prop];
+                if (area.busy) {
+                    poly = map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(255,50,50,0.15)');
+                    if (poly)
+                        map.busyPolyArr.push(poly);
+                }
+                else {
+                    poly = map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(0,255,0,0.15)');
+                    if (poly)
+                        map.freePolyArr.push(poly);
+                }
+            } 
+        };
+
+        map.showFreeAreas(false);
+        map.showBusyAreas(false);
+    },
+
+    /**
+     * Show/hide free areas
+     */
+    showFreeAreas: function(isShow)
+    {
+        map.freePoly.attr('display', isShow ? 'block' : 'none');
+    },
+
+    /**
+     * Show/hide busy areas
+     */
+    showBusyAreas: function(isShow)
+    {
+        map.busyPoly.attr('display', isShow ? 'block' : 'none');
     },
 
 
@@ -375,6 +434,39 @@ map = {
                 'fill-opacity': 0.2,
                 'stroke': "rgba(0,0,0,0.2)",
                 'strokeWidth': 1 
+            });
+        }
+    },
+
+
+    /**
+     * Filter
+     */
+    filter: {
+        window: null,
+
+        init: function(selector)
+        {
+            var el = $(selector);
+            map.filter.window = el;
+
+            el.accordion({
+                collapsible: true
+            });
+
+            el.find('#check-free').click( function(ev) {
+                var status = $(this).prop('checked');
+                if (status == true)
+                    map.showFreeAreas(true);
+                else
+                    map.showFreeAreas(false);
+            });
+            el.find('#check-busy').click( function(ev) {
+                var status = $(this).prop('checked');
+                if (status == true)
+                    map.showBusyAreas(true);
+                else
+                    map.showBusyAreas(false);
             });
         }
     }

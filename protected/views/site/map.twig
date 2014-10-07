@@ -13,22 +13,6 @@
     {{ import('js','snap.svg.js') }}
     {{ import('js','jquery-ui.js') }}
     {{ import('js','map.js') }}
-
-    <script type="text/javascript">
-        $(document).ready( function()
-        {
-            $( "#js-filter" ).accordion({
-                collapsible: true
-            });
-
-//            function runEffect()
-//            {
-//                $("#js-filter").show('drop', {});
-//            };
-//            runEffect();
-
-        });
-    </script>
 {% endblock %}
 
 
@@ -69,8 +53,8 @@
                 <div class='status-text'>
                     <ul>
                         <li>
-                            <input type="checkbox" id="check-reserved">
-                            <label for="check-reserved"><span></span>Занят</label>
+                            <input type="checkbox" id="check-busy">
+                            <label for="check-busy"><span></span>Занят</label>
                         </li>
                         <li>
                             <input type="checkbox" id="check-free">
@@ -156,12 +140,14 @@
 {% endfor %}
         };
 
+
         $('.map').load("/img/map/map.svg", function (response, status, xhr)
         {
             var svgobject = $('.map svg')[0];
 
-            map.init(svgobject);
+            map.init(svgobject, areas);
             map.nav.init('.nav');
+            map.filter.init('#js-filter');
 
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {
@@ -180,8 +166,8 @@
                 var regStr = /^area_/i;
                 if (regStr.exec(id)) {
                     if (id != polyId) {
-                        map.removePolygon();
-                        map.createPolygon($(e.target));
+                        map.removeSelectedPolygon();
+                        map.createSelectedPolygon($(e.target));
                         polyId = id;
                     }
 
@@ -205,10 +191,10 @@
             });
 
             $('[id^="area_"]').mouseover( function() {
-                map.removePolygon();
-                var poly = map.createPolygon($(this));
+                map.removeSelectedPolygon();
+                var poly = map.createSelectedPolygon($(this));
                 poly.mouseout( function() {
-                    map.removePolygon();
+                    map.removeSelectedPolygon();
                 });
             });
 
@@ -219,16 +205,6 @@
             $('#js-info-close-btn').click( function(ev) {
                 $('#js-info-window').hide();
             });
-
-            // Подсветка всех занятых участков
-            for (var prop in areas) {
-                if (areas.hasOwnProperty(prop)) {
-                    var area = areas[prop];
-                    if (area.busy) {
-                        map.createBusyPolygon($('[id^="area_"][id$="_' + prop + '"]'));
-                    }
-                } 
-            };
         });
     </script>
 {% endblock %}
