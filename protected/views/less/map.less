@@ -238,7 +238,7 @@
     opacity: 0.9;
 
     .window {
-        border: 1px solid rgba(0,0,0,0.4);
+        border: 1px solid rgba(0,0,0,0.2);
         background: url(../../img/map/map_nav.png) left top no-repeat;
     
         display: none;
@@ -254,18 +254,56 @@
         top: 0;
         cursor: pointer;
 
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
+
+        .shadow(0px, 2px, 3px);
         background: rgba(255,255,255,0.2);
         &:hover {
             background: rgba(255,255,255,0.4);
         }
 
         &.show {
+            .shadow(0,0,0);
             background: rgba(255,255,255,0.2);
             &:hover {
                 background: rgba(255,255,255,0.4);
             }
         }
+
+        & > span {
+            font-size: 27px;
+            padding:9px;
+            opacity:0.5;
+        }
+    }
+}
+
+.zoom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    margin: @smallPadding;
+    opacity: 0.9;
+
+    .plus, .minus {
+        .shadow(0px, 2px, 3px);
+        .border-radius(3);
+
+        width: 48px;
+        height: 48px;
+        background: rgba(255,255,255,0.2);
+        &:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        & > span {
+            font-size: 27px;
+            padding:9px;
+            opacity:0.5;
+        }
+    }
+    .plus {
+        margin-bottom: @smallPadding;
     }
 }

@@ -1,12 +1,15 @@
 map = {
+    svgW: 6803,
+    svgH: 6750,
+    zoom: 5,
+
     svgobject: null,    // svgobject
     mc: null,           // hammerjs
     snap: null,         // snap
-    poly: null,
+    poly: null,         // выделенный полигон
+    polyHover: null,    // наведенный полигон
     freePoly: null,
     busyPoly: null,
-    freePolyArr: [],
-    busyPolyArr: [],
     areas: null,
 
     /**
@@ -24,6 +27,9 @@ map = {
 
         // Создание участков
         map.createAreas();
+
+        // zoom
+        map.initZoom();
     },
 
     /**
@@ -75,40 +81,52 @@ map = {
         });
     },
 
+    initZoom: function()
+    {
+        $('.zoom .plus').click( function() {
+            if (map.zoom > 1)
+                map.zoom -= 0.5;
+            map.setMapCoords(0, 0);
+        });
+        $('.zoom .minus').click( function() {
+            if (map.zoom < 8)
+                map.zoom += 0.5;
+            map.setMapCoords(0, 0);
+        });
+    },
+
     /**
      * Set map coords
      */
     setMapCoords: function(deltaX, deltaY)
     {
-        var coords = map.svgobject.getAttribute('viewBox').split(' ');
-        var width  = parseInt(map.svgobject.getAttribute('width'));
-        var height = parseInt(map.svgobject.getAttribute('height'));
-        var viewPortW = parseInt($('.map').css('width'));
-        var viewPortH = parseInt($('.map').css('height'));
+        // Center map
+        var coords = map.getViewport();
+        var cx = parseInt(coords.w / 2 + coords.x);
+        var cy = parseInt(coords.h / 2 + coords.y);
 
-        var x = parseInt(coords[0]);
-        var y = parseInt(coords[1]);
-        var w = parseInt(coords[2]);
-        var h = parseInt(coords[3]);
+        // Viewport size
+        var vpW2 = parseInt(parseInt($('.map').css('width')) * map.zoom / 2); 
+        var vpH2 = parseInt(parseInt($('.map').css('height')) * map.zoom / 2);
 
-        var ratioW = w / width;
-        var ratioH = h / height;
+        // Move center
+        cx2 = cx - deltaX * map.zoom;
+        cy2 = cy - deltaY * map.zoom;
+        if (deltaX >= 0  &&  cx - vpW2 >= 0) {
+            cx = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
+        }
+        if (deltaY >= 0  &&  cy - vpH2 >= 0) {
+            cy = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
+        }
+        if (deltaX < 0  &&  cx + vpW2 < map.svgW) {
+            cx = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
+        }
+        if (deltaY < 0  &&  cy + vpH2 < map.svgH) {
+            cy = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
+        }
 
-        //$('#debug').html('xy ('+x+', '+y+')<br>' + 'wh ('+w+', '+h+')<br>' + 'ratio ('+ratioW+', '+ratioH+')<br>');
-
-        x -= deltaX * ratioW;
-        y -= deltaY * ratioH;
-
-        if (x < 0)
-            x = 0;
-        if (y < 0)
-            y = 0;
-        if (x > w - viewPortW * ratioW)
-            x = w - viewPortW * ratioW;
-        if (y > h - viewPortH * ratioH)
-            y = h - viewPortH * ratioH;
-
-        map.svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+        // Set viewbox and nav
+        map.svgobject.setAttribute('viewBox', (cx-vpW2)+' '+(cy-vpH2)+' '+(vpW2*2)+' '+(vpH2*2));
         map.nav.showViewport( map.getViewport() );
     },
 
@@ -117,20 +135,11 @@ map = {
      */
     centerMapCoords: function()
     {
-        var coords = map.svgobject.getAttribute('viewBox').split(' ');
-        var width  = parseInt(map.svgobject.getAttribute('width'));
-        var height = parseInt(map.svgobject.getAttribute('height'));
-        var viewPortW = parseInt($('.map').css('width'));
-        var viewPortH = parseInt($('.map').css('height'));
-
-        var x = parseInt(coords[0]);
-        var y = parseInt(coords[1]);
-        var w = parseInt(coords[2]);
-        var h = parseInt(coords[3]);
-        x = (w - viewPortW * (w / width)) / 2;
-        y = (h - viewPortH * (h / height)) / 2;
-
-        map.svgobject.setAttribute('viewBox', x+' '+y+' '+w+' '+h);
+        var vpW = parseInt(parseInt($('.map').css('width')) * map.zoom);
+        var vpH = parseInt(parseInt($('.map').css('height')) * map.zoom);
+        var x = parseInt((map.svgW - vpW) / 2);
+        var y = parseInt((map.svgH - vpH) / 2);
+        map.svgobject.setAttribute('viewBox', x+' '+y+' '+vpW+' '+vpH);
     },
 
     /**
@@ -163,52 +172,62 @@ map = {
     getViewport: function()
     {
         var arr = map.svgobject.getAttribute('viewBox').split(' ');
-        var width  = parseInt(map.svgobject.getAttribute('width'));
-        var height = parseInt(map.svgobject.getAttribute('height'));
         return {
-            'x':arr[0] * width / arr[2],
-            'y':arr[1] * height / arr[3],
-            'w':$('.map').width(),
-            'h':$('.map').height(),
-            'totalW':width,
-            'totalH':height
+            'x': parseInt(arr[0]),
+            'y': parseInt(arr[1]),
+            'w': parseInt(arr[2]),
+            'h': parseInt(arr[3])
         };
     },
 
     /**
      * Create selected area
      */
-    createSelectedPolygon: function(el)
+    createSelectedPolygon: function(el, hover)
     {
-        var tagName = el.prop("tagName");
-        switch (tagName) {
+        var poly = null;
+        switch (el.prop("tagName")) {
             case 'polygon':
             case 'polyline':
                 var points = el.attr('points');
-                map.poly = map.snap.polyline(points);
-                map.poly.attr('id', el.attr('id'));
-                map.poly.attr('fill', 'rgba(255,255,255,0.3)');
+                poly = map.snap.polyline(points);
                 break;
 
             case 'path':
                 var d = el.attr('d');
-                map.poly = map.snap.path(d);
-                map.poly.attr('id', el.attr('id'));
-                map.poly.attr('fill', 'rgba(255,255,255,0.3)');
+                poly = map.snap.path(d);
                 break;
         }
-        return map.poly;
+        if (poly) {
+            poly.attr('id', el.attr('id'));
+            if (hover) {
+                poly.attr('fill', 'rgba(255,255,255,0.3)');
+                map.polyHover = poly;
+            } else {
+                poly.attr('pointer-events', 'none');
+                poly.attr('fill', 'rgba(255,255,0,0.3)');
+                map.poly = poly;
+            }
+        }
+        return poly;
     },
 
     /**
      * Remove selected area
      */
-    removeSelectedPolygon: function()
+    removeSelectedPolygon: function(hover)
     {
-        if (map.poly == null)
-            return;
-        map.poly.remove();
-        map.poly = null;
+        if (hover) {
+            if (map.polyHover == null)
+                return;
+            map.polyHover.remove();
+            map.polyHover = null;
+        } else {
+            if (map.poly == null)
+                return;
+            map.poly.remove();
+            map.poly = null;
+        }
     },
 
     /**
@@ -252,14 +271,10 @@ map = {
             if (map.areas.hasOwnProperty(prop)) {
                 var area = map.areas[prop];
                 if (area.busy) {
-                    poly = map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(255,50,50,0.15)');
-                    if (poly)
-                        map.busyPolyArr.push(poly);
+                    map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(255,50,50,0.15)');
                 }
                 else {
-                    poly = map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(0,255,0,0.15)');
-                    if (poly)
-                        map.freePolyArr.push(poly);
+                    map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(0,255,0,0.15)');
                 }
             } 
         };
@@ -282,6 +297,17 @@ map = {
     showBusyAreas: function(isShow)
     {
         map.busyPoly.attr('display', isShow ? 'block' : 'none');
+    },
+
+    /**
+     * Show/hide markers
+     */
+    showMarkers: function(selector, isShow)
+    {
+        var el = $(selector);
+        el.each( function() {
+            $(this);
+        });
     },
 
 
@@ -421,20 +447,25 @@ map = {
 
             var navW = map.nav.window.width();
             var navH = map.nav.window.height();
-            var ratioW = navW / viewport.totalW;
-            var ratioH = navH / viewport.totalH;
+            var ratioW = navW / map.svgW;
+            var ratioH = navH / map.svgH;
 
-            map.nav.rect = map.nav.snap.rect(
-                viewport.x * ratioW,
-                viewport.y * ratioH,
-                viewport.w * ratioW,
-                viewport.h * ratioH
-            ).attr({
-                'fill': "rgba(255,255,255,1)",
-                'fill-opacity': 0.2,
-                'stroke': "rgba(0,0,0,0.2)",
-                'strokeWidth': 1 
-            });
+            var x = viewport.x * ratioW;
+            var y = viewport.y * ratioH;
+            var w = viewport.w * ratioW;
+            var h = viewport.h * ratioH;
+            if (x < 0)      x = 0;
+            if (y < 0)      y = 0;
+            if (x+w > navW) w = navW - x;
+            if (y+h > navH) h = navH - y;
+
+            map.nav.rect = map.nav.snap.rect(x,y,w,h)
+                .attr({
+                    'fill': "rgba(255,255,255,1)",
+                    'fill-opacity': 0.2,
+                    'stroke': "rgba(0,0,0,0.2)",
+                    'strokeWidth': 1 
+                });
         }
     },
 
@@ -456,17 +487,31 @@ map = {
 
             el.find('#check-free').click( function(ev) {
                 var status = $(this).prop('checked');
-                if (status == true)
-                    map.showFreeAreas(true);
-                else
-                    map.showFreeAreas(false);
+                map.showFreeAreas(status);
             });
             el.find('#check-busy').click( function(ev) {
                 var status = $(this).prop('checked');
-                if (status == true)
-                    map.showBusyAreas(true);
-                else
-                    map.showBusyAreas(false);
+                map.showBusyAreas(status);
+            });
+            el.find('#check-f1').click( function(ev) {
+                var status = $(this).prop('checked');
+                map.showMarkers('[id^="red_"]', status); 
+            });
+            el.find('#check-f2').click( function(ev) {
+                var status = $(this).prop('checked');
+                map.showMarkers('[id^="yellow_"]', status); 
+            });
+            el.find('#check-f3').click( function(ev) {
+                var status = $(this).prop('checked');
+                map.showMarkers('[id^="blue_"]', status); 
+            });
+            el.find('#check-f4').click( function(ev) {
+                var status = $(this).prop('checked');
+                map.showMarkers('[id^="green_"]', status); 
+            });
+            el.find('#check-f5').click( function(ev) {
+                var status = $(this).prop('checked');
+                map.showMarkers('[id^="pu_"]', status); 
             });
         }
     }

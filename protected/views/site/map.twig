@@ -79,12 +79,19 @@
 
         {# navigation #}
         <div class='nav'>
-            <div id='js-switch-btn' class='switch-button  show'><span class='glyphicon glyphicon-eye-open' style='font-size: 18px;padding:6px; opacity:0.6;'></span></div>
+            <div id='js-switch-btn' class='switch-button  show'><span class='glyphicon glyphicon-eye-open'></span></div>
             <div id='js-window' class='window  show'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="300" height="298" viewBox="0 0 300 298" xml:space="preserve">
                 </svg>
             </div>
+        </div>
+
+
+        {# zoom #}
+        <div class='zoom'>
+            <div class='plus'><span class='glyphicon glyphicon-zoom-in'></span></div>
+            <div class='minus'><span class='glyphicon glyphicon-zoom-out'></span></div>
         </div>
 
 
@@ -191,11 +198,13 @@
             });
 
             $('[id^="area_"]').mouseover( function() {
-                map.removeSelectedPolygon();
-                var poly = map.createSelectedPolygon($(this));
-                poly.mouseout( function() {
-                    map.removeSelectedPolygon();
-                });
+                map.removeSelectedPolygon(true);
+                var poly = map.createSelectedPolygon($(this), true);
+                if (poly) {
+                    poly.mouseout( function() {
+                        map.removeSelectedPolygon(true);
+                    });
+                }
             });
 
             // Отключаем нажатие на участках
@@ -203,6 +212,8 @@
 
             // Окно информации
             $('#js-info-close-btn').click( function(ev) {
+                map.removeSelectedPolygon();
+                polyId = 0;
                 $('#js-info-window').hide();
             });
         });
