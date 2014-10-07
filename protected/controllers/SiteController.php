@@ -79,6 +79,14 @@ class SiteController extends Controller
     }
 
     /**
+     * Презентация
+     */
+    public function actionPresentation()
+    {
+        $this->render('presentation');
+    }
+
+    /**
      * Тест
      */
     public function actionTest()

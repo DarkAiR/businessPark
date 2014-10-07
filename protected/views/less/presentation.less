@@ -1,0 +1,52 @@
+@import (reference) 'custom';
+
+.presentation-page {
+    @videoPadding:  40px;
+    @videoW:        @mainCol1 + @mainCol2 - @videoPadding * 2;
+    @videoH:        382px / 680px * @videoW;
+
+    .col1 {
+        .col(@mainCol1);
+    }
+    .col2-3 {
+        .col(@mainCol2+@mainCol3);
+        padding-left: @bigPadding;
+        padding-right: @bigPadding;
+    }
+
+    .cont {
+        position: relative;
+    }
+    .title {
+        z-index: 2;
+        .inner-title();
+    }
+    .video {
+        z-index: 2;
+        background: #efefef;
+        width: @videoW + @videoPadding * 2;
+        height: @videoH + @videoPadding * 2;
+        padding: @videoPadding;
+
+        iframe {
+            width: @videoW;
+            height: @videoH;
+        }
+    }
+    .bg {
+        background: url(../../img/full_bg1.png) no-repeat center center;
+        background-size: cover;
+        text-align: center;
+        width: 1920px;
+        max-width: 1920px;
+        height: 400px;
+
+        position: absolute;
+        left: 50%;
+        top: auto;
+        margin-left: -960px;
+        margin-top: 50px;
+
+        z-index: -1;
+    }
+}

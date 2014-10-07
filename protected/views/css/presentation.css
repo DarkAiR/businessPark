@@ -1,0 +1,60 @@
+.presentation-page .col1 {
+  width: 225px;
+  min-width: 225px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.presentation-page .col2-3 {
+  width: 741px;
+  min-width: 741px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.presentation-page .cont {
+  position: relative;
+}
+.presentation-page .title {
+  z-index: 2;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+}
+.presentation-page .title grey {
+  color: #667075;
+}
+.presentation-page .title lightgrey {
+  color: #929da0;
+}
+.presentation-page .video {
+  z-index: 2;
+  background: #efefef;
+  width: 607px;
+  height: 376.05px;
+  padding: 40px;
+}
+.presentation-page .video iframe {
+  width: 527px;
+  height: 296.05px;
+}
+.presentation-page .bg {
+  background: url(../../img/full_bg1.png) no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  width: 1920px;
+  max-width: 1920px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: auto;
+  margin-left: -960px;
+  margin-top: 50px;
+  z-index: -1;
+}
