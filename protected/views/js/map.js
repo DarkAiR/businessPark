@@ -84,13 +84,13 @@ map = {
     initZoom: function()
     {
         $('.zoom .plus').click( function() {
-            if (map.zoom > 1)
-                map.zoom -= 0.5;
+            if (map.zoom > 3)
+                map.zoom -= 1;
             map.setMapCoords(0, 0);
         });
         $('.zoom .minus').click( function() {
             if (map.zoom < 8)
-                map.zoom += 0.5;
+                map.zoom += 1;
             map.setMapCoords(0, 0);
         });
     },
@@ -201,11 +201,19 @@ map = {
         if (poly) {
             poly.attr('id', el.attr('id'));
             if (hover) {
-                poly.attr('fill', 'rgba(255,255,255,0.3)');
+
+                // Наведение
+                poly.attr({
+                    'fill': 'rgba(255,255,255,0.3)'
+                });
                 map.polyHover = poly;
             } else {
-                poly.attr('pointer-events', 'none');
-                poly.attr('fill', 'rgba(255,255,0,0.3)');
+
+                // Выделение
+                poly.attr({
+                    'fill': 'rgba(255,255,255,0.5)',
+                    'pointer-events': 'none'
+                });
                 map.poly = poly;
             }
         }
@@ -233,9 +241,8 @@ map = {
     /**
      * Create polygon area
      */
-    createPolygon: function(cont, el, fill)
+    createPolygon: function(cont, el, style)
     {
-        fill = fill||'rgba(255,150,0,0.15)';
         var poly = null;
         var tagName = el.prop("tagName");
         switch (tagName) {
@@ -253,7 +260,7 @@ map = {
         if (poly != null) {
             var id = el.attr('id');
             poly.attr('id', id);
-            poly.attr('fill', fill);
+            poly.attr(style);
 //            poly.attr('display', 'none');
         }
         return poly;
@@ -276,10 +283,13 @@ map = {
 
             var area = map.areas[prop];
             if (area.busy) {
-                poly = map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(255,50,50,0.15)');
+                // Занятый
+                poly = map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), {'fill':'rgba(225,83,83,0.3)'});
             }
             else {
-                poly = map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(0,255,0,0.15)');
+                // Свободный
+                poly = map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), {'fill':'rgba(157,171,214,0.3)', 
+                    'box-shadow': '10px 10px 5px #888888;'});
             }
             if (poly != null) {
                 polyId = poly.attr('id');
@@ -295,7 +305,7 @@ map = {
 
         // Считаем все оставшиеся участки тоже пустыми
         allAreas.each( function() {
-            poly = map.createPolygon(map.freePoly, $(this), 'rgba(0,255,0,0.15)');
+            poly = map.createPolygon(map.freePoly, $(this), {'fill':'rgba(157,171,214,0.3)', 'box-shadow': '10px 10px 5px #888888;'});
         });
 
         map.showFreeAreas(false);
@@ -503,6 +513,10 @@ map = {
 
             el.accordion({
                 collapsible: true
+            });
+
+            el.find('.header').click( function() {
+                $(this).find('.arrow').toggleClass('rotate');
             });
 
             el.find('#check-free').click( function(ev) {

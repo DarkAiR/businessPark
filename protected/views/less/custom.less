@@ -349,8 +349,14 @@ p {
 
 // Тень
 .shadow(@offsX, @offsY, @blur) {
-    -webkit-box-shadow: @offsX @offsY @blur rgba(0,0,0,.3);
-    box-shadow: @offsX @offsY @blur rgba(0,0,0,.3);
+    box-shadow:         @offsX @offsY @blur rgba(0,0,0,.3);
+   -moz-box-shadow:     @offsX @offsY @blur rgba(0,0,0,.3);
+   -webkit-box-shadow:  @offsX @offsY @blur rgba(0,0,0,.3);
+}
+.shadow-inner(@offsX, @offsY, @blur) {
+    box-shadow:         inset @offsX @offsY @blur rgba(0,0,0,.3);
+   -moz-box-shadow:     inset @offsX @offsY @blur rgba(0,0,0,.3);
+   -webkit-box-shadow:  inset @offsX @offsY @blur rgba(0,0,0,.3);
 }
 
 // Разделитель

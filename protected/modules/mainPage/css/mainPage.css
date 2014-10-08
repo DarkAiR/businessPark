@@ -59,7 +59,7 @@
 .bg-container {
   width: 100%;
   min-width: 1024px;
-  height: 738px;
+  height: 734px;
   overflow: hidden;
   position: absolute;
 }
@@ -67,7 +67,7 @@
   width: 1040px;
   height: 568px;
   position: absolute;
-  top: 170px;
+  top: 166px;
   left: 50%;
   margin-left: -505px;
   background: url(../../img/mainBg.png) left top no-repeat;

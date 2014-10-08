@@ -45,6 +45,7 @@
         <div id='js-filter' class="filter">
             <div class='header'>
                 Фильтр
+                <div class='arrow transition'></div>
             </div>
             <div class='window'>
                 <div class='status-title'>
@@ -192,7 +193,7 @@
 
                         var x = e.pointers[0].pageX;
                         var y = e.pointers[0].pageY;
-                        map.info.setPosition(x, y);
+                        map.info.setPosition(x, y - 30);        // Смещение окна, подбирается вручную
                     }
                 }
             });
