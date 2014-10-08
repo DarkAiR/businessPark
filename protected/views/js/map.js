@@ -267,17 +267,36 @@ map = {
         map.freePoly = map.snap.g();
         map.busyPoly = map.snap.g();
 
+        // Ищем все участки на карте
+        var allAreas = $('[id^="area_"]');
+
         for (var prop in map.areas) {
-            if (map.areas.hasOwnProperty(prop)) {
-                var area = map.areas[prop];
-                if (area.busy) {
-                    map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(255,50,50,0.15)');
-                }
-                else {
-                    map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(0,255,0,0.15)');
-                }
-            } 
+            if (!map.areas.hasOwnProperty(prop))
+                continue;
+
+            var area = map.areas[prop];
+            if (area.busy) {
+                poly = map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(255,50,50,0.15)');
+            }
+            else {
+                poly = map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), 'rgba(0,255,0,0.15)');
+            }
+            if (poly != null) {
+                polyId = poly.attr('id');
+
+                allAreas.each( function(index) {
+                    if ($(this).attr('id') == polyId) {
+                        allAreas.splice(index, 1);
+                        return;
+                    }
+                });
+            }
         };
+
+        // Считаем все оставшиеся участки тоже пустыми
+        allAreas.each( function() {
+            poly = map.createPolygon(map.freePoly, $(this), 'rgba(0,255,0,0.15)');
+        });
 
         map.showFreeAreas(false);
         map.showBusyAreas(false);
