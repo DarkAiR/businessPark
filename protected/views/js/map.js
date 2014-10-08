@@ -362,7 +362,7 @@ map = {
                 $('.window.busy').hide();
                 $('.window.free').show();
 
-                map.info.setItemText('.window.busy #js-info-status', 'свободен');
+                map.info.setItemText('.window.free #js-info-status', 'свободен');
                 map.info.setItemText('#js-info-square', area.square, ' га');
                 map.info.setItemText('#js-info-size', area.size);
 
@@ -377,6 +377,7 @@ map = {
             $('.window.busy').hide();
             $('.window.free').show();
             $('.window.free .item').hide();
+            map.info.setItemText('.window.free #js-info-status', 'свободен');
         },
 
         // Set window position
