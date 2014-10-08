@@ -39,6 +39,8 @@
 }
 .news-lenta-widget .item .textBlock .date {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1;
   color: #8f8f8f;
   height: 38px;
   padding-top: 15px;
