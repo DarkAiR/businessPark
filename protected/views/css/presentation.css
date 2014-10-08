@@ -35,26 +35,12 @@
 }
 .presentation-page .video {
   z-index: 2;
-  background: #efefef;
+  background: #ccc;
   width: 607px;
-  height: 376.05px;
-  padding: 40px;
+  height: 341.86764706px;
+  padding: 1px;
 }
 .presentation-page .video iframe {
-  width: 527px;
-  height: 296.05px;
-}
-.presentation-page .bg {
-  background: url(../../img/full_bg1.png) no-repeat center center;
-  background-size: cover;
-  text-align: center;
-  width: 1920px;
-  max-width: 1920px;
-  height: 400px;
-  position: absolute;
-  left: 50%;
-  top: auto;
-  margin-left: -960px;
-  margin-top: 50px;
-  z-index: -1;
+  width: 605px;
+  height: 339.86764706px;
 }
