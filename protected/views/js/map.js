@@ -8,9 +8,10 @@ map = {
     snap: null,         // snap
     poly: null,         // выделенный полигон
     polyHover: null,    // наведенный полигон
-    freePoly: null,
-    busyPoly: null,
+    freePoly: null,     // группа свободных полигонов
+    busyPoly: null,     // группа занятых полигонов
     areas: null,
+    markers: {},        // маркеры на карте
 
     /**
      * Init SVG
@@ -331,12 +332,24 @@ map = {
     /**
      * Show/hide markers
      */
-    showMarkers: function(selector, isShow)
+    showMarkers: function(key, selector, isShow)
     {
-        var el = $(selector);
-        el.each( function() {
-            $(this);
-        });
+        if (map.markers[key] == undefined) {
+            // Create markers
+            var el = $(selector);
+            el.each( function() {
+                var bBox = this.getBBox();
+                var cx = bBox.x + bBox.width / 2;
+                var cy = bBox.y + bBox.height / 2;
+                cx = parseInt(cx / map.zoom);
+                cy = parseInt(cy / map.zoom);
+                var marker = $('<div/>', {
+                    class: 'marker red',
+                    style: 'left:'+cx+'px; top:'+cy+'px'
+                });
+                marker.appendTo('.markers');
+            });
+        }
     },
 
 
@@ -529,23 +542,23 @@ map = {
             });
             el.find('#check-f1').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('[id^="red_"]', status); 
+                map.showMarkers('red', '[id^="red_"]', status); 
             });
             el.find('#check-f2').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('[id^="yellow_"]', status); 
+                map.showMarkers('yellow', '[id^="yellow_"]', status); 
             });
             el.find('#check-f3').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('[id^="blue_"]', status); 
+                map.showMarkers('blue', '[id^="blue_"]', status); 
             });
             el.find('#check-f4').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('[id^="green_"]', status); 
+                map.showMarkers('green', '[id^="green_"]', status); 
             });
             el.find('#check-f5').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('[id^="pu_"]', status); 
+                map.showMarkers('purple', '[id^="purple_"]', status); 
             });
         }
     }

@@ -299,6 +299,16 @@
 .zoom .plus {
   margin-bottom: 11px;
 }
+.markers .marker {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.markers .red {
+  width: 40px;
+  height: 44px;
+  background: url(../../img/map/red.png) left top no-repeat;
+}
 .footer .footer-inner .separate-line {
   display: none;
 }
