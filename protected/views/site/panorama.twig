@@ -56,6 +56,12 @@
         };
         $('[id^="js-panorama-btn-"]').click(onClick);
     });
+
+    var OSName="Unknown OS";
+    if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+    if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+    if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+    if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
     </script>
 </head>
 <body>
@@ -63,20 +69,25 @@
     <div style='position:relative; height:inherit; width:inherit;'>
         <div style='z-index:1; height:inherit; width:inherit' id='js-pan-1'>
             <script type="text/javascript">
-            <!--
+<!--
                 if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
-                    // Check to see if the version meets the requirements for playback
-                    var flashvars="";
-                    p2q_EmbedFlash('/panorama/1.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
-                    
-                    if (!DetectFlashVer(9,0,0)) {
-                        document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
-                                     + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
+                    if (OSName == 'MacOS') {
+                        // Check to see if the version meets the requirements for playback
+                        p2q_EmbedQuicktime('/panorama/1.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
+                    } else {
+                        // Check to see if the version meets the requirements for playback
+                        var flashvars="";
+                        p2q_EmbedFlash('/panorama/1.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
+                        
+                        if (!DetectFlashVer(9,0,0)) {
+                            document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
+                                         + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
+                        }
                     }
                 } else {
                     document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
                 }
-            //-->
+//-->
             </script>
             <noscript>
                 <p class="warning">Please enable Javascript!</p>
@@ -85,20 +96,25 @@
 
         <div style='z-index:1; height:inherit; width:inherit; display:none;' id='js-pan-2'>
             <script type="text/javascript">
-            <!--
+<!--
                 if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
-                    // Check to see if the version meets the requirements for playback
-                    var flashvars="";
-                    p2q_EmbedFlash('/panorama/2.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
-                    
-                    if (!DetectFlashVer(9,0,0)) {
-                        document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
-                                     + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
+                    if (OSName == 'MacOS') {
+                        // Check to see if the version meets the requirements for playback
+                        p2q_EmbedQuicktime('/panorama/2.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
+                    } else {
+                        // Check to see if the version meets the requirements for playback
+                        var flashvars="";
+                        p2q_EmbedFlash('/panorama/2.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
+                        
+                        if (!DetectFlashVer(9,0,0)) {
+                            document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
+                                         + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
+                        }
                     }
                 } else {
                     document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
                 }
-            //-->
+//-->
             </script>
             <noscript>
                 <p class="warning">Please enable Javascript!</p>
