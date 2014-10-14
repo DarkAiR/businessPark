@@ -62,7 +62,7 @@
   position: absolute;
   left: 11px;
   top: 11px;
-  z-index: 1;
+  z-index: 5;
   font-size: 12px;
   line-height: 19px;
 }
@@ -158,7 +158,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 1050;
+  z-index: 3;
   width: 294px;
   margin: 7px;
 }
@@ -225,7 +225,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 2;
+  z-index: 4;
   margin: 11px;
   opacity: 0.9;
 }
@@ -270,7 +270,7 @@
   position: absolute;
   right: 0;
   top: 311px;
-  z-index: 2;
+  z-index: 4;
   margin: 11px;
   opacity: 0.9;
 }
@@ -299,15 +299,41 @@
 .zoom .plus {
   margin-bottom: 11px;
 }
+.markers {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+}
 .markers .marker {
   position: absolute;
   left: 0px;
   top: 0px;
 }
-.markers .red {
+.markers .red,
+.markers .green,
+.markers .yellow,
+.markers .blue,
+.markers .purple {
   width: 40px;
   height: 44px;
+  margin-left: -20px;
+  margin-top: -43.99999999px;
+}
+.markers .red {
   background: url(../../img/map/red.png) left top no-repeat;
+}
+.markers .green {
+  background: url(../../img/map/green.png) left top no-repeat;
+}
+.markers .yellow {
+  background: url(../../img/map/yellow.png) left top no-repeat;
+}
+.markers .blue {
+  background: url(../../img/map/blue.png) left top no-repeat;
+}
+.markers .purple {
+  background: url(../../img/map/purple.png) left top no-repeat;
 }
 .footer .footer-inner .separate-line {
   display: none;

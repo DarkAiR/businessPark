@@ -71,13 +71,6 @@ map = {
                 pageY = e.center.y;
                 //$('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
                 map.setMapCoords(deltaX, deltaY);
-
-                var infoWndX = parseInt($('#js-info-window').css('left'));
-                var infoWndY = parseInt($('#js-info-window').css('top'));
-                $('#js-info-window').css({
-                    'left': infoWndX + deltaX + 'px',
-                    'top': infoWndY + deltaY + 'px'
-                });
             }
         });
     },
@@ -85,22 +78,29 @@ map = {
     initZoom: function()
     {
         $('.zoom .plus').click( function() {
+            var dz = 0.0;
             if (map.zoom > 3)
-                map.zoom -= 1;
-            map.setMapCoords(0, 0);
+                dz = -1.0;
+            map.zoom += dz;
+            map.setMapCoords(0, 0, dz);
         });
         $('.zoom .minus').click( function() {
+            var dz = 0.0;
             if (map.zoom < 8)
-                map.zoom += 1;
-            map.setMapCoords(0, 0);
+                dz = 1.0;
+            map.zoom += dz;
+            map.setMapCoords(0, 0, dz);
         });
     },
 
     /**
      * Set map coords
+     * deltaX/Y - screen offset
      */
-    setMapCoords: function(deltaX, deltaY)
+    setMapCoords: function(deltaX, deltaY, deltaZoom)
     {
+        deltaZoom = deltaZoom||0.0;
+
         // Center map
         var coords = map.getViewport();
         var cx = parseInt(coords.w / 2 + coords.x);
@@ -111,23 +111,32 @@ map = {
         var vpH2 = parseInt(parseInt($('.map').css('height')) * map.zoom / 2);
 
         // Move center
-        cx2 = cx - deltaX * map.zoom;
-        cy2 = cy - deltaY * map.zoom;
+        cx3 = cx2 = cx - deltaX * map.zoom;
+        cy3 = cy2 = cy - deltaY * map.zoom;
         if (deltaX >= 0  &&  cx - vpW2 >= 0) {
-            cx = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
+            cx3 = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
         }
         if (deltaY >= 0  &&  cy - vpH2 >= 0) {
-            cy = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
+            cy3 = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
         }
         if (deltaX < 0  &&  cx + vpW2 < map.svgW) {
-            cx = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
+            cx3 = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
         }
         if (deltaY < 0  &&  cy + vpH2 < map.svgH) {
-            cy = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
+            cy3 = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
         }
 
+        var realDeltaX = (cx - cx3) / map.zoom;
+        var realDeltaY = (cy - cy3) / map.zoom;
+
+        // Move markers
+        map.moveMarkers(realDeltaX, realDeltaY, deltaZoom);
+
+        // Move info window
+        map.info.move(realDeltaX, realDeltaY, deltaZoom);
+
         // Set viewbox and nav
-        map.svgobject.setAttribute('viewBox', (cx-vpW2)+' '+(cy-vpH2)+' '+(vpW2*2)+' '+(vpH2*2));
+        map.svgobject.setAttribute('viewBox', (parseInt(cx3-vpW2))+' '+(parseInt(cy3-vpH2))+' '+(parseInt(vpW2*2))+' '+(parseInt(vpH2*2)));
         map.nav.showViewport( map.getViewport() );
     },
 
@@ -334,24 +343,80 @@ map = {
      */
     showMarkers: function(key, selector, isShow)
     {
-        if (map.markers[key] == undefined) {
-            // Create markers
-            var el = $(selector);
-            el.each( function() {
-                var bBox = this.getBBox();
-                var cx = bBox.x + bBox.width / 2;
-                var cy = bBox.y + bBox.height / 2;
-                cx = parseInt(cx / map.zoom);
-                cy = parseInt(cy / map.zoom);
-                var marker = $('<div/>', {
-                    class: 'marker red',
-                    style: 'left:'+cx+'px; top:'+cy+'px'
+        // Смещение маркера от места появления для анимации
+        var markerShowOffs = 20;
+
+        if (isShow) {
+            if (map.markers[key] == undefined) {
+                // Create markers
+                map.markers[key] = [];
+                var vp = map.getViewport();
+
+                var el = $(selector);
+                el.each( function() {
+                    var bBox = this.getBBox();
+                    var cx = bBox.x + bBox.width / 2;
+                    var cy = bBox.y + bBox.height / 2;
+                    cx = parseInt((cx - vp.x) / map.zoom) + $('.map').offset().left / 2;
+                    cy = parseInt((cy - vp.y) / map.zoom);
+
+                    var marker = $('<div/>', {
+                        class: 'marker '+key,
+                        style: 'left:'+cx+'px; top:'+(cy-markerShowOffs)+'px;'
+                    });
+                    marker.css({opacity:0.0}).appendTo('.markers');
+                    map.markers[key].push(marker);
                 });
-                marker.appendTo('.markers');
-            });
+            }
+
+            for (var i = 0; i < map.markers[key].length; i++) {
+                map.markers[key][i]
+                    .delay(Math.random()*300)
+                    .animate({
+                        top: '+='+markerShowOffs,
+                        opacity: 1.0,
+                    }, 400, "easeOutBounce"
+                );
+            };
+        } else {
+            for (var i = 0; i < map.markers[key].length; i++) {
+                map.markers[key][i].animate({
+                    top: '-='+markerShowOffs,
+                    opacity: 0.0
+                }, 500);
+            };
         }
     },
 
+    /**
+     * Move markers
+     */
+    moveMarkers: function(deltaX, deltaY, deltaZoom)
+    {
+        // Viewport center
+        var vpCx = parseInt($('.map').css('width')) / 2; 
+        var vpCy = parseInt($('.map').css('height')) / 2;
+
+        for (var prop in map.markers) {
+            if (!map.markers.hasOwnProperty(prop))
+                continue;
+
+            for (var j = 0; j < map.markers[prop].length; j++) {
+                var el = map.markers[prop][j];
+
+                var elX = parseInt(el.css('left'));
+                var elY = parseInt(el.css('top'));
+
+                var elX2 = vpCx + (elX - vpCx) * (map.zoom - deltaZoom) / map.zoom;
+                var elY2 = vpCy + (elY - vpCy) * (map.zoom - deltaZoom) / map.zoom;
+
+                el.animate({
+                    left: '+=' + (deltaX + (elX2 - elX)),
+                    top: '+=' + (deltaY + (elY2 - elY))
+                }, 0);
+            }
+        }
+    },
 
 
     /**
@@ -456,6 +521,24 @@ map = {
                 'top': y+'px'
             });
             wnd.show();
+        },
+
+        move: function(deltaX, deltaY, deltaZoom)
+        {
+            // Viewport center
+            var vpCx = parseInt($('.map').css('width')) / 2; 
+            var vpCy = parseInt($('.map').css('height')) / 2;
+
+            var infoX = parseInt($('#js-info-window').css('left'));
+            var infoY = parseInt($('#js-info-window').css('top'));
+
+            var infoX2 = vpCx + (infoX - vpCx) * (map.zoom - deltaZoom) / map.zoom;
+            var infoY2 = vpCy + (infoY - vpCy) * (map.zoom - deltaZoom) / map.zoom;
+
+            $('#js-info-window').animate({
+                'left': '+=' + (deltaX + (infoX2 - infoX)),
+                'top': '+=' + (deltaY + (infoY2 - infoY))
+            }, 0);
         }
     },
 
