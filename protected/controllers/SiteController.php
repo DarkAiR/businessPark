@@ -72,9 +72,12 @@ class SiteController extends Controller
      */
     public function actionMap()
     {
+        $type = Yii::app()->request->getQuery('type', '');
+
         $areas = MapArea::model()->findAll();
         $this->render('map', array(
-            'areas' => $areas
+            'areas' => $areas,
+            'showType' => $type
         ));
     }
 

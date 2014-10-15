@@ -8,7 +8,6 @@ map = {
     snap: null,         // snap
     poly: null,         // выделенный полигон
     polyHover: null,    // наведенный полигон
-    freePoly: null,     // группа свободных полигонов
     busyPoly: null,     // группа занятых полигонов
     areas: null,
     markers: {},        // маркеры на карте
@@ -281,11 +280,7 @@ map = {
      */
     createAreas: function()
     {
-        map.freePoly = map.snap.g();
         map.busyPoly = map.snap.g();
-
-        // Ищем все участки на карте
-        var allAreas = $('[id^="area_"]');
 
         for (var prop in map.areas) {
             if (!map.areas.hasOwnProperty(prop))
@@ -294,40 +289,11 @@ map = {
             var area = map.areas[prop];
             if (area.busy) {
                 // Занятый
-                poly = map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), {'fill':'rgba(225,83,83,0.3)'});
-            }
-            else {
-                // Свободный
-                poly = map.createPolygon(map.freePoly, $('[id^="area_"][id$="_' + prop + '"]'), {'fill':'rgba(157,171,214,0.3)', 
-                    'box-shadow': '10px 10px 5px #888888;'});
-            }
-            if (poly != null) {
-                polyId = poly.attr('id');
-
-                allAreas.each( function(index) {
-                    if ($(this).attr('id') == polyId) {
-                        allAreas.splice(index, 1);
-                        return;
-                    }
-                });
+                map.createPolygon(map.busyPoly, $('[id^="area_"][id$="_' + prop + '"]'), {'fill':'rgba(225,83,83,0.3)'});
             }
         };
 
-        // Считаем все оставшиеся участки тоже пустыми
-        allAreas.each( function() {
-            poly = map.createPolygon(map.freePoly, $(this), {'fill':'rgba(157,171,214,0.3)', 'box-shadow': '10px 10px 5px #888888;'});
-        });
-
-        map.showFreeAreas(false);
         map.showBusyAreas(false);
-    },
-
-    /**
-     * Show/hide free areas
-     */
-    showFreeAreas: function(isShow)
-    {
-        map.freePoly.attr('display', isShow ? 'block' : 'none');
     },
 
     /**
@@ -602,7 +568,7 @@ map = {
     filter: {
         window: null,
 
-        init: function(selector)
+        init: function(selector, showType)
         {
             var el = $(selector);
             map.filter.window = el;
@@ -615,10 +581,6 @@ map = {
                 $(this).find('.arrow').toggleClass('rotate');
             });
 
-            el.find('#check-free').click( function(ev) {
-                var status = $(this).prop('checked');
-                map.showFreeAreas(status);
-            });
             el.find('#check-busy').click( function(ev) {
                 var status = $(this).prop('checked');
                 map.showBusyAreas(status);
@@ -637,12 +599,19 @@ map = {
             });
             el.find('#check-f4').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('green', '[id^="green_"]', status); 
+                map.showMarkers('purple', '[id^="purple_"]', status); 
             });
             el.find('#check-f5').click( function(ev) {
                 var status = $(this).prop('checked');
-                map.showMarkers('purple', '[id^="purple_"]', status); 
+                map.showMarkers('green', '[id^="green_"]', status); 
             });
+
+            // Обрабатываем тип заранее заданные нажатия на фильтре
+            switch (showType) {
+                case 'busy':
+                    el.find('#check-busy').trigger('click');
+                    break;
+            }
         }
     }
 };

@@ -48,18 +48,12 @@
                 <div class='arrow transition'></div>
             </div>
             <div class='window'>
-                <div class='status-title'>
-                    Статус участка
-                </div>
                 <div class='status-text'>
                     <ul>
                         <li>
                             <input type="checkbox" id="check-busy">
-                            <label for="check-busy"><span></span>Занят</label>
+                            <label for="check-busy"><span class='busy'></span>Занятые участки</label>
                         </li>
-                        <li>
-                            <input type="checkbox" id="check-free">
-                            <label for="check-free"><span></span>Свободен</label></li>
                     </ul>
                 </div>
                 <div class='structure-title'>
@@ -67,11 +61,11 @@
                 </div>
                 <div class='structure-text'>
                     <ul>
-                        <li><input type="checkbox" id="check-f1"><label for="check-f1"><span></span>Электроснабжение</label></li>
-                        <li><input type="checkbox" id="check-f2"><label for="check-f2"><span></span>Газоснабжение</label></li>
-                        <li><input type="checkbox" id="check-f3"><label for="check-f3"><span></span>Водоснабжение</label></li>
-                        <li><input type="checkbox" id="check-f4"><label for="check-f4"><span></span>Водоотведение</label></li>
-                        <li><input type="checkbox" id="check-f5"><label for="check-f5"><span></span>Ливневая канализация</label></li>
+                        <li><input type="checkbox" id="check-f1"><label for="check-f1"><span class='red'></span>Электроснабжение</label></li>
+                        <li><input type="checkbox" id="check-f2"><label for="check-f2"><span class='yellow'></span>Газоснабжение</label></li>
+                        <li><input type="checkbox" id="check-f3"><label for="check-f3"><span class='blue'></span>Водоснабжение</label></li>
+                        <li><input type="checkbox" id="check-f4"><label for="check-f4"><span class='purple'></span>Водоотведение</label></li>
+                        <li><input type="checkbox" id="check-f5"><label for="check-f5"><span class='green'></span>Ливневая канализация</label></li>
                     </ul>
                 </div>
             </div>
@@ -80,7 +74,7 @@
 
         {# navigation #}
         <div class='nav'>
-            <div id='js-switch-btn' class='switch-button  show'><span class='glyphicon glyphicon-eye-open'></span></div>
+            <div id='js-switch-btn' class='switch-button  show'></div>
             <div id='js-window' class='window  show'>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="300" height="298" viewBox="0 0 300 298" xml:space="preserve">
@@ -91,8 +85,8 @@
 
         {# zoom #}
         <div class='zoom'>
-            <div class='plus'><span class='glyphicon glyphicon-zoom-in'></span></div>
-            <div class='minus'><span class='glyphicon glyphicon-zoom-out'></span></div>
+            <div class='plus'></div>
+            <div class='minus'></div>
         </div>
 
 
@@ -162,7 +156,7 @@
 
             map.init(svgobject, areas);
             map.nav.init('.nav');
-            map.filter.init('#js-filter');
+            map.filter.init('#js-filter', '{{showType}}');
 
             // Выправление координат после ресайза
             $(window).on('resize', function(ev) {

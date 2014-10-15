@@ -21,9 +21,28 @@ class Controller extends CController
      */
     public $breadcrumbs = array();
 
+    protected $_canonicalUrl;
+
 
     protected function afterRender($view, &$output)
     {
         $output = LocalConfigHelper::parseText($output);
+    }
+
+    /**
+     * Default canonical url generator, will remove all get params beside 'id' and generates an absolute url.
+     * If the canonical url was already set in a child controller, it will be taken instead.
+     */
+    public function getCanonicalUrl()
+    {
+        if ($this->_canonicalUrl === null) {
+            $params = array();
+            if (isset($_GET['id'])) {
+                //just keep the id, because it identifies our model pages
+                $params = array('id' => $_GET['id']);
+            }
+            $this->_canonicalUrl = Yii::app()->createAbsoluteUrl($this->route, $params);
+        }
+        return $this->_canonicalUrl;
     }
 }

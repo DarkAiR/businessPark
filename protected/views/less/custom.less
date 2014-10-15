@@ -348,15 +348,15 @@ p {
 }
 
 // Тень
-.shadow(@offsX, @offsY, @blur) {
-    box-shadow:         @offsX @offsY @blur rgba(0,0,0,.3);
-   -moz-box-shadow:     @offsX @offsY @blur rgba(0,0,0,.3);
-   -webkit-box-shadow:  @offsX @offsY @blur rgba(0,0,0,.3);
+.shadow(@offsX, @offsY, @blur, @alpha:0.3) {
+    box-shadow:         @offsX @offsY @blur rgba(0,0,0,@alpha);
+   -moz-box-shadow:     @offsX @offsY @blur rgba(0,0,0,@alpha);
+   -webkit-box-shadow:  @offsX @offsY @blur rgba(0,0,0,@alpha);
 }
-.shadow-inner(@offsX, @offsY, @blur) {
-    box-shadow:         inset @offsX @offsY @blur rgba(0,0,0,.3);
-   -moz-box-shadow:     inset @offsX @offsY @blur rgba(0,0,0,.3);
-   -webkit-box-shadow:  inset @offsX @offsY @blur rgba(0,0,0,.3);
+.shadow-inner(@offsX, @offsY, @blur, @alpha0:.3) {
+    box-shadow:         inset @offsX @offsY @blur rgba(0,0,0,@alpha);
+   -moz-box-shadow:     inset @offsX @offsY @blur rgba(0,0,0,@alpha);
+   -webkit-box-shadow:  inset @offsX @offsY @blur rgba(0,0,0,@alpha);
 }
 
 // Разделитель

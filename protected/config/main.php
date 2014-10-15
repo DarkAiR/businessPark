@@ -44,6 +44,7 @@ return array(
                 'uploadImage'                       => 'site/uploadImage',
                 'uploadFile'                        => 'site/uploadFile',
                 'panorams'                          => 'site/panorama',
+                'map/<type:\w+>/'                   => 'site/map',
                 'map'                               => 'site/map',
                 'presentation'                      => 'site/presentation',
 //                'test'                               => 'site/test',
