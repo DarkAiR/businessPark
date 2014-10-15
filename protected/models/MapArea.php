@@ -5,6 +5,10 @@
  */
 class MapArea extends CActiveRecord
 {
+    // Размер всех площадей в гектарах
+    const TOTAL_SQUARE = 180;
+
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -26,8 +30,8 @@ class MapArea extends CActiveRecord
     public function rules()
     {
         return array(
-            array('square, resident', 'safe'),
-            array('cadastral, width, height', 'numerical', 'integerOnly'=>true),
+            array('resident', 'safe'),
+            array('square, cadastral, width, height', 'numerical', 'integerOnly'=>true),
             array('busy', 'boolean'),
             array('cadastral', 'required'),
             array('cadastral', 'unique', 'allowEmpty'=>false, 'skipOnError'=>false),
