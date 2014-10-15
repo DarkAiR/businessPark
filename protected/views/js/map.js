@@ -112,17 +112,18 @@ map = {
         // Move center
         cx3 = cx2 = cx - deltaX * map.zoom;
         cy3 = cy2 = cy - deltaY * map.zoom;
+
         if (deltaX >= 0  &&  cx - vpW2 >= 0) {
-            cx3 = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
+            //cx3 = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
         }
         if (deltaY >= 0  &&  cy - vpH2 >= 0) {
-            cy3 = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
+            //cy3 = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
         }
         if (deltaX < 0  &&  cx + vpW2 < map.svgW) {
-            cx3 = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
+            //cx3 = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
         }
         if (deltaY < 0  &&  cy + vpH2 < map.svgH) {
-            cy3 = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
+            //cy3 = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
         }
 
         var realDeltaX = (cx - cx3) / map.zoom;
