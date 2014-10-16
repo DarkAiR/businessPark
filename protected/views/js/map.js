@@ -77,18 +77,14 @@ map = {
     initZoom: function()
     {
         $('.zoom .plus').click( function() {
-            var dz = 0.0;
-            if (map.zoom > 3)
-                dz = -1.0;
+            var dz = (map.zoom > 3) ? -1.0 : 0.0;
             map.zoom += dz;
-            map.setMapCoords(0, 0, dz);
+            map.setMapCoords(0, 0);
         });
         $('.zoom .minus').click( function() {
-            var dz = 0.0;
-            if (map.zoom < 8)
-                dz = 1.0;
+            var dz = (map.zoom < 8) ? 1.0 : 0.0;
             map.zoom += dz;
-            map.setMapCoords(0, 0, dz);
+            map.setMapCoords(0, 0);
         });
     },
 
@@ -96,10 +92,8 @@ map = {
      * Set map coords
      * deltaX/Y - screen offset
      */
-    setMapCoords: function(deltaX, deltaY, deltaZoom)
+    setMapCoords: function(deltaX, deltaY)
     {
-        deltaZoom = deltaZoom||0.0;
-
         // Center map
         var coords = map.getViewport();
         var cx = parseInt(coords.w / 2 + coords.x);
@@ -110,34 +104,29 @@ map = {
         var vpH2 = parseInt(parseInt($('.map').css('height')) * map.zoom / 2);
 
         // Move center
-        cx3 = cx2 = cx - deltaX * map.zoom;
-        cy3 = cy2 = cy - deltaY * map.zoom;
+        cx2 = cx - deltaX * map.zoom;
+        cy2 = cy - deltaY * map.zoom;
 
         if (deltaX >= 0  &&  cx - vpW2 >= 0) {
-            cx3 = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
+            cx = (cx2 - vpW2 >= 0) ? cx2 : vpW2;
         }
         if (deltaY >= 0  &&  cy - vpH2 >= 0) {
-            cy3 = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
+            cy = (cy2 - vpH2 >= 0) ? cy2 : vpH2;
         }
         if (deltaX < 0  &&  cx + vpW2 < map.svgW) {
-            cx3 = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
+            cx = (cx2 + vpW2 <= map.svgW) ? cx2 : map.svgW - vpW2;
         }
         if (deltaY < 0  &&  cy + vpH2 < map.svgH) {
-            cy3 = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
+            cy = (cy2 + vpH2 <= map.svgH) ? cy2 : map.svgH - vpH2;
         }
 
-        var realDeltaX = (cx - cx3) / map.zoom;
-        var realDeltaY = (cy - cy3) / map.zoom;
-
-        // Move markers
-        map.moveMarkers(realDeltaX, realDeltaY, deltaZoom);
-
-        // Move info window
-        map.info.move(realDeltaX, realDeltaY, deltaZoom);
-
         // Set viewbox and nav
-        map.svgobject.setAttribute('viewBox', (parseInt(cx3-vpW2))+' '+(parseInt(cy3-vpH2))+' '+(parseInt(vpW2*2))+' '+(parseInt(vpH2*2)));
+        map.svgobject.setAttribute('viewBox', (parseInt(cx-vpW2))+' '+(parseInt(cy-vpH2))+' '+(parseInt(vpW2*2))+' '+(parseInt(vpH2*2)));
         map.nav.showViewport( map.getViewport() );
+
+        // Place markers and info window
+        map.placeMarkers();
+        map.info.placeWindow();
     },
 
     /**
@@ -317,83 +306,88 @@ map = {
             if (map.markers[key] == undefined) {
                 // Create markers
                 map.markers[key] = [];
-                var vp = map.getViewport();
 
-                var el = $(selector);
-                el.each( function() {
-                    var bBox = this.getBBox();
-                    var cx = bBox.x + bBox.width / 2;
-                    var cy = bBox.y + bBox.height / 2;
-                    cx = parseInt((cx - vp.x) / map.zoom) + $('.map').offset().left / 2;
-                    cy = parseInt((cy - vp.y) / map.zoom);
-
+                $(selector).each( function() {
                     var marker = $('<div/>', {
                         class: 'marker '+key,
-                        style: 'left:'+cx+'px; top:'+(cy-markerShowOffs)+'px;'
                     });
-                    marker.css({opacity:0.0}).appendTo('.markers');
+                    marker
+                        .css({opacity:0.0})
+                        .attr('data-area', $(this).attr('id'))
+                        .appendTo('.markers');
                     map.markers[key].push(marker);
                 });
             }
 
+            map.placeMarkers();
+
             for (var i = 0; i < map.markers[key].length; i++) {
                 map.markers[key][i]
+                    .animate({
+                        top: '-='+markerShowOffs
+                    }, 0)
                     .delay(Math.random()*300)
                     .animate({
                         top: '+='+markerShowOffs,
                         opacity: 1.0,
-                    }, 400, "easeOutBounce"
-                );
+                    }, 400, "easeOutBounce");
             };
         } else {
             for (var i = 0; i < map.markers[key].length; i++) {
-                map.markers[key][i].animate({
-                    top: '-='+markerShowOffs,
-                    opacity: 0.0
-                }, 500);
+                map.markers[key][i]
+                    .delay(Math.random()*150)
+                    .animate({
+                        top: '-='+markerShowOffs,
+                        opacity: 0.0
+                    }, 500);
             };
         }
     },
 
     /**
-     * Move markers
+     * Place markers
      */
-    moveMarkers: function(deltaX, deltaY, deltaZoom)
+    placeMarkers: function()
     {
-        // Viewport center
-        var vpCx = parseInt($('.map').css('width')) / 2; 
-        var vpCy = parseInt($('.map').css('height')) / 2;
+        var vp = map.getViewport();
+        var mapOffsX = $('.map').offset().left / 2;
 
         for (var prop in map.markers) {
             if (!map.markers.hasOwnProperty(prop))
                 continue;
 
             for (var j = 0; j < map.markers[prop].length; j++) {
-                var el = map.markers[prop][j];
+                var marker = map.markers[prop][j];
+                var areaId = marker.attr('data-area');
+                var area = $(map.svgobject).find('#'+areaId).get(0);
 
-                var elX = parseInt(el.css('left'));
-                var elY = parseInt(el.css('top'));
+                var bBox = area.getBBox();
+                var cx = bBox.x + bBox.width / 2;
+                var cy = bBox.y + bBox.height / 2;
+                cx = parseInt((cx - vp.x) / map.zoom) + mapOffsX;
+                cy = parseInt((cy - vp.y) / map.zoom);
 
-                var elX2 = vpCx + (elX - vpCx) * (map.zoom - deltaZoom) / map.zoom;
-                var elY2 = vpCy + (elY - vpCy) * (map.zoom - deltaZoom) / map.zoom;
-
-                el.animate({
-                    left: '+=' + (deltaX + (elX2 - elX)),
-                    top: '+=' + (deltaY + (elY2 - elY))
-                }, 0);
+                marker.css({
+                    'left': cx+'px',
+                    'top': cy+'px'
+                });
             }
         }
     },
+
 
 
     /**
      * Info window
      */
     info: {
+        isShow: false,
+
         // Set text and show/hide item element
         setItemText: function(selector, value, suffix)
         {
             suffix = suffix||'';
+            
             var el = $(selector);
             if (value) {
                 el.text( value + suffix );
@@ -421,14 +415,14 @@ map = {
         },
 
         // Show free or busy info window
-        showInfoWindow: function(area)
+        showInfoWindow: function(area, x, y)
         {
             if (area.busy) {
                 $('.window.busy').show();
                 $('.window.free').hide();
 
                 map.info.setItemText('.window.busy #js-info-status', 'занят');
-                map.info.setItemText('#js-info-resident', area.resident);
+                map.info.setItemText('.window.busy #js-info-resident', area.resident);
 
                 // После обработки всех пунктов
                 map.info.setItemLast('.window.busy');
@@ -437,38 +431,76 @@ map = {
                 $('.window.free').show();
 
                 map.info.setItemText('.window.free #js-info-status', 'свободен');
-                map.info.setItemText('#js-info-square', area.square, ' га');
-                map.info.setItemText('#js-info-size', area.size);
+                map.info.setItemText('.window.free #js-info-square', area.square, ' га');
+                map.info.setItemText('.window.free #js-info-size', area.size);
 
                 // После обработки всех пунктов
                 map.info.setItemLast('.window.free');
             }
+
+            map.info.storeCoords(x, y);
+            map.info.placeWindow();
         },
 
         // Show empty info window
-        showEmptyInfoWindow: function()
+        showEmptyInfoWindow: function(x, y)
         {
             $('.window.busy').hide();
             $('.window.free').show();
             $('.window.free .item').hide();
+
             map.info.setItemText('.window.free #js-info-status', 'свободен');
+
+            map.info.storeCoords(x, y);
+            map.info.placeWindow();
         },
 
-        // Set window position
-        setPosition: function(x, y)
+        // Store coords
+        storeCoords: function(x, y)
         {
+            var vp = map.getViewport();
+            var mapOffsX = $('.map').offset().left;
+            var mapOffsY = $('.map').offset().top;
+
+            x = (x - mapOffsX) * map.zoom + vp.x;
+            y = (y - mapOffsY) * map.zoom + vp.y;
+
+            $('#js-info-window')
+                .attr({
+                    'data-x': x,
+                    'data-y': y
+                })
+                .show();
+            
+            map.info.isShow = true;
+        },
+
+        // Place window
+        placeWindow: function()
+        {
+            if (!map.info.isShow)
+                return;
+
             var wnd = $('#js-info-window');
             var wndW = wnd.width();
             var wndH = wnd.height();
-            
+            var x = wnd.attr('data-x');
+            var y = wnd.attr('data-y');
+
             var mapWnd = $('.map');
             var mapW = mapWnd.width();
             var mapH = mapWnd.height();
-            var mapOffs = mapWnd.offset();
+            var mapOffsX = mapWnd.offset().left;
+            var mapOffsY = mapWnd.offset().top;
 
-            //x -= mapOffs.left;
-            y -= mapOffs.top;
+            var vp = map.getViewport();
 
+            x = (x - vp.x) / map.zoom/* + mapOffsX*/;
+            y = (y - vp.y) / map.zoom;
+
+            // Смещение окна, подбирается вручную
+            y -= 20;
+/*
             // Отступы от края карты
             var paddingH = 0;
             var paddingW = 22;
@@ -478,7 +510,7 @@ map = {
             if (x + wndW/2 + paddingW > mapW)   x = mapW - wndW/2 - paddingW;
             if (y < wndH + paddingH)            y = wndH + paddingH;
             if (y > mapH - paddingH)            y = mapH - paddingH;
-
+*/
             // Позиционируемся в центр низ
             x -= wndW/2;
             y -= wndH;
@@ -487,25 +519,12 @@ map = {
                 'left': x+'px',
                 'top': y+'px'
             });
-            wnd.show();
         },
 
-        move: function(deltaX, deltaY, deltaZoom)
+        closeWindow: function()
         {
-            // Viewport center
-            var vpCx = parseInt($('.map').css('width')) / 2; 
-            var vpCy = parseInt($('.map').css('height')) / 2;
-
-            var infoX = parseInt($('#js-info-window').css('left'));
-            var infoY = parseInt($('#js-info-window').css('top'));
-
-            var infoX2 = vpCx + (infoX - vpCx) * (map.zoom - deltaZoom) / map.zoom;
-            var infoY2 = vpCy + (infoY - vpCy) * (map.zoom - deltaZoom) / map.zoom;
-
-            $('#js-info-window').animate({
-                'left': '+=' + (deltaX + (infoX2 - infoX)),
-                'top': '+=' + (deltaY + (infoY2 - infoY))
-            }, 0);
+            $('#js-info-window').hide();
+            map.info.isShow = false;
         }
     },
 

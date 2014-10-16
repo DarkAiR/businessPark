@@ -187,14 +187,14 @@
                         // Устанавливаем кадастровый номер здесь, чтобы он появился даже у отсутсвующего окна
                         $('#js-cadastral-number').text( cadastralNumber );
 
-                        if (areas[cadastralNumber] != undefined)
-                            map.info.showInfoWindow( areas[cadastralNumber] );
-                        else
-                            map.info.showEmptyInfoWindow();
-
                         var x = e.pointers[0].pageX;
                         var y = e.pointers[0].pageY;
-                        map.info.setPosition(x, y - 30);        // Смещение окна, подбирается вручную
+                        if (areas[cadastralNumber] != undefined)
+                            map.info.showInfoWindow( areas[cadastralNumber], x, y );
+                        else
+                            map.info.showEmptyInfoWindow(x, y);
+
+                        //map.info.setPosition(x, y - 30);        // Смещение окна, подбирается вручную
                     }
                 }
             });
@@ -216,7 +216,7 @@
             $('#js-info-close-btn').click( function(ev) {
                 map.removeSelectedPolygon();
                 polyId = 0;
-                $('#js-info-window').hide();
+                map.info.closeWindow();
             });
         });
     </script>
