@@ -31,7 +31,8 @@ class MapArea extends CActiveRecord
     {
         return array(
             array('resident', 'safe'),
-            array('square, cadastral, width, height', 'numerical', 'integerOnly'=>true),
+            array('cadastral, width, height', 'numerical', 'integerOnly'=>true),
+            array('square', 'numerical'),
             array('busy', 'boolean'),
             array('cadastral', 'required'),
             array('cadastral', 'unique', 'allowEmpty'=>false, 'skipOnError'=>false),
