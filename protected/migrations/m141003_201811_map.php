@@ -15,7 +15,7 @@ class m141003_201811_map extends CDbMigration
                 `resident`      varchar(100) NOT NULL           COMMENT 'Резидент',
                 `busy`          tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Занят',
                 PRIMARY KEY (`id`),
-                KEY `visible` (`busy`)
+                KEY `busy` (`busy`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
         ");
     }

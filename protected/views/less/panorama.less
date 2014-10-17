@@ -1,0 +1,99 @@
+@import 'custom';
+
+body > .page {
+    position:relative;
+    height:inherit;
+    width:inherit;
+
+    .header {
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100px;
+        width: 100%;
+
+        .navigation {
+            @h: 35px;
+
+            position: absolute;
+            left: @bigPadding;
+            top: @bigPadding;
+            height: @h;
+            background-color: @devBlueBg;
+
+            .back {
+                float: left;
+                padding-top: 2px;
+                padding-right: @smallPadding;
+                height: 100%;
+
+                a {
+                    .link(none);
+                }
+            }
+            .separator {
+                float: left;
+                width: 1px;
+                min-width: 1px;
+                max-width: 1px;
+                height: 100%;
+                min-height: 100%;
+                max-height: 100%;
+
+                background-color: red;
+            }
+            .date {
+                float: left;
+                padding-left: @smallPadding;
+                padding-right: @bigPadding;
+                height: 100%;
+            }
+            .views {
+                float: left;
+                height: 100%;
+
+                .view-button {
+                    float: left;
+                    color: #404040;
+                    background-color: white;
+                    padding: 5px;
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .logo {
+            position: absolute;
+            right: @bigPadding;
+            top: @bigPadding;
+            a {
+                .link(none);
+            }
+        }
+    }
+
+
+    .panorams {
+        z-index: 2;
+        position: relative;
+
+        //position: absolute;
+        //left: 0;
+        //top: 0;
+
+    }
+}
+
+
+
+.warning {
+    font-weight: bold;
+}
+
+.panorama {
+    z-index:1;
+    height:inherit;
+    width:inherit;
+    display: none;
+}

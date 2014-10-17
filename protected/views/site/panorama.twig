@@ -10,226 +10,86 @@
     {{ import('js', 'p2q_embed_object.js') }}
     {{ import('js', 'jquery-1.11.1.min.js') }}
     {{ import('js', 'bowser.min.js') }}
+    {{ import('js', 'panorama.js') }}
 
-    <style type="text/css" title="Default">
-        body, div, h1, h2, h3, span, p {
-            font-family: Verdana,Arial,Helvetica,sans-serif;
-            color: #000000; 
-        }
-        html, body {
-            margin:0;
-            padding:0;
-            border:0;
-            height:100%;
-            font-size: 10pt;
-            background : #ffffff; 
-        }
-        h1 {
-            font-size: 18pt;
-        }
-        h2 {
-            font-size: 14pt;
-        }
-        .warning {
-            font-weight: bold;
-        }
-        .left {
-            float: left;
-        }
-        .btn {
-            color: #404040;
-            background-color: white;
-            -moz-border-radius:     4px;
-            -webkit-border-radius:  4px;
-            border-radius:          4px;
-            padding: 5px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-
-        .panorama {
-            z-index:1;
-            height:inherit;
-            width:inherit;
-            display: none;
-        }
-        .panoramaDates {
-            z-index:2;
-            position:absolute;
-            left:50px;
-            top:12px;
-        }
-        .viewGroup {
-            z-index:2;
-            position:absolute;
-            left:50px; top:52px;
-            display:none;
-        }
-    </style>
+    {# { import('css','jquery-ui.css') } #}
+    {{ import('css', 'panorama.css') }}
 
     <script type="text/javascript">
-    $(document).ready( function() {
-        var onClick = function() {
-            var id = $(this).attr('data-id');
-            $('[id^="js-pan-"]').hide();
-            $('#js-pan-'+id).show();
-        };
-        $('[id^="js-panorama-btn-"]').click(onClick);
-
-
-        $('#js-date').on('change', function() {
-            changeDate();
+        $(document).ready( function() {
+            var arr = {};
+            {% for pan in panorams %}
+                if (arr['{{pan.createDate}}'] == undefined)
+                    arr['{{pan.createDate}}'] = [];
+                arr['{{pan.createDate}}'].push({
+                    'swf': '{{pan.swf}}',
+                    'mov': '{{pan.mov}}'
+                });
+            {% endfor %}
+            panorama.init(arr);
         });
-        changeDate();
 
-        function changeDate()
-        {
-            id = $('#js-date').val();
-            $('.viewGroup').hide();
-            $('[data-type="'+id+'"]').show();
-
-            $('[id^="js-pan-"]').hide();
-            $('#js-pan-'+id+'_1').show();
-        }
-    });
-
-    var hasQuick = (bowser.safari || bowser.iphone) ? true : false;
-
+        var hasQuick = (bowser.safari || bowser.iphone) ? true : false;
     </script>
 </head>
 <body>
 
-    <div style='position:relative; height:inherit; width:inherit;'>
+    <div class='page'>
 
+        <div class='header'>
+            <div class='navigation'>
+                <div class='back'>
+                    <a href="{{ static('Yii', 'app').createAbsoluteUrl('/') }}"><img src='/img/panorama-back-btn.png' alt='Вернуться'></a>
+                </div>
+                <div class='separator'></div>
+                <div class='date'>
+                    <select id='js-date'>
+                        {% for arr in dates %}
+                            {% set sel = loop.last ? 'selected="selected"' : '' %}
+                            <option {{sel}} value='{{arr["createDate"]}}' date-type='{{arr["createDate"]}}'>{{arr["createDate"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class='views' id='js-views'></div>
+            </div>
+            <div class='logo'>
+                <a href='/'><img src='/img/logo.png' width="143" height="51"></a>
+            </div>
+        </div>
 
-        <div class="panorama" id='js-pan-1_1'>
-            <script type="text/javascript">
-<!--
-                if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
-                    if (hasQuick) {
-                        // Check to see if the version meets the requirements for playback
-                        p2q_EmbedQuicktime('/panorama/1_1.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
+        <div class='panorams' id='js-panorams'>
+
+            {% for pan in panorams %}
+
+                <div class='panorama' data-id='{{pan.swf}}'>
+                <script type='text/javascript'>
+                    if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
+
+                        {% if pan.mov %}
+                            if (hasQuick) {
+                                p2q_EmbedQuicktime('/panorama/{{pan.mov}}.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
+                            } else {
+                        {% else %}
+                            {
+                        {% endif %}
+
+                                var flashvars='';
+                                p2q_EmbedFlash('/panorama/{{pan.swf}}.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
+                                if (!DetectFlashVer(9,0,0)) {
+                                    document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. <a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
+                                }
+                            }
                     } else {
-                        // Check to see if the version meets the requirements for playback
-                        var flashvars="";
-                        p2q_EmbedFlash('/panorama/1_1.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
-                        
-                        if (!DetectFlashVer(9,0,0)) {
-                            document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
-                                         + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
-                        }
+                        document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
                     }
-                } else {
-                    document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
-                }
-//-->
-            </script>
-            <noscript>
-                <p class="warning">Please enable Javascript!</p>
-            </noscript>
-        </div>
+                </script>
+                <noscript>
+                    <p class='warning'>Please enable Javascript!</p>
+                </noscript>
+                </div>
 
-        <div class="panorama" id='js-pan-1_2'>
-            <script type="text/javascript">
-<!--
-                if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
-                    if (hasQuick) {
-                        // Check to see if the version meets the requirements for playback
-                        p2q_EmbedQuicktime('/panorama/1_2.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
-                    } else {
-                        // Check to see if the version meets the requirements for playback
-                        var flashvars="";
-                        p2q_EmbedFlash('/panorama/1_2.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
-                        
-                        if (!DetectFlashVer(9,0,0)) {
-                            document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
-                                         + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
-                        }
-                    }
-                } else {
-                    document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
-                }
-//-->
-            </script>
-            <noscript>
-                <p class="warning">Please enable Javascript!</p>
-            </noscript>
-        </div>
+            {% endfor %}
 
-
-
-
-
-        <div class="panorama" id='js-pan-2_1'>
-            <script type="text/javascript">
-<!--
-                if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
-                    if (hasQuick) {
-                        // Check to see if the version meets the requirements for playback
-                        p2q_EmbedQuicktime('/panorama/2_1.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
-                    } else {
-                        // Check to see if the version meets the requirements for playback
-                        var flashvars="";
-                        p2q_EmbedFlash('/panorama/2_1.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
-                        
-                        if (!DetectFlashVer(9,0,0)) {
-                            document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
-                                         + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
-                        }
-                    }
-                } else {
-                    document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
-                }
-//-->
-            </script>
-            <noscript>
-                <p class="warning">Please enable Javascript!</p>
-            </noscript>
-        </div>
-
-        <div class="panorama" id='js-pan-2_2'>
-            <script type="text/javascript">
-<!--
-                if ((window.p2q_Version) && (window.p2q_Version>=2.0)) {
-                    if (hasQuick) {
-                        // Check to see if the version meets the requirements for playback
-                        p2q_EmbedQuicktime('/panorama/2_2.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
-                    } else {
-                        // Check to see if the version meets the requirements for playback
-                        var flashvars="";
-                        p2q_EmbedFlash('/panorama/2_2.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
-                        
-                        if (!DetectFlashVer(9,0,0)) {
-                            document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. '
-                                         + '<a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
-                        }
-                    }
-                } else {
-                    document.writeln('<p class="warning">p2q_embed_object.js is not included or it is too old! Please copy this file into your html directory.<\/p>');
-                }
-//-->
-            </script>
-            <noscript>
-                <p class="warning">Please enable Javascript!</p>
-            </noscript>
-        </div>
-
-        <div style='z-index:2; position:absolute; left:10px; top:10px; width:30px; height:30px;'>
-            <a href="{{ static('Yii', 'app').createAbsoluteUrl('/') }}"><img src='/img/panorama-back-btn.png' alt='Вернуться'></a>
-        </div>
-        <div class='panoramaDates'>
-            <select id='js-date'>
-                <option value='1' date-type="1">Август 2014</option>
-                <option value='2' date-type="2" selected="selected">Октябрь 2014</option>
-            </select>
-        </div>
-        <div class='viewGroup' data-type="1">
-            <div class='btn left' id='js-panorama-btn-1' data-id='1_1'>Вид 1</div>
-            <div class='btn left' id='js-panorama-btn-2' data-id='1_2'>Вид 2</div>
-        </div>
-        <div class='viewGroup' data-type="2">
-            <div class='btn left' id='js-panorama-btn-1' data-id='2_1'>Вид 1</div>
-            <div class='btn left' id='js-panorama-btn-2' data-id='2_2'>Вид 2</div>
         </div>
     </div>
 

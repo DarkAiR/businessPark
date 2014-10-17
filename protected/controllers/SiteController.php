@@ -64,7 +64,17 @@ class SiteController extends Controller
      */
     public function actionPanorama()
     {
-        $this->render('panorama');
+        $criteria = new CDbCriteria();
+        $criteria->select = 'createDate';
+        $criteria->group = 'createDate';
+        $criteria->order = 'createDate ASC';
+        $dates = Yii::app()->db->commandBuilder->createFindCommand('Panorama', $criteria)->queryAll();
+
+        $panorams = Panorama::model()->onSite()->orderDefault()->findAll();
+        $this->render('panorama', array(
+            'dates' => $dates,
+            'panorams' => $panorams
+        ));
     }
 
     /**
