@@ -9,7 +9,7 @@
   padding-bottom: 22px;
   padding-top: 11px;
   white-space: nowrap;
-  padding-left: 57px;
+  padding-left: 55px;
 }
 .structure-page > .title grey {
   color: #667075;
@@ -23,7 +23,6 @@
   width: 100%;
 }
 .structure-page .electro-block {
-  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -32,13 +31,12 @@
   height: 410px;
 }
 .structure-page .electro-block .icon {
-  width: 24px;
-  height: 24px;
-  min-height: 24px;
+  width: 22px;
+  height: 21px;
+  min-height: 21px;
   background-repeat: no-repeat;
   background-position: left top;
   float: left;
-  margin-top: -2px;
 }
 .structure-page .electro-block > .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -62,30 +60,29 @@
 .structure-page .electro-block .bg {
   z-index: -1;
   position: absolute;
-  top: 111px;
+  top: 106px;
   left: 50%;
-  width: 1071px;
-  height: 264px;
-  margin-left: -532px;
-  background-image: url(../../img/infra1-bg.png);
+  width: 1092px;
+  height: 269px;
+  margin-left: -546px;
+  background-image: url(../../img/infra/infra1-bg.png);
 }
 .structure-page .electro-block .icon {
-  background-image: url(../../img/infra1-icon.png);
+  background-image: url(../../img/infra/infra1-icon.png);
 }
 .structure-page .electro-block .text1 {
   position: absolute;
-  left: 55px;
+  left: 59px;
   top: 55px;
 }
 .structure-page .electro-block .text2 {
   position: absolute;
-  left: 346px;
+  left: 350px;
   top: 161px;
   width: 160px;
   text-align: center;
 }
 .structure-page .gas-block {
-  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -94,13 +91,12 @@
   height: 417px;
 }
 .structure-page .gas-block .icon {
-  width: 24px;
-  height: 24px;
-  min-height: 24px;
+  width: 22px;
+  height: 21px;
+  min-height: 21px;
   background-repeat: no-repeat;
   background-position: left top;
   float: left;
-  margin-top: -2px;
 }
 .structure-page .gas-block > .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -124,15 +120,15 @@
 .structure-page .gas-block .bg {
   z-index: -1;
   position: absolute;
-  top: 83px;
+  top: 82px;
   left: 50%;
-  width: 1054px;
-  height: 294px;
-  margin-left: -525px;
-  background-image: url(../../img/infra2-bg.png);
+  width: 1092px;
+  height: 295px;
+  margin-left: -546px;
+  background-image: url(../../img/infra/infra2-bg.png);
 }
 .structure-page .gas-block .icon {
-  background-image: url(../../img/infra2-icon.png);
+  background-image: url(../../img/infra/infra2-icon.png);
 }
 .structure-page .gas-block .text1 {
   position: absolute;
@@ -153,7 +149,7 @@
 }
 .structure-page .gas-block .text3 {
   position: absolute;
-  left: 620px;
+  left: 619px;
   top: 76px;
   width: 282px;
   text-align: center;
@@ -163,13 +159,12 @@
   font-size: 18px;
   line-height: 24px;
   position: absolute;
-  left: 620px;
+  left: 619px;
   top: 127px;
   width: 282px;
   text-align: center;
 }
 .structure-page .water-in-block {
-  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -178,13 +173,12 @@
   height: 616px;
 }
 .structure-page .water-in-block .icon {
-  width: 24px;
-  height: 24px;
-  min-height: 24px;
+  width: 22px;
+  height: 21px;
+  min-height: 21px;
   background-repeat: no-repeat;
   background-position: left top;
   float: left;
-  margin-top: -2px;
 }
 .structure-page .water-in-block > .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -208,19 +202,19 @@
 .structure-page .water-in-block .bg {
   z-index: -1;
   position: absolute;
-  top: 101px;
+  top: 84px;
   left: 50%;
-  width: 1029px;
-  height: 483px;
-  margin-left: -525px;
-  background-image: url(../../img/infra3-bg.png);
+  width: 1092px;
+  height: 500px;
+  margin-left: -546px;
+  background-image: url(../../img/infra/infra3-bg.png);
 }
 .structure-page .water-in-block .icon {
-  background-image: url(../../img/infra3-icon.png);
+  background-image: url(../../img/infra/infra3-icon.png);
 }
 .structure-page .water-in-block .text1 {
   position: absolute;
-  left: 311px;
+  left: 308px;
   top: 90px;
   width: 230px;
   text-align: center;
@@ -230,14 +224,14 @@
   font-size: 18px;
   line-height: 24px;
   position: absolute;
-  left: 311px;
+  left: 308px;
   top: 162px;
   width: 230px;
   text-align: center;
 }
 .structure-page .water-in-block .text3 {
   position: absolute;
-  left: 631px;
+  left: 627px;
   top: 89px;
   width: 260px;
   text-align: center;
@@ -247,20 +241,19 @@
   font-size: 18px;
   line-height: 24px;
   position: absolute;
-  left: 634px;
+  left: 627px;
   top: 194px;
   width: 260px;
   text-align: center;
 }
 .structure-page .water-in-block .text5 {
   position: absolute;
-  left: 600px;
+  left: 598px;
   top: 452px;
   width: 310px;
   text-align: center;
 }
 .structure-page .water-out-block {
-  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -269,13 +262,12 @@
   height: 519px;
 }
 .structure-page .water-out-block .icon {
-  width: 24px;
-  height: 24px;
-  min-height: 24px;
+  width: 22px;
+  height: 21px;
+  min-height: 21px;
   background-repeat: no-repeat;
   background-position: left top;
   float: left;
-  margin-top: -2px;
 }
 .structure-page .water-out-block > .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -299,19 +291,19 @@
 .structure-page .water-out-block .bg {
   z-index: -1;
   position: absolute;
-  top: 8px;
+  top: 5px;
   left: 50%;
-  width: 1069px;
-  height: 542px;
-  margin-left: -532px;
-  background-image: url(../../img/infra4-bg.png);
+  width: 1092px;
+  height: 545px;
+  margin-left: -546px;
+  background-image: url(../../img/infra/infra4-bg.png);
 }
 .structure-page .water-out-block .icon {
-  background-image: url(../../img/infra4-icon.png);
+  background-image: url(../../img/infra/infra4-icon.png);
 }
 .structure-page .water-out-block .text1 {
   position: absolute;
-  left: 635px;
+  left: 633px;
   top: 105px;
   width: 250px;
   text-align: center;
@@ -321,13 +313,12 @@
   font-size: 18px;
   line-height: 24px;
   position: absolute;
-  left: 637px;
+  left: 633px;
   top: 205px;
   width: 250px;
   text-align: center;
 }
 .structure-page .rain-out-block {
-  _outline: 1px dotted #333;
   font-size: 12px;
   line-height: 18px;
   padding: 18px 22px;
@@ -336,13 +327,12 @@
   height: 558px;
 }
 .structure-page .rain-out-block .icon {
-  width: 24px;
-  height: 24px;
-  min-height: 24px;
+  width: 22px;
+  height: 21px;
+  min-height: 21px;
   background-repeat: no-repeat;
   background-position: left top;
   float: left;
-  margin-top: -2px;
 }
 .structure-page .rain-out-block > .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -366,15 +356,15 @@
 .structure-page .rain-out-block .bg {
   z-index: -1;
   position: absolute;
-  top: -1px;
+  top: 58px;
   left: 50%;
-  width: 1052px;
-  height: 477px;
-  margin-left: -523px;
-  background-image: url(../../img/infra5-bg.png);
+  width: 1092px;
+  height: 418px;
+  margin-left: -546px;
+  background-image: url(../../img/infra/infra5-bg.png);
 }
 .structure-page .rain-out-block .icon {
-  background-image: url(../../img/infra5-icon.png);
+  background-image: url(../../img/infra/infra5-icon.png);
 }
 .structure-page .rain-out-block .text1 {
   line-height: 19px;

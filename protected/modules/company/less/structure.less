@@ -2,8 +2,8 @@
 
 @blockPaddingV: @middlePadding;
 @blockPaddingH: @bigPadding;
-@iconW: 24px;
-@iconH: 24px;
+@iconW: 22px;
+@iconH: 21px;
 
 .structure-page {
     min-height: 1px;
@@ -22,7 +22,7 @@
 
     // Base block
     .inner-block() {
-        _outline: 1px dotted #333;
+        //outline: 1px dotted #333;
 
         .font-size(12, 18px);
         padding: @blockPaddingV @blockPaddingH;
@@ -36,7 +36,6 @@
             background-repeat: no-repeat;
             background-position: left top;
             float: left;
-            margin-top: -2px;
         }
         // Title
         & > .title {
@@ -61,7 +60,7 @@
    }
 
 
-    .bg(@w, @h, @top, @marginleft: -@w/2) {
+    .bg(@w, @h, @top, @marginleft: @w/2) {
         z-index: -1;
         position: absolute;
         top: @top;
@@ -77,20 +76,20 @@
         height: 410px;
 
         .bg {
-            .bg(1071px, 264px, 111px, 532px);
-            background-image: url(../../img/infra1-bg.png);
+            .bg(1092px, 269px, 106px);
+            background-image: url(../../img/infra/infra1-bg.png);
         }
         .icon {
-            background-image: url(../../img/infra1-icon.png);
+            background-image: url(../../img/infra/infra1-icon.png);
         }
         .text1 {
             position:absolute;
-            left: 55px;
+            left: 59px;
             top: 55px;
         }
         .text2 {
             position:absolute;
-            left: 346px;
+            left: 350px;
             top: 161px;
             width: 160px;
             text-align: center;
@@ -102,11 +101,11 @@
         height: 417px;
 
         .bg {
-            .bg(1054px, 294px, 83px, 525px);
-            background-image: url(../../img/infra2-bg.png);
+            .bg(1092px, 295px, 82px);
+            background-image: url(../../img/infra/infra2-bg.png);
         }
         .icon {
-            background-image: url(../../img/infra2-icon.png);
+            background-image: url(../../img/infra/infra2-icon.png);
         }
         .text1 {
             position:absolute;
@@ -125,7 +124,7 @@
         }
         .text3 {
             position:absolute;
-            left: 620px;
+            left: 619px;
             top: 76px;
             width: 282px;
             text-align: center;
@@ -133,7 +132,7 @@
         .text4 {
             .bold;
             position:absolute;
-            left: 620px;
+            left: 619px;
             top: 127px;
             width: 282px;
             text-align: center;
@@ -145,15 +144,15 @@
         height: 616px;
         
         .bg {
-            .bg(1029px, 483px, 101px, 525px);
-            background-image: url(../../img/infra3-bg.png);
+            .bg(1092px, 500px, 84px);
+            background-image: url(../../img/infra/infra3-bg.png);
         }
         .icon {
-            background-image: url(../../img/infra3-icon.png);
+            background-image: url(../../img/infra/infra3-icon.png);
         }
         .text1 {
             position:absolute;
-            left: 311px;
+            left: 308px;
             top: 90px;
             width: 230px;
             text-align: center;
@@ -161,14 +160,14 @@
         .text2 {
             .bold;
             position:absolute;
-            left: 311px;
+            left: 308px;
             top: 162px;
             width: 230px;
             text-align: center;
         }
         .text3 {
             position:absolute;
-            left: 631px;
+            left: 627px;
             top: 89px;
             width: 260px;
             text-align: center;
@@ -176,14 +175,14 @@
         .text4 {
             .bold;
             position:absolute;
-            left: 634px;
+            left: 627px;
             top: 194px;
             width: 260px;
             text-align: center;
         }
         .text5 {
             position:absolute;
-            left: 600px;
+            left: 598px;
             top: 452px;
             width: 310px;
             text-align: center;
@@ -195,15 +194,15 @@
         height: 519px;
         
         .bg {
-            .bg(1069px, 542px, 8px, 532px);
-            background-image: url(../../img/infra4-bg.png);
+            .bg(1092px, 545px, 5px);
+            background-image: url(../../img/infra/infra4-bg.png);
         }
         .icon {
-            background-image: url(../../img/infra4-icon.png);
+            background-image: url(../../img/infra/infra4-icon.png);
         }
         .text1 {
             position:absolute;
-            left: 635px;
+            left: 633px;
             top: 105px;
             width: 250px;
             text-align: center;
@@ -211,7 +210,7 @@
         .text2 {
             .bold;
             position:absolute;
-            left: 637px;
+            left: 633px;
             top: 205px;
             width: 250px;
             text-align: center;
@@ -223,11 +222,11 @@
         height: 558px;
         
         .bg {
-            .bg(1052px, 477px, -1px, 523px);
-            background-image: url(../../img/infra5-bg.png);
+            .bg(1092px, 418px, 58px);
+            background-image: url(../../img/infra/infra5-bg.png);
         }
         .icon {
-            background-image: url(../../img/infra5-icon.png);
+            background-image: url(../../img/infra/infra5-icon.png);
         }
         .text1 {
             line-height: 19px;

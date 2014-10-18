@@ -6,12 +6,15 @@
   position: relative;
 }
 .news-page .backBtnCont .backBtn {
-  width: 30px;
-  height: 30px;
-  background: url(../../img/back-btn.png) left top no-repeat;
+  width: 35px;
+  height: 35px;
+  background: url(../../img/news/back.png) left top no-repeat;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 9px;
+}
+.news-page .backBtnCont .backBtn:hover {
+  background: url(../../img/news/back_hover.png) left top no-repeat;
 }
 .news-page .content {
   padding-left: 22px;

@@ -29,8 +29,8 @@
   min-height: 1px;
 }
 .company-page .col1 .image {
-  line-height: 145px;
   text-align: center;
+  padding-top: 34px;
 }
 .company-page .col2 {
   width: 516px;
