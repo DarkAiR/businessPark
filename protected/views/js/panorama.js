@@ -13,10 +13,13 @@ panorama = {
         });
 
         // Этот код должен идти после назначения обработчика на view-button
-        $('#js-date').change( function(ev) {
-            var date = $(this).val();
+        $('#js-date-items li').click( function(ev) {
+            var date = $(this).attr('data-id');
+            
+            $('#js-date-value .value').text(date);
+
             if (panorama.arr[date] == undefined) {
-                console.error(date + ' not found');
+                console.error('Date "' + date + '" not found');
                 return false;
             }
 
@@ -34,6 +37,7 @@ panorama = {
             // Нажимаем кнопку первого вида
             $('#js-views .view-button:first').trigger('click');
         });
-        $('#js-date').trigger('change');
+        // Нажимаем кнопку первой даты
+        $('#js-date-items li:first').trigger('click');
     }
 };

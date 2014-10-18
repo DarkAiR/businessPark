@@ -20,14 +20,12 @@ body > .page {
             left: @bigPadding;
             top: @bigPadding;
             height: @h;
-            background-color: @devBlueBg;
 
             .back {
                 float: left;
                 padding-top: 2px;
                 padding-right: @smallPadding;
                 height: 100%;
-
                 a {
                     .link(none);
                 }
@@ -41,13 +39,38 @@ body > .page {
                 min-height: 100%;
                 max-height: 100%;
 
-                background-color: red;
+                background-color: @colorInvertTextBg;
             }
             .date {
                 float: left;
                 padding-left: @smallPadding;
-                padding-right: @bigPadding;
+                padding-right: @bigPadding + @smallPadding;
                 height: 100%;
+
+                .dropdown {
+                    .dropdown-toggle {
+                        display: inline-block;
+                        height: @h;
+                        line-height: @h;
+                        padding: 0px @smallPadding;
+                        margin: 0;
+
+                        outline:none; /* remove focus ring from Webkit */
+                        background: @colorInvertTextBg;
+                        color: @colorText;
+                        border:0;
+                    }
+
+                    .dropdown-menu {
+                        .font-size(13);
+                        .border-radius(0);
+                        background: @colorInvertTextBg;
+                        color: @colorText;
+                        & a {
+                            .link(none);
+                        }
+                    }
+                }
             }
             .views {
                 float: left;
@@ -55,11 +78,13 @@ body > .page {
 
                 .view-button {
                     float: left;
-                    color: #404040;
-                    background-color: white;
-                    padding: 5px;
-                    margin-right: 5px;
+                    height: @h;
+                    line-height: @h;
+                    padding: 0px @smallPadding;
+                    color: @colorText;
+                    background-color: rgba(255,255,255,0.8);
                     cursor: pointer;
+                    margin-right: @smallPadding;
                 }
             }
         }

@@ -7,13 +7,17 @@
     <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 
     <title>{{ this.pageTitle }}</title>
+
+    {# { import('css','jquery-ui.css') } #}
+    {{ import('css','fonts.css') }}
+    {{ import('css','bootstrap.css') }}             {# Bootstrap core CSS #}
+    {{ import('css', 'panorama.css') }}
+
     {{ import('js', 'p2q_embed_object.js') }}
     {{ import('js', 'jquery-1.11.1.min.js') }}
     {{ import('js', 'bowser.min.js') }}
+    {{ import('js', 'bootstrap.js') }}
     {{ import('js', 'panorama.js') }}
-
-    {# { import('css','jquery-ui.css') } #}
-    {{ import('css', 'panorama.css') }}
 
     <script type="text/javascript">
         $(document).ready( function() {
@@ -43,12 +47,19 @@
                 </div>
                 <div class='separator'></div>
                 <div class='date'>
-                    <select id='js-date'>
-                        {% for arr in dates %}
-                            {% set sel = loop.last ? 'selected="selected"' : '' %}
-                            <option {{sel}} value='{{arr["createDate"]}}' date-type='{{arr["createDate"]}}'>{{arr["createDate"]}}</option>
-                        {% endfor %}
-                    </select>
+
+                    <div class="dropdown">
+                        <button id="js-date-value" class="dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span class='value'></span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul id='js-date-items' class="dropdown-menu" role="menu" aria-labelledby="js-date-value">
+                            {% for arr in dates %}
+                                <li data-id='{{arr["createDate"]}}'><a role="menuitem" tabindex="-1" href="#" onclick='return false;'>{{arr["createDate"]}}</a></option>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
                 </div>
                 <div class='views' id='js-views'></div>
             </div>
@@ -67,14 +78,14 @@
 
                         {% if pan.mov %}
                             if (hasQuick) {
-                                p2q_EmbedQuicktime('/panorama/{{pan.mov}}.mov','100%','95%','bgcolor','#ffffff','scale','tofit','controller','true');
+                                p2q_EmbedQuicktime('/panorama/{{pan.mov}}.mov','100%','100%','bgcolor','#ffffff','scale','tofit','controller','true');
                             } else {
                         {% else %}
                             {
                         {% endif %}
 
                                 var flashvars='';
-                                p2q_EmbedFlash('/panorama/{{pan.swf}}.swf','100%','95%','allowFullScreen','true','FlashVars',flashvars);
+                                p2q_EmbedFlash('/panorama/{{pan.swf}}.swf','100%','100%','allowFullScreen','true','FlashVars',flashvars);
                                 if (!DetectFlashVer(9,0,0)) {
                                     document.write('<p class="warning">This content requires Adobe Flash Player Version 9 or higher. <a href="http://www.adobe.com/go/getflash/">Get Flash<\/a><\/p>');
                                 }
