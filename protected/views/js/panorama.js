@@ -15,8 +15,9 @@ panorama = {
         // Этот код должен идти после назначения обработчика на view-button
         $('#js-date-items li').click( function(ev) {
             var date = $(this).attr('data-id');
-            
-            $('#js-date-value .value').text(date);
+            var dateText = $(this).text();
+
+            $('#js-date-value .value').text(dateText);
 
             if (panorama.arr[date] == undefined) {
                 console.error('Date "' + date + '" not found');

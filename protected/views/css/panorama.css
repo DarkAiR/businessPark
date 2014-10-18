@@ -224,50 +224,70 @@ body > .page .header .navigation {
 }
 body > .page .header .navigation .back {
   float: left;
-  padding-top: 2px;
   padding-right: 11px;
   height: 100%;
 }
 body > .page .header .navigation .back a {
   text-decoration: none;
   background-image: none;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background: url(../../img/panorama/back.png) left top no-repeat;
+}
+body > .page .header .navigation .back a:hover {
+  background: url(../../img/panorama/back_hover.png) left top no-repeat;
 }
 body > .page .header .navigation .separator {
   float: left;
-  width: 1px;
-  min-width: 1px;
-  max-width: 1px;
+  width: 2px;
+  min-width: 2px;
+  max-width: 2px;
   height: 100%;
   min-height: 100%;
   max-height: 100%;
-  background-color: #84ab58;
+  background-color: #777773;
 }
 body > .page .header .navigation .date {
   float: left;
-  padding-left: 11px;
+  padding-left: 22px;
   padding-right: 33px;
   height: 100%;
 }
 body > .page .header .navigation .date .dropdown .dropdown-toggle {
+  -moz-border-radius: 2;
+  -webkit-border-radius: 2;
+  border-radius: 2;
   display: inline-block;
   height: 35px;
   line-height: 35px;
-  padding: 0px 11px;
+  padding: 0;
   margin: 0;
+  min-width: 150px;
+  text-align: left;
   outline: none;
   /* remove focus ring from Webkit */
-  background: #84ab58;
+  background: #90b16a;
   color: #2b2b2b;
   border: 0;
+}
+body > .page .header .navigation .date .dropdown .dropdown-toggle:hover {
+  background-color: #84ab58;
+}
+body > .page .header .navigation .date .dropdown .dropdown-toggle .value {
+  display: inline-block;
+  padding-left: 22px;
+  width: 123px;
 }
 body > .page .header .navigation .date .dropdown .dropdown-menu {
   font-size: 13px;
   line-height: 19px;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  background: #84ab58;
+  -moz-border-radius: 2;
+  -webkit-border-radius: 2;
+  border-radius: 2;
+  background: #90b16a;
   color: #2b2b2b;
+  min-width: 150px;
 }
 body > .page .header .navigation .date .dropdown .dropdown-menu a {
   text-decoration: none;
@@ -278,14 +298,20 @@ body > .page .header .navigation .views {
   height: 100%;
 }
 body > .page .header .navigation .views .view-button {
+  -moz-border-radius: 2;
+  -webkit-border-radius: 2;
+  border-radius: 2;
   float: left;
   height: 35px;
   line-height: 35px;
-  padding: 0px 11px;
+  padding: 0px 14px;
   color: #2b2b2b;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   margin-right: 11px;
+}
+body > .page .header .navigation .views .view-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 body > .page .header .logo {
   position: absolute;

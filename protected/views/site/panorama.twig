@@ -43,7 +43,7 @@
         <div class='header'>
             <div class='navigation'>
                 <div class='back'>
-                    <a href="{{ static('Yii', 'app').createAbsoluteUrl('/') }}"><img src='/img/panorama-back-btn.png' alt='Вернуться'></a>
+                    <a href="{{ static('Yii', 'app').createAbsoluteUrl('/') }}"></a>
                 </div>
                 <div class='separator'></div>
                 <div class='date'>
@@ -55,7 +55,7 @@
                         </button>
                         <ul id='js-date-items' class="dropdown-menu" role="menu" aria-labelledby="js-date-value">
                             {% for arr in dates %}
-                                <li data-id='{{arr["createDate"]}}'><a role="menuitem" tabindex="-1" href="#" onclick='return false;'>{{arr["createDate"]}}</a></option>
+                                <li data-id='{{arr["createDate"]}}'><a role="menuitem" tabindex="-1" href="#" onclick='return false;'>{{ static('DateHelper', 'formatPanoramsDate', [arr["createDate"]]) }}</a></option>
                             {% endfor %}
                         </ul>
                     </div>
