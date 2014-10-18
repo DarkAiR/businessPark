@@ -83,11 +83,13 @@ class SiteController extends Controller
     public function actionMap()
     {
         $type = Yii::app()->request->getQuery('type', '');
+        $showFastMap = Yii::app()->request->getQuery('fast', 0);
 
         $areas = MapArea::model()->findAll();
         $this->render('map', array(
             'areas' => $areas,
-            'showType' => $type
+            'showType' => $type,
+            'showFastMap' => $showFastMap
         ));
     }
 

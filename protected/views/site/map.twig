@@ -150,7 +150,8 @@
         };
 
 
-        $('.map').load("/img/map/map.svg", function (response, status, xhr)
+        {% set url = showFastMap ? "/img/map/map2.svg" : "/img/map/map.svg" %}
+        $('.map').load('{{url}}', function (response, status, xhr)
         {
             var svgobject = $('.map svg')[0];
 
