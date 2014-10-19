@@ -3,22 +3,28 @@ map = {
     svgH: 6750,
     zoom: 5,
 
-    svgobject: null,    // svgobject
-    mc: null,           // hammerjs
-    snap: null,         // snap
-    poly: null,         // выделенный полигон
-    polyHover: null,    // наведенный полигон
-    busyPoly: null,     // группа занятых полигонов
+    svgobject: null,        // svgobject
+    mc: null,               // hammerjs
+    mcMarker: null,         // hammerjs
+    snap: null,             // snap
+            
+    selectedPolyId: 0,      // Выделения полигона
+
+    poly: null,             // выделенный полигон
+    polyHover: null,        // наведенный полигон
+    busyPoly: null,         // группа занятых полигонов
     areas: null,
-    markers: {},        // маркеры на карте
+    structureAreas: null,
+    markers: {},            // маркеры на карте
 
     /**
      * Init SVG
      */
-    init: function(svgobject, areas)
+    init: function(svgobject, areas, structureAreas)
     {
         map.svgobject = svgobject;
         map.areas = areas;
+        map.structureAreas = structureAreas;
 
         map.initHammerJS();
 
@@ -38,12 +44,16 @@ map = {
     initHammerJS: function()
     {
         map.mc = Hammer(map.svgobject);
+        map.mcMarker = Hammer($('#js-markers').get(0));
 
         mc = map.mc;
         mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':32 });
         mc.get('pinch').set({ enable: true });
         mc.get('rotate').set({ enable: true });
         mc.get('tap').set({ 'enable': true, 'threshold':32, 'time':1000 });
+
+        mcMarker = map.mcMarker;
+        mcMarker.get('tap').set({ 'enable': true, 'threshold':32, 'time':1000 });
 
         var dragging = null;
         var pageX = 0;
@@ -71,6 +81,51 @@ map = {
                 //$('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
                 map.setMapCoords(deltaX, deltaY);
             }
+        });
+
+        mc.on('tap', function(e) {
+            var id = $(e.target).attr('id');
+
+            var regStr = /^area_/i;
+            if (regStr.exec(id)) {
+                if (id != map.selectedPolyId) {
+                    map.removeSelectedPolygon();
+                    map.createSelectedPolygon($(e.target));
+                    map.selectedPolyId = id;
+                }
+
+                var cadastralNumber = /\d+$/i.exec(id);
+                if (cadastralNumber != null) {
+                    cadastralNumber = cadastralNumber[0];
+
+                    // Устанавливаем кадастровый номер здесь, чтобы он появился даже у отсутсвующего окна
+                    $('#js-cadastral-number').text( cadastralNumber );
+
+                    var x = e.pointers[0].pageX;
+                    var y = e.pointers[0].pageY;
+                    if (map.areas[cadastralNumber] != undefined)
+                        map.info.showInfoWindow( map.areas[cadastralNumber], x, y );
+                    else
+                        map.info.showEmptyInfoWindow(x, y);
+
+                    //map.info.setPosition(x, y - 30);        // Смещение окна, подбирается вручную
+                }
+            }
+        });
+
+        mcMarker.on('tap', function(e) {
+            if (map.infrastructure.hasHover == true)
+                return;
+
+            var areaId = $(e.target).attr('data-area') + '';
+
+            var offs = $(e.target).offset();
+            var x = offs.left + $(e.target).outerWidth()/2;
+            var y = offs.top + $(e.target).outerHeight()/2;
+
+            //var x = e.pointers[0].pageX;
+            //var y = e.pointers[0].pageY;
+            map.infrastructure.toggleWindow(areaId, x, y);
         });
     },
 
@@ -127,6 +182,7 @@ map = {
         // Place markers and info window
         map.placeMarkers();
         map.info.placeWindow();
+        map.infrastructure.placeWindow();
     },
 
     /**
@@ -266,11 +322,11 @@ map = {
     },
 
     /**
-     * Create busy areas
+     * Create areas
      */
     createAreas: function()
     {
-        map.busyPoly = map.snap.g();
+        map.busyPoly    = map.snap.g();
 
         for (var prop in map.areas) {
             if (!map.areas.hasOwnProperty(prop))
@@ -283,6 +339,19 @@ map = {
             }
         };
 
+        overFunc = function(ev)
+        {
+            map.removeSelectedPolygon(true);
+            var poly = map.createSelectedPolygon($(this), true);
+            if (poly) {
+                poly.mouseout( function() {
+                    map.removeSelectedPolygon(true);
+                });
+            }
+        };
+
+        $('[id^="area_"]').mouseover(overFunc);
+
         map.showBusyAreas(false);
     },
 
@@ -292,6 +361,14 @@ map = {
     showBusyAreas: function(isShow)
     {
         map.busyPoly.attr('display', isShow ? 'block' : 'none');
+    },
+
+    /**
+     *
+     */
+    nameCleanup: function(str)
+    {
+        return str.replace(/\_\d+\_$/g, "");
     },
 
     /**
@@ -308,12 +385,19 @@ map = {
                 map.markers[key] = [];
 
                 $(selector).each( function() {
+
+                    // Fix name
+                    var id = map.nameCleanup($(this).attr('id'));
+                    $(this).attr('id', id);
+
                     var marker = $('<div/>', {
                         class: 'marker '+key,
                     });
                     marker
                         .css({opacity:0.0})
-                        .attr('data-area', $(this).attr('id'))
+                        .attr('data-area', id)
+                        .mouseenter(map.infrastructure.onEnter)
+                        .mouseleave(map.infrastructure.onLeave)
                         .appendTo('.markers');
                     map.markers[key].push(marker);
                 });
@@ -376,12 +460,134 @@ map = {
     },
 
 
+    /**
+     * Infrastructure window
+     */
+    infrastructure: {
+        areaId: null,       // Id последней отображенной инфы
+        isShow: false,
+        hasHover: false,    // Выключается, если можно работать через hover
+
+        toggleWindow: function(areaId, x, y)
+        {
+            var arr = /^(\w+)\_.*\_(\d+)$/i.exec(areaId);
+            var type = arr[1];
+            var number = arr[2];
+
+            if (map.structureAreas[type] == undefined)
+                return;
+
+            if (map.structureAreas[type][number] == undefined)
+                return;
+
+            var wnd = $('#js-structure-info-window');
+            if (map.infrastructure.isShow == false || map.infrastructure.areaId != areaId ) {
+                wnd.find('.text').html(map.structureAreas[type][number]['name']);
+                map.infrastructure.areaId = areaId;
+
+                map.infrastructure.storeCoords(x, y);
+                map.infrastructure.placeWindow();
+            } else {
+                map.infrastructure.closeWindow();
+            }
+        },
+
+        closeWindow: function()
+        {
+            $('#js-structure-info-window').hide();
+            map.infrastructure.isShow = false;
+            map.infrastructure.areaId = null;
+        },
+
+        // Store coords
+        storeCoords: function(x, y)
+        {
+            var vp = map.getViewport();
+            var mapOffsX = $('.map').offset().left;
+            var mapOffsY = $('.map').offset().top;
+
+            x = (x - mapOffsX) * map.zoom + vp.x;
+            y = (y - mapOffsY) * map.zoom + vp.y;
+
+            $('#js-structure-info-window')
+                .attr({
+                    'data-x': x,
+                    'data-y': y
+                })
+                .show();
+            
+            map.infrastructure.isShow = true;
+            map.info.closeWindow();
+        },
+
+        // Place window
+        placeWindow: function()
+        {
+            if (!map.infrastructure.isShow)
+                return;
+
+            var wnd = $('#js-structure-info-window');
+            var wndW = wnd.width();
+            var wndH = wnd.height();
+            var x = wnd.attr('data-x');
+            var y = wnd.attr('data-y');
+
+            var mapWnd = $('.map');
+            var mapW = mapWnd.width();
+            var mapH = mapWnd.height();
+            var mapOffsX = mapWnd.offset().left;
+            var mapOffsY = mapWnd.offset().top;
+
+            var vp = map.getViewport();
+
+            x = (x - vp.x) / map.zoom + mapOffsX;
+            y = (y - vp.y) / map.zoom - 20;     // Смещение окна, подбирается вручную
+
+            // Позиционируемся в центр низ
+            x -= wndW/2;
+            y -= wndH;
+
+            wnd.css({
+                'left': x+'px',
+                'top': y+'px'
+            });
+        },
+
+        onEnter: function(ev)
+        {
+            map.infrastructure.hasHover = true;
+
+            var areaId = $(this).attr('data-area') + '';
+
+            var offs = $(this).offset();
+            var x = offs.left + $(this).outerWidth()/2;
+            var y = offs.top + $(this).outerHeight()/2;
+
+            map.infrastructure.toggleWindow(areaId, x, y);
+        },
+
+        onLeave: function(ev)
+        {
+            map.infrastructure.closeWindow();
+        }
+    },
+
 
     /**
      * Info window
      */
     info: {
         isShow: false,
+
+        init: function()
+        {
+            // Окно информации
+            $('#js-info-close-btn').click( function(ev) {
+                map.removeSelectedPolygon();
+                map.selectedPolyId = 0;
+                map.info.closeWindow();
+            });
+        },
 
         // Set text and show/hide item element
         setItemText: function(selector, value, suffix)
@@ -473,6 +679,7 @@ map = {
                 .show();
             
             map.info.isShow = true;
+            map.infrastructure.closeWindow();
         },
 
         // Place window

@@ -91,7 +91,7 @@
 
 
         {# info window #}
-        <div id='js-info-window' class='modal-dialog'>
+        <div id='js-info-window' class='info modal-dialog'>
             <div class='modal-content'>
 
                 <button type="button" class="close" id='js-info-close-btn' data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
@@ -125,13 +125,23 @@
         </div>
 
 
+        {# infrastructure window #}
+        <div id='js-structure-info-window' class='structure modal-dialog'>
+            <div class='modal-content'>
+                <div class='text'>
+                    hello world
+                </div>
+            </div>
+        </div>
+
+
         {# map #}
         <div class='map'>
         </div>
 
 
         {# markers #}
-        <div class='markers'>
+        <div id='js-markers' class='markers'>
         </div>
     </div>
 
@@ -149,13 +159,84 @@
 {% endfor %}
         };
 
+        var structureAreas = {
+            'red' : {
+                '1': {
+                    'name': 'КТПН №1 10/0.4 кВ'
+                },
+                '2': {
+                    'name': 'КТПН №2 10/0.4 кВ'
+                },
+                '3': {
+                    'name': 'КТПН №3 10/0.4 кВ'
+                },
+                '4': {
+                    'name': 'КТПН №4 10/0.4 кВ'
+                },
+                '5': {
+                    'name': 'КТПН №5 10/0.4 кВ'
+                },
+                '6': {
+                    'name': 'КТПН №6 10/0.4 кВ'
+                },
+                '7': {
+                    'name': 'КТПН №7 10/0.4 кВ'
+                },
+                '8': {
+                    'name': 'КТПН №8 10/0.4 кВ'
+                },
+                '9': {
+                    'name': 'КТПН №9 10/0.4 кВ'
+                },
+                '10': {
+                    'name': 'КТПН №10 10/0.4 кВ'
+                },
+                '11': {
+                    'name': 'КТПН №11 10/0.4 кВ'
+                },
+                '12': {
+                    'name': 'КТПН №12 10/0.4 кВ'
+                },
+                '02': {
+                    'name': 'Распределительная подстанция (РП) №1 10 кВ<br/>Распределительная подстанция (РП) №2 10 кВ'
+                },
+            },
+            'green': {
+                '1': {
+                    'name': 'Очистные сооружения 1-ой очереди'
+                },
+                '2': {
+                    'name': 'Очистные сооружения 2-ой очереди'
+                }
+            },
+            'yellow': {
+                '1': {
+                    'name': 'ГРПШ 1-ой очереди'
+                },
+                '2': {
+                    'name': 'ГРПШ 2-ой очереди'
+                }
+            },
+            'blue': {
+                '1': {
+                    'name': 'Водозаборный узел'
+                }
+            },
+            'purple': {
+                '1': {
+                    'name': 'Канализационная насосная станция (КНС)'
+                }
+            }
+        };
+
 
         {% set url = showFastMap ? "/img/map/map2.svg" : "/img/map/map.svg" %}
         $('.map').load('{{url}}', function (response, status, xhr)
         {
             var svgobject = $('.map svg')[0];
 
-            map.init(svgobject, areas);
+            map.init(svgobject, areas, structureAreas);
+            map.info.init();
             map.nav.init('.nav');
             map.filter.init('#js-filter', '{{showType}}');
 
@@ -165,60 +246,8 @@
             });
             map.resize();
 
-            var snap = map.snap;
-
-            // Выделения полигона
-            var polyId = 0;
-
-            mc.on('tap', function(e) {
-                var id = $(e.target).attr('id');
-
-                var regStr = /^area_/i;
-                if (regStr.exec(id)) {
-                    if (id != polyId) {
-                        map.removeSelectedPolygon();
-                        map.createSelectedPolygon($(e.target));
-                        polyId = id;
-                    }
-
-                    var cadastralNumber = /\d+$/i.exec(id);
-                    if (cadastralNumber != null) {
-                        cadastralNumber = cadastralNumber[0];
-
-                        // Устанавливаем кадастровый номер здесь, чтобы он появился даже у отсутсвующего окна
-                        $('#js-cadastral-number').text( cadastralNumber );
-
-                        var x = e.pointers[0].pageX;
-                        var y = e.pointers[0].pageY;
-                        if (areas[cadastralNumber] != undefined)
-                            map.info.showInfoWindow( areas[cadastralNumber], x, y );
-                        else
-                            map.info.showEmptyInfoWindow(x, y);
-
-                        //map.info.setPosition(x, y - 30);        // Смещение окна, подбирается вручную
-                    }
-                }
-            });
-
-            $('[id^="area_"]').mouseover( function() {
-                map.removeSelectedPolygon(true);
-                var poly = map.createSelectedPolygon($(this), true);
-                if (poly) {
-                    poly.mouseout( function() {
-                        map.removeSelectedPolygon(true);
-                    });
-                }
-            });
-
             // Отключаем нажатие на участках
             $(svgobject).find('[id^="objects_"]').css({'pointer-events':'none'});
-
-            // Окно информации
-            $('#js-info-close-btn').click( function(ev) {
-                map.removeSelectedPolygon();
-                polyId = 0;
-                map.info.closeWindow();
-            });
         });
     </script>
 {% endblock %}

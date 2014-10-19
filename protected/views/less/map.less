@@ -175,7 +175,7 @@
     }
 }
 
-.modal-dialog {
+.info.modal-dialog {
     @windowW:               308px;
     @windowPadding:         7px;
     @innerPadding:          @bigPadding;
@@ -263,6 +263,31 @@
         }
     }
 }
+
+
+.structure.modal-dialog {
+    @windowW:           400px;
+    @windowPadding:     0px;
+
+    display: none;
+    position: absolute;
+    left: 500px;
+    top: 0;
+    z-index: 3;
+    text-align: center;
+    //pointer-events: none;
+
+    max-width: @windowW - @windowPadding * 2;
+    margin: @windowPadding;
+
+    .modal-content {
+        .border-radius(3);
+        background-color: rgba(255,255,255,0.8);
+        display: inline-block;      // Чтобы бралась правильная ширина контента
+        padding: @smallPadding @bigPadding;
+    }
+}
+
 
 .nav {
     .shadow(0px, 0px, 5px, 0.2);
@@ -370,6 +395,7 @@
         position: absolute;
         left: 0px;
         top: 0px;
+        cursor: pointer;
     }
     .red, .green, .yellow, .blue, .purple {
         width: 40px;
