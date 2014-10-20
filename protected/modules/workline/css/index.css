@@ -32,19 +32,24 @@
   position: relative;
 }
 .workline-page .icon {
-  display: none;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 0, 0, 0.2);
+  width: 225px;
+  height: 248px;
+  margin-top: 56px;
 }
 .workline-page .icon.icon1 {
-  background: red;
+  background: url(../../img/workline/icons/1.png) left top no-repeat;
 }
 .workline-page .icon.icon2 {
-  background: green;
+  background: url(../../img/workline/icons/2.png) left top no-repeat;
 }
 .workline-page .icon.icon3 {
-  background: blue;
+  background: url(../../img/workline/icons/3.png) left top no-repeat;
+}
+.workline-page .icon.icon4 {
+  background: url(../../img/workline/icons/4.png) left top no-repeat;
+}
+.workline-page .icon.icon6 {
+  background: url(../../img/workline/icons/6.png) left top no-repeat;
 }
 .workline-page .steps {
   padding: 0;
