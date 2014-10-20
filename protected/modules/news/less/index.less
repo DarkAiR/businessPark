@@ -55,7 +55,6 @@
         cursor: pointer;
         background: rgba(0,0,0,0.02);
         border: 1px solid rgba(0,0,0,0.04);
-        margin-bottom: @bigPadding * 2;
         display: inline-block;
 
         &:hover {
@@ -71,5 +70,10 @@
             height: 100%;
             background: url(../../img/ajax-loader.gif) center center no-repeat;
         }
+    }
+
+    .bottomGap {
+        height: @footerPaddingTop;
+        min-height: @footerPaddingTop;
     }
 }
