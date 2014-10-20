@@ -339,6 +339,15 @@ map = {
             }
         };
 
+        for (var groupName in map.structureAreas) {
+            if (!map.structureAreas.hasOwnProperty(groupName))
+                continue;
+
+            $('[id^="'+groupName+'_"]').each( function() {
+                map.createPolygon(map.busyPoly, $(this), {'fill':'rgba(225,83,83,0.3)'});
+            });
+        };
+
         overFunc = function(ev)
         {
             map.removeSelectedPolygon(true);
