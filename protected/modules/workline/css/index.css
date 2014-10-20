@@ -31,6 +31,21 @@
 .workline-page .cont {
   position: relative;
 }
+.workline-page .icon {
+  display: none;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 0, 0, 0.2);
+}
+.workline-page .icon.icon1 {
+  background: red;
+}
+.workline-page .icon.icon2 {
+  background: green;
+}
+.workline-page .icon.icon3 {
+  background: blue;
+}
 .workline-page .steps {
   padding: 0;
   margin: 0;

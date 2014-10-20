@@ -2,7 +2,11 @@
   _background: rgba(0, 0, 255, 0.5);
   min-height: 1px;
 }
-.contacts-page .title {
+.contacts-page table td {
+  vertical-align: top;
+  text-align: left;
+}
+.contacts-page > .title {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 32px;
   line-height: 1;
@@ -12,10 +16,10 @@
   white-space: nowrap;
   padding-left: 22px;
 }
-.contacts-page .title grey {
+.contacts-page > .title grey {
   color: #667075;
 }
-.contacts-page .title lightgrey {
+.contacts-page > .title lightgrey {
   color: #929da0;
 }
 .contacts-page .col1 {
@@ -36,4 +40,83 @@
 .contacts-page .bottomGap {
   height: 92px;
   min-height: 92px;
+}
+.contacts-page table.info-block {
+  width: 100%;
+}
+.contacts-page table.info-block td.info-block {
+  width: 50%;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.contacts-page table.info-block .icon {
+  width: 55px;
+  padding-right: 22px;
+  padding-top: 25px;
+}
+.contacts-page table.info-block .icon .icon-company,
+.contacts-page table.info-block .icon .icon-sale,
+.contacts-page table.info-block .icon .icon-address,
+.contacts-page table.info-block .icon .icon-email {
+  width: 55px;
+  height: 55px;
+}
+.contacts-page table.info-block .icon .icon-company {
+  background: url(../../img/contacts/company.png) left top no-repeat;
+}
+.contacts-page table.info-block .icon .icon-sale {
+  background: url(../../img/contacts/sale.png) left top no-repeat;
+}
+.contacts-page table.info-block .icon .icon-address {
+  background: url(../../img/contacts/address.png) left top no-repeat;
+}
+.contacts-page table.info-block .icon .icon-email {
+  background: url(../../img/contacts/email.png) left top no-repeat;
+}
+.contacts-page table.info-block .info .title {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 18px;
+}
+.contacts-page table.info-block .info .text .phone {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #667075;
+  padding-bottom: 11px;
+}
+.contacts-page table.info-block .info .text .desc {
+  font-size: 11px;
+  line-height: 18px;
+}
+.contacts-page table.info-block .info .text .address {
+  font-size: 22px;
+  line-height: 27px;
+}
+.contacts-page table.info-block .info .text .email {
+  font-size: 22px;
+  line-height: 1;
+}
+.contacts-page table.info-block .info .text .address,
+.contacts-page table.info-block .info .text .email {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #667075;
+}
+.contacts-page table.info-block .info .text .address a,
+.contacts-page table.info-block .info .text .email a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcpPigS7wAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NgWP8BAAJSAaDZMoIEAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #00aff0 !important;
+}
+.contacts-page table.info-block .info .text .address a:hover,
+.contacts-page table.info-block .info .text .email a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #48cdff !important;
 }
