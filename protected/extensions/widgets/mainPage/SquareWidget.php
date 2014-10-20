@@ -9,8 +9,12 @@ class SquareWidget extends ExtendedWidget
         $criteria->condition = 'busy=:busy';
         $criteria->params = array(':busy'=>1);
 
-        $res = MapArea::model()->find($criteria);
-        $busySquare = ($res->square != null)? $res->square : 0;
+        $areas = MapArea::model()->find($criteria);
+        $busySquare = ($areas->square != null)? $areas->square : 0;
+
+        $criteria->condition = '';
+        $structureAreas = MapInfrastructure::model()->find($criteria);
+        $busySquare += ($structureAreas->square != null)? $structureAreas->square : 0;
 
         if ((int)$busySquare == $busySquare)
             $busySquare = (int)$busySquare;

@@ -380,7 +380,7 @@ class MAdminController extends CExtController
         return array(
             'class' => 'bootstrap.widgets.TbEditableColumn',
             'name' => $name,
-            'header' => $header = CActiveRecord::model($this->modelName)->getAttributeLabel($name),
+            'header' => CActiveRecord::model($this->modelName)->getAttributeLabel($name),
             'editable' => array(
                 'type' => 'select',
                 'source' => $data,

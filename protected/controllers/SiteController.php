@@ -86,8 +86,18 @@ class SiteController extends Controller
         $showFastMap = Yii::app()->request->getQuery('fast', 0);
 
         $areas = MapArea::model()->findAll();
+
+        $structureData = MapInfrastructure::model()->findAll();
+        $structureAreas = array();
+        foreach ($structureData as $v) {
+            $structureAreas[$v->getTypeMapName()][$v->number] = array(
+                'name' => str_replace("\r", "", str_replace("\n", "", nl2br($v->desc)))
+            );
+        }
+
         $this->render('map', array(
             'areas' => $areas,
+            'structureAreas' => $structureAreas,
             'showType' => $type,
             'showFastMap' => $showFastMap
         ));
