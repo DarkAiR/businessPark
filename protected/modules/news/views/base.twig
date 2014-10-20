@@ -1,5 +1,21 @@
 {% extends 'views/layouts/main.twig' %}
 
+{% macro showSingleNews(item, imageW) %}
+    <tr class='item'>
+        <td class='image'>
+            <img src='{{ item.getImageUrl() }}' style='width:{{imageW}}px'>
+        </td>
+        <td>
+            <div class='textBlock'>
+                <div class='date'>{{ static('DateHelper', 'formatNewsDate', [item.createTime]) }}</div>
+                <div class='title'><a href='{{ item.getNewsLink() }}'>{{ item.title|raw }}</a></div>
+                <div class='text'>{{ item.shortDesc|raw }}</div>
+            </div>
+
+        </td>
+    </tr>
+{% endmacro %}
+
 {% block css %}
     {{ parent() }}
     {{ import('css','base.css', 'application.modules.news.css') }}
