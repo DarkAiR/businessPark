@@ -48,13 +48,13 @@
   height: 26px;
   margin-left: 22px;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   display: inline-block;
 }
 .news-page .moreBtn:hover {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.16);
 }
 .news-page .moreBtn .loader {
   display: none;
