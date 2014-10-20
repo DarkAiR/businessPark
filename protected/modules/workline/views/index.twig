@@ -18,7 +18,6 @@
                     $('#js-page-'+currentStep).hide();
 
                     currentStep = stepId;
-                    console.log(currentStep);
                     $('#js-step-'+currentStep).addClass('active');
                     $('#js-page-'+currentStep).show();
                 }
@@ -43,9 +42,10 @@
     
     <div class='steps'>
         {% for step in steps %}
-            <div class='cont'>
-                <div class='separator'></div>
-                <div class='step' id='js-step-{{loop.index}}' data-id='{{loop.index}}'>{{loop.index}}</div>
+            <div class='item cont' id='js-step-{{loop.index}}' data-id='{{loop.index}}'>
+                <div class='hover'></div>
+                <div class='step step{{loop.index}}'></div>
+                {% if not loop.last %}<div class='separator'></div>{% endif %}
             </div>
         {% endfor %}
         </ul>
