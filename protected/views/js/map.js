@@ -84,7 +84,7 @@ map = {
         });
 
         mc.on('tap', function(e) {
-            var id = $(e.target).attr('id');
+            var id = $(e.target).attr('data-id');
 
             var regStr = /^area_/i;
             if (regStr.exec(id)) {
@@ -254,7 +254,7 @@ map = {
                 break;
         }
         if (poly) {
-            poly.attr('id', el.attr('id'));
+            poly.attr('data-id', el.attr('id'));
             if (hover) {
 
                 // Наведение
@@ -314,7 +314,7 @@ map = {
         }
         if (poly != null) {
             var id = el.attr('id');
-            poly.attr('id', id);
+            poly.attr('data-id', id);
             poly.attr(style);
 //            poly.attr('display', 'none');
         }
