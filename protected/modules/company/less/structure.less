@@ -39,14 +39,10 @@
         }
         // Title
         & > .title {
-            .font(PF, regular);
-            .font-size(25, 1);
+            .inner-title(25);
             float: left;
-            color: @colorTitle;
-            padding-left: @smallPadding;
-            grey {
-                color: @colorTitleGrey;
-            }
+            color: @colorTitleGrey;
+            padding: 0 0 0 @smallPadding;
         }
         & invert {
             background-color: @colorTitleLightGrey;
@@ -59,7 +55,7 @@
     .bold() {
         .font(PF, bold);
         .font-size(18);
-   }
+    }
 
 
     .bg(@w, @h, @top, @marginleft: @w/2) {

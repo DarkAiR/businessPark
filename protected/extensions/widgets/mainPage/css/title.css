@@ -1,12 +1,11 @@
 .title-widget {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
   line-height: 1;
   color: #719e3d;
   padding-bottom: 22px;
   padding-top: 11px;
   white-space: nowrap;
-  font-size: 32px;
-  line-height: 35px;
   padding-top: 0;
   width: 741px;
   min-width: 741px;
@@ -14,7 +13,7 @@
   display: inline-block;
 }
 .title-widget grey {
-  color: #667075;
+  color: #2b2b2b;
 }
 .title-widget lightgrey {
   color: #929da0;

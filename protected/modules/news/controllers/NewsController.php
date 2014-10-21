@@ -2,7 +2,7 @@
 
 class NewsController extends Controller
 {
-    const NEWS_PER_PAGE = 2;
+    const NEWS_PER_PAGE = 9;
 
     public function actionIndex()
     {

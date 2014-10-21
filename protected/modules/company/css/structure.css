@@ -12,7 +12,7 @@
   padding-left: 55px;
 }
 .structure-page > .title grey {
-  color: #667075;
+  color: #2b2b2b;
 }
 .structure-page > .title lightgrey {
   color: #929da0;
@@ -42,12 +42,19 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
-  float: left;
   color: #719e3d;
-  padding-left: 11px;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+  float: left;
+  color: #2b2b2b;
+  padding: 0 0 0 11px;
 }
 .structure-page .electro-block > .title grey {
-  color: #667075;
+  color: #2b2b2b;
+}
+.structure-page .electro-block > .title lightgrey {
+  color: #929da0;
 }
 .structure-page .electro-block invert {
   background-color: #929da0;
@@ -99,12 +106,19 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
-  float: left;
   color: #719e3d;
-  padding-left: 11px;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+  float: left;
+  color: #2b2b2b;
+  padding: 0 0 0 11px;
 }
 .structure-page .gas-block > .title grey {
-  color: #667075;
+  color: #2b2b2b;
+}
+.structure-page .gas-block > .title lightgrey {
+  color: #929da0;
 }
 .structure-page .gas-block invert {
   background-color: #929da0;
@@ -178,12 +192,19 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
-  float: left;
   color: #719e3d;
-  padding-left: 11px;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+  float: left;
+  color: #2b2b2b;
+  padding: 0 0 0 11px;
 }
 .structure-page .water-in-block > .title grey {
-  color: #667075;
+  color: #2b2b2b;
+}
+.structure-page .water-in-block > .title lightgrey {
+  color: #929da0;
 }
 .structure-page .water-in-block invert {
   background-color: #929da0;
@@ -264,12 +285,19 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
-  float: left;
   color: #719e3d;
-  padding-left: 11px;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+  float: left;
+  color: #2b2b2b;
+  padding: 0 0 0 11px;
 }
 .structure-page .water-out-block > .title grey {
-  color: #667075;
+  color: #2b2b2b;
+}
+.structure-page .water-out-block > .title lightgrey {
+  color: #929da0;
 }
 .structure-page .water-out-block invert {
   background-color: #929da0;
@@ -326,12 +354,19 @@
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
   line-height: 1;
-  float: left;
   color: #719e3d;
-  padding-left: 11px;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+  float: left;
+  color: #2b2b2b;
+  padding: 0 0 0 11px;
 }
 .structure-page .rain-out-block > .title grey {
-  color: #667075;
+  color: #2b2b2b;
+}
+.structure-page .rain-out-block > .title lightgrey {
+  color: #929da0;
 }
 .structure-page .rain-out-block invert {
   background-color: #929da0;

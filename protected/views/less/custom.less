@@ -40,7 +40,7 @@
 @colorTextLight:        #8f8f8f;
 
 @colorTitle:            #719e3d;
-@colorTitleGrey:        #667075;
+@colorTitleGrey:        #2b2b2b;
 @colorTitleLightGrey:   #929da0;
 
 @colorLink:             #6a9e40;
@@ -281,14 +281,12 @@ p {
 
 
 // Заголовок
-.inner-title(@h:@pageTitleH) {
+.inner-title(@fontSize:@pageTitleFontSize) {
     .font(PF, regular);
-    .font-size(@pageTitleFontSize, 1);
+    .font-size(@fontSize, 1);
     color:      @colorTitle;
     padding-bottom: @bigPadding;
     padding-top: @smallPadding;
-    //height:     @h;
-    //min-height: @h;       // Чтобы прилипало к верху
     white-space: nowrap;
 
     grey {
@@ -300,8 +298,7 @@ p {
     }
 }
 .main-title(@h) {
-    .inner-title(@h);
-    .font-size(@pageTitleFontSize);
+    .inner-title();
     padding-top: 0;
 }
 
