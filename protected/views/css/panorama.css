@@ -224,7 +224,7 @@ body > .page .header .navigation {
 }
 body > .page .header .navigation .back {
   float: left;
-  padding-right: 22px;
+  padding-right: 18px;
   height: 100%;
 }
 body > .page .header .navigation .back a {
@@ -285,7 +285,6 @@ body > .page .header .navigation .date .dropdown .dropdown-menu {
   -moz-border-radius: 2;
   -webkit-border-radius: 2;
   border-radius: 2;
-  background: #90b16a;
   color: #2b2b2b;
   min-width: 150px;
 }
