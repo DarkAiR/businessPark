@@ -58,6 +58,7 @@
 }
 .structure-page .electro-block invert {
   background-color: #929da0;
+  opacity: 0.8;
   color: #ffffff;
   padding: 2px 5px 2px 5px;
 }
@@ -122,6 +123,7 @@
 }
 .structure-page .gas-block invert {
   background-color: #929da0;
+  opacity: 0.8;
   color: #ffffff;
   padding: 2px 5px 2px 5px;
 }
@@ -208,6 +210,7 @@
 }
 .structure-page .water-in-block invert {
   background-color: #929da0;
+  opacity: 0.8;
   color: #ffffff;
   padding: 2px 5px 2px 5px;
 }
@@ -301,6 +304,7 @@
 }
 .structure-page .water-out-block invert {
   background-color: #929da0;
+  opacity: 0.8;
   color: #ffffff;
   padding: 2px 5px 2px 5px;
 }
@@ -370,6 +374,7 @@
 }
 .structure-page .rain-out-block invert {
   background-color: #929da0;
+  opacity: 0.8;
   color: #ffffff;
   padding: 2px 5px 2px 5px;
 }
