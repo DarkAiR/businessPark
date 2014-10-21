@@ -50,12 +50,9 @@
   color: #667075;
 }
 .structure-page .electro-block invert {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #6d984a;
-  border: 1px solid #608743;
+  background-color: #8f8f8f;
   color: #ffffff;
+  padding: 2px 5px 2px 5px;
 }
 .structure-page .electro-block .bg {
   z-index: -1;
@@ -110,12 +107,9 @@
   color: #667075;
 }
 .structure-page .gas-block invert {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #6d984a;
-  border: 1px solid #608743;
+  background-color: #8f8f8f;
   color: #ffffff;
+  padding: 2px 5px 2px 5px;
 }
 .structure-page .gas-block .bg {
   z-index: -1;
@@ -149,7 +143,7 @@
 }
 .structure-page .gas-block .text3 {
   position: absolute;
-  left: 619px;
+  left: 614px;
   top: 76px;
   width: 282px;
   text-align: center;
@@ -160,7 +154,7 @@
   line-height: 24px;
   position: absolute;
   left: 619px;
-  top: 127px;
+  top: 124px;
   width: 282px;
   text-align: center;
 }
@@ -192,12 +186,9 @@
   color: #667075;
 }
 .structure-page .water-in-block invert {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #6d984a;
-  border: 1px solid #608743;
+  background-color: #8f8f8f;
   color: #ffffff;
+  padding: 2px 5px 2px 5px;
 }
 .structure-page .water-in-block .bg {
   z-index: -1;
@@ -281,12 +272,9 @@
   color: #667075;
 }
 .structure-page .water-out-block invert {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #6d984a;
-  border: 1px solid #608743;
+  background-color: #8f8f8f;
   color: #ffffff;
+  padding: 2px 5px 2px 5px;
 }
 .structure-page .water-out-block .bg {
   z-index: -1;
@@ -346,20 +334,17 @@
   color: #667075;
 }
 .structure-page .rain-out-block invert {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #6d984a;
-  border: 1px solid #608743;
+  background-color: #8f8f8f;
   color: #ffffff;
+  padding: 2px 5px 2px 5px;
 }
 .structure-page .rain-out-block .bg {
   z-index: -1;
   position: absolute;
-  top: 58px;
+  top: 50px;
   left: 50%;
   width: 1092px;
-  height: 418px;
+  height: 434px;
   margin-left: -546px;
   background-image: url(../../img/infra/infra5-bg.png);
 }
@@ -370,14 +355,14 @@
   line-height: 19px;
   position: absolute;
   left: 59px;
-  top: 84px;
+  top: 90px;
   width: 345px;
   text-align: left;
 }
 .structure-page .rain-out-block .text2 {
   position: absolute;
   left: 633px;
-  top: 84px;
+  top: 90px;
   width: 250px;
   text-align: center;
 }
@@ -387,7 +372,7 @@
   line-height: 24px;
   position: absolute;
   left: 633px;
-  top: 129px;
+  top: 140px;
   width: 250px;
   text-align: center;
 }

@@ -15,23 +15,6 @@
   background-position: center 99%;
   color: #48cdff !important;
 }
-.square-widget .summary {
-  display: none;
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1;
-  padding-bottom: 15px;
-}
-.square-widget .summary invert {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  background-color: #6d984a;
-  border: 1px solid #608743;
-  color: #ffffff;
-  display: inline-block;
-  padding: 5px 7px 3px;
-}
 .square-widget .text {
   font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 17px;
