@@ -1242,8 +1242,6 @@
 			1839,3427.7 1987.9,3279.6 1899.1,3192.5 		"/>
 		<polygon id="area_x5F_1801" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1653.6,3264.9 
 			1745.2,3345.3 1899.1,3192.5 1810.5,3105.5 		"/>
-		<polygon id="red_x5F_03" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1625.1,3239.9 
-			1654.6,3265.8 1810.5,3105.5 1717,3013.9 1709.2,3016.3 		"/>
 		<polygon id="area_x5F_1136" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1839,3427.7 
 			1962,3535.8 2104.5,3394.1 1987.9,3279.8 		"/>
 		<polygon id="area_x5F_573" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1701.2,3608.3 
@@ -1308,8 +1306,6 @@
 			<rect id="object_x5F__10_" x="1794.3" y="3545.8" transform="matrix(0.7953 0.6063 -0.6063 0.7953 2558.6306 -371.6639)" style="fill:#97CADB;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="70.7" height="113.3"/>
 		
 			<rect id="object_x5F__9_" x="1593.6" y="3403.4" transform="matrix(0.7757 0.6311 -0.6311 0.7757 2550.5249 -282.3572)" style="fill:#97CADB;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="157.9" height="87.7"/>
-		
-			<rect id="object_x5F__8_" x="1687.9" y="3103.2" transform="matrix(0.687 -0.7266 0.7266 0.687 -1733.5125 2232.2)" style="fill:#FF0000;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="73.3" height="50.7"/>
 		
 			<rect id="object_x5F__7_" x="1908.8" y="3635.1" transform="matrix(0.7953 0.6063 -0.6063 0.7953 2636.2178 -422.8085)" style="fill:#97CADB;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="70.7" height="113.3"/>
 		
@@ -1505,9 +1501,9 @@
 			5219.1,1759.3 5248,1693.6 5284.8,1559.1 5785.5,1693.9 5773.5,1851.6 		"/>
 		<polygon id="area_x5F_1474" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="5544,1628.9 
 			5284.8,1559.1 5434.5,1025 5689.5,1095 		"/>
-		<polygon id="area_x5F_1666" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="5809.6,1352.6 
+		<polygon id="area_x5F_1664" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="5809.6,1352.6 
 			5632.3,1304.9 5689.5,1095 5825.2,1132.4 		"/>
-		<polygon id="area_x5F_1664" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="5801.2,1470.9 
+		<polygon id="area_x5F_1666_1_" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="5801.2,1470.9 
 			5602.9,1412.5 5632.3,1304.9 5809.6,1352.6 		"/>
 		<polygon id="area_x5F_1446" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="5785.5,1693.9 
 			5544,1628.9 5602.9,1412.5 5801.2,1470.9 		"/>
@@ -1651,6 +1647,8 @@
 			2644,1270.1 2629.3,1355.3 2555,1407.5 2337.5,1336.9 		"/>
 		<polygon id="red_x5F_9_1_" style="fill:#E8E3DD;stroke:#009345;stroke-width:2;stroke-miterlimit:10;" points="2580.8,1340.7 
 			2590.7,1290.1 2638.9,1299.7 2630.1,1350.2 		"/>
+		<polygon id="Red_x5F_03" style="fill:#E8E3DD;stroke:#009345;stroke-width:3;stroke-miterlimit:10;" points="1625.1,3239.9 
+			1654.6,3265.8 1810.5,3105.5 1717,3013.9 1709.2,3016.3 		"/>
 	</g>
 	<g id="Layer_64">
 	</g>
@@ -1689,6 +1687,8 @@
 			<rect x="2591.8" y="1309.1" transform="matrix(-0.1881 0.9822 -0.9822 -0.1881 4398.7163 -995.7028)" style="fill:#FF0000;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="38.2" height="22.4"/>
 		
 			<rect x="4413.6" y="787" transform="matrix(-0.9928 0.1198 -0.1198 -0.9928 8929.0889 1059.3937)" style="fill:#FF0000;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="38.2" height="22.4"/>
+		
+			<rect id="object_x5F__8_" x="1687.9" y="3103.2" transform="matrix(0.687 -0.7266 0.7266 0.687 -1733.5125 2232.2)" style="fill:#FF0000;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="73.3" height="50.7"/>
 		
 			<rect x="2496.6" y="1098.1" transform="matrix(-0.3097 0.9508 -0.9508 -0.3097 4425.1436 -870.6779)" style="fill:#4C9E47;stroke:#2E3191;stroke-width:2;stroke-miterlimit:10;" width="64" height="146"/>
 		
