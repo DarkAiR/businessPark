@@ -20,7 +20,7 @@
     }
     li a {
         .link(blue);
-        color: @colorLinkBlue !important;
+        color: @colorLinkBlue;
     }
     li a:hover {
         .link(bluehover);
@@ -29,8 +29,10 @@
 
     a.active {
         .link(none);
+        color: @colorTextLight !important;
         &:hover {
             .link(none);
+            color: @colorTextLight !important;
         }
     }
 }
