@@ -274,7 +274,7 @@
     left: 500px;
     top: 0;
     z-index: 3;
-    text-align: left;
+    text-align: center;
     //pointer-events: none;
 
     max-width: @windowW - @windowPadding * 2;
@@ -284,7 +284,8 @@
         .border-radius(3);
         background-color: rgba(255,255,255,0.8);
         display: inline-block;      // Чтобы бралась правильная ширина контента
-        padding: @smallPadding @bigPadding;
+        padding: 8px 16px;
+        text-align: left;
     }
 }
 

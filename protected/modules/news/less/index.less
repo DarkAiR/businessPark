@@ -1,9 +1,10 @@
 @import (reference) 'base';
 
 .news-page {
+    @bottomPadding: 32px;
+
     .item {
         @dateHeight: 38px;
-        @bottomPadding: 32px;
         @itemHeight: 125px;
 
         td {
@@ -52,6 +53,7 @@
         min-width: 150px;
         height: 26px;
         margin-left: @bigPadding;
+        margin-top: @bottomPadding;
         cursor: pointer;
         background: rgba(0,0,0,0.07);
         border: 1px solid rgba(0,0,0,0.12);
