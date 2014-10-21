@@ -43,7 +43,7 @@ class LocalConfigExtension extends CApplicationComponent
             foreach ($arr as &$v) {
                 if (!is_string($v))
                     continue;
-                $v = implode( str_split($v, strlen($v)/3), '<span style="display:none;">_</span>');
+                $v = LocalConfigHelper::fixSkype($v);
             }
             $res = is_array($res) ? $arr : $arr[0];
         }

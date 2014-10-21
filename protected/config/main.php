@@ -116,6 +116,7 @@ return array(
                 'date' => 'TwigFunctions::filterDate',
                 'translit' => 'TwigFunctions::filterTranslit',
                 'externalLink' => 'TwigFunctions::filterExternalLink',
+                'fixSkype' => 'TwigFunctions::filterFixSkype',
             ),
         ),
         'bootstrap' => array(

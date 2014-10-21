@@ -56,6 +56,20 @@
   padding-bottom: 22px;
   padding-left: 22px;
 }
+.residents-page .vmenu li a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goVDzARdz05zwAAAAh0RVh0Q29tbWVudAD2zJa/AAAAFElEQVQI12PwOPv/v8fZ//8ZoAAASpUGJ+hlOQoAAAAASUVORK5CYII=);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #00aff0 !important;
+}
+.residents-page .vmenu li a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAYAAAD5PA/NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goVDzARdz05zwAAAAh0RVh0Q29tbWVudAD2zJa/AAAAFElEQVQI12PwOPv/v8fZ//8ZoAAASpUGJ+hlOQoAAAAASUVORK5CYII=);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #48cdff !important;
+}
 .residents-page .item .image {
   padding: 44px 0 44px 22px;
   text-align: center;

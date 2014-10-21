@@ -29,4 +29,9 @@ class LocalConfigHelper
         );
         return str_replace($search, $replace, $text);
     }
+
+    public static function fixSkype($v)
+    {
+        return implode( str_split($v, 5), '<span style="display:none;">_</span>');
+    }
 }
