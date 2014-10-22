@@ -1,34 +1,28 @@
 @import (reference) '../../../../views/less/custom';
 
 .about-project-widget {
-    margin-top: 44px; 
-
     width: @mainCol3;
-    height: 537px;
-    background: url(../../img/aboutProjectBg.png) left top no-repeat;
-    padding: @bigPadding;
+    height: 520px;
+    padding: 0 @bigPadding @bigPadding @bigPadding;
 
     .title {
-        .font(PF, medium);
-        .font-size(18, 1);
+        .font(PF, regular);
+        .font-size(22, 1);
         color: @colorTitleGrey;
-        padding-top: 40px;
-        padding-left: 36px;
+        padding-top: 18px;
+        padding-left: @bigPadding;
+        padding-bottom: @bigPadding;
 
         a {
             .link(title);
-            color: @colorTitle !important;
         }
     }
     .image {
+        padding-left: @bigPadding;
+        padding-bottom: @middlePadding;
     }
     .text {
-        .font-size(11, 14px);
-        position: absolute;
-        left: 0;
-        bottom: 54px + @bigPadding;
         color: @colorTitleGrey;
-        padding-left: 30px + @bigPadding;
-        padding-right: 30px + @bigPadding;
+        padding-left: @bigPadding;
     }
 }

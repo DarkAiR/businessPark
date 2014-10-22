@@ -46,10 +46,14 @@
             {'label':'Разделы сайта', 'action' : false, 'items': [
                 {'label':'Новости', 'url':['/news/adminNews'], 'active':this.uniqueId == '/news/adminNews'},
                 {'label':'Услуги управляющей компании', 'url':['/company/adminCompanyService'], 'active':this.uniqueId == '/company/adminCompanyService', 'visible':App.user.checkAccess('admin')},
-                {'label':'Резидентам', 'url':['/workline/adminWorkLine'], 'active':this.uniqueId == '/workline/adminWorkLine', 'visible':App.user.checkAccess('admin')},
+                {'label':'Резидентам', 'url':['/workline/adminWorkLine'], 'active':this.uniqueId == '/workline/adminWorkLine'},
                 {'label':'Резиденты', 'url':['/residents/adminResidents'], 'active':this.uniqueId == '/residents/adminResidents'},
                 {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active':this.uniqueId == '/contentBlocks/adminContentBlocks', 'visible':App.user.checkAccess('admin')},
                 {'label':'Текстовые страницы', 'url':['/articles/adminArticles'], 'active':this.uniqueId == '/articles/adminArticles', 'visible':App.user.checkAccess('admin')},
+            ]},
+            {'label':'Участки', 'action' : false, 'items': [
+                {'label':'Участки под застройку', 'url':['/map/adminMapArea'], 'active':this.uniqueId == '/map/adminMapArea'},
+                {'label':'Участки инфраструктуры', 'url':['/map/adminMapInfrastructure'], 'active':this.uniqueId == '/map/adminMapAreaInfrastructure'},
             ]},
             {'label':'Пользователи', 'url':['/system2/adminUsers'], 'active':this.uniqueId == 'system2/adminUsers', 'visible':App.user.checkAccess('admin')},
             {'label':'Настройки', 'url':['/system2/adminLocalConfig'], 'active':this.uniqueId == 'system2/adminLocalConfig', 'visible':App.user.checkAccess('admin')},

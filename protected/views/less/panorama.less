@@ -1,0 +1,156 @@
+@import 'custom';
+
+body > .page {
+    position:relative;
+    height:inherit;
+    width:inherit;
+
+    .header {
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100px;
+        width: 100%;
+
+        .navigation {
+            @h: 35px;
+
+            position: absolute;
+            left: @bigPadding;
+            top: @bigPadding;
+            height: @h;
+
+            .back {
+                float: left;
+                padding-right: @middlePadding;
+                height: 100%;
+                a {
+                    .link(none);
+
+                    width: @h;
+                    height: @h;
+                    display: inline-block;
+                    background: url(../../img/panorama/back.png) left top no-repeat;
+
+                    &:hover {
+                        background: url(../../img/panorama/back_hover.png) left top no-repeat;
+                    }
+                }
+            }
+            .separator {
+                float: left;
+                width: 2px;
+                min-width: 2px;
+                max-width: 2px;
+                height: 100%;
+                min-height: 100%;
+                max-height: 100%;
+
+                background-color: #777773;
+            }
+            .date {
+                float: left;
+                padding-left: @bigPadding;
+                padding-right: @bigPadding + @smallPadding;
+                height: 100%;
+
+                .dropdown {
+                    @minWidth: 150px;
+
+                    .dropdown-toggle {
+                        .border-radius(2);
+
+                        display: inline-block;
+                        height: @h;
+                        line-height: @h;
+                        padding: 0;
+                        margin: 0;
+                        min-width: @minWidth;
+                        text-align: left;
+
+                        outline:none; /* remove focus ring from Webkit */
+                        background: #90b16a;
+                        color: @colorText;
+                        border:0;
+
+                        &:hover {
+                            background-color: @colorInvertTextBg;
+                        }
+
+                        .value {
+                            display: inline-block;
+                            padding-left: @bigPadding;
+                            width: @minWidth - @bigPadding - 5px;       // 5 - чтобы стрелка не залипала вправо
+                        }
+                    }
+
+                    .dropdown-menu {
+                        .font-size(13);
+                        .border-radius(2);
+                        //background: #90b16a;
+                        color: @colorText;
+                        min-width: @minWidth;
+
+                        & a {
+                            .link(none);
+                        }
+                    }
+                }
+            }
+            .views {
+                float: left;
+                height: 100%;
+
+                .view-button {
+                    .border-radius(2);
+
+                    float: left;
+                    height: @h;
+                    line-height: @h;
+                    padding: 0px @smallPadding + 3px;
+                    color: @colorText;
+                    background-color: rgba(255,255,255,0.7);
+                    cursor: pointer;
+                    margin-right: @smallPadding;
+
+                    &:hover {
+                        background-color: rgba(255,255,255,0.9);
+                    }
+                }
+            }
+        }
+        .logo {
+            position: absolute;
+            right: @bigPadding;
+            top: @bigPadding;
+            a {
+                .link(none);
+            }
+        }
+    }
+
+
+    .panorams {
+        z-index: 2;
+        position: relative;
+
+        //position: absolute;
+        //left: 0;
+        //top: 0;
+
+    }
+}
+
+
+
+.warning {
+    font-weight: bold;
+}
+
+.panorama {
+    z-index:1;
+    height:inherit;
+    width:inherit;
+    display: none;
+}

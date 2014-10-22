@@ -27,6 +27,7 @@ return array(
         'articles',
         'workline',
         'residents',
+        'map',
     ),
     'components' => array(
         'user' => array(
@@ -43,6 +44,10 @@ return array(
                 'uploadImage'                       => 'site/uploadImage',
                 'uploadFile'                        => 'site/uploadFile',
                 'panorams'                          => 'site/panorama',
+                'map/<type:\w+>/'                   => 'site/map',
+                'map'                               => 'site/map',
+                'presentation'                      => 'site/presentation',
+//                'test'                               => 'site/test',
 
                 // News
                 'news/show/<id:\d+>/'               => 'news/news/show',
@@ -111,6 +116,7 @@ return array(
                 'date' => 'TwigFunctions::filterDate',
                 'translit' => 'TwigFunctions::filterTranslit',
                 'externalLink' => 'TwigFunctions::filterExternalLink',
+                'fixSkype' => 'TwigFunctions::filterFixSkype',
             ),
         ),
         'bootstrap' => array(

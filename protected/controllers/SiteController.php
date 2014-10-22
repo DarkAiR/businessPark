@@ -64,7 +64,59 @@ class SiteController extends Controller
      */
     public function actionPanorama()
     {
-        $this->render('panorama');
+        $criteria = new CDbCriteria();
+        $criteria->select = 'createDate';
+        $criteria->group = 'createDate';
+        $criteria->order = 'createDate DESC';
+        $dates = Yii::app()->db->commandBuilder->createFindCommand('Panorama', $criteria)->queryAll();
+
+        $panorams = Panorama::model()->onSite()->orderDefault()->findAll();
+        $this->render('panorama', array(
+            'dates' => $dates,
+            'panorams' => $panorams
+        ));
+    }
+
+    /**
+     * Карта
+     */
+    public function actionMap()
+    {
+        $type = Yii::app()->request->getQuery('type', '');
+        $showFastMap = Yii::app()->request->getQuery('fast', 0);
+
+        $areas = MapArea::model()->findAll();
+
+        $structureData = MapInfrastructure::model()->findAll();
+        $structureAreas = array();
+        foreach ($structureData as $v) {
+            $structureAreas[$v->getTypeMapName()][$v->number] = array(
+                'name' => str_replace("\r", "", str_replace("\n", "", nl2br($v->desc)))
+            );
+        }
+
+        $this->render('map', array(
+            'areas' => $areas,
+            'structureAreas' => $structureAreas,
+            'showType' => $type,
+            'showFastMap' => $showFastMap
+        ));
+    }
+
+    /**
+     * Презентация
+     */
+    public function actionPresentation()
+    {
+        $this->render('presentation');
+    }
+
+    /**
+     * Тест
+     */
+    public function actionTest()
+    {
+        $this->render('test');
     }
 
     /**

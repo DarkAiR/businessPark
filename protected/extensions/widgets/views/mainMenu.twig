@@ -7,9 +7,8 @@
     <ul>
         {% for item in items %}
             {% set active = item.select %}
-            {% set first = loop.first %}
-            {% set last = loop.last %}
-            <li class='{% if first %}first{% endif %} {% if last %}last{% endif %}'>
+            {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
+            <li class='{{posClass}}'>
                 <a class='{% if active %}active{% endif %}' href='{{ item.link }}'>
                     {% if active %}
                     {% endif %}

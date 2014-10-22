@@ -2,22 +2,22 @@
   min-height: 1px;
 }
 .about-page .title {
-  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 34px;
-  line-height: 90px;
-  color: #4f9714;
-  height: 90px;
-  min-height: 90px;
-  padding: 0 22px;
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #719e3d;
+  padding-bottom: 22px;
+  padding-top: 11px;
+  white-space: nowrap;
+  padding-left: 22px;
 }
 .about-page .title grey {
-  color: #767676;
+  color: #2b2b2b;
 }
 .about-page .title lightgrey {
-  color: #b2b2b2;
+  color: #929da0;
 }
 .about-page .col1 {
-  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -25,7 +25,6 @@
   min-height: 1px;
 }
 .about-page .col2 {
-  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -33,7 +32,6 @@
   min-height: 1px;
 }
 .about-page .col3 {
-  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -41,7 +39,6 @@
   min-height: 1px;
 }
 .about-page .col2-3 {
-  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -52,34 +49,46 @@
   padding: 0 22px;
   margin: 0;
 }
-.about-page .content .text {
+.about-page .content h6 {
+  font-size: inherit;
+  line-height: inherit;
   padding: 0;
-  margin-bottom: 35px;
+  margin: 0;
+  font-weight: bold;
+  padding-bottom: 6px;
 }
-.about-page .content .text ul {
-  list-style: none;
+.about-page .content ul {
   padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.about-page .content li {
+  margin: 0.5em 0 0.5em 1.2em;
+}
+.about-page .content li:before {
+  content: ' — ';
+  margin-left: -1.2em;
+}
+.about-page .content .text {
+  padding-bottom: 17px;
 }
 .about-page .content .text2 {
-  padding: 0;
-  margin-top: 20px;
+  padding-bottom: 19px;
 }
 .about-page .content .text3 {
-  padding: 0;
-  margin-top: 11px;
-}
-.about-page .content .text4 li {
-  padding: 0;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 .about-page .content .image {
   float: left;
   width: 360px;
-  padding-left: 6px;
-  margin-top: -15px;
+  margin-top: 7px;
 }
 .about-page .content .imagetext {
   float: left;
   width: 315px;
   margin-left: 22px;
+}
+.about-page .bottomGap {
+  height: 92px;
+  min-height: 92px;
 }

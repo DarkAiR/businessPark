@@ -1,21 +1,24 @@
 @import (reference) '../../../../views/less/custom';
 
 .news-lenta-widget {
-    @imageW: 130px;     // Ширина картинки
-
     width: 100%;
+    padding-top: @bigPadding * 2;
 
     .col2-3 {
         .col(@mainCol2 + @mainCol3);
-        
-        & > .title {
+    }
+
+    .header {
+
+        display: none;
+
+        .title {
             .font(PF, regular);
             .font-size(22);
             color: @colorTitleGrey;
-            padding-left: (@bigPadding + @imageW) + @bigPadding;
-            padding-bottom: @bigPadding;
+            padding-left: @bigPadding;  
 
-            & a {
+            a {
                 .link(title);
                 color: @colorTitleGrey !important;
             }
@@ -23,8 +26,8 @@
     }
 
     .item {
-        @dateHeight: 42px;
-        @bottomPadding: 28px;
+        @dateHeight: 38px;
+        @bottomPadding: 32px;
         @itemHeight: 125px;
 
         td {
@@ -34,13 +37,14 @@
             height: @itemHeight;
         }
         .image {
+            width: @widgetImageW + @bigPadding;
             padding-left: @bigPadding;
-            padding-top: @dateHeight;
+            padding-top: @dateHeight + 3;       // Делам запас в несколько пикселей
         }
         .textBlock {
-
             .date {
                 .font(PF, regular);
+                .font-size(12, 1);
                 color: @colorTextLight;
                 height: @dateHeight;
                 padding-top: 15px;

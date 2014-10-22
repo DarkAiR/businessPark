@@ -8,24 +8,24 @@
 {% block js %}
     {{ parent() }}
     <script type="text/javascript">
-        var currentStep = 1;
+        var currentStep = -1;
         $(document).ready( function()
         {
-            $('[id^=js-step-]').click(function(ev) {
+            $('[id^="js-step-"]').click(function(ev) {
                 stepId = $(this).attr('data-id');
                 if (stepId != currentStep) {
                     $('#js-step-'+currentStep).removeClass('active');
                     $('#js-page-'+currentStep).hide();
+                    $('.col1 .icon').removeClass('icon'+currentStep);
 
                     currentStep = stepId;
-                    console.log(currentStep);
                     $('#js-step-'+currentStep).addClass('active');
                     $('#js-page-'+currentStep).show();
+                    $('.col1 .icon').addClass('icon'+currentStep);
                 }
             });
 
-            $('#js-step-'+currentStep).addClass('active');
-            $('#js-page-'+currentStep).show();
+            $('[id^="js-step-"]:first').trigger('click');
         });
     </script>
 {% endblock %}
@@ -43,9 +43,10 @@
     
     <div class='steps'>
         {% for step in steps %}
-            <div class='cont'>
-                <div class='separator'></div>
-                <div class='step' id='js-step-{{loop.index}}' data-id='{{loop.index}}'>{{loop.index}}</div>
+            <div class='item cont' id='js-step-{{loop.index}}' data-id='{{loop.index}}'>
+                <div class='hover'></div>
+                <div class='step step{{loop.index}}'></div>
+                {% if not loop.last %}<div class='separator'></div>{% endif %}
             </div>
         {% endfor %}
         </ul>
@@ -53,7 +54,10 @@
     
     <div class='clearfix'></div>
 
-    <div class='col1'></div>
+    <div class='col1'>
+        <div class='icon'>
+        </div>
+    </div>
     <div class='col2-3'>
         <div class='step-pages'>
             {% for step in steps %}

@@ -1,0 +1,197 @@
+{% extends 'views/layouts/main.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    {{ import('css','jquery-ui.css') }}
+    {{ import('css', 'map.css') }}
+{% endblock %}
+
+
+{% block js %}
+    {{ parent() }}
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    {{ import('js','snap.svg.js') }}
+    {{ import('js','jquery-ui.js') }}
+    {{ import('js','map.js') }}
+{% endblock %}
+
+
+{% block bodyAttr %}
+    {# Запрещаем выделение, чтобы при таскании карты ничего лишнего не происходило #}
+    onselectstart="return false"
+{% endblock %}
+
+{% block content %}
+<div class='map-page'>
+    <div class='col1'></div>
+    <div class='col2-3'>
+        <div class='title'>
+            Генеральный <lightgrey>план</lightgrey>
+        </div>
+        <!--div id='debug' style='width:500px; height:100px; display:none;'>
+        </div>
+        <div id='debug2' style='width:500px; height:100px; display:none;'>
+        </div-->
+    </div>
+</div>
+{% endblock %}
+
+{% block afterbody %}
+
+    <div id='js-map-container' class='map-container'>
+
+        
+        {# filter #}
+        <div id='js-filter' class="filter">
+            <div class='header'>
+                Фильтр
+                <div class='arrow transition'></div>
+            </div>
+            <div class='window'>
+                <div class='status-text'>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="check-busy">
+                            <label for="check-busy"><span class='busy'></span>Занятые участки</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class='structure-title'>
+                    Инженерная инфраструктура
+                </div>
+                <div class='structure-text'>
+                    <ul>
+                        <li><input type="checkbox" id="check-f1"><label for="check-f1"><span class='red'></span>Электроснабжение</label></li>
+                        <li><input type="checkbox" id="check-f2"><label for="check-f2"><span class='yellow'></span>Газоснабжение</label></li>
+                        <li><input type="checkbox" id="check-f3"><label for="check-f3"><span class='blue'></span>Водоснабжение</label></li>
+                        <li><input type="checkbox" id="check-f4"><label for="check-f4"><span class='purple'></span>Водоотведение</label></li>
+                        <li><input type="checkbox" id="check-f5"><label for="check-f5"><span class='green'></span>Ливневая канализация</label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        {# navigation #}
+        <div class='nav'>
+            <div id='js-switch-btn' class='switch-button  show'></div>
+            <div id='js-window' class='window  show'>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="244" height="243" viewBox="0 0 244 243" xml:space="preserve">
+                </svg>
+            </div>
+        </div>
+
+
+        {# zoom #}
+        <div class='zoom'>
+            <div class='plus'></div>
+            <div class='minus'></div>
+        </div>
+
+
+        {# info window #}
+        <div id='js-info-window' class='info modal-dialog'>
+            <div class='modal-content'>
+
+                <button type="button" class="close" id='js-info-close-btn' data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+
+                <div class="header">
+                    Участок № <div class='number' id='js-cadastral-number'></div>
+                </div>
+
+                <div class='window free'>
+                    <div class='item'>
+                        Статус: <div class='text' id='js-info-status'></div>
+                    </div>
+                    <div class='item'>
+                        Площадь: <div class='text' id='js-info-square'></div>
+                    </div>
+                    <div class='item'>
+                        Размеры: <div class='text' id='js-info-size'></div>
+                    </div>                    
+                </div>
+
+                <div class='window busy'>
+                    <div class='item'>
+                        Статус: <div class='text' id='js-info-status'></div>
+                    </div>
+                    <div class='item'>
+                        Резидент: <div class='text' id='js-info-resident'></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        {# infrastructure window #}
+        <div id='js-structure-info-window' class='structure modal-dialog'>
+            <div class='modal-content'>
+                <div class='text'>
+                    hello world
+                </div>
+            </div>
+        </div>
+
+
+        {# map #}
+        <div class='map'>
+        </div>
+
+
+        {# markers #}
+        <div id='js-markers' class='markers'>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var areas = {
+{% for area in areas %}
+            '{{area.cadastral}}': {
+                'busy': {{area.busy}},
+                'square': '{{area.square}}',
+                'size': '{{area.width}} x {{area.height}}',
+                'resident': '{{area.resident}}'
+            }{% if not loop.last %},{% endif %}
+
+{% endfor %}
+        };
+
+        var structureAreas = {
+{% for groupName,group in structureAreas %}
+            '{{groupName}}': {
+{% for number,area in group %}
+                    '{{number}}': {
+                        'name': '{{area.name|raw}}'
+                    }{% if not loop.last %},{% endif %}
+                
+{% endfor %}
+            }{% if not loop.last %},{% endif %}
+
+{% endfor %}
+        };
+
+
+        {% set url = showFastMap ? "/img/map/map2.svg" : "/img/map/map.svg" %}
+        $('.map').load('{{url}}', function (response, status, xhr)
+        {
+            var svgobject = $('.map svg')[0];
+
+            map.init(svgobject, areas, structureAreas);
+            map.info.init();
+            map.nav.init('.nav');
+            map.filter.init('#js-filter', '{{showType}}');
+
+            // Выправление координат после ресайза
+            $(window).on('resize', function(ev) {
+                map.resize();
+            });
+            map.resize();
+
+            // Отключаем нажатие на участках
+            $(svgobject).find('[id^="objects_"]').css({'pointer-events':'none'});
+        });
+    </script>
+{% endblock %}

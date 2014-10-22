@@ -2,9 +2,12 @@
 
 class NewsController extends Controller
 {
+    const NEWS_PER_PAGE = 9;
+
     public function actionIndex()
     {
         $year = Yii::app()->request->getQuery('year');
+        $page = Yii::app()->request->getQuery('page', 0);
 
         // Получаем распределение по годам
         $years = $this->getNewsYears();
@@ -16,16 +19,33 @@ class NewsController extends Controller
         if ($year === null)
             $year = $lastYear;
 
-        $news = News::model()->onSite()->byYear($year)->orderDefault()->findAll();
+        $criteria = new CDbCriteria();
+        $criteria->offset = $page * self::NEWS_PER_PAGE;
+        $criteria->limit = self::NEWS_PER_PAGE;
+
+        $news = News::model()->onSite()->byYear($year)->orderDefault()->findAll($criteria);
         if (!$news)
             $news = array();
 
-        $this->render('/index', array(
-            'year' => $year,
-            'lastYear' => $lastYear,
-            'years' => $years,
-            'news' => $news,
-        ));
+
+        if (Yii::app()->request->isAjaxRequest) {
+            echo $this->render('/indexRaw', array(
+                'news'          => $news,
+            ), true);
+            Yii::app()->end();
+        } else {
+            $count = News::model()->onSite()->byYear($year)->orderDefault()->count();
+            $this->render('/index', array(
+                'year'          => $year,
+                'lastYear'      => $lastYear,
+                'years'         => $years,
+                'news'          => $news,
+
+                'currPage'      => $page,
+                'currCount'     => count($news),
+                'totalCount'    => $count
+            ));
+        }
     }
 
     public function actionShow()

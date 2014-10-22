@@ -29,12 +29,24 @@ class LocalConfigExtension extends CApplicationComponent
 
     /**
      * @param  string     $path
+     * @param  boolean     $hasPhones вставляет невидимый тег в телефон
      * @return mixed|null
      */
-    public function getConfig($path)
+    public function getConfig($path, $hasPhones=false)
     {
-        return isset(self::$config[$path])
-            ? self::$config[$path]
-            : null;
+        if (!isset(self::$config[$path]))
+            return null;
+        
+        $res = self::$config[$path];
+        if ($hasPhones) {
+            $arr = is_array($res) ? $res : array($res);
+            foreach ($arr as &$v) {
+                if (!is_string($v))
+                    continue;
+                $v = LocalConfigHelper::fixSkype($v);
+            }
+            $res = is_array($res) ? $arr : $arr[0];
+        }
+        return $res;
     }
 }

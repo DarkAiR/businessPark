@@ -2,11 +2,10 @@
   min-height: 1px;
 }
 .main-page .bottomGap {
-  height: 80px;
-  min-height: 80px;
+  height: 44px;
+  min-height: 44px;
 }
 .main-page .col1 {
-  _outline: 1px dotted #808080;
   width: 225px;
   min-width: 225px;
   float: left;
@@ -14,7 +13,6 @@
   min-height: 1px;
 }
 .main-page .col2 {
-  _outline: 1px dotted #808080;
   width: 382px;
   min-width: 382px;
   float: left;
@@ -22,7 +20,6 @@
   min-height: 1px;
 }
 .main-page .col3 {
-  _outline: 1px dotted #808080;
   width: 359px;
   min-width: 359px;
   float: left;
@@ -30,7 +27,6 @@
   min-height: 1px;
 }
 .main-page .col2-3 {
-  _outline: 1px dotted #808080;
   width: 741px;
   min-width: 741px;
   float: left;
@@ -42,7 +38,7 @@
 }
 .main-page .col1-block1 {
   position: absolute;
-  top: 100px;
+  top: -4px;
   left: 0;
 }
 .main-page .col1-block2 {
@@ -50,21 +46,30 @@
   top: 570px;
   left: 0;
 }
+.main-page .col1-block3 {
+  position: absolute;
+  top: 80px;
+  left: 490px;
+}
+.main-page .padding-block {
+  padding-left: 22px;
+  padding-right: 22px;
+}
 /* Задник */
 .bg-container {
   width: 100%;
   min-width: 1024px;
-  height: 873px;
+  height: 734px;
   overflow: hidden;
   position: absolute;
 }
 .bg-container .bg-picture {
-  width: 1027px;
+  width: 1040px;
   height: 568px;
   position: absolute;
-  top: 305px;
+  top: 166px;
   left: 50%;
-  margin-left: -498.49999999px;
+  margin-left: -505px;
   background: url(../../img/mainBg.png) left top no-repeat;
   z-index: -1;
 }

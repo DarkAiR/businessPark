@@ -8,6 +8,9 @@ class News extends CActiveRecord
     const IMAGE_SMALL_W = 130;
     const IMAGE_SMALL_H = 87;
 
+    // Маленькая картинка в ленте на главной странице
+    const IMAGE_SMALL_MAIN_W = 115;
+
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
 

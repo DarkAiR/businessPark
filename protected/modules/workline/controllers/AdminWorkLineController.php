@@ -4,7 +4,6 @@ class AdminWorkLineController extends MAdminController
 {
     public $modelName = 'WorkLine';
     public $modelHumanTitle = array('шаг', 'шага', 'шагов');
-    public $allowedRoles = 'admin';
 
     public function getEditFormElements($model)
     {

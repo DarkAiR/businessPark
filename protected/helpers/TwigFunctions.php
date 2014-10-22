@@ -125,4 +125,9 @@ class TwigFunctions
             return $url;
         return 'http://'.$url;
     }
+
+    public static function filterFixSkype($str)
+    {
+        return LocalConfigHelper::fixSkype($str);
+    }
 }

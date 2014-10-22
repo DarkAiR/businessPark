@@ -4,6 +4,11 @@
     _background: rgba(0,0,255,0.5);
     min-height: 1px;
 
+    table td {
+        vertical-align: top;
+        text-align: left;
+    }
+
     & > .title {
         .inner-title;
         padding-left: @bigPadding;
@@ -22,12 +27,72 @@
         min-height: @footerPaddingTop;
     }
 
-    .info-block {
-        .info {
+    table.info-block {
+        width: 100%;
 
+        td.info-block {
+            width: 50%;
+            padding-top: @bigPadding;
+            padding-bottom: @bigPadding;
         }
-        .phone {
+        .icon {
+            @iconW: 55px;
+            @iconH: 55px;
 
+            width: @iconW;
+            padding-right: @bigPadding;
+            padding-top: 25px;
+
+            .icon-company,
+            .icon-sale,
+            .icon-address,
+            .icon-email {
+                width: @iconW;
+                height: @iconH;
+            }
+
+            .icon-company   { background: url(../../img/contacts/company.png) left top no-repeat; }
+            .icon-sale      { background: url(../../img/contacts/sale.png) left top no-repeat; }
+            .icon-address   { background: url(../../img/contacts/address.png) left top no-repeat; }
+            .icon-email     { background: url(../../img/contacts/email.png) left top no-repeat; }
+        }
+        .info {
+            .title {
+                .font(PF, regular);
+                .font-size(22, 1);
+                color: @colorTitle;
+                padding-bottom: @middlePadding;
+            }
+            .text {
+                .phone {
+                    .font(PF, regular);
+                    .font-size(22, 1);
+                    color: @colorTitleGrey;
+                    padding-bottom: @smallPadding;
+                }
+                .desc {
+                    .font-size(11);
+                }
+                .address {
+                    .font-size(22);
+                }
+                .email {
+                    .font-size(22, 1);
+                }
+                .address,
+                .email {
+                    .font(PF, regular);
+                    color: @colorTitleGrey;
+                    a {
+                        .link(blue);
+                        color: @colorLinkBlue !important;
+                    }
+                    a:hover {
+                        .link(bluehover);
+                        color: @colorLinkBlueHover !important;
+                    }
+                }
+            }
         }
     }
 }

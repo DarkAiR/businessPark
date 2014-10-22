@@ -40,7 +40,7 @@ class m140801_055412_menu extends CDbMigration
             INSERT INTO `MenuItem`
                 (`menuId`, `name`, `link`, `orderNum`, `visible`)
             VALUES
-                (1, 'Генеральный план', 'general-plan', 1, 1),
+                (1, 'Карта участков', 'map', 1, 1),
                 (1, 'Инфраструктура', 'structure', 2, 1),
                 (1, 'Управляющая компания', 'company', 3, 0),
                 (1, 'Резидентам', 'workline', 4, 0),

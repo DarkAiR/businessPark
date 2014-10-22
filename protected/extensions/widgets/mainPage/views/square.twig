@@ -1,15 +1,24 @@
 {{ import('css','square.css','ext.widgets.mainPage.css') }}
 
 <div class='square-widget'>
-    <div class='summary'>
-        <invert>S = 180 га</invert>
+    <div class='text'>
+        Продаются участки
+        <br/>
+        в г.&nbsp;Екатеринбург,
+        <br/>
+        Чкаловский район
     </div>
+    
+    <div class='sold-btn'>
+        <a href="{{ static('CHtml', 'normalizeUrl', ['/map']) }}">
+            СМОТРЕТЬ УЧАСТКИ
+        </a>
+    </div>
+
     <div class='sold'>
-        <a href='#'>Продается 22 участка</a><br/>
-        (21 га)
+        <a href="{{ static('CHtml', 'normalizeUrl', ['/map/busy']) }}">осталось <div class='number'>{{freeSquare}}</div> га</a>
     </div>
     <div class='sales'>
-        <a href='#'>Продано 55 участков</a><br/>
-        (159 га)
+        продано <div class='number'>{{busySquare}}</div> га
     </div>
 </div>

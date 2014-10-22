@@ -5,7 +5,7 @@
 
     .title {
         .inner-title;
-        padding: 0 @bigPadding;
+        padding-left: @bigPadding;
     }
     .col1 {
         .col(@mainCol1);
@@ -24,37 +24,51 @@
         padding: 0 @bigPadding;
         margin: 0;
 
-        .text {
-            padding: 0;
-            margin-bottom: 35px;
+        h6 {
+            font-size: inherit;
+            line-height: inherit;
 
-            ul {
-                list-style: none;
-                padding: 0;
-            }
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+            padding-bottom: 6px;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        li {
+            margin: 0.5em 0 0.5em 1.2em
+        }
+        li:before {
+            content: ' — ';
+            margin-left: -1.2em;
+        }
+
+        .text {
+            padding-bottom: 36px - 19px;
         }
         .text2 {
-            padding: 0;
-            margin-top: 20px;
+            padding-bottom: 19px;
         }
         .text3 {
-            padding: 0;
-            margin-top: 11px;
-        }
-        .text4 li {
-            padding: 0;
-            padding-bottom: 4px;
+            padding-bottom: 6px;
         }
         .image {
             float: left;
             width: @mainCol2 - @bigPadding;
-            padding-left: 6px;
-            margin-top: -15px;
+            margin-top: 7px;
         }
         .imagetext {
             float: left;
             width: @mainCol3 - @bigPadding * 2;
             margin-left: @bigPadding;
         }
+    }
+
+    .bottomGap {
+        height: @footerPaddingTop;
+        min-height: @footerPaddingTop;
     }
 }
