@@ -155,6 +155,9 @@ map = {
         var cy = parseInt(coords.h / 2 + coords.y);
 
         // Viewport size
+        console.log('map = ', $('.map').css('width'), $('.map').css('height'));
+        console.log('map = ', $('#js-map-container').css('width'), $('#js-map-container').css('height'));
+        console.log('map width = ', $('.map').css('width'));
         var vpW2 = parseInt(parseInt($('.map').css('width')) * map.zoom / 2); 
         var vpH2 = parseInt(parseInt($('.map').css('height')) * map.zoom / 2);
 
@@ -207,8 +210,10 @@ map = {
         var h = window.innerHeight - footerH;
         if (w < 1024)
             w = 1024;
-        if (w > 2048)
-            w = 2048;
+
+        // Максимальный размер карты, по сути не важно сколько здесь точек
+        if (w > 20480)
+            w = 20480;
         if (h < 512)
             h = 512;
         $('.map').css({
@@ -443,8 +448,11 @@ map = {
     placeMarkers: function()
     {
         var vp = map.getViewport();
+console.log('placemarkers vp=', vp);
+
         var mapOffsX = $('.map').offset().left / 2;
 
+console.log('placemarkers mapOffsX=', mapOffsX);
         for (var prop in map.markers) {
             if (!map.markers.hasOwnProperty(prop))
                 continue;
