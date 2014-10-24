@@ -839,9 +839,14 @@ map = {
                 top:    parseInt(y) + 'px'
             })
 
-            viewport.x = x / ratioW;
-            viewport.y = y / ratioH;
+            viewport.x = (x + w/2) / ratioW - viewport.w/2;
+            viewport.y = (y + h/2) / ratioH - viewport.h/2;
             map.svgobject.setAttribute('viewBox', viewport.x+' '+viewport.y+' '+viewport.w+' '+viewport.h);
+  
+            // Place markers and info window
+            map.placeMarkers();
+            map.info.placeWindow();
+            map.infrastructure.placeWindow();
         },
 
         click: function(x, y)
