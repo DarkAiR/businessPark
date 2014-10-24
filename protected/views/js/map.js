@@ -5,7 +5,6 @@ map = {
 
     svgobject: null,        // svgobject
     mc: null,               // hammerjs
-    mcMarker: null,         // hammerjs
     snap: null,             // snap
             
     selectedPolyId: 0,      // Выделения полигона
@@ -44,7 +43,8 @@ map = {
     initHammerJS: function()
     {
         map.mc = Hammer(map.svgobject);
-        map.mcMarker = Hammer($('#js-markers').get(0));
+        var hammerMarker    = Hammer($('#js-markers').get(0));
+        var hammerNav       = Hammer($('#js-window').get(0));
 
         mc = map.mc;
         mc.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':32 });
@@ -52,8 +52,10 @@ map = {
         mc.get('rotate').set({ enable: true });
         mc.get('tap').set({ 'enable': true, 'threshold':32, 'time':1000 });
 
-        mcMarker = map.mcMarker;
-        mcMarker.get('tap').set({ 'enable': true, 'threshold':32, 'time':1000 });
+        hammerMarker.get('tap').set({ 'enable': true, 'threshold':32, 'time':1000 });
+
+        hammerNav.get('pan').set({ direction: Hammer.DIRECTION_ALL, 'threshold':1 });
+        hammerNav.get('tap').set({ 'enable': true/*, 'threshold':32, 'time':1000*/ });
 
         var dragging = null;
         var pageX = 0;
@@ -113,7 +115,7 @@ map = {
             }
         });
 
-        mcMarker.on('tap', function(e) {
+        hammerMarker.on('tap', function(e) {
             if (map.infrastructure.hasHover == true)
                 return;
 
@@ -123,9 +125,28 @@ map = {
             var x = offs.left + $(e.target).outerWidth()/2;
             var y = offs.top + $(e.target).outerHeight()/2;
 
-            //var x = e.pointers[0].pageX;
-            //var y = e.pointers[0].pageY;
             map.infrastructure.toggleWindow(areaId, x, y);
+        });
+
+
+        // Map navigation
+        hammerNav.on("panstart", function(e) {
+            var x = e.pointers[0].pageX;
+            var y = e.pointers[0].pageY;
+            map.nav.panstart(x, y);
+        });
+        hammerNav.on("panend", function(e) {
+            map.nav.panend();
+        });
+        hammerNav.on("panmove", function(e) {
+            var x = e.pointers[0].pageX;
+            var y = e.pointers[0].pageY;
+            map.nav.panmove(x, y);
+        });
+        hammerNav.on('tap', function(e) {
+            var x = e.pointers[0].pageX;
+            var y = e.pointers[0].pageY;
+            map.nav.click(x, y);
         });
     },
 
@@ -155,9 +176,6 @@ map = {
         var cy = parseInt(coords.h / 2 + coords.y);
 
         // Viewport size
-        console.log('map = ', $('.map').css('width'), $('.map').css('height'));
-        console.log('map = ', $('#js-map-container').css('width'), $('#js-map-container').css('height'));
-        console.log('map width = ', $('.map').css('width'));
         var vpW2 = parseInt(parseInt($('.map').css('width')) * map.zoom / 2); 
         var vpH2 = parseInt(parseInt($('.map').css('height')) * map.zoom / 2);
 
@@ -180,7 +198,7 @@ map = {
 
         // Set viewbox and nav
         map.svgobject.setAttribute('viewBox', (parseInt(cx-vpW2))+' '+(parseInt(cy-vpH2))+' '+(parseInt(vpW2*2))+' '+(parseInt(vpH2*2)));
-        map.nav.showViewport( map.getViewport() );
+        map.nav.showViewport();
 
         // Place markers and info window
         map.placeMarkers();
@@ -448,11 +466,8 @@ map = {
     placeMarkers: function()
     {
         var vp = map.getViewport();
-console.log('placemarkers vp=', vp);
-
         var mapOffsX = $('.map').offset().left / 2;
 
-console.log('placemarkers mapOffsX=', mapOffsX);
         for (var prop in map.markers) {
             if (!map.markers.hasOwnProperty(prop))
                 continue;
@@ -757,7 +772,6 @@ console.log('placemarkers mapOffsX=', mapOffsX);
      * Navigation window
      */
     nav: {
-        snap: null,
         window: null,
         rect: null,
 
@@ -772,15 +786,12 @@ console.log('placemarkers mapOffsX=', mapOffsX);
                 map.nav.window.toggleClass('show');
             });
 
-            map.nav.snap = Snap(selector+' #js-window svg');
+            map.nav.rect = el.find('#js-selector');
         },
 
-        showViewport: function(viewport)
+        showViewport: function()
         {
-            if (map.nav.rect != null)
-                map.nav.rect.remove();
-            map.nav.rect = null;
-
+            var viewport = map.getViewport();
             var navW = map.nav.window.width();
             var navH = map.nav.window.height();
             var ratioW = navW / map.svgW;
@@ -795,13 +806,66 @@ console.log('placemarkers mapOffsX=', mapOffsX);
             if (x+w > navW) w = navW - x;
             if (y+h > navH) h = navH - y;
 
-            map.nav.rect = map.nav.snap.rect(x,y,w,h)
-                .attr({
-                    'fill': "rgba(255,255,255,1)",
-                    'fill-opacity': 0.2,
-                    'stroke': "rgba(0,0,0,0.2)",
-                    'strokeWidth': 1 
-                });
+            map.nav.rect.css({
+                left:   x+'px',
+                top:    y+'px',
+                width:  w,
+                height: h
+            })
+        },
+
+        setViewportCenter: function(cx, cy)
+        {
+            var viewport = map.getViewport();
+            var navW = map.nav.window.width();
+            var navH = map.nav.window.height();
+            var ratioW = navW / map.svgW;
+            var ratioH = navH / map.svgH;
+
+            var w = viewport.w * ratioW;
+            var h = viewport.h * ratioH;
+            if (w > navW) w = navW;
+            if (h > navH) h = navH;
+            x = cx - w / 2;
+            y = cy - h / 2;
+
+            if (x < 0)      x = 0;
+            if (y < 0)      y = 0;
+            if (x+w > navW) x = navW - w;
+            if (y+h > navH) y = navH - h;
+
+            map.nav.rect.css({
+                left:   parseInt(x) + 'px',
+                top:    parseInt(y) + 'px'
+            })
+
+            viewport.x = x / ratioW;
+            viewport.y = y / ratioH;
+            map.svgobject.setAttribute('viewBox', viewport.x+' '+viewport.y+' '+viewport.w+' '+viewport.h);
+        },
+
+        click: function(x, y)
+        {
+            var offs = map.nav.window.offset();
+            map.nav.setViewportCenter(x - offs.left, y - offs.top);
+        },
+
+        panstart: function(x, y)
+        {
+            $('body').addClass('noSelect');
+            var offs = map.nav.window.offset();
+            map.nav.setViewportCenter(x - offs.left, y - offs.top);
+        },
+
+        panend: function()
+        {
+            $('body').removeClass('noSelect');
+        },
+
+        panmove: function(x, y)
+        {
+            var offs = map.nav.window.offset();
+            map.nav.setViewportCenter(x - offs.left, y - offs.top);
         }
     },
 
