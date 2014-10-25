@@ -37,9 +37,6 @@ class TbCKEditor extends CInputWidget
 	 */
 	public function run()
 	{
-//		echo '<pre>';
-//		var_dump($this->editorOptions);
-//die();
 		list($name, $id) = $this->resolveNameID();
 
 		$this->registerClientScript($id);

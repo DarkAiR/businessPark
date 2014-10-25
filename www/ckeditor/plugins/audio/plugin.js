@@ -162,6 +162,8 @@ var en = {
 		fakeObject : 'Audio',
 		properties : 'Edit audio',
 		sourceAudio: 'Source audio',
+		sourceAudioMp3: 'Source audio "mp3" (IE, Chrome, Safari)',
+		sourceAudioOgg: 'Source audio "ogg" (Opera, Firefox)',
 		sourceType : 'Audio type',
 		linkTemplate :  '<a href="%src%">%type%</a> ',
 		fallbackTemplate : 'Your browser doesn\'t support audio.<br>Please download the file: %links%'
@@ -173,6 +175,8 @@ var ru = {
 		fakeObject : 'Audio',
 		properties : 'Редактировать аудио',
 		sourceAudio: 'Путь до файла',
+		sourceAudioMp3: 'Путь до файла "mp3" (IE, Chrome, Safari)',
+		sourceAudioOgg: 'Путь до файла "ogg" (Opera, Firefox)',
 		sourceType : 'Тип файла',
 		linkTemplate :  '<a href="%src%">%type%</a> ',
 		fallbackTemplate : 'Ваш браузер не поддерживает аудио:<br>Вы можете загрузить файл: %links%'
