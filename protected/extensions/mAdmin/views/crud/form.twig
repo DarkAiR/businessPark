@@ -14,10 +14,10 @@
             {# default options #}
             {% if element['type'] == 'ckEditor' %}
                {% set options = options|merge({
-                    'options': {
-                        'customConfig' : '/ckeditor/ckeditor_config.js',
-                        'filebrowserUploadUrl' : '/uploadFile/',
-                        'filebrowserImageUploadUrl': '/uploadImage/'
+                    'editorOptions': {
+                        'customConfig' :                '/ckeditor/ckeditor_config.js',
+                        'filebrowserImageBrowseUrl':    '/kcfinder/browse.php?type=images',
+                        'filebrowserAudioBrowseUrl':    '/kcfinder/browse.php?type=audio',
                     }
                 }) %}
             {% endif %}

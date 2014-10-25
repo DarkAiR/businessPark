@@ -26,7 +26,7 @@
 CKEDITOR.plugins.add( 'audio',
 {
 	// Translations, available at the end of this file, without extra requests
-	lang : [ 'en', 'fr' ],
+	lang : [ 'en', 'ru' ],
 
 	getPlaceholderCss : function()
 	{
@@ -167,27 +167,26 @@ var en = {
 		fallbackTemplate : 'Your browser doesn\'t support audio.<br>Please download the file: %links%'
 	};
 
-var fr = {
-		toolbar	: 'Audio',
-		dialogTitle : 'Propriétés du son',
+var ru = {
+		toolbar	: 'Аудио',
+		dialogTitle : 'Свойства аудио',
 		fakeObject : 'Audio',
-		properties : 'Edition du son',
-		sourceAudio: 'Source du son',
-		sourceType : 'Type',
+		properties : 'Редактировать аудио',
+		sourceAudio: 'Путь до файла',
+		sourceType : 'Тип файла',
 		linkTemplate :  '<a href="%src%">%type%</a> ',
-		fallbackTemplate : 'Votre navigateur ne supporte pas la balise audio.<br>Merci, de télécharger le fichier: %links%'
+		fallbackTemplate : 'Ваш браузер не поддерживает аудио:<br>Вы можете загрузить файл: %links%'
 	};
 
 	// v3
 	if (CKEDITOR.skins)
 	{
 		en = { audio : en} ;
-		fr = { audio : fr} ;
+		ru = { audio : ru} ;
 	}
 
 // Translations
 CKEDITOR.plugins.setLang( 'audio', 'en', en );
-
-CKEDITOR.plugins.setLang( 'audio', 'fr', fr );
+CKEDITOR.plugins.setLang( 'audio', 'ru', ru );
 
 })();

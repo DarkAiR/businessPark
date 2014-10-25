@@ -75,8 +75,8 @@ CKEDITOR.dialog.add( 'audio', function ( editor )
 
 	return {
 		title : lang.dialogTitle,
-		minWidth : 400,
-		minHeight : 200,
+		minWidth : 600,
+		minHeight : 300,
 
 		onShow : function()
 		{
@@ -176,6 +176,8 @@ CKEDITOR.dialog.add( 'audio', function ( editor )
 		[
 			{
 				id : 'info',
+				label: 'Info',
+				title: 'Info',
 				elements :
 				[
 					
@@ -271,7 +273,6 @@ CKEDITOR.dialog.add( 'audio', function ( editor )
 					}
 				]
 			}
-
 		]
 	};
 } );

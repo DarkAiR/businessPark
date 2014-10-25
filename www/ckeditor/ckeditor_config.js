@@ -1,18 +1,8 @@
-// get path of directory ckeditor
-var basePath = CKEDITOR.basePath;
-basePath = basePath.substr(0, basePath.indexOf("ckeditor/")); 
-
-console.log('BASE PATH = ' + basePath);
-
 CKEDITOR.editorConfig = function( config )
 {
-    // Declare the additional plugin 
     config.extraPlugins = 'audio';
-
-    // Define changes to default configuration here. For example:
     config.language = 'ru';
-    // config.uiColor = '#AADC6E';
-    config.skin = 'moono-light';
+    config.skin = 'moono';
     config.contentsCss = '/ckeditor/css/ckeditor.css';
 
     // Add the button to toolbar
@@ -43,8 +33,8 @@ CKEDITOR.editorConfig = function( config )
         { name: 'basicstyles', items : [ 'RemoveFormat', '-', 'Bold','Italic','Underline','Strike','Subscript','Superscript' ] },
         { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv',
         '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
-        { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
-        { name: 'insert', items : [ 'Image','Flash','-','Table','HorizontalRule','SpecialChar','Iframe' ] },
+        { name: 'links', items : [ 'Link', 'Unlink','Anchor' ] },
+        { name: 'insert', items : [ 'Image', 'Audio', 'Flash','-','Table','HorizontalRule','SpecialChar','Iframe' ] },
         '/',        
         { name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
         { name: 'editing', items : [ 'Find','Replace','-','SelectAll' ] },
@@ -60,4 +50,7 @@ CKEDITOR.config.pasteFromWordRemoveFontStyles = true;
 CKEDITOR.addStylesSet( 'default', [
 ]);
 
-CKEDITOR.plugins.addExternal( 'audio', basePath + '../../../ckeditor/plugins/audio/' );
+// get path of directory ckeditor
+var basePath = CKEDITOR.basePath;
+basePath = basePath.substr(0, basePath.indexOf("ckeditor/")); 
+CKEDITOR.plugins.addExternal( 'audio', basePath + '../../ckeditor/plugins/audio/' );
