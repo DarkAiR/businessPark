@@ -8,6 +8,10 @@ class MapArea extends CActiveRecord
     // Размер всех площадей в гектарах
     const TOTAL_SQUARE = 180;
 
+    // Типы стоимости
+    const PRICE_RUB = 0;
+    const PRICE_THOUSAND = 1;
+    const PRICE_MILLION = 2; 
 
     public static function model($className = __CLASS__)
     {
@@ -22,6 +26,8 @@ class MapArea extends CActiveRecord
             'width'         => 'Ширина',
             'height'        => 'Высота',
             'size'          => 'Размеры',
+            'price'         => 'Стоимость',
+            'priceType'     => 'Измерение стоимости',
             'resident'      => 'Резидент',
             'busy'          => 'Занят',
         );
@@ -32,7 +38,8 @@ class MapArea extends CActiveRecord
         return array(
             array('resident', 'safe'),
             array('cadastral, width, height', 'numerical', 'integerOnly'=>true),
-            array('square', 'numerical'),
+            array('square, price', 'numerical'),
+            array('priceType', 'in', 'range'=>array_keys(MapArea::getPriceTypes())),
             array('busy', 'boolean'),
             array('cadastral', 'required'),
             array('cadastral', 'unique', 'allowEmpty'=>false, 'skipOnError'=>false),
@@ -65,5 +72,26 @@ class MapArea extends CActiveRecord
                 )
             )
         ));
+    }
+
+    public static function getPriceTypes()
+    {
+        return array(
+            self::PRICE_RUB => 'руб.',
+            self::PRICE_THOUSAND => 'тыс.руб.',
+            self::PRICE_MILLION => 'млн.руб.'
+        );
+    }
+
+    public function getPriceStr()
+    {
+        if (!$this->price)
+            return '';
+
+        $priceTypes = MapArea::getPriceTypes();
+        if (!isset($priceTypes[$this->priceType]))
+            return '';
+
+        return $this->price.' '.$priceTypes[$this->priceType];
     }
 }

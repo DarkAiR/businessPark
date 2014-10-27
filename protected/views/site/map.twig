@@ -109,6 +109,9 @@
                     </div>
                     <div class='item'>
                         Размеры: <div class='text' id='js-info-size'></div>
+                    </div>
+                    <div class='item'>
+                        Стоимость: <div class='text' id='js-info-price'></div>
                     </div>                    
                 </div>
 
@@ -153,6 +156,7 @@
                 'busy': {{area.busy}},
                 'square': '{{area.square}}',
                 'size': '{{area.width}} x {{area.height}}',
+                'price': '{{area.priceStr}}',
                 'resident': '{{area.resident}}'
             }{% if not loop.last %},{% endif %}
 

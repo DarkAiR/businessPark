@@ -21,7 +21,9 @@ class AdminContentBlocksController extends MAdminController
             'position' => array(
                 'type' => 'dropdownlist',
                 'data' => ContentBlocks::getPosNames(),
-                'empty' => 'Выбрать'
+                'htmlOptions' => array(
+                    'data-placeholder' => 3,
+                ),
             ),
         );
     }

@@ -46,10 +46,9 @@ class AdminSitemenuController extends MAdminController
             'menuId' => array(
                 'type' => 'dropdownlist',
                 'data' => $menus,
-                'empty' => 'Выбрать',
                 'htmlOptions' => array(
-                    'onchange' => 'console.log("hello world");'
-                )
+                    'data-placeholder' => 0,
+                ),
             ),
             'name' => array(
                 'type' => 'textField',
@@ -68,8 +67,10 @@ class AdminSitemenuController extends MAdminController
             'parentItemId'=>array(
                 'type' => 'dropdownlist',
                 'data' => $parents,
-                'empty' => 'Выбрать',
-                'options' => array($model->id => array('disabled' => 'disabled'))
+                'options' => array($model->id => array('disabled' => 'disabled')),
+                'htmlOptions' => array(
+                    'data-placeholder' => 0,
+                ),
             ),
         );
         return $res;
