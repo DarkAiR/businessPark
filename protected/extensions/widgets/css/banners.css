@@ -1,0 +1,40 @@
+.banners-widget {
+  padding-bottom: 28px;
+}
+.banners-widget .col1 {
+  width: 225px;
+  min-width: 225px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.banners-widget .col2-3 {
+  width: 741px;
+  min-width: 741px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.banners-widget .banner {
+  padding-left: 22px;
+  padding-bottom: 36px;
+}
+.banners-widget .banner a {
+  text-decoration: none;
+  background-image: none;
+}
+.banners-widget .separators-group {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.banners-widget .separators-group .separator {
+  background: #cacaca;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  width: 100%;
+  background: #87c159;
+}
+.banners-widget .separators-group .separator-gap {
+  height: 3px;
+}

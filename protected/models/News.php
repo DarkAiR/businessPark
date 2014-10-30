@@ -153,6 +153,9 @@ class News extends CActiveRecord
         //$criteria->compare('name', $this->name, true);
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
             'sort' => array(
                 'defaultOrder' => array(
                     'onMain' => CSort::SORT_DESC,

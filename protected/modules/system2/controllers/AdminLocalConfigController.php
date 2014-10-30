@@ -15,14 +15,23 @@ class AdminLocalConfigController extends MAdminController
     {
         $res = array(
             'id' => array(
-                'type' => 'uneditable'
+                'type' => 'textField',
+                'htmlOptions' => array(
+                    'disabled' => true
+                )
             ),
             'value' => '',
             'example' => array(
-                'type' => 'uneditable'
+                'type' => 'textField',
+                'htmlOptions' => array(
+                    'disabled' => true
+                )
             ),
             'description' => array(
-                'type' => 'uneditable'
+                'type' => 'textField',
+                'htmlOptions' => array(
+                    'disabled' => true
+                )
             ),
         );
 
@@ -53,8 +62,8 @@ class AdminLocalConfigController extends MAdminController
             case LocalConfigItem::TYPE_DYNAMICARRAY:
                 $res['value'] = array(
                     'class' => 'application.components.admin.EditArrayWidget',
-                    'example' => $model->example,
-                    'label' => 'asdhjashdjka'
+                    'example' => $model->getExampleDecode(),
+                    'label' => ''
                 );
                 break;
 //            case LocalConfigItem::TYPE_FILE:

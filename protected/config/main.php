@@ -28,6 +28,7 @@ return array(
         'workline',
         'residents',
         'map',
+        'banners',
     ),
     'components' => array(
         'user' => array(

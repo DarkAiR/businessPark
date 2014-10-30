@@ -121,13 +121,19 @@ class LocalConfigItem extends CActiveRecord
         return $this;
     }
 
+    public function getExampleDecode()
+    {
+        return json_decode($this->example, true);
+    }
+
     protected function afterFind()
     {
         parent::afterFind();
 
         if (in_array($this->type, array(self::TYPE_FIXEDARRAY, self::TYPE_DYNAMICARRAY, self::TYPE_TWOPOWARRAY))) {
             $this->value = json_decode($this->value, true);
-            $this->example = json_decode($this->example, true);
+            // Так нельзя, придется править вывод списка в админке
+            // $this->example = json_decode($this->example, true);
         }
 
         // Возвращаем именно тот тип данных, в котором хранится конфиг
