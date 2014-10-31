@@ -6,7 +6,7 @@
     <div class='col2-3'>
         <div class='banner'>
             {% if banner.link %}<a href='{{banner.link}}'>{% endif %}
-                <img src='{{banner.getImageUrl()}}' width='{{const("Banners", "IMAGE_W")}}' height='{{const("Banners", "IMAGE_H")}}'>
+                <img src='{{banner.getImageUrl()}}' height='{{const("Banners", "IMAGE_H")}}'>
             {% if banner.link %}</a>{% endif %}
         </div>
     </div>

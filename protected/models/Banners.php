@@ -23,7 +23,7 @@ class Banners extends CActiveRecord
             'imageBehavior' => array(
                 'class' => 'application.behaviors.ImageBehavior',
                 'storagePath' => 'banners',
-                'imageWidth' => self::IMAGE_W,
+                'imageMaxWidth' => self::IMAGE_W,
                 'imageHeight' => self::IMAGE_H,
                 'imageField' => 'image',
             ),
