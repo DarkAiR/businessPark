@@ -1,9 +1,17 @@
 .main-page {
   min-height: 1px;
+  /* Задник */
 }
 .main-page .bottomGap {
   height: 44px;
   min-height: 44px;
+}
+.main-page .col1-2-3 {
+  width: 966px;
+  min-width: 966px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
 }
 .main-page .col1 {
   width: 225px;
@@ -55,21 +63,17 @@
   padding-left: 22px;
   padding-right: 22px;
 }
-/* Задник */
-.bg-container {
+.main-page .bg-container {
   width: 100%;
   min-width: 1024px;
-  height: 734px;
-  overflow: hidden;
-  position: absolute;
 }
-.bg-container .bg-picture {
+.main-page .bg-container .bg-picture {
   width: 1040px;
   height: 568px;
   position: absolute;
-  top: 166px;
+  top: 46px;
   left: 50%;
-  margin-left: -505px;
+  margin-left: -532px;
   background: url(../../img/mainBg.png) left top no-repeat;
   z-index: -1;
 }

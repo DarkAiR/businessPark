@@ -656,6 +656,7 @@ console.log('placemarkers mapOffsX=', mapOffsX);
                 map.info.setItemText('.window.free #js-info-status', 'свободен');
                 map.info.setItemText('.window.free #js-info-square', area.square, ' га');
                 map.info.setItemText('.window.free #js-info-size', area.size);
+                map.info.setItemText('.window.free #js-info-price', area.price);
 
                 // После обработки всех пунктов
                 map.info.setItemLast('.window.free');

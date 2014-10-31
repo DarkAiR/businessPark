@@ -12,7 +12,9 @@ class AdminCompanyServiceController extends MAdminController
             'type' => array(
                 'type' => 'dropdownlist',
                 'data' => CompanyService::getTypeNames(),
-                'empty' => CompanyService::TYPE_BASE,
+                'htmlOptions' => array(
+                    'data-placeholder' => CompanyService::TYPE_BASE,
+                ),
             ),
             'text' => array(
                 'type' => 'textArea',

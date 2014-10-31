@@ -15,15 +15,21 @@
 {% endblock %}
 
 
-{% block bg %}
-    <div class='bg-container'>
-        <div class='bg-picture'></div>
-    </div>
-{% endblock %}
-
 
 {% block content %}
 <div class='main-page'>
+    <div class='col1-2-3'>
+        {{ widget('ext.widgets.BannersWidget') }}
+    </div>
+
+    <div class='clearfix'></div>
+
+    <div class='bg-container  cont'>
+        <div class='bg-picture'></div>
+    </div>
+
+    <div class='clearfix'></div>
+
     <div class='col1  cont'>
         <div class='col1-block1'>
             {{ widget('ext.widgets.mainPage.SquareWidget') }}

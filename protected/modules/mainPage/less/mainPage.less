@@ -8,6 +8,9 @@
         min-height: @bigPadding * 2;
     }
 
+    .col1-2-3 {
+        .col(@mainCol1 + @mainCol2 + @mainCol3);
+    }
     .col1 {
         .col(@mainCol1);
     }
@@ -44,28 +47,28 @@
         padding-left: @bigPadding;
         padding-right: @bigPadding;
     }
-}
 
-/* Задник */
-.bg-container {
-    @w: 1040px;
-    @h: 568px;
-    @top: 166px;
+    /* Задник */
+    .bg-container {
+        @w: 1040px;
+        @h: 568px;
+        @top: 46px;
 
-    width: 100%;
-    min-width: @commonWidth;
-    height: @h + @top;
-    overflow:hidden;
-    position:absolute;
+        width: 100%;
+        min-width: @commonWidth;
+        //height: @h + @top;
+        //overflow:hidden;
+        //position:relative;
 
-    .bg-picture {
-        width: @w;
-        height: @h;
-        position: absolute;
-        top: @top;
-        left: 50%;
-        margin-left: -@w / 2 + 15px;
-        background: url(../../img/mainBg.png) left top no-repeat;
-        z-index: -1;
+        .bg-picture {
+            width: @w;
+            height: @h;
+            position: absolute;
+            top: @top;
+            left: 50%;
+            margin-left: -@w / 2 - 12px;
+            background: url(../../img/mainBg.png) left top no-repeat;
+            z-index: -1;
+        }
     }
 }

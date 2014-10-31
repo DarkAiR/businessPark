@@ -15,7 +15,9 @@ class AdminArticlesController extends MAdminController
             'type' => array(
                 'type' => 'dropdownlist',
                 'data' => Articles::getTypeNames(),
-                'empty' => Articles::TYPE_UNDER_CONSTRUCTION,
+                'htmlOptions' => array(
+                    'data-placeholder' => Articles::TYPE_UNDER_CONSTRUCTION,
+                ),
             ),
             'title' => array(
                 'type' => 'textField',

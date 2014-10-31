@@ -21,6 +21,16 @@ class AdminMapAreaController extends MAdminController
             'height' => array(
                 'type' => 'textField',
             ),
+            'price' => array(
+                'type' => 'textField',
+            ),
+            'priceType' => array(
+                'type' => 'dropdownlist',
+                'data' => MapArea::getPriceTypes(),
+                'htmlOptions' => array(
+                    'data-placeholder' => MapArea::PRICE_RUB,
+                ),
+            ),
             'resident' => array(
                 'type' => 'textField',
             ),

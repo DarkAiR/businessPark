@@ -248,7 +248,7 @@ class MAdminController extends CExtController
 
     public function actionUpdate()
     {
-        Yii::import('bootstrap.widgets.TbEditableSaver');
+        Yii::import('bootstrap.components.TbEditableSaver');
         $es = new TbEditableSaver($this->modelName);
         $es->update();
     }
@@ -368,6 +368,7 @@ class MAdminController extends CExtController
                 'width' => '32',
             ),
             'editable' => array(
+                'title' => $label,
                 'type' => 'select',
                 'source' => array(0, 1),
                 'url' => $this->createUrl('update'),
@@ -377,11 +378,13 @@ class MAdminController extends CExtController
 
     public function getSelectColumn($name, $data)
     {
+        $label = CActiveRecord::model($this->modelName)->getAttributeLabel($name);
         return array(
             'class' => 'bootstrap.widgets.TbEditableColumn',
             'name' => $name,
-            'header' => CActiveRecord::model($this->modelName)->getAttributeLabel($name),
+            'header' => $label,
             'editable' => array(
+                'title' => $label,
                 'type' => 'select',
                 'source' => $data,
                 'url' => $this->createUrl('update'),
@@ -391,6 +394,7 @@ class MAdminController extends CExtController
 
     public function getOrderColumn($name = 'orderNum')
     {
+        $label = CActiveRecord::model($this->modelName)->getAttributeLabel($name);
         return array(
             'class' => 'bootstrap.widgets.TbEditableColumn',
             'name' => $name,
@@ -399,6 +403,7 @@ class MAdminController extends CExtController
                 'width' => '32',
             ),
             'editable' => array(
+                'title' => $label,
                 'url' => $this->createUrl('update'),
             )
         );

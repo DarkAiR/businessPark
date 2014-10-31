@@ -1,0 +1,21 @@
+{{ import('css','banners.css','ext.widgets.css') }}
+
+<div class='banners-widget'>
+    <div class='col1'>
+    </div>
+    <div class='col2-3'>
+        <div class='banner'>
+            {% if banner.link %}<a href='{{banner.link}}'>{% endif %}
+                <img src='{{banner.getImageUrl()}}' height='{{const("Banners", "IMAGE_H")}}'>
+            {% if banner.link %}</a>{% endif %}
+        </div>
+    </div>
+
+    <div class='clearfix'></div>
+
+    <div class='separators-group'>
+        <div class='separator'></div>
+        <div class='separator-gap'></div>
+        <div class='separator'></div>
+    </div>
+</div>

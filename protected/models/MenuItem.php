@@ -64,7 +64,7 @@ class MenuItem extends CActiveRecord
             array(
                 array('menuId, name, link', 'required'),
                 array('visible', 'boolean'),
-                array('orderNum, parentItemId', 'numerical', 'integerOnly'=>true),
+                array('parentItemId', 'numerical', 'integerOnly'=>true),
             )
         );
     }

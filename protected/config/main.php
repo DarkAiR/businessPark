@@ -28,6 +28,7 @@ return array(
         'workline',
         'residents',
         'map',
+        'banners',
     ),
     'components' => array(
         'user' => array(
@@ -41,23 +42,15 @@ return array(
             'showScriptName' => false,
             'rules' => array(
                 '/'                                 => 'mainPage/mainPage/index',
-                'uploadImage'                       => 'site/uploadImage',
-                'uploadFile'                        => 'site/uploadFile',
                 'panorams'                          => 'site/panorama',
                 'map/<type:\w+>/'                   => 'site/map',
                 'map'                               => 'site/map',
                 'presentation'                      => 'site/presentation',
-//                'test'                               => 'site/test',
 
                 // News
                 'news/show/<id:\d+>/'               => 'news/news/show',
                 'news/<year:\d+>/'                  => 'news/news/index',
                 'news/'                             => 'news/news/index',
-
-                // Projects
-//                'works/show/<id:\d+>/'              => 'projects/projects/show',
-//                'works/<sectionId:\d+>/'            => 'projects/projects/index',
-//                'works/'                            => 'projects/projects/index',
 
                 // Workline
                 'workline/'                         => 'workline/workline/index',
