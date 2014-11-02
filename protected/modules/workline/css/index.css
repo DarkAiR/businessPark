@@ -48,8 +48,20 @@
 .workline-page .icon.icon4 {
   background: url(../../img/workline/icons/4.png) left top no-repeat;
 }
+.workline-page .icon.icon5 {
+  background: url(../../img/workline/icons/5.png) left top no-repeat;
+}
 .workline-page .icon.icon6 {
   background: url(../../img/workline/icons/6.png) left top no-repeat;
+}
+.workline-page .icon.icon7 {
+  background: url(../../img/workline/icons/7.png) left top no-repeat;
+}
+.workline-page .icon.icon8 {
+  background: url(../../img/workline/icons/8.png) left top no-repeat;
+}
+.workline-page .icon.icon9 {
+  background: url(../../img/workline/icons/9.png) left top no-repeat;
 }
 .workline-page .steps {
   padding: 0;
