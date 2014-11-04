@@ -183,7 +183,7 @@ class LocalConfigItem extends CActiveRecord
     {
         if (in_array($this->type, array(self::TYPE_FIXEDARRAY, self::TYPE_DYNAMICARRAY))) {
             $this->value = json_encode($this->value);
-            $this->example = json_encode($this->example);
+//            $this->example = json_encode($this->example);
         }
 
         // Расстановка степеней двойки в качестве ключей массива

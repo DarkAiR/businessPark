@@ -5,7 +5,7 @@ class EditArrayWidget extends CWidget
     public $model;
     public $attribute;
 
-    /** @var bool Массив фиксированной длинны */
+    /** @var bool Массив фиксированной длины */
     public $fixed = false;
     public $numeric = false;
 

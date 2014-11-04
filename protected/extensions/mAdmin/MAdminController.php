@@ -144,7 +144,9 @@ class MAdminController extends CExtController
             $modifiedRelations = $this->setAttributes($model);
 
             $this->beforeSave($model);
-            if ($validated = $model->validate()) {
+
+            $validated = $model->validate();
+            if ($validated) {
                 foreach ($modifiedRelations as $relationName) {
                     $validated = $validated && $model->$relationName->validate();
                 }
