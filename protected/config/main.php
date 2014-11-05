@@ -100,6 +100,7 @@ return array(
                 ),
                 'const' => 'TwigFunctions::constGet',
                 'static' => 'TwigFunctions::staticCall',
+                'call' => 'TwigFunctions::call',
                 'import' => 'TwigFunctions::importResource',
                 'absLink' => 'TwigFunctions::absLink',
                 'plural' => 'TwigFunctions::plural',

@@ -42,6 +42,11 @@ class TwigFunctions
         return call_user_func_array($class . '::' . $method, $params);
     }
 
+    public static function call($function, $params = array())
+    {
+        return call_user_func_array($function, $params);
+    }
+
     /**
      * Добавить CSS
      */

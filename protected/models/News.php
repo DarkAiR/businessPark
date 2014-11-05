@@ -191,6 +191,11 @@ class News extends CActiveRecord
         return $this->imageBehavior->getImageUrl();
     }
 
+    public function getDocUrl($filename)
+    {
+        return $this->docBehavior->getDocUrl($filename);
+    }
+
     protected function afterDelete()
     {
         $this->imageBehavior->imageAfterDelete();

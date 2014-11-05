@@ -57,4 +57,9 @@ class DocumentsBehavior extends CActiveRecordBehavior
     {
         $this->owner->{$this->docField} = json_encode($this->owner->{$this->docField});
     }
+
+    public function getDocUrl($filename)
+    {
+        return '/store/'.$this->storagePath.'/'.$filename;
+    }
 }
