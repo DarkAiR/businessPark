@@ -19,12 +19,7 @@ class DocumentsControllerBehavior extends CBehavior
         $modelName = get_class($model);
 
         // Отмечаем какие файлы удалить, какие оставить, какие новые
-        $files = $this->getInstancesByName('WorkLinePdf');
-
-        $r1 = $model->validate(array($this->innerField));
-        $r2 = !empty($model->{$this->innerField});
-        if (!$r1 || !$r2)
-            return;
+        $files = $this->getInstancesByName($modelName.'['.$this->innerField.']');
 
         // $existsFiles - файлы, которые не трогать
         // $newFiles - новые файлы
@@ -36,6 +31,21 @@ class DocumentsControllerBehavior extends CBehavior
         // Ничего не поменялось, выходим
         if (count($removeFiles)==0 && count($newFiles)==0)
             return;
+
+        // Сохраняем во внутреннем поле, чтобы прошла валидация, но не портились реальные данные объекта
+        foreach ($newFiles as $k => $file) {
+            $fileName = $this->correctFileName($file->name);
+            // Будет переписана старая запись о файле или добавлена новая
+            $existsFiles[$k] = array('name'=>$fileName, 'size'=>$file->size);
+        }
+        ksort($existsFiles);
+        $model->{$this->innerField} = $existsFiles;
+
+        // Валидируем внутреннее поле
+        if (!$model->validate(array($this->innerField))) {
+            return;
+        }
+
 
 
         if (!is_dir($storagePath))
@@ -50,13 +60,9 @@ class DocumentsControllerBehavior extends CBehavior
         foreach ($newFiles as $k => $file) {
             $fileName = $this->correctFileName($file->name);
             $file->saveAs( $storagePath.$fileName );
-
-            // Будет переписана старая запись о файле или добавлена новая
-            $existsFiles[$k] = array('name'=>$fileName, 'size'=>$file->size);
         }
 
         $model->{$this->docField} = $existsFiles;
-        $model->{$this->innerField} = $existsFiles;
     }
 
     /**
@@ -90,7 +96,7 @@ class DocumentsControllerBehavior extends CBehavior
             }
 
             if ($isRemoved) {
-                $existsFiles[$k] = array('name'=>'', 'size'=>0);
+                unset($existsFiles[$k]);
             }
         }
 

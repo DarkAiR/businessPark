@@ -50,14 +50,13 @@ class WorkLinePdf extends CActiveRecord
 
     protected function afterFind()
     {
-        $this->data = json_decode($this->data, true);
         $this->docBehavior->docAfterFind();
         return parent::afterFind();
     }
 
     protected function beforeSave()
     {
-        $this->data = json_encode($this->data);
+        $this->docBehavior->docBeforeSave();
         return parent::beforeSave();
     }
 

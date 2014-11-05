@@ -46,6 +46,15 @@ class DocumentsBehavior extends CActiveRecordBehavior
 
     public function docAfterFind()
     {
+        if (empty($this->owner->{$this->docField}))
+            $this->owner->{$this->docField} = json_encode(array());
+
+        $this->owner->{$this->docField} = json_decode($this->owner->{$this->docField}, true);
         $this->owner->{$this->innerField} = $this->owner->{$this->docField};
+    }
+
+    public function docBeforeSave()
+    {
+        $this->owner->{$this->docField} = json_encode($this->owner->{$this->docField});
     }
 }

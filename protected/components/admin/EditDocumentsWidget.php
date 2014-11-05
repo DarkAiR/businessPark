@@ -5,6 +5,7 @@ class EditDocumentsWidget extends CWidget
     public $model;
     public $attribute;
     public $attributeRemove = '';
+    public $innerField = '';
     public $form;
 
     public $maxRows = 0;        // Максимальное количество строк (0-бесконечно)
@@ -18,10 +19,12 @@ class EditDocumentsWidget extends CWidget
         if (!is_array($array))
             throw new CException('passed attribute is not an array!');
 
-        if ($this->maxRows > 0 && count($array) < $this->maxRows) {
-            $array = array_fill(count($array), $this->maxRows - count($array), '');
+        for ($i=0; $i<$this->maxRows; $i++) {
+            if (isset($array[$i]))
+                continue;
+            $array[$i] = '';
         }
-
+        ksort($array);
 
         $this->render('editDocuments',array(
             'form'                  => $this->form,
@@ -29,6 +32,7 @@ class EditDocumentsWidget extends CWidget
             'modelClass'            => get_class($model),
             'attributeName'         => $attribute,
             'attributeRemoveName'   => $this->attributeRemove,
+            'innerField'            => $this->innerField,
             'array'                 => $array,
             'maxRows'               => $this->maxRows,
             'fixed'                 => $this->maxRows > 0

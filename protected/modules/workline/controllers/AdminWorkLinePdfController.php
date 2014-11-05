@@ -44,10 +44,11 @@ class AdminWorkLinePdfController extends MAdminController
             'id' => array(
                 'type' => 'hidden',
             ),
-            '_docs' => array(
+            'data' => array(
                 'class' => 'application.components.admin.EditDocumentsWidget',
+                'innerField' => '_docs',
                 'attributeRemove' => '_removeDocs',
-                'maxRows' => 2,
+                'maxRows' => 1,
             )
         );
     }

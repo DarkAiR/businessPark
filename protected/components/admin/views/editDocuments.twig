@@ -1,9 +1,9 @@
 <div class='arrayWidget'>
 
-{% set errorClass = model.hasErrors(attributeName) ? 'error' : '' %}
+{% set errorClass = model.hasErrors(innerField) ? 'error' : '' %}
 
 <div class="control-group {{errorClass}}">
-    <label class="control-label">{{ model.getAttributeLabel(attributeName) }}</label>
+    <label class="control-label">{{ model.getAttributeLabel(innerField) }}</label>
     <div class="controls">
 
     <table>
@@ -18,7 +18,7 @@
                     {{ value['name']|raw }}
                 </td>
                 <td>
-                    {{ attribute(form, 'fileField', [model, attributeName ~ '[' ~ loop.index0 ~ ']'] )|raw }}
+                    {{ attribute(form, 'fileField', [model, innerField ~ '[' ~ loop.index0 ~ ']'] )|raw }}
                 </td>
                 <td>
                     <label class="checkbox">{{ attribute(form, 'checkBox', [model, attributeRemoveName ~ '[' ~ loop.index0 ~ ']'])|raw }} Удалить</label>
@@ -26,7 +26,7 @@
             </tr>
         {% endfor %}
     </table>
-    {{ attribute(form, 'error', [model, attributeName])|raw }}
+    {{ attribute(form, 'error', [model, innerField])|raw }}
 
 {#
         {% if not fixed %}

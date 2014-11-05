@@ -17,6 +17,9 @@ class News extends CActiveRecord
     public $createTimeDate = '';
     public $createTimeTime = '';
 
+    public $_docs = null;
+    public $_removeDocs = array();
+
 
     public static function model($className = __CLASS__)
     {
@@ -37,6 +40,12 @@ class News extends CActiveRecord
                 'imageField' => 'image',
                 'imageLabel' => 'Маленькая картинка',
             ),
+            'docBehavior' => array(
+                'class' => 'application.behaviors.DocumentsBehavior',
+                'docField' => 'docs',
+                'docExt' => 'pdf, doc, docx, xls',
+                'storagePath' => 'docs/news',
+            ),
             'timeBehavior' => array(
                 'class' => 'application.behaviors.TimeBehavior',
                 'createTimeField' => 'createTime',
@@ -54,6 +63,7 @@ class News extends CActiveRecord
     {
         return array_merge(
             $this->imageBehavior->imageLabels(),
+            $this->docBehavior->docLabels(),
             $this->timeLabels(),
             array(
                 'title' => 'Заголовок',
@@ -73,6 +83,7 @@ class News extends CActiveRecord
     {
         return array_merge(
             $this->imageBehavior->imageRules(),
+            $this->docBehavior->docRules(),
             $this->timeRules(),
             array(
                 array('title, desc, shortDesc', 'safe'),
@@ -183,12 +194,14 @@ class News extends CActiveRecord
     protected function afterDelete()
     {
         $this->imageBehavior->imageAfterDelete();
+        $this->docBehavior->docAfterDelete();
         return parent::afterDelete();
     }
 
     protected function afterFind()
     {
         $this->imageBehavior->imageAfterFind();
+        $this->docBehavior->docAfterFind();
         $this->timeAfterFind();
 
         $this->createTimeDate = date('d.m.Y', $this->createTime);
@@ -202,6 +215,7 @@ class News extends CActiveRecord
         if (!empty($this->createTimeDate) && !empty($this->createTimeTime))
             $this->createTime = strtotime($this->createTimeDate.' '.$this->createTimeTime);
 
+        $this->docBehavior->docBeforeSave();
         $this->timeCreate();
         return parent::beforeSave();
     }
