@@ -65,6 +65,12 @@
 .news-page .content .files .iconRow .icon.pdf {
   background: url(../../img/fileicons/pdf.png) left top no-repeat;
 }
+.news-page .content .files .iconRow .icon.doc {
+  background: url(../../img/fileicons/word.png) left top no-repeat;
+}
+.news-page .content .files .iconRow .icon.docx {
+  background: url(../../img/fileicons/word.png) left top no-repeat;
+}
 .news-page .content .files .iconRow .name {
   font-size: 16px;
   line-height: 66px;
