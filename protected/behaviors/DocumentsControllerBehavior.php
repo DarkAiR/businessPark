@@ -151,7 +151,7 @@ class DocumentsControllerBehavior extends CBehavior
 
     private function correctFileName($fileName)
     {
-        $fileName = str_replace(' ', '_', $fileName);
+        //$fileName = str_replace(' ', '_', $fileName);
         $fileName = str_replace(':', '.', $fileName);
         return $fileName;
     }
