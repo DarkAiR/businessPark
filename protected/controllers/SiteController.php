@@ -68,6 +68,7 @@ class SiteController extends Controller
         $criteria->select = 'createDate';
         $criteria->group = 'createDate';
         $criteria->order = 'createDate DESC';
+        $criteria->condition = 'visible=1';
         $dates = Yii::app()->db->commandBuilder->createFindCommand('Panorama', $criteria)->queryAll();
 
         $panorams = Panorama::model()->onSite()->orderDefault()->findAll();
