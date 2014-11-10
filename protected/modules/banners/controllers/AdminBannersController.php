@@ -14,6 +14,10 @@ class AdminBannersController extends MAdminController
                 'imageWidth' => Banners::IMAGE_W,
                 'imageHeight' => Banners::IMAGE_H,
             ),
+            'flashBehavior' => array(
+                'class' => 'application.behaviors.FlashControllerBehavior',
+                'flashField' => 'flash',
+            ),
         );
     }
 
@@ -27,6 +31,11 @@ class AdminBannersController extends MAdminController
                 'class' => 'ext.ImageFileRowWidget',
                 'uploadedFileFieldName' => '_image',
                 'removeImageFieldName' => '_removeImageFlag',
+            ),
+            '_flash' => array(
+                'class' => 'ext.ImageFileRowWidget',
+                'uploadedFileFieldName' => '_flash',
+                'removeImageFieldName' => '_removeFlash',
             ),
             'link' => array(
                 'type' => 'textField',
@@ -52,6 +61,7 @@ class AdminBannersController extends MAdminController
     public function beforeSave($model)
     {
         $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
+        $this->flashBehavior->flashBeforeSave($model, $model->flashBehavior->getStorePath());
         parent::beforeSave($model);
     }
 }

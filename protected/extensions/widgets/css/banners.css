@@ -15,6 +15,14 @@
   height: inherit;
   min-height: 1px;
 }
+.banners-widget .cont {
+  position: relative;
+}
+.banners-widget .absolute {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .banners-widget .banner {
   padding-left: 22px;
   padding-bottom: 36px;
