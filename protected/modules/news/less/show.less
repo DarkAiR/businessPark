@@ -1,4 +1,5 @@
 @import (reference) 'base';
+@import '../../../views/less/fileicons';
 
 .news-page {
     padding-bottom: @footerPaddingTop;
@@ -52,6 +53,14 @@
             padding-top: @paragraphPadding / 2;
             padding-bottom: @paragraphPadding / 2;
         }
+        .files {
+            padding-top: @bigPadding;
+            padding-bottom: @bigPadding;
+            .iconRow {
+                .iconRow();
+            }
+        }
+
         img {
             max-width: @newsImageW;
             height: auto !important;

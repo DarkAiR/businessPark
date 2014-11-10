@@ -46,7 +46,10 @@
             {'label':'Разделы сайта', 'action' : false, 'items': [
                 {'label':'Новости', 'url':['/news/adminNews'], 'active':this.uniqueId == '/news/adminNews'},
                 {'label':'Услуги управляющей компании', 'url':['/company/adminCompanyService'], 'active':this.uniqueId == '/company/adminCompanyService', 'visible':App.user.checkAccess('admin')},
-                {'label':'Резидентам', 'url':['/workline/adminWorkLine'], 'active':this.uniqueId == '/workline/adminWorkLine'},
+                {'label':'Резидентам', 'action' : false, 'items': [
+                    {'label':'Шаги', 'url':['/workline/adminWorkLine'], 'active':this.uniqueId == '/workline/adminWorkLine'},
+                    {'label':'Pdf', 'url':['/workline/adminWorkLinePdf'], 'active':this.uniqueId == '/workline/adminWorkLinePdf'},
+                ]},
                 {'label':'Резиденты парка', 'url':['/residents/adminResidents'], 'active':this.uniqueId == '/residents/adminResidents'},
                 {'label':'Баннеры', 'url':['/banners/adminBanners'], 'active':this.uniqueId == '/residents/adminResidents'},
                 {'label':'Контентные блоки', 'url':['/contentBlocks/adminContentBlocks'], 'active':this.uniqueId == '/contentBlocks/adminContentBlocks', 'visible':App.user.checkAccess('admin')},

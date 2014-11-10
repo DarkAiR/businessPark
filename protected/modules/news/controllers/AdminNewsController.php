@@ -14,6 +14,10 @@ class AdminNewsController extends MAdminController
                 'imageWidth' => News::IMAGE_SMALL_W,
                 //'imageHeight' => News::IMAGE_SMALL_H,
             ),
+            'docBehavior' => array(
+                'class' => 'application.behaviors.DocumentsControllerBehavior',
+                'docField' => 'docs',
+            ),
         );
     }
 
@@ -54,6 +58,12 @@ class AdminNewsController extends MAdminController
                 'uploadedFileFieldName' => '_image',
                 'removeImageFieldName' => '_removeImageFlag',
             ),
+            'docs' => array(
+                'class' => 'application.components.admin.EditDocumentsWidget',
+                'innerField' => '_docs',
+                'attributeRemove' => '_removeDocs',
+                'maxRows' => 5,
+            ),
             'onMain' => array(
                 'type' => 'checkBox',
             ),
@@ -82,6 +92,7 @@ class AdminNewsController extends MAdminController
     public function beforeSave($model)
     {
         $this->imageBehavior->imageBeforeSave($model, $model->imageBehavior->getStorePath());
+        $this->docBehavior->docBeforeSave($model, $model->docBehavior->getStorePath());
         parent::beforeSave($model);
     }
 }
