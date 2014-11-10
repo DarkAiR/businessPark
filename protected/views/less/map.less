@@ -1,5 +1,9 @@
 @import (reference) 'custom';
 
+body.noSelect * {
+    pointer-events: none;
+}
+
 // Отключаем выделение на уровне CSS
 *[unselectable=on] {
     -moz-user-select: none;
@@ -301,12 +305,25 @@
     opacity: 0.9;
 
     .window {
+        position: relative;
         border: 1px solid rgba(0,0,0,0.2);
         background: url(../../img/map/map_nav.png) left top no-repeat;
+        width: 244px;
+        height: 243px;
     
         display: none;
         &.show {
             display: block;
+        }
+
+        .selector {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            left: 0px;
+            top: 0px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(0,0,0,0.2);
         }
     }
 
