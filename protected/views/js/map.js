@@ -920,6 +920,11 @@ map = {
                 map.showMarkers('green', '[id^="green_"]', status); 
             });
 
+            // Костыль, чтобы на ipad правильно масштабировать
+            el.find('#check-busy').trigger('click');
+            el.find('#check-busy').trigger('click');
+
+
             // Обрабатываем тип заранее заданные нажатия на фильтре
             switch (showType) {
                 case 'busy':
