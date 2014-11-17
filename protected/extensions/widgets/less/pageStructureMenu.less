@@ -7,12 +7,41 @@
         .font(Verdana);
     }
 
-    width: @mainCol1 + @mainCol2 + @mainCol3 - @bigPadding;
-    margin-left: @bigPadding;
-    padding-bottom: @middlePadding;
-    padding-top: @middlePadding;
-    margin-top: @bigPadding;
-    border-top: 1px dashed @colorLink;
+    .inner {
+        width: @mainCol1 + @mainCol2 + @mainCol3 - @bigPadding;
+        margin-left: @bigPadding;
+        margin-top: @bigPadding;
+        border-top: 1px dashed @colorLink;
+    }
+
+    .float-panel {
+        padding-bottom: @middlePadding;
+        padding-top: @middlePadding;
+
+        &.invisible {
+            visibility: hidden;
+        }
+    }
+    .fixed-panel {
+        .border-radius(0, 0, 8px, 8px);
+        //.shadow(0px, 0px, 1px);
+        border: 1px solid #eee;
+        border-top: none;
+
+        padding-bottom: @middlePadding;
+        padding-top: @middlePadding;
+
+        // Добавляем правильный отступ слева
+        margin-left: -@bigPadding;
+        padding-left: @bigPadding;
+
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba(255,255,255,0.9);
+    }
 
     ul {
         li {

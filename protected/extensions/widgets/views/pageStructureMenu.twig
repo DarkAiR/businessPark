@@ -3,18 +3,58 @@
     {{ import('css','pageStructureMenu.css','ext.widgets.css') }}
 {% endblock %}
 
-<div class='page-structure-menu-widget  hmenu'>
-    <ul>
-        {% for item in items %}
-            {% set active = item.select %}
-            {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
-            {% set blank = item.blank ? 'target="_blank"' : '' %}
-            <li class='{{posClass}}'>
-                <a class='{% if active %}active{% endif %}' href='{{ item.link }}' {{blank}}>{{ item.name|raw }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).scroll( function(ev) {
+            var floatPanel = $('#js-float-panel');
+            var fixedPanel = $('#js-fixed-panel');
+
+            var docTop = $(document).scrollTop();
+            var elOffs = floatPanel.offset();
+            if (docTop - elOffs.top > 0) {
+                fixedPanel.show();
+                fixedPanel.css({
+                    'left': elOffs.left,
+                    'width': $('.page-structure-menu-widget').width()
+                });
+                floatPanel.addClass('invisible');
+            } else {
+                fixedPanel.hide();
+                floatPanel.removeClass('invisible');
+            }
+        });
+
+        $(window).resize(function() {
+            $('#js-fixed-panel').css({'left': $('#js-float-panel').offset().left});
+        });
+    });
+</script>
+
+<div class='page-structure-menu-widget'>
+    <div class='inner'>
+        <div class='float-panel  hmenu' id='js-float-panel'>
+            <ul>
+                {% for item in items %}
+                    {% set active = item.select %}
+                    {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
+                    {% set blank = item.blank ? 'target="_blank"' : '' %}
+                    <li class='{{posClass}}'>
+                        <a class='{% if active %}active{% endif %}' href='{{ item.link }}' {{blank}}>{{ item.name|raw }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class='fixed-panel  hmenu' id='js-fixed-panel'>
+            <ul>
+                {% for item in items %}
+                    {% set active = item.select %}
+                    {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
+                    {% set blank = item.blank ? 'target="_blank"' : '' %}
+                    <li class='{{posClass}}'>
+                        <a class='{% if active %}active{% endif %}' href='{{ item.link }}' {{blank}}>{{ item.name|raw }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
-
-
-

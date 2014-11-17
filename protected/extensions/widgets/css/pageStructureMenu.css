@@ -1,16 +1,47 @@
-.page-structure-menu-widget {
-  width: 944px;
-  margin-left: 22px;
-  padding-bottom: 18px;
-  padding-top: 18px;
-  margin-top: 22px;
-  border-top: 1px dashed #6a9e40;
-}
 .page-structure-menu-widget,
 .page-structure-menu-widget table {
   font-size: 12px;
   line-height: 19px;
   font-family: "verdanaregular", Helvetica, Arial, sans-serif;
+}
+.page-structure-menu-widget .inner {
+  width: 944px;
+  margin-left: 22px;
+  margin-top: 22px;
+  border-top: 1px dashed #6a9e40;
+}
+.page-structure-menu-widget .float-panel {
+  padding-bottom: 18px;
+  padding-top: 18px;
+}
+.page-structure-menu-widget .float-panel.invisible {
+  visibility: hidden;
+}
+.page-structure-menu-widget .fixed-panel {
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid #eee;
+  border-top: none;
+  padding-bottom: 18px;
+  padding-top: 18px;
+  margin-left: -22px;
+  padding-left: 22px;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 .page-structure-menu-widget ul li {
   padding-left: 11px;

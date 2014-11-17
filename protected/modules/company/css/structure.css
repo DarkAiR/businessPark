@@ -17,6 +17,10 @@
 .structure-page > .title lightgrey {
   color: #929da0;
 }
+.structure-page a[name] {
+  margin-top: -44px;
+  display: inline-block;
+}
 .structure-page .gap {
   height: 6px;
   min-height: 6px;
