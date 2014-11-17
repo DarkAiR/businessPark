@@ -11,6 +11,8 @@ class Menu extends CActiveRecord
     const LEFT_MENU_MAIN = 4;
     const LEFT_MENU_NEWS = 5;
     const LEFT_MENU_CONTACTS = 6;
+    const PAGE_TOP_MAP = 7;             // Верхнее меню на карте
+    const PAGE_TOP_STRUCTURE = 8;       // Верхнее меню в инфраструктуре
 
 
     public static function model($className = __CLASS__)

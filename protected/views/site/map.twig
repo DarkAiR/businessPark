@@ -25,13 +25,9 @@
 <div class='map-page'>
     <div class='col1'></div>
     <div class='col2-3'>
-        <div class='title'>
-            Генеральный <lightgrey>план</lightgrey>
-        </div>
-        <!--div id='debug' style='width:500px; height:100px; display:none;'>
-        </div>
-        <div id='debug2' style='width:500px; height:100px; display:none;'>
-        </div-->
+        {{ widget('ext.widgets.TopPageMenuWidget', {
+            'menu': const('Menu', 'PAGE_TOP_MAP')
+        }) }}
     </div>
 </div>
 {% endblock %}

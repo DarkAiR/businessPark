@@ -80,7 +80,6 @@ map = {
                 var deltaY = e.center.y - pageY;
                 pageX = e.center.x;
                 pageY = e.center.y;
-                //$('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
                 map.setMapCoords(deltaX, deltaY);
             }
         });
