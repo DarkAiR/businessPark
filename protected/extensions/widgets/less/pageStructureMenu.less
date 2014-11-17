@@ -1,0 +1,32 @@
+@import (reference) '../../../views/less/custom';
+
+.page-structure-menu-widget {
+
+    &, table {
+        .font-size(12);
+        .font(Verdana);
+    }
+
+    width: @mainCol1 + @mainCol2 + @mainCol3 - @bigPadding;
+    margin-left: @bigPadding;
+    padding-bottom: @middlePadding;
+    padding-top: @middlePadding;
+    margin-top: @bigPadding;
+    border-top: 1px dashed @colorLink;
+
+    ul {
+        li {
+            padding-left:  @smallPadding;
+            padding-right: @smallPadding;
+        }
+        li, li * {
+            line-height: 1;
+        }
+        li a {
+            .link(green-dashed);
+        }
+        li a:hover {
+            .link(green-dashed);
+        }
+    }
+}

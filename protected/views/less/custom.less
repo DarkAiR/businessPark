@@ -156,6 +156,7 @@
 // ------------------------------------------
 // Links
 // http://webcodertools.com/imagetobase64converter
+// http://www.dailycoding.com/Utils/Converter/ImageToBase64.aspx
 
 @linkBgPos: 99%;
 
@@ -171,7 +172,14 @@
 .link(hover) {
     text-decoration: none;
     // display: inline;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);    background-repeat: repeat-x;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
+    background-position: center @linkBgPos;
+}
+.link(green-dashed) {
+    text-decoration: none;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAABCAIAAAB2XpiaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gsREys5TIC+XAAAAAh0RVh0Q29tbWVudAD2zJa/AAAAFUlEQVQI12NsPxjJwMBQYbeMgYEBABjRAv8G+9HHAAAAAElFTkSuQmCC);
+    background-repeat: repeat-x;
     background-position: center @linkBgPos;
 }
 .link(blue) {
