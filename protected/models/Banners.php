@@ -5,11 +5,14 @@
  */
 class Banners extends CActiveRecord
 {
-    const IMAGE_W = 697;
+    const IMAGE_W = 699;
     const IMAGE_H = 44;
 
     public $_image = null; //UploadedFile[]
     public $_removeImageFlag = false; // bool
+
+    public $_flash = null;
+    public $_removeFlash = false;
 
 
     public static function model($className = __CLASS__)
@@ -26,6 +29,12 @@ class Banners extends CActiveRecord
                 'imageMaxWidth' => self::IMAGE_W,
                 'imageHeight' => self::IMAGE_H,
                 'imageField' => 'image',
+                'imageExt' => 'jpeg, jpg, png',
+            ),
+            'flashBehavior' => array(
+                'class' => 'application.behaviors.FlashBehavior',
+                'storagePath' => 'banners',
+                'flashField' => 'flash',
             ),
         );
     }
@@ -34,6 +43,7 @@ class Banners extends CActiveRecord
     {
         return array_merge(
             $this->imageBehavior->imageLabels(),
+            $this->flashBehavior->flashLabels(),
             array(
                 'name' => 'Название',
                 'link' => 'Ссылка',
@@ -46,27 +56,35 @@ class Banners extends CActiveRecord
     {
         return array_merge(
             $this->imageBehavior->imageRules(),
+            $this->flashBehavior->flashRules(),
             array(
                 array('name', 'required'),
                 array('name, link', 'safe'),
                 array('visible', 'boolean'),
-                array('_image', 'requiredImageValidator'),
+                array('_image, _flash', 'requiredValidator'),
             )
         );
     }
 
-    public function requiredImageValidator($attribute,$params)
+    public function requiredValidator($attribute, $params)
     {
-        $value = $this->$attribute;
-        $isEmpty = ($value===null || $value===array() || $value==='');
+        $value = $this->_image;
+        $isEmptyInnerImage = ($value===null || $value===array() || $value==='');
 
         $value = $this->image;
         $isEmptyImage = ($value===null || $value===array() || $value==='');
 
-        if ($isEmpty && $isEmptyImage) {
+        $value = $this->_flash;
+        $isEmptyInnerFlash = ($value===null || $value===array() || $value==='');
+
+        $value = $this->flash;
+        $isEmptyFlash = ($value===null || $value===array() || $value==='');
+
+        if ($isEmptyInnerImage && $isEmptyImage && $isEmptyInnerFlash && $isEmptyFlash) {
             $message = Yii::t('yii','{attribute} cannot be blank.');
-            $params['{attribute}'] = $this->getAttributeLabel($attribute);
-            $this->addError($attribute, strtr($message,$params));
+            $params['{attribute}'] = $this->getAttributeLabel('_image') . ' или ' . $this->getAttributeLabel('_flash');
+            $this->addError('_image', strtr($message,$params));
+            $this->addError('_flash', strtr($message,$params));
         }
     }
 
@@ -75,7 +93,7 @@ class Banners extends CActiveRecord
      */
     public function isAttributeRequired($attribute)
     {
-        if (in_array($attribute, array('_image')))
+        if (in_array($attribute, array('_image, _flash')))
             return true;
         return parent::isAttributeRequired($attribute);
     }
@@ -109,15 +127,22 @@ class Banners extends CActiveRecord
         return $this->imageBehavior->getImageUrl();
     }
 
+    public function getFlashUrl()
+    {
+        return $this->flashBehavior->getFlashUrl();
+    }
+
     protected function afterDelete()
     {
         $this->imageBehavior->imageAfterDelete();
+        $this->flashBehavior->flashAfterDelete();
         return parent::afterDelete();
     }
 
     protected function afterFind()
     {
         $this->imageBehavior->imageAfterFind();
+        $this->flashBehavior->flashAfterFind();
         return parent::afterFind();
     }
 }

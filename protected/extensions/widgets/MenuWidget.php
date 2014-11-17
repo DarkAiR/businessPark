@@ -30,9 +30,13 @@ abstract class MenuWidget extends ExtendedWidget
             if (strpos($url, trim($item->link, '/')) === 0)
                 $select = true;
 
-            $link = (strpos($item->link, 'http://') === 0 || strpos($item->link, 'https://') === 0)
-                ? $item->link
-                : CHtml::normalizeUrl('/'.$item->link);
+            $blank = 0;
+            if (strpos($item->link, 'http://') === 0 || strpos($item->link, 'https://') === 0) {
+                $link = $item->link;
+                $blank = 1;
+            } else {
+                $link = CHtml::normalizeUrl('/'.$item->link);
+            }
 
             $iconUrl = $item->getIconUrl();
 
@@ -41,6 +45,7 @@ abstract class MenuWidget extends ExtendedWidget
                 'link' => $link,
                 'select' => $select,
                 'iconUrl' => $iconUrl,
+                'blank' => $blank
             );
         }
 

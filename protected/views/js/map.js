@@ -80,7 +80,6 @@ map = {
                 var deltaY = e.center.y - pageY;
                 pageX = e.center.x;
                 pageY = e.center.y;
-                //$('#debug2').html('xy ('+pageX+', '+pageY+')<br>' + 'delta ('+deltaX+', '+deltaY+')<br>');
                 map.setMapCoords(deltaX, deltaY);
             }
         });
@@ -919,6 +918,11 @@ map = {
                 var status = $(this).prop('checked');
                 map.showMarkers('green', '[id^="green_"]', status); 
             });
+
+            // Костыль, чтобы на ipad правильно масштабировать
+            el.find('#check-busy').trigger('click');
+            el.find('#check-busy').trigger('click');
+
 
             // Обрабатываем тип заранее заданные нажатия на фильтре
             switch (showType) {

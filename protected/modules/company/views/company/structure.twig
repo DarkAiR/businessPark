@@ -5,6 +5,7 @@
     {{ import('css','structure.css', 'application.modules.company.css') }}
 {% endblock %}
 
+
 {% block js %}
     {{ parent() }}
 {% endblock %}
@@ -12,10 +13,14 @@
 
 {% block content %}
 <div class='structure-page'>
-    <div class='title'><lightgrey>Инженерная</lightgrey> инфраструктура</div>
+    {# { widget('ext.widgets.TopPageMenuWidget', {
+        'menu': const('Menu', 'PAGE_TOP_STRUCTURE')
+    }) } #}
 
     <div class='gap'></div>
 
+
+    <a name='electricity'></a>
     <div class='electro-block'>
         <div class='bg'></div>
         <div class='icon'></div>
@@ -30,6 +35,8 @@
         </div>
     </div>
 
+
+    <a name='gas'></a>
     <div class='gas-block'>
         <div class='bg'></div>
         <div class='icon'></div>
@@ -50,6 +57,8 @@
         </div>
     </div>
 
+
+    <a name='water'></a>
     <div class='water-in-block'>
         <div class='bg'></div>
         <div class='icon'></div>
@@ -73,6 +82,8 @@
         </div>
     </div>
 
+
+    <a name='sanitation'></a>
     <div class='water-out-block'>
         <div class='bg'></div>
         <div class='icon'></div>
@@ -87,6 +98,7 @@
         </div>
     </div>
 
+    <a name='sewerage'></a>
     <div class='rain-out-block'>
         <div class='bg'></div>
         <div class='icon'></div>

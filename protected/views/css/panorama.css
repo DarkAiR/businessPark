@@ -9,7 +9,7 @@ body {
 body,
 table {
   font-size: 13px;
-  line-height: 19px;
+  line-height: 18px;
   color: #2b2b2b;
   background-color: #ffffff;
 }
@@ -281,7 +281,7 @@ body > .page .header .navigation .date .dropdown .dropdown-toggle .value {
 }
 body > .page .header .navigation .date .dropdown .dropdown-menu {
   font-size: 13px;
-  line-height: 19px;
+  line-height: 18px;
   -moz-border-radius: 2;
   -webkit-border-radius: 2;
   border-radius: 2;
