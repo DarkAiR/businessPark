@@ -14,7 +14,7 @@ class DocumentsControllerBehavior extends CBehavior
             throw new Exception('docField have to be filled');
 
         if (!is_array($model->{$this->docField}))
-            throw new Exception('<'.$this->docField.'> have to be an array');
+            $model->{$this->docField} = array();
 
         $modelName = get_class($model);
 

@@ -95,4 +95,11 @@ class AdminNewsController extends MAdminController
         $this->docBehavior->docBeforeSave($model, $model->docBehavior->getStorePath());
         parent::beforeSave($model);
     }
+
+    public function beforeEdit($model)
+    {
+        if ($model->isNewRecord) {
+            $model->fillDefault();
+        }
+    }
 }

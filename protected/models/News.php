@@ -17,13 +17,19 @@ class News extends CActiveRecord
     public $createTimeDate = '';
     public $createTimeTime = '';
 
-    public $_docs = null;
+    public $_docs = array();
     public $_removeDocs = array();
 
 
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+
+    public function fillDefault()
+    {
+        $this->createTimeDate = date('d.m.Y');
+        $this->createTimeTime = date('H:i');
     }
 
     public function behaviors()

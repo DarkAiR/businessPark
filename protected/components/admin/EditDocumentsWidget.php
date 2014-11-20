@@ -17,7 +17,7 @@ class EditDocumentsWidget extends CWidget
         $attribute  = $this->attribute;
         $array      = $model->$attribute;
         if (!is_array($array))
-            throw new CException('passed attribute is not an array!');
+            $array = array();
 
         for ($i=0; $i<$this->maxRows; $i++) {
             if (isset($array[$i]))
