@@ -303,8 +303,9 @@ body.noSelect * {
         position: relative;
         border: 1px solid rgba(0,0,0,0.2);
         background: url(../../img/map/map_nav.png) left top no-repeat;
-        width: 244px;
-        height: 243px;
+        background-size: contain;
+        width: 200px;
+        height: 200px;
     
         display: none;
         &.show {
@@ -363,7 +364,7 @@ body.noSelect * {
 .zoom {
     position: absolute;
     right: 0;
-    top: 256px;
+    top: 214px;
     z-index: 4;
     margin: @smallPadding;
     opacity: 0.9;
