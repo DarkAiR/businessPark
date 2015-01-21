@@ -29,6 +29,7 @@ return array(
         'residents',
         'map',
         'banners',
+        'panorams',
     ),
     'components' => array(
         'user' => array(

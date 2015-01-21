@@ -8,11 +8,22 @@ class DateHelper
         return date('j', $time).' '.self::getMonthNameByTimestamp($time, 1);
     }
 
-    // Дата для панорамы
+    /**
+     * Дата для панорамы
+     */
     public static function formatPanoramsDate($time)
     {
         $time = strtotime($time);
         return self::getMonthNameByTimestamp($time, 0) . ' ' . date('Y', $time);
+    }
+
+    /**
+     * Дата для группирования панорам
+     */
+    public static function formatPanoramsGroupDate($time)
+    {
+        $time = strtotime($time);
+        return date('Y-m', $time);
     }
 
     // Получить русское имя месяца в нужном падеже

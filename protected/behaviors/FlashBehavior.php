@@ -49,7 +49,6 @@ class FlashBehavior extends CActiveRecordBehavior
     {
         if ($this->owner->{$this->flashField}) {
             @unlink( $this->getStorePath().$this->owner->{$this->flashField} );
-            @unlink( $this->getStorePath().'original/'.$this->owner->{$this->flashField} );
         }
     }
 
