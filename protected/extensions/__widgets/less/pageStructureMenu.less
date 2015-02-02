@@ -1,0 +1,61 @@
+@import (reference) '../../../views/less/custom';
+
+.page-structure-menu-widget {
+
+    &, table {
+        .font-size(12);
+        .font(Verdana);
+    }
+
+    .inner {
+        width: @mainCol1 + @mainCol2 + @mainCol3 - @bigPadding;
+        margin-left: @bigPadding;
+        margin-top: @bigPadding;
+        border-top: 1px dashed @colorLink;
+    }
+
+    .float-panel {
+        padding-bottom: @middlePadding;
+        padding-top: @middlePadding;
+
+        &.invisible {
+            visibility: hidden;
+        }
+    }
+    .fixed-panel {
+        .border-radius(0, 0, 8px, 8px);
+        //.shadow(0px, 0px, 1px);
+        border: 1px solid #eee;
+        border-top: none;
+
+        padding-bottom: @middlePadding;
+        padding-top: @middlePadding;
+
+        // Добавляем правильный отступ слева
+        margin-left: -@bigPadding;
+        padding-left: @bigPadding;
+
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba(255,255,255,0.9);
+    }
+
+    ul {
+        li {
+            padding-left:  @smallPadding;
+            padding-right: @smallPadding;
+        }
+        li, li * {
+            line-height: 1;
+        }
+        li a {
+            .link(green-dashed);
+        }
+        li a:hover {
+            .link(green-dashed);
+        }
+    }
+}

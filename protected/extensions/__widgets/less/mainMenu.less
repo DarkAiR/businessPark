@@ -1,0 +1,35 @@
+@import (reference) '../../../views/less/custom';
+
+.main-menu-widget {
+    .font-size(17, 1);
+    .font(PF, regular);
+
+    ul {
+    }
+    li {
+        padding-left:  @smallPadding;
+        padding-right: @smallPadding;
+    }
+    li, li * {
+        line-height: 1;
+    }
+    li a {
+        .link(title);
+    }
+    li a:hover {
+        .link(hover);
+    }
+    a.active {
+        .link(none);
+        &:hover {
+            .link(none);
+        }
+        
+        .border-radius(2px);
+        background-color: @colorLinkActiveBg !important;
+        display: inline-block;
+        padding: 5px 9px 4px 9px;
+        margin: -5px -9px;
+        color: @colorLinkActive !important;
+    }
+}

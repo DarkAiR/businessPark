@@ -1,0 +1,47 @@
+.left-menu-widget {
+  padding: 0 44px 22px 22px;
+  width: 100%;
+}
+.left-menu-widget,
+.left-menu-widget table {
+  font-size: 11px;
+  line-height: 15px;
+}
+.left-menu-widget li td {
+  vertical-align: middle;
+}
+.left-menu-widget li .image {
+  padding: 20px 14px 20px 11px;
+}
+.left-menu-widget li a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #00aff0;
+}
+.left-menu-widget li a:hover {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjgJgt4u6AAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12PwOPsfAAN1AhUbRwS5AAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #48cdff !important;
+}
+.left-menu-widget a.active {
+  text-decoration: none;
+  background-image: none;
+  color: #8f8f8f !important;
+}
+.left-menu-widget a.active:hover {
+  text-decoration: none;
+  background-image: none;
+  color: #8f8f8f !important;
+}
+.left-menu-widget .left-menu-separator {
+  background: #cacaca;
+  height: 1px;
+  min-height: 1px;
+  max-height: 1px;
+  border-top: 1px solid #d0d6da;
+  margin-left: 11px;
+}

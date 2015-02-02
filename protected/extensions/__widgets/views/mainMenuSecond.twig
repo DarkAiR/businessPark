@@ -1,0 +1,20 @@
+{% block importBlock %}
+    {{ import('css','menu.css') }}
+    {{ import('css','mainMenuSecond.css','ext.widgets.css') }}
+{% endblock %}
+
+<div class='main-menu-second-widget  hmenu'>
+    <ul>
+        {% for item in items %}
+            {% set active = item.select %}
+            {% set posClass = (loop.first ? 'first' : '') ~ (loop.last ? ' last' : '') %}
+            <li class='{{posClass}}'>
+                <a class='{% if active %}active{% endif %}' href='{{ item.link }}'>
+                    {% if active %}
+                    {% endif %}
+                    {{ item.name|raw }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

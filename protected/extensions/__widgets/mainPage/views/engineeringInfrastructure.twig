@@ -1,0 +1,39 @@
+{{ import('css','engineeringInfrastructure.css','ext.widgets.mainPage.css') }}
+
+<div class='engineering-infrastructure-widget'>
+    <div class='item1'>
+        <table>
+        <tr>
+            <td class='image'>
+                <img src='img/mainpage/infrastructure_icon.jpg'>
+            </td>
+            <td class='title'>
+                <a href='{{ static('CHtml', 'normalizeUrl', ['/structure']) }}'>Инженерная инфраструктура</a>  
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 class='text'>
+                Каждый земельный участок индустриального парка обеспечен инженерными коммуникациями и необходимыми энергоресурсами.
+            </td>
+        </tr>
+        </table>
+    </div>
+
+    <div class='item2'>
+        <table>
+        <tr>
+            <td class='image'>
+                <img src='img/mainpage/company_icon.jpg'>
+            </td>
+            <td class='title'>
+                <a href='{{ static('CHtml', 'normalizeUrl', ['/company']) }}'>Управляющая компания</a>  
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 class='text'>
+                Управление инфраструктурой индустриального парка осуществляется силами профессиональной команды<br/>«ПРО-БИЗНЕС-ПАРК».
+            </td>
+        </tr>
+        </table>
+    </div>
+</div>

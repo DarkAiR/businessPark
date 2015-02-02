@@ -1,0 +1,41 @@
+@import (reference) '../../../../views/less/custom';
+
+.engineering-infrastructure-widget {
+    @imageW: @widgetImageW;
+    @imageH: 106px;
+
+    width: 100%;
+    padding-top: @bigPadding;
+    padding-bottom: @bigPadding;
+    display: inline-block;              // Чтобы автоматически считалась высота
+
+    .item1 {
+        .col(@mainCol2);
+    }
+    .item2 {
+        .col(@mainCol3);
+    }
+
+    .item1, .item2 {
+        padding: @smallPadding @bigPadding @bigPadding @bigPadding;
+
+        .title {
+            .font(PF, regular);
+            .font-size(22);
+            padding-left: @bigPadding;
+    
+            a {
+                .link(title);
+            }
+        }
+        .image {
+            width: @imageW;
+            height: @imageH;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .text {
+            padding-top: 18px;
+        }
+    }
+}

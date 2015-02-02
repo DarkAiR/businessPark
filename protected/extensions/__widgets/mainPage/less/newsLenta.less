@@ -1,0 +1,73 @@
+@import (reference) '../../../../views/less/custom';
+
+.news-lenta-widget {
+    width: 100%;
+    padding-top: @bigPadding * 2;
+
+    .col2-3 {
+        .col(@mainCol2 + @mainCol3);
+    }
+
+    .header {
+
+        display: none;
+
+        .title {
+            .font(PF, regular);
+            .font-size(22);
+            color: @colorTitleGrey;
+            padding-left: @bigPadding;  
+
+            a {
+                .link(title);
+                color: @colorTitleGrey !important;
+            }
+        }
+    }
+
+    .item {
+        @dateHeight: 38px;
+        @bottomPadding: 32px;
+        @itemHeight: 125px;
+
+        td {
+            vertical-align: top;
+            padding-bottom: @bottomPadding;
+            min-height: @itemHeight;
+            height: @itemHeight;
+        }
+        .image {
+            width: @widgetImageW + @bigPadding;
+            padding-left: @bigPadding;
+            padding-top: @dateHeight + 3;       // Делам запас в несколько пикселей
+        }
+        .textBlock {
+            .date {
+                .font(PF, regular);
+                .font-size(12, 1);
+                color: @colorTextLight;
+                height: @dateHeight;
+                padding-top: 15px;
+            }
+            .title {
+                .font(PF, medium);
+                .font-size(18);
+                color: @colorTitle;
+                margin-top: -4px;
+                & * {
+                    color: @colorTitle;
+                }
+                a {
+                    .link(title);
+                }
+            }
+            .text {
+                padding-top: 11px;
+            }
+            .date, .title, .text {
+                padding-right: @bigPadding;
+                padding-left: @bigPadding;
+            }
+        }
+    }
+}

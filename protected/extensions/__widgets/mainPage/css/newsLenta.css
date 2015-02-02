@@ -1,0 +1,72 @@
+.news-lenta-widget {
+  width: 100%;
+  padding-top: 44px;
+}
+.news-lenta-widget .col2-3 {
+  width: 741px;
+  min-width: 741px;
+  float: left;
+  height: inherit;
+  min-height: 1px;
+}
+.news-lenta-widget .header {
+  display: none;
+}
+.news-lenta-widget .header .title {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 27px;
+  color: #2b2b2b;
+  padding-left: 22px;
+}
+.news-lenta-widget .header .title a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+  color: #2b2b2b !important;
+}
+.news-lenta-widget .item td {
+  vertical-align: top;
+  padding-bottom: 32px;
+  min-height: 125px;
+  height: 125px;
+}
+.news-lenta-widget .item .image {
+  width: 137px;
+  padding-left: 22px;
+  padding-top: 41px;
+}
+.news-lenta-widget .item .textBlock .date {
+  font-family: "pf_dindisplay_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #8f8f8f;
+  height: 38px;
+  padding-top: 15px;
+}
+.news-lenta-widget .item .textBlock .title {
+  font-family: "pf_dindisplay_promedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #719e3d;
+  margin-top: -4px;
+}
+.news-lenta-widget .item .textBlock .title * {
+  color: #719e3d;
+}
+.news-lenta-widget .item .textBlock .title a {
+  text-decoration: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gkcEjcIckECsQAAAAh0RVh0Q29tbWVudAD2zJa/AAAADElEQVQI12NoPxgJAAN0AaL44q9RAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  background-position: center 99%;
+}
+.news-lenta-widget .item .textBlock .text {
+  padding-top: 11px;
+}
+.news-lenta-widget .item .textBlock .date,
+.news-lenta-widget .item .textBlock .title,
+.news-lenta-widget .item .textBlock .text {
+  padding-right: 22px;
+  padding-left: 22px;
+}

@@ -1,0 +1,31 @@
+@import (reference) '../../../views/less/custom';
+
+.page-map-menu-widget {
+
+    &, table {
+        .font-size(12);
+        .font(Verdana);
+    }
+
+    width: @mainCol2 + @mainCol3 - @bigPadding;
+    margin-left: @bigPadding;
+    padding-bottom: @smallPadding;
+    padding-top: @smallPadding;
+    margin-top: @bigPadding;
+    border-top: 1px dashed @colorLink;
+
+    ul {
+        li {
+            padding-left:  @bigPadding;
+            padding-right: @bigPadding;
+        }
+        li, li * {
+            line-height: 1;
+        }
+
+        .image {
+            padding-left: 6px;
+            padding-right: 8px;
+        }
+    }
+}

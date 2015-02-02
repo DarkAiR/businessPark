@@ -1,0 +1,15 @@
+@import '../../../protected/views/less/custom';
+
+/* Брать из новостей */
+
+img {
+    max-width: @newsImageW;
+    height: auto !important;
+    display: block;             // Убираем короткие слова справа от картинки
+    padding-top: @paragraphPadding / 2;
+    padding-bottom: @paragraphPadding / 2;
+}
+p, p img {
+    padding-top: @paragraphPadding / 2;
+    padding-bottom: @paragraphPadding / 2;
+}

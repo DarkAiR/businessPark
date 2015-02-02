@@ -1,0 +1,11 @@
+.work-line-widget {
+  width: 100%;
+  height: 229px;
+  text-align: center;
+}
+.work-line-widget .text {
+  padding: 36px 22px 0 22px;
+}
+.work-line-widget .image {
+  padding: 18px 22px 0 22px;
+}
