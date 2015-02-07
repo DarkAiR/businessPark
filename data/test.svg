@@ -1,0 +1,11 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect fill-opacity="0.47" id="window" height="500" width="400" y="0" x="0" stroke="#000000" fill="#ffffff"/>
+  <rect stroke-width="0" id="svg_2" height="80" width="400" y="0" x="0" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#54ce54"/>
+  <path transform="rotate(180 354.7950134277344,44.12567901611328) " id="svg_3" d="m340.295013,56.313232l14.499908,-24.375107l14.500092,24.375107l-29,0z" stroke-linecap="null" stroke-linejoin="null" stroke="#00990f" fill="#b2ffb2"/>
+  <path id="svg_4" d="m350.244995,49.161877l0.5,-0.875008l0.5,0.875008z" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#54ce54"/>
+  <text fill-opacity="0.8" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="24" id="svg_5" y="48" x="76" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#ffffff" fill="#ffffff">Фильтр</text>
+ </g>
+</svg>
