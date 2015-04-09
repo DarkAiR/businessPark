@@ -20,8 +20,8 @@ class AdminUsersController extends MAdminController
                 'type' => 'select2',
                 'htmlOptions' => array(
                     'data' => EHtml::listData(AuthItem::model()),
-                    'multiple' => true,
-                    'class' => 'input-xlarge',
+//                    'multiple' => true,
+//                    'class' => 'input-xlarge',
                 ),
             ),
             'password' => array(
