@@ -66,11 +66,13 @@ return array(
                 // Residents
                 'residents'                         => 'residents/residents/index',
 
+
                 // Admin
                 'admin/'                            => 'system2',
                 'admin/<module:\w+>/'               => '<module>',
-                'admin/<module:\w+>/<controller:\w+>/' => '<module>/admin<controller>',
-                'admin/<module:\w+>/<controller:\w+>/<action:\w+>/' => '<module>/admin<controller>/<action>',
+                'admin/<module:\w+>/<controller:\w+>/'                          => '<module>/admin<controller>',
+                'admin/<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>/'    => '<module>/admin<controller>/<action>',
+                'admin/<module:\w+>/<controller:\w+>/<action:\w+>/'             => '<module>/admin<controller>/<action>',
             ),
         ),
         'db' => array(
