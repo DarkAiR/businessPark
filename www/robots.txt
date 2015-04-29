@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /*.doc$
+Disallow: /*.pdf$
+Disallow: /*.docx$
+Disallow: /*.xls$
+
+User-agent: Yandex
+Disallow: /*.doc$
+Disallow: /*.pdf$
+Disallow: /*.docx$
+Disallow: /*.xls$
+Host: p-b-p.ru
+
+Sitemap: http://p-b-p.ru/sitemap.xml
