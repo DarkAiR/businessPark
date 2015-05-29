@@ -32,7 +32,7 @@
 {% block newsContent %}
     <div class='content'>
         <div class='date'>{{ static('DateHelper', 'formatNewsDate', [news.createTime]) }}</div>
-        <div class='title'>{{ news.title|raw }}</div>
+        <h1>{{ news.title|raw }}</h1>
         <div class='text'>{{ news.desc|raw }}</div>
 
         {% if news.docs|length > 0 %}
