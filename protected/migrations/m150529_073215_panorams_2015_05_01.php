@@ -12,6 +12,6 @@ class m150529_073215_panorams_2015_05_01 extends CDbMigration
 
 	public function down()
 	{
-		$this->execute("DELETE FROM `Panorama` WHERE `createDate`='2015-05-01' AND `swf` IN ('a.swf', 'b.swf', 'c-1.swf', 'd2-1.swf')");
+		$this->execute("DELETE FROM `Panorama` WHERE `createDate`='2015-05-01' AND `swf` IN ('a.swf', 'b.swf', 'c_1.swf', 'd2-1.swf')");
 	}
 }
