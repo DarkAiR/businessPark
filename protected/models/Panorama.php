@@ -5,6 +5,9 @@
  */
 class Panorama extends CActiveRecord
 {
+    const VERSION_1 = 1;
+    const VERSION_2 = 2;
+
     public $_swf = null;
     public $_removeSwf = false;
 

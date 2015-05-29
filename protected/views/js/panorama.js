@@ -8,8 +8,27 @@ panorama = {
         // Нажатие на кнопках выбора вида
         $('#js-views').delegate('.view-button', 'click', function(ev) {
             var id = $(this).attr('data-id');
-            $('#js-panorams .panorama').hide();
-            $('[data-id="'+id+'"]').show();
+            var version = parseInt($(this).attr('data-version'));
+
+            switch (version) {
+                // Старая панорама
+                case  1:    // Panorama::VERSION_1
+                    $('#panoDIV').hide();
+                    $('#js-panorams .panorama').hide();
+                    $('[data-id="'+id+'"]').show();
+                    break;
+
+                // Новая панорама
+                case  2:    // Panorama::VERSION_2
+                    $('#panoDIV').show();
+                    $('#js-panorams .panorama').hide();
+                    embedpano({                    
+                        swf: "/store/panotour/"+id,
+                        target: "panoDIV",
+                        passQueryParameters: true
+                    });
+                    break;
+            }
         });
 
         // Этот код должен идти после назначения обработчика на view-button
@@ -30,7 +49,7 @@ panorama = {
             for (var prop in arr) {
                 if (!arr.hasOwnProperty(prop))
                     continue;
-                output += "<div class='view-button' data-id='" + arr[prop]['swf'] + "'>Вид " + index + "</div>";
+                output += "<div class='view-button' data-id='" + arr[prop]['swf'] + "' data-version='" + arr[prop]['version'] + "'>Вид " + index + "</div>";
                 index++;
             }
             $('#js-views').html(output);

@@ -13,11 +13,8 @@
     {{ import('css', 'bootstrap.css') }}             {# Bootstrap core CSS #}
     {{ import('css', 'panorama.css') }}
 
-    {{ import('js', 'p2q_embed_object.js') }}               {# Для старой панорамы #}
-
-    {{ import('js', 'panotour/jquery-2.0.3.min.js') }}      {# Для новой панорамы #}
-    {{ import('js', 'panotour/a.js') }}                     {# Для новой панорамы #}
-
+    {{ import('js', 'p2q_embed_object.js') }}
+    {{ import('js', 'jquery-1.11.1.min.js') }}
     {{ import('js', 'bowser.min.js') }}
     {{ import('js', 'bootstrap.js') }}
     {{ import('js', 'panorama.js') }}
@@ -31,8 +28,7 @@
                     arr['{{date}}'] = [];
                 arr['{{date}}'].push({
                     'swf': '{{pan.swf}}',
-                    'mov': '{{pan.mov}}',
-                    'version': {{pan.version}}
+                    'mov': '{{pan.mov}}'
                 });
             {% endfor %}
             panorama.init(arr);
@@ -88,7 +84,7 @@
                         </button>
                         <ul id='js-date-items' class="dropdown-menu" role="menu" aria-labelledby="js-date-value">
                             {% for arr in dates %}
-                                <li data-id="{{ static('DateHelper', 'formatPanoramsGroupDate', [arr["createDate"]]) }}"><a role="menuitem" tabindex="-1" href="#" onclick='return false;'>{{ static('DateHelper', 'formatPanoramsDate', [arr["createDate"]]) }}</a></li>
+                                <li data-id="{{ static('DateHelper', 'formatPanoramsGroupDate', [arr["createDate"]]) }}"><a role="menuitem" tabindex="-1" href="#" onclick='return false;'>{{ static('DateHelper', 'formatPanoramsDate', [arr["createDate"]]) }}</a></option>
                             {% endfor %}
                         </ul>
                     </div>
@@ -103,14 +99,7 @@
 
         <div class='panorams' id='js-panorams'>
 
-
-            {# Новая панорама #}
-            <div id="panoDIV">
-            </div>
-
-
-            {# Старая панорама #}
-            {% for pan in panorams if pan.version == constant('Panorama::VERSION_1') %}
+            {% for pan in panorams %}
 
                 <div class='panorama' data-id='{{pan.swf}}'>
                 <script type='text/javascript'>
