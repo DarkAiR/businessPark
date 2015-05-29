@@ -7,15 +7,18 @@ panorama = {
 
         // Нажатие на кнопках выбора вида
         $('#js-views').delegate('.view-button', 'click', function(ev) {
-            var id = $(this).attr('data-id');
+            var swf = $(this).attr('data-swf');
             var version = parseInt($(this).attr('data-version'));
+            var date = $(this).attr('data-date');
+
+            console.log(swf, version, date);
 
             switch (version) {
                 // Старая панорама
                 case  1:    // Panorama::VERSION_1
                     $('#panoDIV').hide();
                     $('#js-panorams .panorama').hide();
-                    $('[data-id="'+id+'"]').show();
+                    $('.panorama[data-id="'+swf+'"]').show();
                     break;
 
                 // Новая панорама
@@ -23,7 +26,7 @@ panorama = {
                     $('#panoDIV').show();
                     $('#js-panorams .panorama').hide();
                     embedpano({                    
-                        swf: "/panotour/"+id,
+                        swf: "/panotour/" + date + "/" + swf,
                         target: "panoDIV",
                         passQueryParameters: true
                     });
@@ -49,7 +52,7 @@ panorama = {
             for (var prop in arr) {
                 if (!arr.hasOwnProperty(prop))
                     continue;
-                output += "<div class='view-button' data-id='" + arr[prop]['swf'] + "' data-version='" + arr[prop]['version'] + "'>Вид " + index + "</div>";
+                output += "<div class='view-button' data-date='" + arr[prop]['date'] + "' data-swf='" + arr[prop]['swf'] + "' data-version='" + arr[prop]['version'] + "'>Вид " + index + "</div>";
                 index++;
             }
             $('#js-views').html(output);
