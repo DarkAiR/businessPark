@@ -4,5 +4,6 @@ gfx/*
 data/
 data/*
 /www/store/*
+/www/opt_tng/*
 .htaccess
 .htpasswd

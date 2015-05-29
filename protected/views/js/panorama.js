@@ -11,8 +11,6 @@ panorama = {
             var version = parseInt($(this).attr('data-version'));
             var date = $(this).attr('data-date');
 
-            console.log(swf, version, date);
-
             switch (version) {
                 // Старая панорама
                 case  1:    // Panorama::VERSION_1
