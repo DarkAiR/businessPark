@@ -23,7 +23,7 @@ panorama = {
                     $('#panoDIV').show();
                     $('#js-panorams .panorama').hide();
                     embedpano({                    
-                        swf: "/store/panotour/"+id,
+                        swf: "/panotour/"+id,
                         target: "panoDIV",
                         passQueryParameters: true
                     });
