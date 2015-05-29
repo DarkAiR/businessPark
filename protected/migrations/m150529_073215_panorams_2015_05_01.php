@@ -6,7 +6,7 @@ class m150529_073215_panorams_2015_05_01 extends CDbMigration
 	{
 		$this->execute("INSERT INTO `Panorama` (`createDate`, `swf`, `mov`, `visible`, `version`) VALUES ('2015-05-01', 'a.swf', '', 1, 2)");
 		$this->execute("INSERT INTO `Panorama` (`createDate`, `swf`, `mov`, `visible`, `version`) VALUES ('2015-05-01', 'b.swf', '', 1, 2)");
-		$this->execute("INSERT INTO `Panorama` (`createDate`, `swf`, `mov`, `visible`, `version`) VALUES ('2015-05-01', 'c-1.swf', '', 1, 2)");
+		$this->execute("INSERT INTO `Panorama` (`createDate`, `swf`, `mov`, `visible`, `version`) VALUES ('2015-05-01', 'c_1.swf', '', 1, 2)");
 		$this->execute("INSERT INTO `Panorama` (`createDate`, `swf`, `mov`, `visible`, `version`) VALUES ('2015-05-01', 'd2-1.swf', '', 1, 2)");
 	}
 
