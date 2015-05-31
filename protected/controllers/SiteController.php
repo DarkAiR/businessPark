@@ -67,7 +67,7 @@ class SiteController extends Controller
         $criteria = new CDbCriteria();
         $criteria->select = 'createDate';
         $criteria->group = 'EXTRACT(YEAR_MONTH FROM createDate)';
-        $criteria->order = 'createDate DESC, id ASC';
+        $criteria->order = 'createDate DESC';
         $criteria->condition = 'visible=1';
         $dates = Yii::app()->db->commandBuilder->createFindCommand('Panorama', $criteria)->queryAll();
 
