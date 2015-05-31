@@ -312,6 +312,9 @@ body > .page .header .navigation .views .view-button {
 body > .page .header .navigation .views .view-button:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
+body > .page .header .navigation .views .view-button.active {
+  background-color: #90b16a;
+}
 body > .page .header .logo {
   position: absolute;
   right: 22px;

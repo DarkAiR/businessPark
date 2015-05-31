@@ -1,5 +1,6 @@
 panorama = {
     arr: {},
+    prevActive: null,
 
     init: function(data)
     {
@@ -7,6 +8,12 @@ panorama = {
 
         // Нажатие на кнопках выбора вида
         $('#js-views').delegate('.view-button', 'click', function(ev) {
+            if (panorama.prevActive != null) {
+                panorama.prevActive.removeClass('active');
+            }
+            panorama.prevActive = $(this);
+            panorama.prevActive.addClass('active');
+
             var swf = $(this).attr('data-swf');
             var version = parseInt($(this).attr('data-version'));
             var date = $(this).attr('data-date');
