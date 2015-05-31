@@ -98,7 +98,7 @@ class Panorama extends CActiveRecord
                 'condition' => $alias.'.visible = 1',
             ),
             'orderDefault' => array(
-                'order' => $alias.'.createDate DESC, '.$alias.'.id DESC',
+                'order' => $alias.'.createDate DESC, '.$alias.'.id ASC',
             ),
         );
     }
