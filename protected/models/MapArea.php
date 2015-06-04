@@ -70,7 +70,6 @@ class MapArea extends CActiveRecord
             ),
             'sort' => array(
                 'defaultOrder' => array(
-                    'busy' => CSort::SORT_ASC,
                     'cadastral' => CSort::SORT_ASC,
                 )
             )

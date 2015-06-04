@@ -40,8 +40,6 @@
   padding-left: 22px;
 }
 .news-page .moreBtn {
-  -moz-border-radius: 2;
-  -webkit-border-radius: 2;
   border-radius: 2;
   padding: 2px 11px 0px 11px;
   min-width: 150px;
